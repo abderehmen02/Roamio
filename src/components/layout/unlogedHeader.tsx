@@ -8,7 +8,7 @@ import "bootstrap-icons/font/bootstrap-icons.css"
 
 export  const  UnlogedHeader = ()=>{
     return(
-        <div className="flex w-full items-center justify-around border-4 border-red-500" >
+        <div className="flex w-full items-center justify-around " >
 <img src="/logo-color.png" className="w-16 h-16" />
 <div className="max-w-3xl " ><IconInput Icon={<i className="bi bi-search "></i>} placeholder="search..." /></div>
 <Link href="/blog" > <H3 className="text-primary drop-shadow-xl" > Blog </H3></Link>
