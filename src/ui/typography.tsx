@@ -8,7 +8,7 @@ const montserrat = Montserrat({
         weight : '500'
       })
 
-const montserratClassName = montserrat.className
+export  const montserratClassName = montserrat.className
 export const H1 : React.FC<HTMLAttributes<HTMLHeadElement>> = ({children , className   , ...props}  ) =>{
 return <h1 className={cn("text-5xl "  , montserratClassName , className)}  {...props} >
 {children}
