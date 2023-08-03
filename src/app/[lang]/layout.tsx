@@ -18,16 +18,17 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
   params: {
-    lng
+    lang
   }
 }: {
   children: React.ReactNode ,
   params :{
-    lng : string
+    lang : string
   }
 }) {
+  console.log("lang  " , lang)
   return (
-    <html lang={lng} dir={dir(lng)} >
+    <html lang={lang} dir={dir(lang)} >
       <body >{children}</body>
     </html>
   )

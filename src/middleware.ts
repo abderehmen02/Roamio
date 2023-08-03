@@ -5,10 +5,10 @@ import { fallbackLng, languages } from './app/i18n/settings'
 acceptLanguage.languages(languages)
 
 export const config = {
-  // matcher: '/:lng*'
-  matcher: ['/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js).*)']
-}
-
+  matcher: [
+    '/((?!api|_next/static|_next/image|logo-color.png|assets|favicon.ico|sw.js).*)'
+  ]
+};
 const cookieName = 'i18next'
 
 export function middleware(req : NextRequest ) {

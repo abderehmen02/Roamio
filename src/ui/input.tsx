@@ -11,7 +11,7 @@ return  <input type="text"  className={cn("bg-gray-50 border border-gray-300 tex
 
 
 export const IconInput : React.FC<IconInputProps> = ({className , children , placeholder ,Icon })=>{
-    return <div className="flex  px-2 py-2 border-2 border-grayDark  focus-within:border-2  focus-within:border-black rounded-lg focus-within:shadow-xl">
+    return <div className="flex  px-2 py-2 border-2 border-grayDark  focus-within:border-2  focus-within:border-black rounded-lg focus-within:shadow-lg">
     <div className=" inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
         {Icon}
     </div>

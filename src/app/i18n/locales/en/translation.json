@@ -1,4 +1,13 @@
 {
-    "title": "Hallo Leute!",
-    "to-second-page": "Zur zweiten Seite"
+  "unlogedHeader" : {
+    "signUp" : "sign up" ,
+    "signIn"  : "sign in" ,
+    "explore" : "explore" ,
+    "blog" : "blog"  ,
+    "search"  : "...search" 
+  }  ,
+  "hero"  : {
+    "heroCardDescreption"  : "Search your target city based on your preferences" ,
+    "exploreCities"  : "Explore Cities" 
+  }
   }
