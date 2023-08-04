@@ -1,4 +1,5 @@
 {
+  "appName" : "wanderio"  ,
   "unlogedHeader" : {
     "signUp" : "sign up" ,
     "signIn"  : "sign in" ,
@@ -7,7 +8,14 @@
     "search"  : "...search" 
   }  ,
   "hero"  : {
+    "descreption"  : "Discover Your Dream Destination" ,
     "heroCardDescreption"  : "Search your target city based on your preferences" ,
-    "exploreCities"  : "Explore Cities" 
+    "exploreCities"  : "Explore Cities"  ,
+    "cardList" : {
+      "findCity" : "Find City By catigory" ,
+      "readAndLearn" : "Read and learn about cities" ,
+      "explore" :"Explore Cultures"  ,
+      "findEnvirement" : "Find Your Best Envirement" 
+    }
   }
   }

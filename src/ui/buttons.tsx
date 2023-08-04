@@ -12,7 +12,7 @@ return  <button  className={cn( " bg-secondary hover:bg-secondaryDark text-xl ro
 }
     
 export const TextButton : React.FC<HTMLAttributes<HTMLButtonElement>>  = ({children , className , ...props })=>{
-return <button  className={cn(" bg-black hover:bg-grayDark text-white text-3xl font-bold px-2 py-2  shadow-lg" , montserratClassName  , className)}> {children}</button>
+return <button  className={cn(" bg-black rounded-3xl hover:bg-grayDark text-white  font-bold px-6 py-3  shadow-lg" , montserratClassName  , className)}> {children}</button>
 }
 
 
