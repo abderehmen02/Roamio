@@ -17,5 +17,11 @@
       "explore" :"Explore Cultures"  ,
       "findEnvirement" : "Find Your Best Envirement" 
     }
+  }  ,
+  "homeFeaturesList"  : {
+    "readAboutCities" : "read about cities"  ,
+    "featureOne": "Explore diverse cultures, savor unique cuisines, and embrace the spirit of adventure as you find your perfect city, tailored to your heart's desires." ,
+    "featureTwo" :        "Explore diverse cultures, savor unique cuisines, and embrace the spirit of adventure as you find your perfect city, tailored to your heart's desires."  ,
+    "featureThree"  :        "Uncover the stories woven into the fabric of historical landmarks, immerse yourself in modern marvels, and create memories that will last a lifetime."
   }
   }
