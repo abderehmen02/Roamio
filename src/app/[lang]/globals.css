@@ -15,5 +15,16 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+.loginImg{
+  width:  385px;
+  height: 477.4px;
+}
 
 
+
+@media screen and (max-width : 640px) {
+.loginImg{
+width:  200px;
+height: 248px ;
+}  
+}
