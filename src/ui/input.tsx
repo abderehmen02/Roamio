@@ -1,12 +1,29 @@
 import { cn } from "@/lib/tailwind"
-import { HTMLAttributes, InputHTMLAttributes } from "react"
+import { CSSProperties, HTMLAttributes, InputHTMLAttributes } from "react"
+import { P, Text, montserratClassName } from "./typography"
 
 interface IconInputProps  extends InputHTMLAttributes<HTMLInputElement> {
 Icon? : JSX.Element
 }
 
-export const PrimaryInput : React.FC<InputHTMLAttributes<HTMLInputElement>> = ({className, children , placeholder , ...props  })=>{
-return  <input   className={cn("bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" )} placeholder={placeholder} {...props} >{children}</input>
+type  BtnProps =  {
+action? : JSX.Element ,
+label? : string| JSX.Element ,
+helperText ? : string | JSX.Element , 
+error? : string | JSX.Element  ,
+containerStyle? : CSSProperties , 
+} & InputHTMLAttributes<HTMLInputElement>
+
+
+export const PrimaryInput : React.FC<BtnProps> = ({className  , action, containerStyle , label  , helperText , error , children , placeholder , ...props  })=>{
+return <div style={containerStyle} className="flex flex-col w-full items-start    justify-center" >
+{ label &&  <label className={cn("text-sm px-2 capitalize  " , montserratClassName)} >{label }</label> }
+ <input   className={cn("bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" )} placeholder={placeholder} {...props} >{children}</input>
+ <div className="flex items-center  w-full justify-between" >  
+ { error  ?  <P className="text-red-600 text-xs px-2" >{error}</P> : <P className=" text-xs px-2"   >{helperText || ""} </P> }
+ {action && <Text className=" text-sm px-2  text-xs"  style={{fontWeight : 7000}}> {action} </Text>}
+ </div>
+ </div>
 } 
 
 

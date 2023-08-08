@@ -29,8 +29,15 @@
 "welcome"  : "Welcome back! Your next adventure awaits. Let's get started." ,
 "forgetAccount" :  "forget acount ?", 
 "forgetPassword" : "forget paaaword ?" ,
-"userNamePlaceHolder" : "Type Your Username" ,
-"passwordPlaceHolder" : "Type Your Password"
+"userNamePlaceHolder" : "Type your username" ,
+"passwordPlaceHolder" : "Type Your password" ,
+"username" : "username" ,
+"password" : "password" ,
+"userNameHelperText" : "Your username must be unique" ,
+"forgetUsername" : "forget username ?" ,
+
+"havingAProblem" : "Do you have any problem?" ,
+"contactUs" : "Contact Us"
   } ,  
   "footer" : {
      "home" : "home"  ,
@@ -39,5 +46,5 @@
      "termsOfUse"  : "terms of use"  ,
      "contactUs"  : "contact us"  ,
      "privacyPolicy"  :"privacy policy"
-  }
+  } 
   }
