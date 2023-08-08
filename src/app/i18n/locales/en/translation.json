@@ -57,6 +57,14 @@
       "secondCardDescreption"  : "Get tailored recommendations based on your preferences and interests for an unforgettable travel experience." ,
       "thirdCardTitle" : "Travel Guides"  ,
       "thirdCardDescreption"  : "ccess comprehensive travel guides filled with insider tips and local insights to make the most of your trip."
-    }
+    } ,
+    "firstName"  : "Firstname" ,
+    "lastName"  : "Lastname"  , 
+    "userName"  : "Username"  , 
+    "password"  : "password" ,
+    "helperUserName"  : "Username must be unique "  ,
+    "helperPassword"  : "password must be more than 7 kyes" ,
+    "generateUsername"  : "Generate username" ,
+    "email"  : "email"
   }
   }
