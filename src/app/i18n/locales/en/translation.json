@@ -49,6 +49,7 @@
   }  , 
   "signUp" : {
     "title" : "Sign up" , 
+    "dontHaveAccount"  : "Don't have an account?" ,
     "titleDescreption"  : "Start exploring the world with us. Create your account today", 
     "cards"  : {
       "firstCardTitle" : "Discover Cities" ,
@@ -61,6 +62,7 @@
     "firstName"  : "Firstname" ,
     "lastName"  : "Lastname"  , 
     "userName"  : "Username"  , 
+    "birthDate" : "Birth date"  ,
     "password"  : "password" ,
     "helperUserName"  : "Username must be unique "  ,
     "helperPassword"  : "password must be more than 7 kyes" ,
