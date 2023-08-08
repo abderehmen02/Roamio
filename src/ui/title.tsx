@@ -7,7 +7,7 @@ type  TitleProps   = {
     descreption? : string | JSX.Element ,
     titleStyle? : CSSProperties ,
     titleClassName? : string , 
-    className : string, 
+    className? : string, 
     descreptionStyle? : CSSProperties ,
     descreptionClassName? :string ,
 } & HTMLAttributes<HTMLDivElement>

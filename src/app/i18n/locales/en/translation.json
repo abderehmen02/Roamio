@@ -46,5 +46,17 @@
      "termsOfUse"  : "terms of use"  ,
      "contactUs"  : "contact us"  ,
      "privacyPolicy"  :"privacy policy"
-  } 
+  }  , 
+  "signUp" : {
+    "title" : "Sign up" , 
+    "titleDescreption"  : "Start exploring the world with us. Create your account today", 
+    "cards"  : {
+      "firstCardTitle" : "Discover Cities" ,
+      "firstCardDescreption"  : "xplore a wide selection of cities from around the world, each with its unique charm and attractions."  ,
+      "secondCardTitle"  : "Personalized Recommendations"  ,
+      "secondCardDescreption"  : "Get tailored recommendations based on your preferences and interests for an unforgettable travel experience." ,
+      "thirdCardTitle" : "Travel Guides"  ,
+      "thirdCardDescreption"  : "ccess comprehensive travel guides filled with insider tips and local insights to make the most of your trip."
+    }
+  }
   }
