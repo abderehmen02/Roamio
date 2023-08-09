@@ -1,11 +1,19 @@
+import { cn } from "@/lib/tailwind"
 import { H3, H4, P } from "@/ui/typography"
-import React from "react"
+import React  , { HTMLAttributes }from "react"
 
-interface infoCardProps {
+export enum cardsColors {
+    primary = "PRIMARY" ,
+    secondary = "SECONDARY"
+}
+
+
+type  infoCardProps =  {
     title : string , 
     description : string ,
+    color ? : cardsColors , 
     button? : JSX.Element
-}
+} & HTMLAttributes<HTMLDivElement>
 
 interface listActionCardProps {
     list : string[]  , 
@@ -16,8 +24,8 @@ type listCardProps = {
     list : string[] }
 
 
-export const InfoCard : React.FC<infoCardProps> = ({ title , description  , button  })=>{
-    return <div className="bg-primary text-white  w-72 rounded-lg   flex items-center justify-center gap-3 px-5 py-6 flex-col " >
+export const InfoCard : React.FC<infoCardProps> = ({ title  , description  , button  , className , color = cardsColors.primary  , ...props })=>{
+    return <div  className= {cn("  w-72 rounded-lg   flex items-center justify-center gap-3 px-5 py-6 flex-col " , className , {"bg-primary text-white" : color === cardsColors.primary },{ "bg-secondary text-black" : color === cardsColors.secondary})} {...props}  >
 <H3 className="text-center" >{title}</H3>
 <P className="text-center text-sm" >{description}</P>
 {button}
