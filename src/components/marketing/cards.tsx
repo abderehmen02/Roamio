@@ -4,7 +4,9 @@ import React  , { HTMLAttributes }from "react"
 
 export enum cardsColors {
     primary = "PRIMARY" ,
-    secondary = "SECONDARY"
+    secondary = "SECONDARY" ,
+    primaryDark = 'PRIMARY_DARK' ,
+    secondaryDark = "SECONDARY_DARK"
 }
 
 
@@ -25,7 +27,7 @@ type listCardProps = {
 
 
 export const InfoCard : React.FC<infoCardProps> = ({ title  , description  , button  , className , color = cardsColors.primary  , ...props })=>{
-    return <div  className= {cn("  w-72 rounded-lg   flex items-center justify-center gap-3 px-5 py-6 flex-col " , className , {"bg-primary text-white" : color === cardsColors.primary },{ "bg-secondary text-black" : color === cardsColors.secondary})} {...props}  >
+    return <div  className= {cn("  w-72 rounded-lg   flex items-center justify-center gap-3 px-5 py-6 flex-col " , className , {"bg-primary text-white" : color === cardsColors.primary },{ "bg-secondary text-black" : color === cardsColors.secondary} , { "bg-secondaryDark text-white" : color === cardsColors.secondaryDark}  , { "bg-primaryDark text-white" : color === cardsColors.primaryDark} )} {...props}  >
 <H3 className="text-center" >{title}</H3>
 <P className="text-center text-sm" >{description}</P>
 {button}
