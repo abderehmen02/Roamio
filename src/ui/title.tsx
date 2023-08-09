@@ -16,7 +16,7 @@ type  TitleProps   = {
 
 export const Title : React.FC<TitleProps> = ({title , descreption   , className , titleStyle , descreptionClassName , titleClassName  , descreptionStyle , ...props })=>{
 return <div  className={cn(  "w-full items-center flex flex-col" , className )}  {...props} >
-{ typeof title === "string"  ?  <H4 style={titleStyle} className={cn("text-primary text-center font-bold"  , titleClassName ) }  >{title}</H4> : title }
-<P className={cn("text-center"  , descreptionClassName ) } style={descreptionStyle}  >{descreption}</P>
+{ typeof title === "string"  ?  <H4 style={titleStyle} className={cn("text-primary text-center font-bold"  , titleClassName ) }  >{title}</H4> :  <>{title}</>  }
+{ typeof descreption === "string"  ?   <P className={cn("text-center"  , descreptionClassName ) } style={descreptionStyle}  >{descreption}</P> :  <>{descreption}</>  }
 </div>
 } 

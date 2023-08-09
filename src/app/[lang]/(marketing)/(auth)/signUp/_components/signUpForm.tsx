@@ -11,8 +11,8 @@ import Link from "next/link"
 
 export const SignUpForm = ()=>{
     const {t} = useTranslation()
-    return <div className="bg-white px-10 gap-10 py-5 h-fit rounded-lg items-start  flex flex-col" >
-<Title title={t("signUp.title")}   descreption="sign in" />
+    return <div className="bg-white px-10 gap-10 py-5  h-fit rounded-lg items-start  flex flex-col" >
+<Title title={t("signUp.title")}   descreption={<div>sign in</div>} />
 <PrimaryInput  label={t("signUp.firstName")}  />
 <PrimaryInput label={t("signUp.lastName")}  />
 <PrimaryInput label={t("signUp.userName")}  action={<P>{t("signUp.generateUsername")}</P>}  helperText={t("signUp.helperUserName")} />
