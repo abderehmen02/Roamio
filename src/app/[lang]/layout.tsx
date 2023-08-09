@@ -26,7 +26,7 @@ export default function RootLayout({
     lang : string
   }
 }) {
-  console.log("lang  " , lang)
+
   return (
     <html lang={lang} dir={dir(lang)} >
       <body >{children}</body>

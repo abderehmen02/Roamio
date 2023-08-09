@@ -50,7 +50,7 @@
   "signUp" : {
     "title" : "Sign up" , 
     "dontHaveAccount"  : "Don't have an account?" ,
-    "titleDescreption"  : "Start exploring the world with us. Create your account today", 
+    "titleDescreption"  : "Start exploring the world with us. Create your account today!", 
     "cards"  : {
       "firstCardTitle" : "Discover Cities" ,
       "firstCardDescreption"  : "xplore a wide selection of cities from around the world, each with its unique charm and attractions."  ,
