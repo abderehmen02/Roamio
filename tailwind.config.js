@@ -25,7 +25,7 @@ module.exports = {
       whiteYellwed : "#ededbe" ,
       white : "#fff"  ,
       black : "#232220" ,
-      grayLight : "#AFACA5" , 
+      grayLight : "#F5F5F5" , 
       grayDark : "#5E5B56" ,
       ...colors 
      }  ,
