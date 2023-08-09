@@ -10,13 +10,13 @@ const montserrat = Montserrat({
 
 export  const montserratClassName = montserrat.className
 export const H1 : React.FC<HTMLAttributes<HTMLHeadElement>> = ({children , className   , ...props}  ) =>{
-return <h1 className={cn("text-3xl "  , montserratClassName , className)}  {...props} >
+return <h1 className={cn("text-4xl "  , montserratClassName , className)}  {...props} >
 {children}
 </h1>
 }
     
 export const H2 : React.FC<HTMLAttributes<HTMLHeadElement>> = ({children , className   , ...props}  ) =>{
-  return <h2 style={{fontWeight : 700}} className={cn("text-2xl  "  , montserratClassName , className)}  {...props} >
+  return <h2 style={{fontWeight : 700}} className={cn("text-3xl  "  , montserratClassName , className)}  {...props} >
   {children}
   </h2>
   }

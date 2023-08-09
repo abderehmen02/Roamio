@@ -13,7 +13,7 @@ import { PrimaryBtn, SecondaryBtn } from "@/ui/buttons"
 export const SignUpForm = ()=>{
     const {t} = useTranslation()
     return <form className="bg-white px-10 shadow-lg gap-10 py-5 signUpForm  h-fit rounded-lg items-start  flex flex-col" >
-<Title title={t("signUp.title")}   descreption={<div>sign in</div>} />
+<Title title={t("signUp.title")}  descreption={<div>{t("signUp.dontHaveAccount")} <Link href="/login" className="font-semibold underline" >{t("login.title")}</Link> </div>} />
 <PrimaryInput  label={t("signUp.firstName")}  />
 <PrimaryInput label={t("signUp.lastName")}  />
 <PrimaryInput label={t("signUp.userName")}  action={<P>{t("signUp.generateUsername")}</P>}  helperText={t("signUp.helperUserName")} />
