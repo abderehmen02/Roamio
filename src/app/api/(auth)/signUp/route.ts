@@ -7,7 +7,8 @@ import { NextRequest } from "next/server"
 
 
 
-export const GET  = async (req : NextApiRequest  ) =>{
-    await clientPromise
+export const POST   = async (req : NextApiRequest  ) =>{
+await clientPromise
+
 return new Response("welcome")
 }
