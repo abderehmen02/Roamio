@@ -15,3 +15,5 @@ export const signUpValidator = z.object({
      email : z.string().regex(emailRegEx , {message :  signUpErrors.invalidEmail}) ,
      gender : z.nativeEnum(genderType  ).refine(  value => Object.values(genderType).includes(value),{          message: "Invalid gender value" })
 }) 
+
+export type signUpDataType = typeof signUpValidator._type
