@@ -7,7 +7,7 @@ interface userType {
     password : string ,
     firstName : string ,
     lastName  : string ,
-    birthDate : number
+    birthDate : Date ,
     gender : "MALE" | "FEMALE"
 }
 
@@ -18,10 +18,10 @@ const userSchema = new mongoose.Schema<userType>({
     password: { type: String, required: true },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    birthDate: { type: Number, required: true },
-    gender: { type: String, enum: ['MALE', 'FEMALE'], required: true }
+    birthDate: { type: Date , required: true },
+    gender: { type: String, enum: ['MALE', 'FEMALE' , 'UNKNOWN' ], required: true }
   });
   
-export const refreshTokenModel = ()=>{
-    return mongoose.models?.refreshToken || model<userType>("user" , userSchema)
+export const userModel = ()=>{
+    return mongoose.models?.user || model<userType>("user" , userSchema)
 }

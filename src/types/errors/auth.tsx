@@ -11,7 +11,7 @@ export interface signUpErrorsType    {
     longLastName : string ,
     invalidEmail : string ,
     missingProperty : string ,
-
+    invalidGender : string 
 } 
 
 
@@ -28,5 +28,13 @@ export const signUpErrors : signUpErrorsType  =  {
     longFirstName : "Firstname must be less than 50 characters"   ,
     shortFirstName : "Firstname must be more than 2 characters"  ,
     longLastName : "Lastname must be less 50 characters"  ,
-    shortLastName: "Firstname must be more than 2 characters"    
+    shortLastName: "Firstname must be more than 2 characters"    ,
+    invalidGender : "Gender is not valid"
 } as const
+
+
+export enum genderType {
+    male =  "MALE" ,
+    female ="FEMALE" ,
+    unknown = "UNKNOWN"
+ } 
