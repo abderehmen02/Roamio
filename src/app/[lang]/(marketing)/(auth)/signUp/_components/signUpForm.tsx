@@ -8,18 +8,28 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import Link from "next/link"
-import { PrimaryBtn, SecondaryBtn } from "@/ui/buttons"
+import { SecondaryBtn } from "@/ui/buttons"
+import {useForm} from "react-hook-form"
 
 export const SignUpForm = ()=>{
     const {t} = useTranslation()
-    return <form className="bg-white px-10 shadow-lg gap-10 py-5 signUpForm  h-fit rounded-lg items-start  flex flex-col" >
+    const { register, handleSubmit,  formState: { errors },  } = useForm();
+
+// creating this function to handle the date picker change to our useForm hook
+    const handleDateChange = (value : Date | null ) => {
+// Call the onChange function returned by register
+        register('birthDate').onChange({target : value});
+      };
+
+
+return <form className="bg-white px-10 shadow-lg gap-10 py-5 signUpForm  h-fit rounded-lg items-start  flex flex-col" >
 <Title title={t("signUp.title")}  descreption={<div>{t("signUp.dontHaveAccount")} <Link href="/login" className="font-semibold underline" >{t("login.title")}</Link> </div>} />
-<PrimaryInput  label={t("signUp.firstName")}  />
-<PrimaryInput label={t("signUp.lastName")}  />
-<PrimaryInput label={t("signUp.userName")}  action={<P>{t("signUp.generateUsername")}</P>}  helperText={t("signUp.helperUserName")} />
-<PrimaryInput type="email"   label={t("signUp.email")}  />
+<PrimaryInput {...register("firstName")} label={t("signUp.firstName")}  />
+<PrimaryInput {...register("lastName")} label={t("signUp.lastName")}  />
+<PrimaryInput {...register("userName")} label={t("signUp.userName")}  action={<P>{t("signUp.generateUsername")}</P>}  helperText={t("signUp.helperUserName")} />
+<PrimaryInput {...register("email")} type="email"   label={t("signUp.email")}  />
 <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DatePicker label={t("signUp.birthDate")}/>
+      <DatePicker  onChange={handleDateChange} label={t("signUp.birthDate")}/>
     </LocalizationProvider>    
     <SecondaryBtn className="w-full"> Sign up </SecondaryBtn>
     </form>

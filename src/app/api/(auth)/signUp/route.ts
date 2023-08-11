@@ -1,14 +1,21 @@
 
-import clientPromise from "@/db/connect"
+import {connectDbPromise}  from "@/db/connect"
+import { userModel } from "@/db/models/user"
+import { signUpValidator } from "@/utils/validators/auth"
 import { NextApiRequest } from "next"
-import { NextRequest } from "next/server"
+import { NextRequest, NextResponse  } from "next/server"
+import StatusCodes from 'http-status-codes'
+import { asyncWrapperApi } from "@/utils/validators/asyncWrapper"
 
 
 
 
 
-export const POST   = async (req : NextApiRequest  ) =>{
-await clientPromise
-
-return new Response("welcome")
-}
+export const POST   = asyncWrapperApi(async (req ) =>{
+        const  reqBody = signUpValidator.safeParse(req.json())
+        const newUser = await userModel().create(reqBody)
+        console.log( "new user"  , newUser)
+        return new Response(JSON.stringify(newUser) , {
+            status : StatusCodes.CREATED 
+        })
+        })
