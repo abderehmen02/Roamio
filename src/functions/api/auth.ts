@@ -5,18 +5,22 @@ import { returnedApiFunctionData } from '@/types/apiFunctions'
 import { StatusCodes } from 'http-status-codes'
 
 export const submitSignUp  = asyncWrapper<[signUpDataType] , returnedApiFunctionData<{userName : string}> >(async (data)=>{
-    const response = await axios.post("/api/signUp" , data )
-    console.log("response"  , response)
-   if(response.status === StatusCodes.CREATED)return ({
-    succuss : true ,
-    data : {
-        userName : response.data.userName
-    }
+    console.log("data"  , data)
+//     const response = await axios.post("/api/signUp" , data )
+//     console.log("response"  , response)
+//    if(response.status === StatusCodes.CREATED)return ({
+//     succuss : true ,
+//     data : {
+//         userName : response.data.userName
+//     }
 
-})
+// })
 
-else return {
-    error : response?.data?.error ,
-    succuss : false 
+// else return {
+//     error : response?.data?.error ,
+//     succuss : false 
+// }
+return {
+    succuss : true , 
 }
 })

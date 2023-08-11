@@ -15,23 +15,28 @@ import { signUpDataType } from "@/utils/validators/auth"
 
 export const SignUpForm = ()=>{
     const {t} = useTranslation()
-    const { register, handleSubmit,  formState: { errors },  } = useForm<signUpDataType>();
+    const { setValue  , register, handleSubmit,  formState: { errors },  } = useForm<signUpDataType>();
 
 // creating this function to handle the date picker change to our useForm hook
     const handleDateChange = (value : Date | null ) => {
-// Call the onChange function returned by register
-        register('birthDate').onChange({target : value});
-      };
+        if(!value) {
+            console.log("no value") ;
+            return 
+        }
+        setValue("birthDate" , value?.toString() )
+            };
 
+      console.log("regeskter" , {...register("userName")})
 
-return <form onSubmit={handleSubmit((data)=>submitSignUp(data ))} className="bg-white px-10 shadow-lg gap-10 py-5 signUpForm  h-fit rounded-lg items-start  flex flex-col" >
+return <form onSubmit={handleSubmit((data)=>console.log("dat" , data))} className="bg-white px-10 shadow-lg gap-10 py-5 signUpForm  h-fit rounded-lg items-start  flex flex-col" >
 <Title title={t("signUp.title")}  descreption={<div>{t("signUp.dontHaveAccount")} <Link href="/login" className="font-semibold underline" >{t("login.title")}</Link> </div>} />
-<PrimaryInput {...register("firstName")} label={t("signUp.firstName")}  />
+<PrimaryInput {...register("firstName")}  />
 <PrimaryInput {...register("lastName")} label={t("signUp.lastName")}  />
 <PrimaryInput {...register("userName")} label={t("signUp.userName")}  action={<P>{t("signUp.generateUsername")}</P>}  helperText={t("signUp.helperUserName")} />
 <PrimaryInput {...register("email")} type="email"   label={t("signUp.email")}  />
+<PrimaryInput {...register("password")} type="password"   label={t("signUp.password")}  />
 <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DatePicker  onChange={handleDateChange} label={t("signUp.birthDate")}/>
+      <DatePicker   onChange={handleDateChange} label={t("signUp.birthDate")}/>
     </LocalizationProvider>    
     <SecondaryBtn type="submit" className="w-full"> Sign up </SecondaryBtn>
     </form>
