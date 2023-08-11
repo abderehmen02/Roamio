@@ -1,23 +1,25 @@
 "use client"
 
 import { genderType } from "@/types/errors/auth"
+import { signUpDataType } from "@/utils/validators/auth"
 import { InputLabel , MenuItem, Select, SelectChangeEvent } from "@mui/material"
 import { useState } from "react"
+import { UseFormSetValue } from "react-hook-form"
 
-export const GenderSelector = ()=>{
+export const GenderSelector   : React.FC<{setValue  : UseFormSetValue<signUpDataType>}> = ({setValue})=>{
     const [gender , setGender] = useState<genderType>(genderType.male)
 
     const handleChange = (event: SelectChangeEvent) => {
-        setGender(event.target.value as genderType);
+        setValue("gender" , event.target.value as genderType )
       };
 
 
 
     return <div>
-    <InputLabel id="demo-simple-select-label">Gender</InputLabel>
+    <InputLabel id="gender-selector-label">Gender</InputLabel>
     <Select
-      labelId="demo-simple-select-label"
-      id="demo-simple-select"
+      labelId="gender-selector"
+      id="gender-selector"
       value={gender}
       label="Age"
       onChange={handleChange}
