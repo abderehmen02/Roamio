@@ -12,6 +12,7 @@ import { SecondaryBtn } from "@/ui/buttons"
 import {useForm} from "react-hook-form"
 import { submitSignUp } from "@/functions/api/auth"
 import { signUpDataType } from "@/utils/validators/auth"
+import { GenderSelector } from "@/components/marketing/genderSelector"
 
 export const SignUpForm = ()=>{
     const {t} = useTranslation()
@@ -35,9 +36,12 @@ return <form onSubmit={handleSubmit((data)=>console.log("dat" , data))} classNam
 <PrimaryInput {...register("userName")} label={t("signUp.userName")}  action={<P>{t("signUp.generateUsername")}</P>}  helperText={t("signUp.helperUserName")} />
 <PrimaryInput {...register("email")} type="email"   label={t("signUp.email")}  />
 <PrimaryInput {...register("password")} type="password"   label={t("signUp.password")}  />
+<div className="flex" >
 <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DatePicker   onChange={handleDateChange} label={t("signUp.birthDate")}/>
-    </LocalizationProvider>    
-    <SecondaryBtn type="submit" className="w-full"> Sign up </SecondaryBtn>
+<DatePicker   onChange={handleDateChange} label={t("signUp.birthDate")}/>
+</LocalizationProvider>    
+<GenderSelector/>
+</div>
+<SecondaryBtn type="submit" className="w-full"> Sign up </SecondaryBtn>
     </form>
 }
