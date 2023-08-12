@@ -10,18 +10,20 @@ import { useTranslation } from '@/app/i18n/client';
 import { InputLabel } from '@mui/material';
 import { UseFormSetValue } from 'react-hook-form';
 import { signUpDataType } from '@/utils/validators/auth';
+import { format } from 'date-fns';
 
 
 
 
 export const SignUpDatePicker : React.FC<{setValue  : UseFormSetValue<signUpDataType>}>= ({setValue } )=>{
 const {t} = useTranslation()
-const handleDateChange = (value : unknown  ) => {
+const handleDateChange = (value : any  ) => {
     if(!value) {
         console.log("no value") ;
         return 
     }
-    setValue("birthDate" , value?.toString() )
+    console.log("value" ,value?.$d )
+    setValue("birthDate" , format(value?.$d as Date , 'MM/dd/yyyy')  )
         };
 
 return <div>
@@ -29,7 +31,5 @@ return <div>
 <LocalizationProvider dateAdapter={AdapterDayjs}>
 <DatePicker   onChange={handleDateChange} />
 </LocalizationProvider>    
-
-
 </div>
 }

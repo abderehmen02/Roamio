@@ -67,6 +67,13 @@
     "helperUserName"  : "Username must be unique "  ,
     "helperPassword"  : "password must be more than 7 kyes" ,
     "generateUsername"  : "Generate username" ,
-    "email"  : "email"
-  }
+    "email"  : "email" 
+  } ,
+  "gender" :{
+    "title"  : "Gender" ,
+    "male" : "Male" ,
+    "female" : "Female" ,
+    "select" : "Select"  ,
+    "noAnswer" : "Prefer not to answer"
+   }
   }

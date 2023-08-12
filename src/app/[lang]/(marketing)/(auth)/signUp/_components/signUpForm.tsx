@@ -17,11 +17,8 @@ export const SignUpForm = ()=>{
     const {t} = useTranslation()
     const { setValue  , register, handleSubmit,  formState: { errors },  } = useForm<signUpDataType>();
 
-// creating this function to handle the date picker change to our useForm hook
 
-      console.log("regeskter" , {...register("userName")})
-
-return <form onSubmit={handleSubmit((data)=>console.log("dat" , data))} className="bg-white px-10 shadow-lg gap-10 py-5 signUpForm  h-fit rounded-lg items-start  flex flex-col" >
+return <form onSubmit={handleSubmit((data)=>submitSignUp(data))} className="bg-white px-10 shadow-lg gap-10 py-5 signUpForm  h-fit rounded-lg items-start  flex flex-col" >
 <Title title={t("signUp.title")}  descreption={<div>{t("signUp.dontHaveAccount")} <Link href="/login" className="font-semibold underline" >{t("login.title")}</Link> </div>} />
 <PrimaryInput {...register("firstName")}  label={t("signUp.firstName")} />
 <PrimaryInput {...register("lastName")} label={t("signUp.lastName")}  />
@@ -32,6 +29,6 @@ return <form onSubmit={handleSubmit((data)=>console.log("dat" , data))} classNam
 <SignUpDatePicker setValue={setValue} />
 <GenderSelector  setValue={setValue} />
 </div>
-<SecondaryBtn type="submit" className="w-full"> Sign up </SecondaryBtn>
+<SecondaryBtn type="submit" className="w-full"> {t("signUp.title")}</SecondaryBtn>
     </form>
 }
