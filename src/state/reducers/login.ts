@@ -1,28 +1,28 @@
-import { userLoginAction , userLoginStateType , userLoginActionsType } from '@/types/state/auth/signIn'
+import { LoginAction , LoginState , LoginActionTypes } from '@/types/state/auth/signIn'
 
 
-export const userLoginReducer =  (state : userLoginStateType = {} , action : userLoginAction )=>{
+export const userLoginReducer =  (state : LoginState = {} , action : LoginAction )=>{
 switch(action.type){
-    case userLoginActionsType.userLoginSuccuss : {
+    case LoginActionTypes.userLoginSuccuss : {
         return {
-    token : action.token , 
+    token : action.payload , 
     loading : false,
     error : null ,
     
         }
     }
-    case userLoginActionsType.userLoginFail : {
+    case LoginActionTypes.userLoginFail : {
         return {
-            error : action.error ,
+            error : action.payload ,
             loading:  false , 
         }
     }
-    case userLoginActionsType.userLoginRequest : {
+    case LoginActionTypes.userLoginRequest : {
         return {
             loading : true ,
         }
     }
-    case userLoginActionsType.userLoginReset : {
+    case LoginActionTypes.userLoginReset : {
         return {}
     }
     default :  return state

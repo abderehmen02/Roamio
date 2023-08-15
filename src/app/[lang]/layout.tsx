@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { dir } from 'i18next'
 import { languages } from '../i18n/settings'
+import { StateProvider } from '@/providers/stateProvider'
 
 
 
@@ -32,7 +33,9 @@ export default async function RootLayout({
   
   return (
     <html lang={lang} dir={dir(lang)} >
-      <body >{children}</body>
+      <body >
+   <StateProvider>     {children}</StateProvider>
+      </body>
     </html>
   )
 }

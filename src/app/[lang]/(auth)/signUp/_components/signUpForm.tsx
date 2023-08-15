@@ -15,6 +15,7 @@ import { useState } from "react"
 import { SignUpFields, signUpFieldError } from "@/types/errors/auth"
 import { useSelector } from "react-redux"
 import { stateType } from "@/state/reducers"
+import { LoginState } from "@/types/state/auth/signIn"
 
 
 
@@ -22,7 +23,8 @@ export const SignUpForm = ()=>{
     const {t} = useTranslation()
     const { setValue  , register, handleSubmit,  formState: { errors },  } = useForm<signUpDataType>();
     const  [fieldsErrors , setFieldsErrors ] = useState<signUpFieldError[]>([])
-    const userLogin = useSelector((state : stateType)=>state.login)
+    const loginState : LoginState = useSelector((state : stateType)=>state.login)
+    console.log("state" , loginState)
 return <form onSubmit={handleSubmit((data)=>submitSignUp(data , setFieldsErrors ))} className="bg-white px-10 shadow-lg gap-10 py-5 signUpForm  h-fit rounded-lg items-start  flex flex-col" >
 <Title title={t("signUp.title")}  descreption={<div>{t("signUp.dontHaveAccount")} <Link href="/login" className="font-semibold underline" >{t("login.title")}</Link> </div>} />
 <PrimaryInput  error={fieldsErrors.find(item =>item.field === SignUpFields.FIRSTNAME)?.message} {...register("firstName")}  label={t("signUp.firstName")} />

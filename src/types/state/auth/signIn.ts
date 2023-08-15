@@ -1,31 +1,37 @@
-export interface userLoginStateType {
-    loading? : boolean , 
-    error? : unknown , 
-    token?  : string, 
-}
 
-export enum userLoginActionsType {
+
+export enum LoginActionTypes {
     userLoginRequest  = 'USER_LOGIN_REQUEST' , 
     userLoginSuccuss = 'USER_LOGIIN_SUCCESS'    ,
     userLoginFail = 'USER_LOGIN_ERROR' ,
     userLoginReset = 'USER_LOGIN_RESET'
 }
 
-export interface loginRequestAction{
-    type: userLoginActionsType.userLoginRequest
+
+export interface LoginState {
+    loading? : boolean , 
+    error? : unknown , 
+    token?  : string, 
 }
 
-export interface loginSuccssAction{
-    type  : userLoginActionsType.userLoginSuccuss , 
-    token : string , 
+
+export interface LoginRequestAction{
+    type: LoginActionTypes.userLoginRequest
 }
 
-export interface loginFailAction {
-    type : userLoginActionsType.userLoginFail ,
-    error : unknown
-}
-export interface loginResetAction{
-    type : userLoginActionsType.userLoginReset  , 
+export interface LoginSuccssAction{
+    type  : LoginActionTypes.userLoginSuccuss , 
+    payload : string , 
 }
 
-export type userLoginActionType = loginFailAction | loginRequestAction | loginSuccssAction | loginResetAction
+export interface LoginFailAction {
+    type : LoginActionTypes.userLoginFail ,
+    payload : unknown
+}
+export interface LoginResetAction{
+    type : LoginActionTypes.userLoginReset  , 
+}
+
+
+
+export type LoginAction = LoginFailAction | LoginRequestAction | LoginSuccssAction | LoginResetAction

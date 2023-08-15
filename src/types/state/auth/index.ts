@@ -1,2 +1,5 @@
-import {userLoginActionType  } from './signIn'
-export type stateActionType  = userLoginActionType
+import {LoginAction, LoginActionTypes } from './signIn'
+
+
+export type StateActionTypes = LoginActionTypes 
+export type StateAction  = LoginAction
