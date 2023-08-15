@@ -2,23 +2,25 @@
 
 import { useTranslation } from "@/app/i18n/client"
 import { genderType } from "@/types/errors/auth"
+import { P } from "@/ui/typography"
 import { signUpDataType } from "@/utils/validators/auth"
 import { InputLabel , MenuItem, Select, SelectChangeEvent } from "@mui/material"
 import { useState } from "react"
 import { UseFormSetValue } from "react-hook-form"
 
-enum genderClientValues {
+export enum genderClientValues {
   select = "SELECT"
 }
-type genderPickerValues = genderType | genderClientValues
+export type genderPickerValues = genderType | genderClientValues
 
-export const GenderSelector   : React.FC<{setValue  : UseFormSetValue<signUpDataType>}> = ({setValue})=>{
+export const GenderSelector   : React.FC<{setValue  : UseFormSetValue<signUpDataType> , error?:string }> = ({setValue , error })=>{
     const [gender , setGender] = useState<genderPickerValues >(genderClientValues.select)
     const {t}  =  useTranslation()
-
+    
     const handleChange = (event: SelectChangeEvent) => {
+      if(event.target.value !== genderClientValues.select){
         setValue("gender" , event.target.value as genderType ) ;
-        setGender(event.target.value as genderType)
+        setGender(event.target.value as genderType) }
       };
 
 
@@ -30,6 +32,7 @@ export const GenderSelector   : React.FC<{setValue  : UseFormSetValue<signUpData
       id="gender-selector"
       value={gender}
       label="Age"
+      required
       onChange={handleChange}
     >
       <MenuItem value={genderClientValues.select}  >{t("gender.select")}</MenuItem>
@@ -37,4 +40,5 @@ export const GenderSelector   : React.FC<{setValue  : UseFormSetValue<signUpData
       <MenuItem value={genderType.female}>{t("gender.female")}</MenuItem>
       <MenuItem value={genderType.unknown}  >{t("gender.noAnswer")}</MenuItem>
     </Select>
+    {error && <P className="text-red-600" >{error}</P>}
     </div>}
