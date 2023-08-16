@@ -5,6 +5,7 @@ import { asyncWrapperApi } from "@/utils/asyncWrapper"
 import { generateRefreshToken, generateToken } from "@/utils/auth/tokens"
 import bycrypt from 'bcrypt'
 import { authConfig } from "@/config/auth"
+import { NextResponse } from "next/server"
 
 
 
@@ -12,21 +13,30 @@ import { authConfig } from "@/config/auth"
 export const POST   = asyncWrapperApi(async (req  ) =>{
     const body = await  req.json()
         const  parsedBodyResult = signUpValidator.safeParse(body)
-        if( parsedBodyResult.success === true){
-            const newPassword = await bycrypt.hash(parsedBodyResult.data.password  , authConfig.bycryptSaltRounds )
-            parsedBodyResult.data.password = newPassword 
-            const newUser = await userModel().create(parsedBodyResult.data)
-            const token = generateToken(newUser._id.toString())
-            const refreshToken = await  generateRefreshToken(newUser._id.toString())
-
-
-            return new Response(JSON.stringify(newUser) , {
-                status : StatusCodes.CREATED 
-            })    
-        }
-
-
-        return new Response(JSON.stringify(parsedBodyResult)  ,{
+        
+        if(parsedBodyResult.success === false)  return new Response(JSON.stringify(parsedBodyResult)  ,{
             status : StatusCodes.BAD_REQUEST , 
         } )
+
+            const newPassword = await bycrypt.hash(parsedBodyResult.data.password  , authConfig.bycryptSaltRounds )
+            parsedBodyResult.data.password = newPassword 
+            const newUserDb = await userModel().create(parsedBodyResult.data)
+            const newUser = {...newUserDb._doc}
+            delete newUser.password
+            const token = generateToken({ userId:  newUser._id.toString()})
+            const refreshToken = await  generateRefreshToken(newUser._id.toString())
+            const response =   NextResponse.json(
+                {
+                  ...newUser,
+                  token 
+                },
+                { status: StatusCodes.CREATED }
+              )
+            
+            response.cookies.set({
+                name: authConfig.refreshTokenCookieName,
+                value: refreshToken,
+                httpOnly: true,
+              })
+            return response    
         })

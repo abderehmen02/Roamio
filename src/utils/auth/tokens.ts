@@ -12,7 +12,7 @@ const JwtSignature = process.env.JWT_SECRET_KEY
 
 export const generateToken : (data : string | object) =>string =(data)=>{
 if(!JwtSignature) throw new Error("No jwt signature in the envirement variables")
-return jwt.sign(data   ,  JwtSignature  , {expiresIn : '20m'} )
+return jwt.sign(data   ,  JwtSignature  , {expiresIn : authConfig.tokenExpiresIn} )
 }
 
 export const generateRefreshToken : (userId  : string)=>Promise<string> = async (userId) =>{
