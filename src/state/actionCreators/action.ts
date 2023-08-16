@@ -1,4 +1,4 @@
-import { StateAction , StateActionTypes } from "@/types/state/auth";
+import { StateAction , StateActionTypes } from "@/types/state";
 import { Dispatch}from 'redux'
 
 
