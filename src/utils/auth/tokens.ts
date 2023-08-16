@@ -10,10 +10,9 @@ const { v4: uuidv4 } = require("uuid");
 
 const JwtSignature = process.env.JWT_SECRET_KEY
 
-export const generateToken : (data : unknown) =>string =(data)=>{
+export const generateToken : (data : string | object) =>string =(data)=>{
 if(!JwtSignature) throw new Error("No jwt signature in the envirement variables")
-if( data &&  ( typeof data === "object" || typeof data === "string"  )  )     return jwt.sign(data   ,  JwtSignature  , {expiresIn : '20m'} )
-throw new Error("Only objects or strings are allowed in the sign token function")
+return jwt.sign(data   ,  JwtSignature  , {expiresIn : '20m'} )
 }
 
 export const generateRefreshToken : (userId  : string)=>Promise<string> = async (userId) =>{
