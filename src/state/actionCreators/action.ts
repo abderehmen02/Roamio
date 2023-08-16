@@ -11,3 +11,9 @@ dispatch({type : actionType ,
         
         } )
     }
+
+
+export type EmitAction = ReturnType<typeof  emitAction>
+export default {emitAction}
+
+

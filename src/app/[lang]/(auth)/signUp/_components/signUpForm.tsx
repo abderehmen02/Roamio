@@ -7,15 +7,18 @@ import { P } from "@/ui/typography"
 import Link from "next/link"
 import { SecondaryBtn } from "@/ui/buttons"
 import {useForm} from "react-hook-form"
+import { bindActionCreators } from "redux"
 import { submitSignUp } from "@/functions/api/auth"
 import { signUpDataType } from "@/utils/validators/auth"
 import { GenderSelector } from "@/components/auth/genderSelector"
 import { SignUpDatePicker } from "@/components/auth/datePicker"
 import { useState } from "react"
 import { SignUpFields, signUpFieldError } from "@/types/errors/auth"
-import { useSelector } from "react-redux"
+import { useSelector , useDispatch } from "react-redux"
 import { stateType } from "@/state/reducers"
 import { LoginState } from "@/types/state/auth/signIn"
+import { UserInfoState } from "@/types/state/auth/userInfo"
+import actionCreators from "@/state/actionCreators/action"
 
 
 
@@ -23,9 +26,12 @@ export const SignUpForm = ()=>{
     const {t} = useTranslation()
     const { setValue  , register, handleSubmit,  formState: { errors },  } = useForm<signUpDataType>();
     const  [fieldsErrors , setFieldsErrors ] = useState<signUpFieldError[]>([])
+    const dispatch  = useDispatch()
+    const { emitAction } = bindActionCreators( actionCreators , dispatch)
     const loginState : LoginState = useSelector((state : stateType)=>state.login)
-    console.log("state" , loginState)
-return <form onSubmit={handleSubmit((data)=>submitSignUp(data , setFieldsErrors ))} className="bg-white px-10 shadow-lg gap-10 py-5 signUpForm  h-fit rounded-lg items-start  flex flex-col" >
+    const userInfoState : UserInfoState = useSelector((state : stateType)=>state.userInfo)
+    console.log("state"  ,  loginState , userInfoState )
+return <form onSubmit={handleSubmit((data)=>submitSignUp(data , setFieldsErrors , emitAction  ))} className="bg-white px-10 shadow-lg gap-10 py-5 signUpForm  h-fit rounded-lg items-start  flex flex-col" >
 <Title title={t("signUp.title")}  descreption={<div>{t("signUp.dontHaveAccount")} <Link href="/login" className="font-semibold underline" >{t("login.title")}</Link> </div>} />
 <PrimaryInput  error={fieldsErrors.find(item =>item.field === SignUpFields.FIRSTNAME)?.message} {...register("firstName")}  label={t("signUp.firstName")} />
 <PrimaryInput  error={fieldsErrors.find(item =>item.field === SignUpFields.LASTNAME)?.message} {...register("lastName")} label={t("signUp.lastName")}  />

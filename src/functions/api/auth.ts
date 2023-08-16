@@ -6,9 +6,12 @@ import { StatusCodes } from 'http-status-codes'
 import { signUpFieldError , signUpZodErrors,  signUpZodErrorShortMessages, genderType, signUpErrorTypes } from '@/types/errors/auth'
 import { Dispatch, SetStateAction } from 'react'
 import { parse } from 'path'
+import { EmitAction } from '@/state/actionCreators/action'
+import { LoginActionTypes } from '@/types/state/auth/signIn'
+import { UserInfoActionTypes } from '@/types/state/auth/userInfo'
 
 
-export const submitSignUp  = asyncWrapper<[signUpDataType , Dispatch<SetStateAction<signUpFieldError[]>> ] , returnedApiFunctionData<{userName : string}> >(async (data , setFieldsErrors)=>{
+export const submitSignUp  = asyncWrapper<[signUpDataType , Dispatch<SetStateAction<signUpFieldError[]>>   , any ] , returnedApiFunctionData<{userName : string}> >(async (data , setFieldsErrors  , emitAction )=>{
     setFieldsErrors([])
     let errors : signUpFieldError[] = []
     if(!data.userName) errors.push(signUpZodErrors.requiredUsername)
@@ -25,27 +28,31 @@ export const submitSignUp  = asyncWrapper<[signUpDataType , Dispatch<SetStateAct
       errors.push(messageObj)
      });
     }
-
+    
    if(errors.length) {      setFieldsErrors(errors)     
     return {
         succuss : false ,
         error : signUpErrorTypes.VALIDATION_ERROR
      }
 }
-
     const response = await axios.post("/api/signUp" , data )
-    console.log("response" , response )
-    
 
+    if(response.status === StatusCodes.CREATED){
+    console.log("response" , response)
+// emitAction(LoginActionTypes.userLoginSuccuss , response.data.token  )    
+const {token  ,birthDate ,email , firstName ,  gender , lastName , userName , _id } = response.data
+emitAction(LoginActionTypes.userLoginRequest )
+emitAction(LoginActionTypes.userLoginSuccuss  , token )
+emitAction(UserInfoActionTypes.ADD_USER_INFO , { birthDate ,  email , firstName , gender , lastName , userName , _id} )
 
-   if(response.status === StatusCodes.CREATED)return ({
+return ({
     succuss : true ,
     data : {
         userName : response.data.userName
     }
 
 })
-
+   }
 else return {
     error : response?.data?.error ,
     succuss : false 
