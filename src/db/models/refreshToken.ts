@@ -3,18 +3,18 @@ import mongoose , {model , mongo, Schema} from "mongoose";
 
 interface refreshTokenType {
     token : string, 
-    expireIn : number  ,
-    user : Schema.Types.ObjectId ,
+    expireIn : string  ,
+    userId : Schema.Types.ObjectId ,
 }
 
 
 const refreshTokenSchema = new mongoose.Schema<refreshTokenType>({
     token : String , 
-    user : {
+    userId : {
         type : Schema.ObjectId ,
         ref: "user" ,
     } ,
-    expireIn : Number 
+    expireIn : String 
 })
 
 export const refreshTokenModel = ()=>{

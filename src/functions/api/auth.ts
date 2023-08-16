@@ -35,9 +35,6 @@ export const submitSignUp  = asyncWrapper<[signUpDataType , Dispatch<SetStateAct
 
     const response = await axios.post("/api/signUp" , data )
 
-    return {
-        succuss : true , 
-    }
     
 
 
