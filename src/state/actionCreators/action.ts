@@ -13,7 +13,19 @@ dispatch({type : actionType ,
     }
 
 
+
+export const dispatchAction  = ( action : StateAction ) : (dispatch : Dispatch<StateAction>)=>void =>{
+        return ( (dispatch : Dispatch<StateAction> )=>{
+    
+    dispatch(action)
+            
+            } )
+        }
+    
+
 export type EmitAction = ReturnType<typeof  emitAction>
-export default {emitAction}
+
+export const ActionCreators = {emitAction , dispatchAction }
+export default ActionCreators
 
 

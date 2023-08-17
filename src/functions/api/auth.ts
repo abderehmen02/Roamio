@@ -8,7 +8,8 @@ import { Dispatch, SetStateAction } from 'react'
 import { parse } from 'path'
 import { EmitAction } from '@/state/actionCreators/action'
 import { LoginActionTypes } from '@/types/state/auth/signIn'
-import { UserInfoActionTypes } from '@/types/state/auth/userInfo'
+import { UserInfo, UserInfoActionTypes } from '@/types/state/auth/userInfo'
+import { authConfig } from '@/config/auth'
 
 
 export const submitSignUp  = asyncWrapper<[signUpDataType , Dispatch<SetStateAction<signUpFieldError[]>>   , any ] , returnedApiFunctionData<{userName : string}> >(async (data , setFieldsErrors  , emitAction )=>{
@@ -41,10 +42,11 @@ export const submitSignUp  = asyncWrapper<[signUpDataType , Dispatch<SetStateAct
     console.log("response" , response)
 // emitAction(LoginActionTypes.userLoginSuccuss , response.data.token  )    
 const {token  ,birthDate ,email , firstName ,  gender , lastName , userName , _id } = response.data
-emitAction(LoginActionTypes.userLoginRequest )
+const userInfo : UserInfo  =  { birthDate ,  email , firstName , gender , lastName , userName , _id}
 emitAction(LoginActionTypes.userLoginSuccuss  , token )
-emitAction(UserInfoActionTypes.ADD_USER_INFO , { birthDate ,  email , firstName , gender , lastName , userName , _id} )
 
+emitAction(UserInfoActionTypes.ADD_USER_INFO , userInfo  )
+localStorage.setItem(authConfig.userInfoLocalStorageName  ,  JSON.stringify(userInfo)  )
 return ({
     succuss : true ,
     data : {

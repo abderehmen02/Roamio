@@ -11,14 +11,13 @@ export type UserInfoError  =  {
 }
 
 export type UserInfo =  {
- data? : {    birthDate : string ,
+     birthDate : string ,
     email : string , 
     firstName: string ,
     lastName : string  ,
     userName : string ,
     _id : string ,
-    token : string ,
-    gender : genderType },
+    gender : genderType 
 } | null
 
 export type UserInfoState =  UserInfo | UserInfoError | null

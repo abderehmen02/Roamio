@@ -4,6 +4,7 @@ export const authConfig ={
     minimumBirthDate : "01-01-1920"  ,
     bycryptSaltRounds : 10 ,
     refreshTokenCookieName : "refreshToken" ,
-    tokenCookieName : "tokenCookieName"
+    tokenCookieName : "tokenCookieName" ,
+    userInfoLocalStorageName : "user-login"
 }
 export const emailRegEx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/

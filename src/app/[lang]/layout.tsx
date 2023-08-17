@@ -35,7 +35,7 @@ export default async function RootLayout({
   return (
     <html lang={lang} dir={dir(lang)} >
       <body >
-      <AuthProvider>   <StateProvider>     {children}  </StateProvider></AuthProvider>
+         <StateProvider><AuthProvider>     {children}  </AuthProvider></StateProvider>
       </body>
     </html>
   )
