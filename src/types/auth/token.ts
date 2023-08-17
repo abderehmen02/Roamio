@@ -1,0 +1,3 @@
+type UserStoredWithToken = {
+userId: string
+}

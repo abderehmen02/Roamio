@@ -2,7 +2,7 @@ import { userModel } from "@/db/models/user"
 import { signUpValidator } from "@/utils/validators/auth"
 import StatusCodes from 'http-status-codes'
 import { asyncWrapperApi } from "@/utils/asyncWrapper"
-import { generateRefreshToken, generateToken } from "@/utils/auth/tokens"
+import { generateRefreshToken, generateLoginToken } from "@/utils/auth/tokens"
 import bycrypt from 'bcrypt'
 import { authConfig } from "@/config/auth"
 import { NextResponse } from "next/server"
@@ -23,7 +23,7 @@ export const POST   = asyncWrapperApi(async (req  ) =>{
             const newUserDb = await userModel().create(parsedBodyResult.data)
             const newUser = {...newUserDb._doc}
             delete newUser.password
-            const token = generateToken({ userId:  newUser._id.toString()})
+            const token =  generateLoginToken({ userId:  newUser._id.toString()})
             const refreshToken = await  generateRefreshToken(newUser._id.toString())
             const response =   NextResponse.json(
                 {
@@ -38,5 +38,13 @@ export const POST   = asyncWrapperApi(async (req  ) =>{
                 value: refreshToken,
                 httpOnly: true,
               })
+            
+              
+            response.cookies.set({
+                name: authConfig.tokenCookieName,
+                value: token,
+                httpOnly: true,
+              })
+
             return response    
         })
