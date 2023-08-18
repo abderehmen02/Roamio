@@ -5,6 +5,8 @@ export const authConfig ={
     bycryptSaltRounds : 10 ,
     refreshTokenCookieName : "refreshToken" ,
     tokenCookieName : "tokenCookieName" ,
-    userInfoLocalStorageName : "user-login"
+    userInfoLocalStorageName : "user-login" ,
+    unauthRoutes : ['/' , '/login' , '/signUp' ] ,
+    authRoutes : ['/dashboard' ] 
 }
 export const emailRegEx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/

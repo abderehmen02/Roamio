@@ -20,18 +20,15 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  params: {
-    lang
-  }
+  params ,
 }: {
   children: React.ReactNode ,
   params :{
     lang : string
-  }
+  } ,
 }) {
 
-
-  
+const   lang = "en"
   return (
     <html lang={lang} dir={dir(lang)} >
       <body >
