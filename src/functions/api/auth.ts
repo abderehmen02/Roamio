@@ -10,6 +10,10 @@ import { EmitAction } from '@/state/actionCreators/action'
 import { LoginActionTypes } from '@/types/state/auth/signIn'
 import { UserInfo, UserInfoActionTypes } from '@/types/state/auth/userInfo'
 import { authConfig } from '@/config/auth'
+import { StateAction } from '@/types/state'
+import { redirect } from 'next/navigation'
+import { AnyAction } from 'redux'
+import { NavigateOptions } from 'next/dist/shared/lib/app-router-context'
 
 
 export const submitSignUp  = asyncWrapper<[signUpDataType , Dispatch<SetStateAction<signUpFieldError[]>>   , any ] , returnedApiFunctionData<{userName : string}> >(async (data , setFieldsErrors  , emitAction )=>{
@@ -60,3 +64,17 @@ else return {
     succuss : false 
 }
 })
+
+
+
+
+export const logout = async (dispatch : Dispatch<AnyAction> , pushUrlFn : (href: string, options?: NavigateOptions | undefined) => void )=>{
+    const response = await axios.post("/api/logout")
+    if(response.status === StatusCodes.OK){
+    dispatch({type : LoginActionTypes.userLoginReset})
+    dispatch({type : UserInfoActionTypes.RESET_USER_INFO})
+    typeof window !== "undefined" && localStorage.removeItem(authConfig.userInfoLocalStorageName) 
+    pushUrlFn("/")
+}
+    else alert("someting went wrong! please try again")
+}

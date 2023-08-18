@@ -24,6 +24,6 @@ export default async function LoggedLayout({
 }) {
 
   return (
-<div>              {children}  </div>
+<div className='bg-red-600' >   <AuthProvider>           {children}  </AuthProvider></div>
   )
 }

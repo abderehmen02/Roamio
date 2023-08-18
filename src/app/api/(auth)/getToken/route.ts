@@ -5,18 +5,14 @@ import { authConfig } from "@/config/auth"
 import { refreshTokenModel } from "@/db/models/refreshToken"
 import { apiResponse } from "@/utils/api/nextResponse"
 import { errorMessage } from "@/utils/api/error"
+import { cookies } from 'next/headers'
 
 
-
-export const POST   = asyncWrapperApi(async (req  ) =>{
- await       new Promise((res , rej)=>{
-setTimeout(()=>{
-res("contineu")
-} , 5000)
-        })
+export const POST   = asyncWrapperApi(async (req  ) =>{  
+        cookies().delete(authConfig.refreshTokenCookieName)
         const  refreshTokenCookie = req.cookies.get(authConfig.refreshTokenCookieName)
         const  refreshToken = refreshTokenCookie?.value 
-
+         
         if(!refreshToken) apiResponse( StatusCodes.BAD_REQUEST   , errorMessage("No refresh token found") )
         const tokenInfo = await refreshTokenModel().findOne({
             token : refreshToken
