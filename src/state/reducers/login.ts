@@ -4,6 +4,7 @@ import { LoginAction , LoginState , LoginActionTypes } from '@/types/state/auth/
 export const userLoginReducer =  (state : LoginState = {} , action : LoginAction )=>{
 switch(action.type){
     case LoginActionTypes.userLoginSuccuss : {
+    console.log("succuss user")
         return {
     token : action.payload , 
     loading : false,
@@ -18,7 +19,10 @@ switch(action.type){
         }
     }
     case LoginActionTypes.userLoginRequest : {
+        console.log("requesting")
         return {
+            token : undefined ,
+            error : null , 
             loading : true ,
         }
     }

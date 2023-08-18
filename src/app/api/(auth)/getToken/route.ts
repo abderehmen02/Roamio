@@ -9,6 +9,11 @@ import { errorMessage } from "@/utils/api/error"
 
 
 export const POST   = asyncWrapperApi(async (req  ) =>{
+ await       new Promise((res , rej)=>{
+setTimeout(()=>{
+res("contineu")
+} , 5000)
+        })
         const  refreshTokenCookie = req.cookies.get(authConfig.refreshTokenCookieName)
         const  refreshToken = refreshTokenCookie?.value 
 
@@ -19,5 +24,5 @@ export const POST   = asyncWrapperApi(async (req  ) =>{
 
          if(!tokenInfo) return apiResponse( StatusCodes.NOT_FOUND , errorMessage("Can not get the token from the database")  )
           const token = generateLoginToken({userId : tokenInfo.userId.toString()  })
-          return apiResponse(  StatusCodes.CREATED , {token})
+          return apiResponse(  StatusCodes.OK , {token})
         })

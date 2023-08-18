@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { dir } from 'i18next'
 import { languages } from '../i18n/settings'
 import { StateProvider } from '@/providers/stateProvider'
-import { AuthProvider } from '@/providers/authProvider'
+import { AuthProvider } from '@/providers/userProvider'
 
 
 
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  params ,
+  params  : {lang},
 }: {
   children: React.ReactNode ,
   params :{
@@ -28,7 +28,6 @@ export default async function RootLayout({
   } ,
 }) {
 
-const   lang = "en"
   return (
     <html lang={lang} dir={dir(lang)} >
       <body >
