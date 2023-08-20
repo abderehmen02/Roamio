@@ -15,10 +15,11 @@ export type UserInfo =  {
     email : string , 
     firstName: string ,
     lastName : string  ,
+    verified : boolean , 
     userName : string ,
     _id : string ,
     gender : genderType 
-} | null
+} 
 
 export type UserInfoState =  UserInfo | UserInfoError | null
 
@@ -37,5 +38,11 @@ export type FailedUserInfo  ={
     type : UserInfoActionTypes.FAIL_USER_INFO ,
     payload : UserInfoError 
 }
+
+
+export function isUserInfo(user: UserInfoState): user is UserInfo {
+    return (user as UserInfo)._id !== undefined ;
+  }
+
 
 export type UserInfoAction = FailedUserInfo |  ResetUserInfoAction | AddUserInfoAction

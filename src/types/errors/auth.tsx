@@ -66,3 +66,41 @@ export enum signUpErrorTypes {
   API_ERROR  = "API_ERROR",
   VALIDATION_ERROR = "VALIDATION_ERROR"
 } 
+
+
+
+
+export enum SignInFields {
+  USERNAME,
+  PASSWORD,
+}
+
+
+export type signInErrorShortMessages = "invalidUsername" | "invalidPassword" | "noUserFound" | "incorrectPassword" 
+
+type signInFieldErrorsType   = {
+[key in signInErrorShortMessages] : {
+    message : string ,
+    field? : SignInFields  ,
+    shortMessage : key  
+} 
+} 
+
+
+
+export const signInFieldErrors : signInFieldErrorsType  =  {
+  invalidPassword  :{shortMessage : 'invalidPassword' , field  : SignInFields.PASSWORD , message : 'Password is not valid' } ,
+  invalidUsername : {shortMessage  : 'invalidUsername' , field : SignInFields.USERNAME , message : 'Username is not valid'} ,
+  noUserFound :  { shortMessage : 'noUserFound' , field : SignInFields.USERNAME , message : 'No user found with this username' } ,
+  incorrectPassword : {shortMessage : 'incorrectPassword' , field : SignInFields.PASSWORD , message: 'Incorrect password. please try again'}
+} 
+
+export type  signInFieldError  =  {
+  message : string ,
+  field? : SignInFields ,
+  shortMessage : signInErrorShortMessages
+}
+
+
+
+

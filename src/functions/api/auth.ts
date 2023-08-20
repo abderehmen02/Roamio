@@ -1,4 +1,4 @@
-import { signUpDataType, signUpValidator } from '@/utils/validators/auth'
+import { signInDataType, signUpDataType, signUpValidator } from '@/utils/validators/auth'
 import { asyncWrapper } from '@/utils/clientAsyncWrapper'
 import axios from 'axios'
 import { returnedApiFunctionData } from '@/types/apiFunctions'
@@ -7,7 +7,7 @@ import { signUpFieldError , signUpZodErrors,  signUpZodErrorShortMessages, gende
 import { Dispatch, SetStateAction } from 'react'
 import { parse } from 'path'
 import { EmitAction } from '@/state/actionCreators/action'
-import { LoginActionTypes } from '@/types/state/auth/signIn'
+import { LoginAction, LoginActionTypes } from '@/types/state/auth/signIn'
 import { UserInfo, UserInfoActionTypes } from '@/types/state/auth/userInfo'
 import { authConfig } from '@/config/auth'
 import { StateAction } from '@/types/state'
@@ -78,3 +78,20 @@ export const logout = async (dispatch : Dispatch<AnyAction> , pushUrlFn : (href:
 }
     else alert("someting went wrong! please try again")
 }
+
+
+
+
+
+export const submitSignIn = async ( data : signInDataType ,  dispatch : Dispatch<LoginAction> , pushUrlFn : (href: string, options?: NavigateOptions | undefined) => void )=>{
+    const response = await axios.post("/api/signIn" , data)
+    console.log("response " , response)
+//     if(response.status === StatusCodes.OK){
+//         console.log
+// }
+    // else alert("someting went wrong! please try again")
+}
+
+
+
+

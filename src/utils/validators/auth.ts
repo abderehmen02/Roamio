@@ -1,5 +1,5 @@
 import { emailRegEx } from "@/config/auth"
-import { signUpZodErrors , genderType } from "@/types/errors/auth"
+import { signUpZodErrors , genderType, signInFieldError, signInFieldErrors } from "@/types/errors/auth"
 import {z} from "zod"
 import { validBirthDate } from "./clientValidators"
 
@@ -16,4 +16,12 @@ export const signUpValidator = z.object({
      gender : z.nativeEnum(genderType  ).refine(  value => Object.values(genderType).includes(value) ,     signUpZodErrors.invalidGender.shortMessage )
 }) 
 
+
+export const signInValidator = z.object({
+    userName : z.string().min(4 , signInFieldErrors.invalidUsername ).max(50    ,  signInFieldErrors.invalidUsername) ,
+    password : z.string().min(8,     signInFieldErrors.invalidPassword ) ,
+
+})
+
+export type signInDataType = typeof signInValidator._type
 export type signUpDataType = typeof signUpValidator._type

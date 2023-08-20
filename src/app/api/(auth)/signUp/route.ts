@@ -20,7 +20,7 @@ export const POST   = asyncWrapperApi(async (req  ) =>{
 
             const newPassword = await bycrypt.hash(parsedBodyResult.data.password  , authConfig.bycryptSaltRounds )
             parsedBodyResult.data.password = newPassword 
-            const newUserDb = await userModel().create(parsedBodyResult.data)
+            const newUserDb = await userModel().create({ ...parsedBodyResult.data, verified : false })
             const newUser = {...newUserDb._doc}
             delete newUser.password
             const token =  generateLoginToken({ userId:  newUser._id.toString()})

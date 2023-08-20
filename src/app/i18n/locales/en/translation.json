@@ -1,5 +1,9 @@
 {
   "appName" : "Wanderio"  ,
+  "loading" : "...loading" ,
+   "auth"  : {
+    "verifyEmailMessageSent" : "we sent a message to your email. please check and verify your email" 
+   } ,
   "unlogedHeader" : {
     "signUp" : "sign up" ,
     "signIn"  : "sign in" ,
