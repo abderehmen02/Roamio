@@ -25,6 +25,7 @@ const {t} = useTranslation()
     const userInfo = useSelector((state : stateType ) =>state.userInfo )
     const getUser = async ()=>{
         const response =    await  axios.post('/api/getTokenAndUserInfo')
+        console.log("response data" , response )
         if(response.status === StatusCodes.OK){       
         const {token  ,birthDate ,email , firstName ,  gender , lastName , userName , _id , verified } = response.data
         if(!verified) {

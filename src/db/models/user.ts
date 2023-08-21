@@ -8,6 +8,8 @@ export interface UserDb {
     firstName : string ,
     verified : boolean ,
     lastName  : string ,
+    _id: string , 
+    
     birthDate : Date ,
     gender : "MALE" | "FEMALE"
 }

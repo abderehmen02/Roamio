@@ -10,7 +10,7 @@ const { StatusCodes } = require("http-status-codes");
 export const sendVerifyEmail = async  ( userDb  : UserDb ) : Promise<true | Object >=>{
 const sendGridApi = process.env.SEND_GRID_API_KEY
 if(!sendGridApi) throw new Error("can not get the send grid api key . please check your envirement variables")
-const token = generateLoginToken({userId : userDb.userName})
+const token = generateLoginToken({userId : userDb._id})
 if(!token) return errorMessage("can not get the token")
 sendGrid.setApiKey(sendGridApi)
 const link  = `${appConfig.url}/api/verifyEmail/${token}`  
