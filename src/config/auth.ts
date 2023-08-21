@@ -1,3 +1,5 @@
+import { appConfig } from "."
+
 export const authConfig ={
     jwtRefreshDays :       30, //30 days 
     tokenExpiresIn : '20h' , 
@@ -6,6 +8,7 @@ export const authConfig ={
     refreshTokenCookieName : "refreshToken" ,
     tokenCookieName : "tokenCookieName" ,
     userInfoLocalStorageName : "user-login" ,
+    emailVerificationMessageSubject : `${appConfig.name} - Verify Email` ,
     unauthRoutes : ['/' , '/login' , '/signUp' ] ,
     authRoutes : ['/dashboard' ] 
 }

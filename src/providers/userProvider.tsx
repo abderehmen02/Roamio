@@ -27,6 +27,10 @@ const {t} = useTranslation()
         const response =    await  axios.post('/api/getTokenAndUserInfo')
         if(response.status === StatusCodes.OK){       
         const {token  ,birthDate ,email , firstName ,  gender , lastName , userName , _id , verified } = response.data
+        if(!verified) {
+        const response =             await axios.post("/api/sendVerifyMessage" )
+        console.log("response" , response)
+        }
         const userInfo : UserInfo = {birthDate , email , firstName , gender , lastName , userName , _id , verified }    
         dispatchAction({type : LoginActionTypes.userLoginSuccuss , payload : token})
         dispatchAction({type : UserInfoActionTypes.ADD_USER_INFO , payload  : localUserInfo })

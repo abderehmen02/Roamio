@@ -1,7 +1,7 @@
 import mongoose , {model , mongo, Schema} from "mongoose";
 
 
-interface userDbType { 
+export interface UserDb { 
     userName : string ,
     email : string , 
     password : string ,
@@ -13,7 +13,7 @@ interface userDbType {
 }
 
 
-const userSchema = new mongoose.Schema<userDbType>({
+const userSchema = new mongoose.Schema<UserDb>({
     userName: { type: String, required: true },
     email: { type: String, required: true },
     password: { type: String, required: true },
@@ -25,5 +25,5 @@ const userSchema = new mongoose.Schema<userDbType>({
   });
   
 export const userModel = ()=>{
-    return mongoose.models?.user || model<userDbType>("user" , userSchema)
+    return mongoose.models?.user || model<UserDb>("user" , userSchema)
 }

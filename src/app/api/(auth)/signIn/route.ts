@@ -35,7 +35,7 @@ console.log("is password true" , isPasswordTrue)
 
     const response =   NextResponse.json(
         {
-          ...user,
+          ...user._doc,
           token 
         },
         { status: StatusCodes.CREATED }

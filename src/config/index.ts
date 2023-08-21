@@ -10,6 +10,9 @@ const productionUrl = "http://roamio.fr/"
 export const appConfig = {
     dateFormate : 'MM/dd/yyyy' ,
     name : 'Roamio' ,
+    emailPassword : process.env.GMAIL_PASSWORD ,
+    email: process.env.GMAIL_NAME , 
+    sendGridMail : process.env.GMAIL_NAME ,
     mode  ,
     url : mode  === modes.DEVELOPMENT ? developmentUrl : productionUrl
 }

@@ -15,6 +15,12 @@ if(!JwtSignature) throw new Error("No jwt signature in the envirement variables"
 return jwt.sign(data   ,  JwtSignature  , {expiresIn : authConfig.tokenExpiresIn} )
 }
 
+
+export  const verifyLoginToken = (token : string) : UserStoredWithToken =>{
+    if(!JwtSignature) throw new Error("No jwt signature in the envirement variables")
+    if(!token) throw new Error("No token provided in the verify token util")
+    return jwt.verify(token , JwtSignature) as UserStoredWithToken
+}
 export const generateRefreshToken : (userId  : string)=>Promise<string> = async (userId) =>{
 const expirationDate =  format( addDays( new Date() , authConfig.jwtRefreshDays ), appConfig.dateFormate)
 let token = uuidv4();

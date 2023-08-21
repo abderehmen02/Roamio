@@ -45,17 +45,15 @@ export const submitSignUp  = asyncWrapper<[signUpDataType , Dispatch<SetStateAct
     if(response.status === StatusCodes.CREATED){
     console.log("response" , response)
 // emitAction(LoginActionTypes.userLoginSuccuss , response.data.token  )    
-const {token  ,birthDate ,email , firstName ,  gender , lastName , userName , _id } = response.data
-const userInfo : UserInfo  =  { birthDate ,  email , firstName , gender , lastName , userName , _id}
+const {token  ,birthDate ,email , firstName ,  gender , lastName , userName , _id , verified } = response.data
+const userInfo : UserInfo  =  { birthDate ,  email , firstName , gender , lastName , userName , verified , _id}
 emitAction(LoginActionTypes.userLoginSuccuss  , token )
 
 emitAction(UserInfoActionTypes.ADD_USER_INFO , userInfo  )
 localStorage.setItem(authConfig.userInfoLocalStorageName  ,  JSON.stringify(userInfo)  )
 return ({
     succuss : true ,
-    data : {
-        userName : response.data.userName
-    }
+    data : response.data
 
 })
    }
