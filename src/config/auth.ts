@@ -10,6 +10,7 @@ export const authConfig ={
     userInfoLocalStorageName : "user-login" ,
     emailVerificationMessageSubject : `${appConfig.name} - Verify Email` ,
     unauthRoutes : ['/' , '/login' , '/signUp' ] ,
-    authRoutes : ['/dashboard' ] 
+    authRoutes : ['/dashboard' ]  ,
+    googleRedirectUrl : 'http://localhost:3000/api/googleAuth'
 }
 export const emailRegEx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/

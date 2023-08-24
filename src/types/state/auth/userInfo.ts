@@ -1,3 +1,4 @@
+import { GoogleUserDb } from "@/db/models/googleUser"
 import { genderType } from "@/types/errors/auth"
 
 export enum UserInfoActionTypes  {
@@ -19,9 +20,8 @@ export type UserInfo =  {
     userName : string ,
     _id : string ,
     gender : genderType 
-} 
-
-export type UserInfoState =  UserInfo | UserInfoError | null
+} | GoogleUserDb
+export type UserInfoState =  UserInfo | UserInfoError | null 
 
 
 export type  AddUserInfoAction = {
@@ -43,6 +43,12 @@ export type FailedUserInfo  ={
 export function isUserInfo(user: UserInfoState): user is UserInfo {
     return (user as UserInfo)._id !== undefined ;
   }
+
+
+export function isGoogleUser(user: UserInfo): user is GoogleUserDb {
+    return user && ( user  as GoogleUserDb ).googleUser ;
+  }
+
 
 
 export type UserInfoAction = FailedUserInfo |  ResetUserInfoAction | AddUserInfoAction

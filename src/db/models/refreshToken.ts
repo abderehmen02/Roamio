@@ -1,7 +1,9 @@
+import { authServises } from "@/types/auth";
 import mongoose , {model , mongo, Schema} from "mongoose";
 
 
 interface refreshTokenType {
+    authServise? : authServises.GOOGLE
     token : string, 
     expireIn : string  ,
     userId : Schema.Types.ObjectId ,
@@ -14,7 +16,8 @@ const refreshTokenSchema = new mongoose.Schema<refreshTokenType>({
         type : Schema.ObjectId ,
         ref: "user" ,
     } ,
-    expireIn : String 
+    expireIn : String ,
+    authServise : { type : String , default : authServises.NATIVE_USER }
 })
 
 export const refreshTokenModel = ()=>{
