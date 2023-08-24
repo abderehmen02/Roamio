@@ -1,6 +1,6 @@
-import { authServises } from "."
+import { AuthService } from "."
 
 export type UserStoredWithToken = {
 userId: string  , 
-authService? : authServises
+authService? : AuthService
 }

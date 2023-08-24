@@ -10,7 +10,7 @@ import { cookies } from 'next/headers'
 import { authConfig } from "@/config/auth"
 import { appConfig } from "@/config"
 import { generateLoginToken, generateRefreshToken } from "@/utils/auth/tokens"
-import { authServises } from "@/types/auth"
+import { AuthService, AuthServices } from "@/types/auth"
 
 
 
@@ -22,15 +22,15 @@ export const GET = asyncWrapperApi( async (req: Request)=>{
     const { id_token }= await getGoogleAuthTokens(code  )
     const googleUser = jwt.decode(id_token)
     if(!googleUser || typeof googleUser === "string"  ) throw new Error("can not get the google user from the token")
-    console.log("google user"  , googleUser)
     const {email ,  email_verified , family_name , picture , name , given_name} = googleUser
     if(!email_verified){
         return NextResponse.redirect(`${appConfig.url}/errors/google/unverifiedEmail`);   
     }
     const googleUserDb = await  googleUserModel().findOneAndUpdate<GoogleUserDb>({email } , { email,  family_name , picture , name , given_name} , {new : true , upsert: true} )
     const userId = googleUserDb._id.toString()
-    const accessToken = generateLoginToken({userId   })
-    const refreshToken = await generateRefreshToken(userId , authServises.GOOGLE )
+    const accessToken = generateLoginToken({userId  , authService: AuthServices.NATIVE_USER })
+    const refreshToken = await generateRefreshToken(userId , AuthServices.GOOGLE )
+    console.log("refresh token" , refreshToken)
     cookieStore.set(authConfig.tokenCookieName , accessToken , {httpOnly : true} )
     cookieStore.set(authConfig.refreshTokenCookieName , refreshToken ,{httpOnly : true} )
     return NextResponse.redirect("http://localhost:3000/dashboard");
