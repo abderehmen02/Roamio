@@ -14,6 +14,11 @@
     "blog" : "blog"  ,
     "search"  : "...search" 
   }  ,
+  "loggedHeader" : {
+     "cityData"  : "City data" ,
+     "settings" : "Settings"  , 
+     "findTargetCity" : "Find target city"
+  }  ,
   "hero"  : {
     "descreption"  : "Discover Your Dream Destination" ,
     "heroCardDescreption"  : "Search your target city based on your preferences" ,

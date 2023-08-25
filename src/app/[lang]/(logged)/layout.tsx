@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import { dir } from 'i18next'
 import { StateProvider } from '@/providers/stateProvider'
 import { AuthProvider } from '@/providers/userProvider'
+import { LoggedHeader } from '@/components/layout/loggedHeader'
 
 
 
@@ -24,6 +24,9 @@ export default async function LoggedLayout({
 }) {
 
   return (
-<div className='bg-red-600' >   <AuthProvider>    {children}  </AuthProvider></div>
+<div className='bg-grayLight'  >   <AuthProvider> 
+<LoggedHeader/>  
+{children}  </AuthProvider>
+</div>
   )
 }
