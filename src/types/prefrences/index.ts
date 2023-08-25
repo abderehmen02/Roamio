@@ -1,5 +1,5 @@
-export const  Prefrences = {
-Historical :     "Historical",
+export const  Categories = {
+  Historical:     "Historical",
 Modern :     "Modern",
 Nature :     "Nature",
 Religious :     "Religious",
@@ -47,10 +47,10 @@ DarkSkyWatching :    "DarkSkyWatching",
 AstroTourism :    "AstroTourism",
 } as const 
 
-export const PrefrencesArray =  Object.values(Prefrences)
+export const CategoriesArray =  Object.values(Categories)
 
 
-export type Prefrence = typeof PrefrencesArray[number]
+export type Category = typeof CategoriesArray[number]
 
 
 const Prices = {

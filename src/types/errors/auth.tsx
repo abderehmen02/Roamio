@@ -103,4 +103,6 @@ export type  signInFieldError  =  {
 
 
 
-
+export const AuthApiErrors = {
+  expiredJWT : "your session has been expired. please Sign In to continue " , 
+}

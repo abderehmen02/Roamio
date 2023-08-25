@@ -3,7 +3,7 @@ import { authConfig } from '@/config/auth'
 import { refreshTokenModel } from '@/db/models/refreshToken'
 import { AuthService, AuthServices } from '@/types/auth';
 import { UserStoredWithToken } from '@/types/auth/token';
-import { addDays, format } from 'date-fns'
+import { addDays, addSeconds, format } from 'date-fns'
 import jwt from 'jsonwebtoken'
 const { v4: uuidv4 } = require("uuid");
 
@@ -26,7 +26,7 @@ export  const verifyLoginToken = (token : string  ) : UserStoredWithToken =>{2
 
 
 export const generateRefreshToken : (userId  : string , authService? : AuthService )=>Promise<string> = async (userId , authService = AuthServices.NATIVE_USER ) =>{
-const expirationDate =  format( addDays( new Date() , authConfig.jwtRefreshDays ), appConfig.dateFormate)
+const expirationDate =  format( addSeconds( new Date() , authConfig.jwtRefreshDays ), appConfig.dateFormate)
 let token = uuidv4();
 console.log("auth service" , authService)
 const dbRefreshToken = await  refreshTokenModel().create({userId  , token , authService  , expireIn : expirationDate })   

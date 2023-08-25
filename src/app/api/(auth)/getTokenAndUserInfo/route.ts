@@ -8,7 +8,9 @@ import { errorMessage } from "@/utils/api/error"
 import { userModel } from '@/db/models/user'
 import { AuthServices } from '@/types/auth'
 import { googleUserModel } from '@/db/models/googleUser'
-
+import { isAfter, parse } from 'date-fns'
+import { AuthApiErrors} from '@/types/errors/auth'
+import { ApiError } from 'next/dist/server/api-utils'
 
 
 export const POST   = asyncWrapperApi(async (req  ) =>{
@@ -23,6 +25,10 @@ export const POST   = asyncWrapperApi(async (req  ) =>{
          })
          console.log( "refresh token info"  , tokenInfo)
          if(!tokenInfo) return apiResponse( StatusCodes.NOT_FOUND , errorMessage("Can not get the token from the database")  )
+         const isValidToken = isAfter( parse(tokenInfo.expireIn, 'MM/dd/yyyy', new Date()) , new Date() )
+         if(!isValidToken) return apiResponse(StatusCodes.UNAUTHORIZED , errorMessage(AuthApiErrors.expiredJWT))
+
+
          if(tokenInfo.authService == AuthServices.GOOGLE){
             console.log("google refresh token")
             const userInfo = await  googleUserModel().findById(tokenInfo.userId)
