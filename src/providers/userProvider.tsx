@@ -15,6 +15,7 @@ import { GoogleUserDb } from "@/db/models/googleUser"
 import { AuthApiErrors } from "@/types/errors/auth"
 import { useRouter } from 'next/navigation'
 import { logout } from "@/functions/api/auth"
+import { ExpiredSessionDialog } from "@/app/[lang]/(logged)/_components/expiredSession"
 
 export const AuthProvider : React.FC<{children : React.ReactNode  }> =  ({children   } )=>{
 const {t} = useTranslation()
@@ -72,6 +73,7 @@ getUser()
 if( !userLogin.token && !userLogin.error  ) return <div>{t("loading")}</div>
 if(  isUserInfo(userInfo) && !isGoogleUser(userInfo)  && !userInfo.verified  )return <div>{t("auth.verifyEmailMessageSent")}</div>
     return <div>
+        <ExpiredSessionDialog open={SessionDialig} setOpen={setSessionDialig} />
         {children}
     </div>
 }

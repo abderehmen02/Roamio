@@ -2,7 +2,10 @@
   "appName" : "Wanderio"  ,
   "loading" : "...loading" ,
    "auth"  : {
-    "verifyEmailMessageSent" : "we sent a message to your email. please check and verify your email" 
+    "verifyEmailMessageSent" : "we sent a message to your email. please check and verify your email"  ,
+    "jwtSessionExpiredDescreption" : "Your session has been expired, please sign in to continue." ,
+    "jwtSessionExpiredTitle" : "Session Expired!" ,
+    "goToHome"  : "Go to home" 
    } ,
   "unlogedHeader" : {
     "signUp" : "sign up" ,
@@ -79,5 +82,5 @@
     "female" : "Female" ,
     "select" : "Select"  ,
     "noAnswer" : "Prefer not to answer"
-   }
+   } 
   }
