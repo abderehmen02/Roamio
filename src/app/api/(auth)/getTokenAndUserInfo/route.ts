@@ -12,6 +12,7 @@ import { isAfter, parse } from 'date-fns'
 import { AuthApiErrors} from '@/types/errors/auth'
 import { ApiError } from 'next/dist/server/api-utils'
 import axios from 'axios'
+import { appConfig } from '@/config'
 
 
 export const POST   = asyncWrapperApi(async (req  ) =>{
@@ -26,7 +27,7 @@ export const POST   = asyncWrapperApi(async (req  ) =>{
          })
          console.log( "refresh token info"  , tokenInfo)
          if(!tokenInfo) return apiResponse( StatusCodes.NOT_FOUND , errorMessage("Can not get the token from the database")  )
-         const isValidToken = isAfter( parse(tokenInfo.expireIn, 'MM/dd/yyyy', new Date()) , new Date() )
+         const isValidToken = isAfter( parse(tokenInfo.expireIn, appConfig.dateFormate, new Date()) , new Date() )
       console.log("is valid token" , isValidToken )
          if(!isValidToken){ 
             return apiResponse(StatusCodes.UNAUTHORIZED , errorMessage(AuthApiErrors.expiredJWT)) }
