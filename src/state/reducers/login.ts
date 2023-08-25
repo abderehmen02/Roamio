@@ -13,6 +13,7 @@ switch(action.type){
         }
     }
     case LoginActionTypes.userLoginFail : {
+        console.log("failing")
         return {
             error : action.payload ,
             loading:  false , 

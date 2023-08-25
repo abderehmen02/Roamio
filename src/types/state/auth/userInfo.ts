@@ -41,12 +41,12 @@ export type FailedUserInfo  ={
 
 
 export function isUserInfo(user: UserInfoState): user is UserInfo {
-    return (user as UserInfo)._id !== undefined ;
+    return (user as UserInfo)?._id !== undefined ;
   }
 
 
 export function isGoogleUser(user: UserInfo): user is GoogleUserDb {
-    return user && ( user  as GoogleUserDb ).googleUser ;
+    return user && ( user  as GoogleUserDb )?.googleUser ;
   }
 
 

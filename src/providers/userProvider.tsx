@@ -4,18 +4,18 @@ import axios from "axios"
 import { StatusCodes } from "http-status-codes"
 import { useDispatch , useSelector } from "react-redux"
 import { bindActionCreators } from "redux"
-import ActionCreators from "@/state/actionCreators/action"
+import ActionCreators, { emitAction } from "@/state/actionCreators/action"
 import { LoginActionTypes } from "@/types/state/auth/signIn"
 import {  UserInfo, UserInfoActionTypes, isGoogleUser, isUserInfo } from "@/types/state/auth/userInfo"
 import { stateType } from "@/state/reducers"
 import { authConfig } from "@/config/auth"
-import { userInfo } from "os"
 import { useTranslation } from "@/app/i18n/client"
 import { GoogleUserDb } from "@/db/models/googleUser"
 import { AuthApiErrors } from "@/types/errors/auth"
 import { useRouter } from 'next/navigation'
 import { logout } from "@/functions/api/auth"
 import { ExpiredSessionDialog } from "@/app/[lang]/(logged)/_components/expiredSession"
+import { errorMessage } from "@/utils/api/error"
 
 export const AuthProvider : React.FC<{children : React.ReactNode  }> =  ({children   } )=>{
 const {t} = useTranslation()
@@ -27,8 +27,8 @@ const [SessionDialig, setSessionDialig] = useState<boolean>(false)
     const   localUserInfo = typeof window !== 'undefined' && JSON.parse( localStorage?.getItem(authConfig.userInfoLocalStorageName) as string ) 
     const userInfo = useSelector((state : stateType ) =>state.userInfo )
     const router = useRouter()
-// getting the user 
-
+    // getting the user 
+ 
     const getUser = async ()=>{
 try {        const response =    await  axios.post('/api/getTokenAndUserInfo')
         let userInfo : UserInfo | GoogleUserDb ; 
@@ -55,15 +55,16 @@ try {        const response =    await  axios.post('/api/getTokenAndUserInfo')
         dispatchAction({type : UserInfoActionTypes.ADD_USER_INFO , payload  : userInfo })
       } }
       catch (err : any )  {
+        dispatchAction({type : LoginActionTypes.userLoginFail , payload : err?.response?.data?.error || errorMessage("some error happened on the server")})
         if(err?.response?.data?.error?.message === AuthApiErrors.expiredJWT ) setSessionDialig(true)
-        else   logout(dispatch , router.push)
+         else  logout(dispatch , router.push)
       }
         }
 
 
 
-
-
+console.log("session"  , SessionDialig)
+console.log("user login" , userLogin)
 
 useEffect(()=>{
 dispatchAction({type : LoginActionTypes.userLoginRequest})

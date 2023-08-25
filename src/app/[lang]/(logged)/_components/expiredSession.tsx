@@ -10,6 +10,9 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useTranslation } from '@/app/i18n/client';
 import {useRouter} from 'next/navigation'
+import { logout } from '@/functions/api/auth';
+import { useDispatch } from 'react-redux';
+import { ButtonsSizes, PrimaryBtn, SecondaryBtn } from '@/ui/buttons';
 
 
 
@@ -18,18 +21,17 @@ import {useRouter} from 'next/navigation'
 
 
 export const ExpiredSessionDialog : React.FC<{open : boolean , setOpen : React.Dispatch<React.SetStateAction<boolean>> }> = ({open  , setOpen})=>{
-
 const {t} = useTranslation()
 const router = useRouter()
-
-    const navigateHome = () => {
-        setOpen(false);
-        router.push("/")
+const dispatch = useDispatch()
+    const navigateHome = async () => {
+      await logout(dispatch , router.push )
+      setOpen(false);
       };
     
-      const navigateLogIn = () => {
-        setOpen(false);
-        router.push("/signIn")
+      const navigateLogIn = async  () => {
+          await logout(dispatch , router.push , "/login")
+          setOpen(false);
       };
     
       return (
@@ -48,12 +50,12 @@ const router = useRouter()
               </DialogContentText>
             </DialogContent>
             <DialogActions>
-              <Button onClick={navigateLogIn} autoFocus>
+              <PrimaryBtn onClick={navigateLogIn} size={ButtonsSizes.medium} autoFocus>
                 {t("login.title")}
-              </Button>
-              <Button onClick={navigateHome} autoFocus>
+              </PrimaryBtn>
+              <SecondaryBtn size={ButtonsSizes.medium} onClick={navigateHome} autoFocus>
                 {t("auth.goToHome")}
-              </Button>
+              </SecondaryBtn>
             </DialogActions>
           </Dialog>
         </div>)

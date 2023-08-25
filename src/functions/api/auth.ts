@@ -66,13 +66,13 @@ else return {
 
 
 
-export const logout = async (dispatch : Dispatch<AnyAction> , pushUrlFn : (href: string, options?: NavigateOptions | undefined) => void )=>{
+export const logout = async (dispatch : Dispatch<AnyAction> , pushUrlFn : (href: string, options?: NavigateOptions | undefined) => void  , pathToPush  = "/"   )=>{
     const response = await axios.post("/api/logout")
     if(response.status === StatusCodes.OK){
     dispatch({type : LoginActionTypes.userLoginReset})
     dispatch({type : UserInfoActionTypes.RESET_USER_INFO})
     typeof window !== "undefined" && localStorage.removeItem(authConfig.userInfoLocalStorageName) 
-    pushUrlFn("/")
+    pushUrlFn(pathToPush)
 }
     else alert("someting went wrong! please try again")
 }
