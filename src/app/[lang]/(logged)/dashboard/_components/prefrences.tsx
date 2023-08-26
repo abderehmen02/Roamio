@@ -6,16 +6,16 @@ import { ButtonsSizes, TextButton } from "@/ui/buttons"
 import { P } from "@/ui/typography"
 import { useState } from "react"
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
+import { DashboardSection } from "@/components/dashboard/containers"
 
 const rowsFields : Prefrences = [Categories  , Prices , YearTimes , Meals  ]
 
 
 export const PrefrenceField  : React.FC<{prefrence : Prefrence}> = ({prefrence})=>{
-    console.log("preference" , prefrence)
     const items = Object.keys(prefrence)
     const {t}  = useTranslation()
     const [LastItem, setLastItem] = useState<number>(3)
-    return <div className="flex-col py-6">
+    return <div className="flex-col py-3">
 {
     items.slice(0 , LastItem).map((item=> <div className="flex  items-center gap-1" > <P className="  text-sm capitalize" >{item}  </P> <i className="bi bi-record-circle text-xs"></i> </div>))
 }    
@@ -26,9 +26,9 @@ export const PrefrenceField  : React.FC<{prefrence : Prefrence}> = ({prefrence})
 
 
 export const PrefrencesRow : React.FC = ()=>{
-    return <div  className=" clearBorder rounded-lg flex flex-col px-6 py-3 bg-white " >     
+    return <DashboardSection>     
 {
     rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence} />)
 }     
-    </div>
+</DashboardSection>
 }

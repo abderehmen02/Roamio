@@ -96,7 +96,7 @@ export   type WeatherCategories  = typeof WeatherCategoriesArray[number]
 
 
 
-const Languages = {
+export const Languages = {
     english: "English",
     french: "French",
     spanish: "Spanish",
