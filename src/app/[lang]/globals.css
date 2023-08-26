@@ -25,7 +25,9 @@
 .signUpForm{
   width: 650px;
 }
-
+.clearBorder{
+  border: 1px solid black
+}
 
 @media screen and (max-width : 640px) {
 .loginImg{

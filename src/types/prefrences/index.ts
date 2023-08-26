@@ -1,5 +1,9 @@
-export const  Categories = {
-  Historical:     "Historical",
+export type Prefrence = {[key : string] : string} 
+export type PrefrenceArray = string[]
+export type Prefrences = Prefrence[]
+
+export const  Categories : Prefrence = {
+Historical:     "Historical",
 Modern :     "Modern",
 Nature :     "Nature",
 Religious :     "Religious",
@@ -14,7 +18,7 @@ Wellness :    "Wellness",
 Shopping :    "Shopping",
 Festivals :    "Festivals",
 Sports :    "Sports",
-EcoFriendly :    "EcoFriendly",
+EcoFriendly :    "Eco Friendly",
 Educational :    "Educational",
 HiddenGems :    "HiddenGems",
 Artistic :    "Artistic",
@@ -33,27 +37,27 @@ Photography :    "Photography",
 Diving :    "Diving",
 Hiking :    "Hiking",
 Skiing :    "Skiing",
-WaterSports :    "WaterSports",
-HistoricLandmarks :    "HistoricLandmarks",
+WaterSports :    "Water Sports",
+HistoricLandmarks :    "Historic Landmarks",
 Gardens :    "Gardens",
-SpaRelaxation :    "SpaRelaxation",
-CraftsArtisans :     "CraftsArtisans",
-StreetFood :    "StreetFood",
-LocalFestivities :    "LocalFestivities",
-FashionDesign :    "FashionDesign",
+SpaRelaxation :    "Spa Relaxation",
+CraftsArtisans :     "Crafts Artisans",
+StreetFood :    "Street Food",
+LocalFestivities :    "Local Festivities",
+FashionDesign :    "Fashion Design",
 SustainableLiving :    "SustainableLiving",
-VolunteeringOpportunities :    "VolunteeringOpportunities",
-DarkSkyWatching :    "DarkSkyWatching",
-AstroTourism :    "AstroTourism",
+VolunteeringOpportunities :    "Volunteering Opportunities",
+DarkSkyWatching :    "Dark Sky Watching",
+AstroTourism :    "Astro Tourism",
 } as const 
 
-export const CategoriesArray =  Object.values(Categories)
+export const CategoriesArray : PrefrenceArray =  Object.values(Categories)
 
 
 export type Category = typeof CategoriesArray[number]
 
 
-const Prices = {
+export const Prices = {
     cheap : "CHATP" ,
     inExpensive : "INEXPENSIVE"  ,
     medium : "MEDIUM" ,

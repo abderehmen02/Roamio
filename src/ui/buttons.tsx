@@ -20,8 +20,5 @@ return  <button  className={cn( " bg-secondary border-2 border-secondary hover:b
 }
     
 export const TextButton : React.FC<UiButtonProps>  = ({children , size = ButtonsSizes.large , className , ...props })=>{
-return <button  className={cn(" bg-black  hover:bg-grayDark text-white  font-bold "  ,{"text-lg rounded-3xl font-bold px-4 py-2"  :  size === ButtonsSizes.large ,   "text-base rounded-2xl font-semibold px-2 py-1" : size === ButtonsSizes.medium }  , montserratClassName  , className)}> {children}</button>
+return <button  className={cn(" bg-black  hover:bg-grayDark text-white  font-bold "  ,{"text-lg rounded-3xl font-bold px-4 py-2"  :  size === ButtonsSizes.large ,   "text-base rounded-2xl font-semibold px-2 py-1" : size === ButtonsSizes.medium  , "  text-xs text-white   rounded-xl font-normal px-2 py-1" : size === ButtonsSizes.small }  , montserratClassName  , className)} {...props} > {children}</button>
 }
-
-
-
