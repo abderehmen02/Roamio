@@ -137,5 +137,9 @@
      "DarkSkyWatching" :    "Dark Sky Watching",
      "AstroTourism" :    "Astro Tourism",
      "Historical":     "Historical"
-    } 
+    }  ,
+    "citiesSection" : {
+      "title" : "Explore Cities"  ,
+      "descreption"  : "Pick up your prefrences and start exploring your target cities"
+    }
   }
