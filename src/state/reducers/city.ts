@@ -1,8 +1,39 @@
 import { LoginAction , LoginState , LoginActionTypes } from '@/types/state/auth/signIn'
-import { CitiesQueryAction, CitiesQueryActionTypes, CitiesQueryState } from '@/types/state/city'
+import { CitiesQueryAction, CitiesQueryActionTypes, CitiesQueryState, QueryTypes } from '@/types/state/city'
 
-
-export const citiesQueryReducer =  (state : CitiesQueryState = {} , action : CitiesQueryAction )=>{
+const initialQueryCitiesState : CitiesQueryState = {
+    categories : {
+        type : QueryTypes.any , 
+        value : []
+    } , 
+    continent : {
+        type : QueryTypes.any , 
+        value : []
+    } ,
+     country : {
+        type : QueryTypes.any , 
+        value : []
+     } , 
+     languages : {
+        type :QueryTypes.any  , 
+        value : []
+     }  , 
+     name : undefined  , 
+     population : undefined ,
+     price : {
+        type : QueryTypes.any , 
+        value : [] 
+     } ,
+     weathers : {
+        type : QueryTypes.any   ,
+        value : []
+     } , 
+     yearTimes : {
+        type : QueryTypes.any , 
+        value : []
+     } 
+}
+export const citiesQueryReducer =  (state : CitiesQueryState = initialQueryCitiesState , action : CitiesQueryAction )=>{
 switch(action.type){
     case  CitiesQueryActionTypes.EDIT_CITIES_QUERY: {
         return action.payload  

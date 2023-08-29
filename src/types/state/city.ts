@@ -12,7 +12,7 @@ export const QueryTypeArray = Object.values(QueryTypes)
 export type QueryType = typeof QueryTypeArray[number]   
 
 export interface CitiesQueryState {
-        name?: {type : QueryType , value : string },
+        name?: string,
         country?: {type : QueryType , value : string[]},
         continent?: { type: QueryType , value : Continent[] } ,
         population?: number ,

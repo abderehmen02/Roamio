@@ -1,20 +1,25 @@
 "use client"
 
 import { useTranslation } from "@/app/i18n/client"
-import { Categories, Languages, Meals, Prefrence, Prefrences, Prices, PricesArray, YearTimes } from "@/types/prefrences"
+import { Categories, Languages, Meals, Prefrence, Prefrences, PrefrencesOptions, Prices, PricesArray, Weathers, YearTimes } from "@/types/prefrences"
 import { P } from "@/ui/typography"
 import { useState } from "react"
 import { DashboardSection } from "@/components/dashboard/containers"
 import { useSelector } from "react-redux"
 import { stateType } from "@/state/reducers"
+import { useDispatch } from "react-redux"
+import { bindActionCreators } from "redux"
+import ActionCreators from "@/state/actionCreators/action"
 
-const rowsFields : Prefrences = [Categories  , Prices , YearTimes , Meals  ]
+const rowsFields : Prefrences = [{  option : PrefrencesOptions.CATEGORIES , prefrence :  Categories }  , {   option: PrefrencesOptions.PRICES , prefrence: Prices } , { option : PrefrencesOptions.YEAR_TIMES , prefrence :  YearTimes } ,  {  option :  PrefrencesOptions.MEALS , prefrence : Meals }  , {option : PrefrencesOptions.WEATHERS , prefrence : Weathers} , {option : PrefrencesOptions.LANGUAGES , prefrence : Languages}  ]
 
 
-export const PrefrenceField  : React.FC<{prefrence : Prefrence}> = ({prefrence})=>{
+export const PrefrenceField  : React.FC<{prefrence : Prefrence  , option : PrefrencesOptions }> = ({prefrence , option })=>{
     const items = Object.keys(prefrence)
     const {t}  = useTranslation()
     const queryCities = useSelector(((state : stateType) => state.citiesQuery))
+    const dispatch= useDispatch()
+    const { dispatchAction } = bindActionCreators(ActionCreators , dispatch)
     const [LastItem, setLastItem] = useState<number>(3)
     return <div className="flex-col py-3">
 {
@@ -29,7 +34,7 @@ export const PrefrenceField  : React.FC<{prefrence : Prefrence}> = ({prefrence})
 export const PrefrencesRow : React.FC = ()=>{
     return <DashboardSection>     
 {
-    rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence} />)
+      rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence.prefrence} option={prefrence.option} />)
 }     
 </DashboardSection>
 }
