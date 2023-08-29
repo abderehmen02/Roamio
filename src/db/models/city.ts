@@ -2,8 +2,17 @@ import { Category, Language, Price, Weather, YearTime } from "@/types/prefrences
 import { LanguageDetectorAsyncModule } from "i18next";
 import mongoose , {model , mongo, Schema} from "mongoose";
 
-
-export type Continent = "Europe" | "Africa"
+export const Continents = {
+  EUROPE : "EUROPE" ,
+  AFRICA : "AFRICA" ,
+  ASIA : "ASIA" ,
+  NORTH_AMERICA : "NORTH_AMERICA" ,
+  SOUTH_AMERICA : "SOURTH_AMERICA" ,
+  ANTARCTICA :  "ANTARCTICA"  ,
+  AUSTRALIA : "AUSTRALIA"
+} as const 
+export const continentsArray = Object.values(Continents)
+export type Continent = typeof continentsArray[number]
 
 export interface CityDb {
     name: string,
@@ -31,6 +40,7 @@ const CitySchema = new mongoose.Schema<CityDb>({
     languages : {type : [String] , required : true}
   });
   
-export const cityModal = ()=>{
-    return mongoose.models?.user || model<CityDb>("city" , CitySchema)
+export const cityModal  = ()=>{
+    return mongoose.models?.city || model<CityDb>("city" , CitySchema)
 }
+
