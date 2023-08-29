@@ -1,7 +1,7 @@
 "use client"
 
 import { useTranslation } from "@/app/i18n/client"
-import { Categories, Languages, Meals, Prefrence, Prefrences, PrefrencesOptions, Prices, PricesArray, Weathers, YearTimes } from "@/types/prefrences"
+import { Categories, Category, Languages, Meals, Prefrence, Prefrences, PrefrencesOptions, Prices, PricesArray, Weathers, YearTimes } from "@/types/prefrences"
 import { P } from "@/ui/typography"
 import { useState } from "react"
 import { DashboardSection } from "@/components/dashboard/containers"
@@ -10,6 +10,9 @@ import { stateType } from "@/state/reducers"
 import { useDispatch } from "react-redux"
 import { bindActionCreators } from "redux"
 import ActionCreators from "@/state/actionCreators/action"
+import { CitiesQueryActionTypes } from "@/types/state/city"
+import { LoginActionTypes } from "@/types/state/auth/signIn"
+import { UserInfoActionTypes } from "@/types/state/auth/userInfo"
 
 const rowsFields : Prefrences = [{  option : PrefrencesOptions.CATEGORIES , prefrence :  Categories }  , {   option: PrefrencesOptions.PRICES , prefrence: Prices } , { option : PrefrencesOptions.YEAR_TIMES , prefrence :  YearTimes } ,  {  option :  PrefrencesOptions.MEALS , prefrence : Meals }  , {option : PrefrencesOptions.WEATHERS , prefrence : Weathers} , {option : PrefrencesOptions.LANGUAGES , prefrence : Languages}  ]
 
@@ -21,6 +24,14 @@ export const PrefrenceField  : React.FC<{prefrence : Prefrence  , option : Prefr
     const dispatch= useDispatch()
     const { dispatchAction } = bindActionCreators(ActionCreators , dispatch)
     const [LastItem, setLastItem] = useState<number>(3)
+
+const addPrefrence = (prefrence : string)=>{
+    if(option === PrefrencesOptions.CATEGORIES){
+    if(queryCities.categories.value.includes(prefrence as Category ))        dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , categories : {...queryCities.categories , value : queryCities.categories.value.filter(item =>item === prefrence )}} })
+    }
+}
+
+
     return <div className="flex-col py-3">
 {
     items.slice(0 , LastItem).map((item=> <div className="flex  items-center gap-1" > <P className="  text-sm capitalize" >{item}  </P> <i className="bi bi-record-circle text-xs"></i> </div>))
