@@ -2,8 +2,8 @@ import { Continent } from "@/db/models/city"
 import { Category, Language, Price, Weather, YearTime } from "../prefrences"
 
 export enum CitiesQueryActionTypes {
-    EDIT_CITIES_QUERY ,
-    RESET_CITIES_QUERY
+    EDIT_CITIES_QUERY  = "EDIT_CITIES_QUERY",
+    RESET_CITIES_QUERY = "RESET_CITIES_QUERY"
 } 
 
 
@@ -25,16 +25,16 @@ export interface CitiesQueryState {
 
 
 
-export type CityQueryEditAction = {
+export type CitiesQueryEditAction = {
     type : CitiesQueryActionTypes.EDIT_CITIES_QUERY ,
     payload : CitiesQueryState
 }
 
 
-export type CityQueryResetAction = {
+export type CitiesQueryResetAction = {
     type : CitiesQueryActionTypes.RESET_CITIES_QUERY  ,
 }
 
 
 
-export type CityQueryAction = CityQueryEditAction | CityQueryResetAction
+export type CitiesQueryAction = CitiesQueryEditAction | CitiesQueryResetAction

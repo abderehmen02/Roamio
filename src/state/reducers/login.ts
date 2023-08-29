@@ -13,14 +13,13 @@ switch(action.type){
         }
     }
     case LoginActionTypes.userLoginFail : {
-        console.log("failing")
         return {
             error : action.payload ,
             loading:  false , 
         }
     }
     case LoginActionTypes.userLoginRequest : {
-        console.log("requesting")
+  
         return {
             token : undefined ,
             error : null , 

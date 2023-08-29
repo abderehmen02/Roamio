@@ -2,11 +2,11 @@
 
 import { useTranslation } from "@/app/i18n/client"
 import { Categories, Languages, Meals, Prefrence, Prefrences, Prices, PricesArray, YearTimes } from "@/types/prefrences"
-import { ButtonsSizes, TextButton } from "@/ui/buttons"
 import { P } from "@/ui/typography"
 import { useState } from "react"
-import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import { DashboardSection } from "@/components/dashboard/containers"
+import { useSelector } from "react-redux"
+import { stateType } from "@/state/reducers"
 
 const rowsFields : Prefrences = [Categories  , Prices , YearTimes , Meals  ]
 
@@ -14,6 +14,7 @@ const rowsFields : Prefrences = [Categories  , Prices , YearTimes , Meals  ]
 export const PrefrenceField  : React.FC<{prefrence : Prefrence}> = ({prefrence})=>{
     const items = Object.keys(prefrence)
     const {t}  = useTranslation()
+    const queryCities = useSelector(((state : stateType) => state.citiesQuery))
     const [LastItem, setLastItem] = useState<number>(3)
     return <div className="flex-col py-3">
 {

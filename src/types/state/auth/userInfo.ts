@@ -2,9 +2,9 @@ import { GoogleUserDb } from "@/db/models/googleUser"
 import { genderType } from "@/types/errors/auth"
 
 export enum UserInfoActionTypes  {
-    ADD_USER_INFO  ,
-    RESET_USER_INFO ,
-    FAIL_USER_INFO
+    ADD_USER_INFO  = "ADD_USER_INFO" ,
+    RESET_USER_INFO = "RESET_USER_INFO" ,
+    FAIL_USER_INFO  =  "FAIL_USER_INF"
 }
 
 export type UserInfoError  =  {
