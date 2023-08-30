@@ -3,8 +3,8 @@ import { LanguageDetectorAsyncModule } from "i18next";
 import mongoose , {model , mongo, Schema} from "mongoose";
 
 export const Continents = {
-  EUROPE : "EUROPE" ,
-  AFRICA : "AFRICA" ,
+  EUROPE : "Europe" ,
+  AFRICA : "Africa" ,
   ASIA : "ASIA" ,
   NORTH_AMERICA : "NORTH_AMERICA" ,
   SOUTH_AMERICA : "SOURTH_AMERICA" ,

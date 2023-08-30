@@ -30,10 +30,11 @@ if(yearTimes) queryDb.yearTimes = { $in : JSON.parse(yearTimes)}
 if(languages) queryDb.languages = { $in : JSON.parse( languages)}
 
 if(!Object.keys(queryDb).length) {
-      queryDb.continent = {$in: [Continents.EUROPE , Continents.AUSTRALIA , Continents.NORTH_AMERICA , Continents.ASIA ]} ,
-      queryDb.price  = {$in : [Prices.costly , Prices.expensive] } 
+      queryDb.continent = {$in: [Continents.EUROPE  ]} 
+      queryDb.price  = {$in : [Prices.costly , Prices.expensive  ] } 
 }
-       const cities = await cityModal().find(queryDb).limit(10)
+console.log("query db"   , queryDb)
+       const cities = await cityModal().find(queryDb)
 
       return  apiResponse(200 , cities)
 })

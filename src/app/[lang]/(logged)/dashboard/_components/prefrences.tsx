@@ -11,8 +11,8 @@ import { useDispatch } from "react-redux"
 import { bindActionCreators } from "redux"
 import ActionCreators from "@/state/actionCreators/action"
 import { CitiesQueryActionTypes } from "@/types/state/citiesQuery"
-import { LoginActionTypes } from "@/types/state/auth/signIn"
-import { UserInfoActionTypes } from "@/types/state/auth/userInfo"
+import { useQuery } from "@tanstack/react-query"
+import axios from "axios"
 
 const rowsFields : PrefrencesArray = [{  option : PrefrencesOptions.CATEGORIES , prefrence :  Categories }  , {   option: PrefrencesOptions.PRICES , prefrence: Prices } , { option : PrefrencesOptions.YEAR_TIMES , prefrence :  YearTimes } ,  {  option :  PrefrencesOptions.MEALS , prefrence : Meals }  , {option : PrefrencesOptions.WEATHERS , prefrence : Weathers} , {option : PrefrencesOptions.LANGUAGES , prefrence : Languages}  ]
 
@@ -20,9 +20,21 @@ const rowsFields : PrefrencesArray = [{  option : PrefrencesOptions.CATEGORIES ,
 export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option : PrefrencesOptions }> = ({prefrence , option })=>{
     const items = Object.values(prefrence)
     const {t}  = useTranslation()
+    const {data , isLoading } = useQuery({
+        queryKey : ["Cities"] , 
+        queryFn: async ()=>{
+          const data = await axios.get("/api/getCities")
+          return data 
+        } ,
+        onSuccess : (data)=>{
+            console.log("data" , data)
+        } ,
+        onError : (err)=>{
+            console.log("err" , err)
+        }
+    })
     const queryCities = useSelector(((state : stateType) => state.citiesQuery))
     const cities = useSelector((state: stateType)=>state.cities)
-    console.log("cities"  , cities)
     const dispatch= useDispatch()
     const { dispatchAction } = bindActionCreators(ActionCreators , dispatch)
     const [LastItem, setLastItem] = useState<number>(3)
