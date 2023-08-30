@@ -10,7 +10,7 @@ import { stateType } from "@/state/reducers"
 import { useDispatch } from "react-redux"
 import { bindActionCreators } from "redux"
 import ActionCreators from "@/state/actionCreators/action"
-import { CitiesQueryActionTypes } from "@/types/state/city"
+import { CitiesQueryActionTypes } from "@/types/state/citiesQuery"
 import { LoginActionTypes } from "@/types/state/auth/signIn"
 import { UserInfoActionTypes } from "@/types/state/auth/userInfo"
 
@@ -18,17 +18,21 @@ const rowsFields : PrefrencesArray = [{  option : PrefrencesOptions.CATEGORIES ,
 
 
 export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option : PrefrencesOptions }> = ({prefrence , option })=>{
-    const items = Object.keys(prefrence)
+    const items = Object.values(prefrence)
     const {t}  = useTranslation()
     const queryCities = useSelector(((state : stateType) => state.citiesQuery))
+    const cities = useSelector((state: stateType)=>state.cities)
+    console.log("cities"  , cities)
     const dispatch= useDispatch()
     const { dispatchAction } = bindActionCreators(ActionCreators , dispatch)
     const [LastItem, setLastItem] = useState<number>(3)
+   
 
-const addPrefrence = (prefrence )=>{
+
+const toglePrefrence = (prefrence : Prefrence ): void=>{
     if(option === PrefrencesOptions.CATEGORIES){
     let includePrefrence : boolean = queryCities.categories.value.includes(prefrence as Category ) 
-    if(includePrefrence)        dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , categories : {...queryCities.categories , value : queryCities.categories.value.filter(item =>item === prefrence )}} })
+    if(includePrefrence)        dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , categories : {...queryCities.categories , value : queryCities.categories.value.filter(item =>item !== prefrence )}} })
     else dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , categories : {...queryCities.categories , value : [...queryCities.categories.value ,prefrence as Category ]}} })
     }
 }
@@ -36,7 +40,8 @@ const addPrefrence = (prefrence )=>{
 
     return <div className="flex-col py-3">
 {
-    items.slice(0 , LastItem).map((item=> <div className="flex  items-center gap-1" > <P className="  text-sm capitalize" >{item}  </P> <i className="bi bi-record-circle text-xs"></i> </div>))
+
+    items.slice(0 , LastItem).map((item=> <div className="flex  items-center gap-1" > <P className="  text-sm capitalize"  onClick={()=>toglePrefrence(item)} >{item}  </P> <i className="bi bi-record-circle text-xs"></i> </div>))
 }    
 <P className="w-full capitalize text-sm" onClick={()=>{items?.length> LastItem  && setLastItem(val=>val+ 3) , console.log("clicked") }} >{t("seeMore")}<i className="bi bi-arrow-down"></i></P>
 <P className="w-full capitalize text-sm" onClick={()=>{ items?.length> 2  &&  setLastItem(val=>val  -  3) , console.log("clicked") }} >{t("seeLess")}<i className="bi bi-arrow-up"></i></P>

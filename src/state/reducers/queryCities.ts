@@ -1,5 +1,5 @@
 import { LoginAction , LoginState , LoginActionTypes } from '@/types/state/auth/signIn'
-import { CitiesQueryAction, CitiesQueryActionTypes, CitiesQueryState, QueryTypes } from '@/types/state/city'
+import { CitiesQueryAction, CitiesQueryActionTypes, CitiesQueryState, QueryTypes } from '@/types/state/citiesQuery'
 
 const initialQueryCitiesState : CitiesQueryState = {
     categories : {

@@ -4,6 +4,7 @@ import { dir } from 'i18next'
 import { languages } from '../i18n/settings'
 import { StateProvider } from '@/providers/stateProvider'
 import { AuthProvider } from '@/providers/userProvider'
+import { TanstackProvider } from '@/providers/tanstackProvider'
 
 
 
@@ -30,8 +31,10 @@ export default async function RootLayout({
 
   return (
     <html lang={lang} dir={dir(lang)} >
-      <body >
-         <StateProvider>     {children}  </StateProvider>
+      <body >   <TanstackProvider>
+         <StateProvider>   
+            {children}
+        </StateProvider></TanstackProvider>
       </body>
     </html>
   )
