@@ -7,8 +7,7 @@ YEAR_TIMES = "YEAR_TIMES",
 MEALS = "MEALS" 
 }
 
-export type Prefrence = {[key : string] : string} 
-export type Prefrences = { option : PrefrencesOptions ,   prefrence : Prefrence }[]
+export type PrefrencesArray = { option : PrefrencesOptions ,   prefrence : PrefrenceObject }[]
 
 export const  Categories  = {
 Historical:     "Historical",
@@ -269,3 +268,5 @@ export type City = {
 }
 
 
+export type  Prefrence = Category | Price | YearTime | Meal | Language | Weather
+export type PrefrenceObject = typeof Categories | typeof Prices | typeof YearTimes | typeof Meals | typeof Languages | typeof Weathers

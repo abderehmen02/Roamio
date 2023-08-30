@@ -39,7 +39,7 @@ switch(action.type){
         return action.payload  
     }
     case CitiesQueryActionTypes.RESET_CITIES_QUERY: {
-        return ({}) 
+        return initialQueryCitiesState
     }
     default : return state
 
