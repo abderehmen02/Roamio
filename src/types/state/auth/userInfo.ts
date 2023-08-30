@@ -11,6 +11,7 @@ export type UserInfoError  =  {
     error : string
 }
 
+
 export type UserInfo =  {
      birthDate : string ,
     email : string , 

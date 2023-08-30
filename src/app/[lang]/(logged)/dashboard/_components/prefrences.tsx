@@ -13,6 +13,7 @@ import ActionCreators from "@/state/actionCreators/action"
 import { CitiesQueryActionTypes } from "@/types/state/citiesQuery"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
+import { CitiesActionTypes } from "@/types/state/cities"
 
 const rowsFields : PrefrencesArray = [{  option : PrefrencesOptions.CATEGORIES , prefrence :  Categories }  , {   option: PrefrencesOptions.PRICES , prefrence: Prices } , { option : PrefrencesOptions.YEAR_TIMES , prefrence :  YearTimes } ,  {  option :  PrefrencesOptions.MEALS , prefrence : Meals }  , {option : PrefrencesOptions.WEATHERS , prefrence : Weathers} , {option : PrefrencesOptions.LANGUAGES , prefrence : Languages}  ]
 
@@ -20,26 +21,27 @@ const rowsFields : PrefrencesArray = [{  option : PrefrencesOptions.CATEGORIES ,
 export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option : PrefrencesOptions }> = ({prefrence , option })=>{
     const items = Object.values(prefrence)
     const {t}  = useTranslation()
-    const {data , isLoading } = useQuery({
-        queryKey : ["Cities"] , 
-        queryFn: async ()=>{
-          const data = await axios.get("/api/getCities")
-          return data 
-        } ,
-        onSuccess : (data)=>{
-            console.log("data" , data)
-        } ,
-        onError : (err)=>{
-            console.log("err" , err)
-        }
-    })
     const queryCities = useSelector(((state : stateType) => state.citiesQuery))
     const cities = useSelector((state: stateType)=>state.cities)
     const dispatch= useDispatch()
     const { dispatchAction } = bindActionCreators(ActionCreators , dispatch)
     const [LastItem, setLastItem] = useState<number>(3)
+    const {data , isLoading } = useQuery({
+        queryKey : ["Cities"] , 
+        queryFn: async ()=>{
+          dispatchAction({type : CitiesActionTypes.LOADING_CITIES})
+          const response = await axios.get("/api/getCities")
+          return response.data 
+        } ,
+        onSuccess : (data)=>{
+          dispatchAction({type : CitiesActionTypes.EDIT_CITIES ,  payload :{cities: data , error : null , loading : false}})
+        } ,
+        onError : (err)=>{
+            console.log("err" , err)
+        }
+    })
    
-
+console.log("cities" , cities )
 
 const toglePrefrence = (prefrence : Prefrence ): void=>{
     if(option === PrefrencesOptions.CATEGORIES){
