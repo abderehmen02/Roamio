@@ -8,7 +8,9 @@ import { bindActionCreators } from "redux"
 import { useRouter } from 'next/navigation'
 import { PrefrenceField, PrefrencesRow } from "./_components/prefrences"
 import { Page } from "@/ui/containers"
+import { Cities } from "./_components/cities"
 export default function Dashboard  (){
     return <Page>
 <PrefrencesRow/>
+<Cities/>
 </Page>}

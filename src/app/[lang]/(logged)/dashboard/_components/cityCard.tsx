@@ -1,7 +1,9 @@
+import { CityDb } from "@/db/models/city"
 import Image from "next/image"
 
-export const CityCard  = ()=>{
+export const CityCard : React.FC<CityDb> = (city)=>{
+    console.log("city card" , city)
     return <div>
-    <Image src="src" alt="alt" />
+        city card
     </div>
 }
