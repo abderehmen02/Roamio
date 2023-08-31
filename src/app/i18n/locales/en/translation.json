@@ -3,6 +3,11 @@
   "loading" : "...loading" ,
   "seeMore"  : "see more"  , 
   "seeLess"  : "see less"  , 
+  "languages" : "languages"  ,
+  "cityCard" : {
+    "latitude" : "latitude" ,
+    "longitude" : "longitude" 
+  } ,
    "auth"  : {
     "verifyEmailMessageSent" : "we sent a message to your email. please check and verify your email"  ,
     "jwtSessionExpiredDescreption" : "Your session has been expired, please sign in to continue." ,
