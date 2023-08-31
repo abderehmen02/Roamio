@@ -28,6 +28,7 @@ export interface CityDb {
   }
 
 
+
 const CitySchema = new mongoose.Schema<CityDb>({
     name: { type: String, required: true },
     country: { type: String, required: false },

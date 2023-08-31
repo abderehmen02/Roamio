@@ -36,12 +36,11 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
         onSuccess : (data)=>{
           dispatchAction({type : CitiesActionTypes.EDIT_CITIES ,  payload :{cities: data , error : null , loading : false}})
         } ,
-        onError : (err)=>{
-            console.log("err" , err)
+        onError : (err : any)=>{
+          dispatchAction({type : CitiesActionTypes.FAIL_CITIES , payload  : {message : err?.message || "Internal server error : can not get the cities"} })
         }
     })
    
-console.log("cities" , cities )
 
 const toglePrefrence = (prefrence : Prefrence ): void=>{
     if(option === PrefrencesOptions.CATEGORIES){
