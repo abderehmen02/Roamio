@@ -9,7 +9,7 @@ export type CityWikipediaData = {
     lon : number  | undefined,
     infoAvailble : boolean | undefined, 
     loading : boolean , 
-    error :  any
+    error :  any 
 }
 
 
@@ -19,6 +19,7 @@ const {data  , isLoading , error } = useQuery({
     queryFn: async ()=>{
         const wikipediaUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${cityName}` ; 
         const response  = await axios.get(wikipediaUrl)
+          console.log("response data" , response.data)
         return response.data
 }})
 

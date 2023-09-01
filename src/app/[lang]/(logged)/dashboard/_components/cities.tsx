@@ -12,7 +12,7 @@ export const Cities = ()=>{
     console.log("cities state" , cities)
     if(cities.loading) return <H2>Loading</H2>
     if(cities.error) return <H2>{cities.error.message}</H2>
-    return <div className="flex flex-col items-center gap-10" >
+    return <div className="flex flex-col  items-center gap-10" >
         {cities.cities.map((city)=><CityCard {...city} />)}
     </div>
 }
