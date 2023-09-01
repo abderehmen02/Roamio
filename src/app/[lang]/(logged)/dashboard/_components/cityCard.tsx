@@ -11,8 +11,8 @@ export const CityCard : React.FC<CityDb> =  (city)=>{
     const {t} = useTranslation()
     if(cityWikipediaData.error || !cityWikipediaData.infoAvailble || cityWikipediaData.loading ) return null
      const {descreption , image , lat , lon , subtitle} = cityWikipediaData
-    return <div className="flex items-center " >
-    <img src={image}  />
+    return <div className="flex items-center border-2 border-stone-600" >
+    <img src={image} style={{width : '200px' , maxHeight : '300px' , }} className="  border-2 border-red-600 " />
     <div className="flex flex-col" >
      <Title title={city.name}  descreption={subtitle}  />
      <P>{descreption}</P>

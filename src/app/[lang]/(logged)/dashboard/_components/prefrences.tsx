@@ -27,7 +27,7 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
     const { dispatchAction } = bindActionCreators(ActionCreators , dispatch)
     const [LastItem, setLastItem] = useState<number>(3)
     const {data , isLoading } = useQuery({
-        queryKey : ["Cities"] , 
+        queryKey : ["Cities" , queryCities ] , 
         queryFn: async ()=>{
           dispatchAction({type : CitiesActionTypes.LOADING_CITIES})
           const response = await axios.get("/api/getCities")
@@ -36,7 +36,7 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
         onSuccess : (data)=>{
           dispatchAction({type : CitiesActionTypes.EDIT_CITIES ,  payload :{cities: data , error : null , loading : false}})
         } ,
-        onError : (err : any)=>{
+        onError : (err : any )=>{
           dispatchAction({type : CitiesActionTypes.FAIL_CITIES , payload  : {message : err?.message || "Internal server error : can not get the cities"} })
         }
     })
