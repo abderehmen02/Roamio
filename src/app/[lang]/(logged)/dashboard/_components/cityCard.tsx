@@ -32,11 +32,11 @@ export const CityCard : React.FC<CityDb> =  (city)=>{
       const extractedIndex =     generateExtractDescreptionIndex(descreption?.length as number , imageAspectRacio as number )
      const extractedDescreption = descreption?.slice(  0  )
      console.log(city.name , imageAspectRacio )
-    return <div  className=" flex border-2 bg-white rounded-xl border-stone-600" >
-    <img  src={image}  style={{width : '200px' , maxHeight : '300px' , objectFit: 'contain' ,  }} className=" h-fit  border-2 border-red-600 " />
+    return <div  className=" flex border-2 bg-white rounded-xl w-full border-stone-600" >
+    <img  src={image}  style={{width : '200px' , height: '100%' , objectFit: 'cover' ,  }} className=" h-fit  border-2  " />
     <div className="flex px-6 py-2 flex-col gap-1" >
      <Title  title={city.name} titleClassName="text-2xl" className="flex-row   items-center justify-start gap-7"  descreptionClassName="font-bold text-secondaryDark" descreption={subtitle}  />
-     <P className="text-sm" >{extractedDescreption?.slice(0 ,extractedIndex ) }{ extractedIndex < Number(descreption?.length) && <span>Read More...</span>}</P>
+     <P className="text-sm" >{extractedDescreption?.slice(0 ,extractedIndex ) }{ extractedIndex < Number(descreption?.length) && <span className="capitalize" >... {t("seeMore")}</span>}</P>
      <div className="flex justify-between" ><P className="text-center  text-xs" >{city.continent} </P><P className="text-center text-xs" >{t("languages")} :<br/>{city.languages.map((lan , index)=><span>{lan} { index !== city.languages.length && ','} </span>)}</P><P className="text-center text-xs" >{t("cityCard.latitude")} :<br/> {lat} </P> <P className="text-center text-xs" >{t("cityCard.longitude")} :<br/> {lon} </P>       <div className="flex  px-8 gap-14" ><PrimaryBtn size={ButtonsSizes.medium} >{t("City Data")}</PrimaryBtn><SecondaryBtn size={ButtonsSizes.medium} >{t("Explore City")}</SecondaryBtn></div>
  </div>
     </div>
