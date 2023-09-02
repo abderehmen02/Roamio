@@ -26,8 +26,10 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
     const dispatch= useDispatch()
     const { dispatchAction } = bindActionCreators(ActionCreators , dispatch)
     const [LastItem, setLastItem] = useState<number>(3)
+    const query = new URLSearchParams(JSON.stringify(queryCities))
+    console.log("query"  , queryCities)
     const {data , isLoading } = useQuery({
-        queryKey : ["Cities" , queryCities ] , 
+        queryKey : ["Cities" , JSON.stringify(queryCities) ] , 
         queryFn: async ()=>{
           dispatchAction({type : CitiesActionTypes.LOADING_CITIES})
           const response = await axios.get("/api/getCities")
