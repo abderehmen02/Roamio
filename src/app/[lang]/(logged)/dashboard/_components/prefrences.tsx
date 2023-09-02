@@ -14,8 +14,13 @@ import { CitiesQueryActionTypes } from "@/types/state/citiesQuery"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import { CitiesActionTypes } from "@/types/state/cities"
+import { generateQueryCitiesSearchParam } from "@/utils/queryCities"
 
 const rowsFields : PrefrencesArray = [{  option : PrefrencesOptions.CATEGORIES , prefrence :  Categories }  , {   option: PrefrencesOptions.PRICES , prefrence: Prices } , { option : PrefrencesOptions.YEAR_TIMES , prefrence :  YearTimes } ,  {  option :  PrefrencesOptions.MEALS , prefrence : Meals }  , {option : PrefrencesOptions.WEATHERS , prefrence : Weathers} , {option : PrefrencesOptions.LANGUAGES , prefrence : Languages}  ]
+
+
+
+
 
 
 export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option : PrefrencesOptions }> = ({prefrence , option })=>{
@@ -26,8 +31,11 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
     const dispatch= useDispatch()
     const { dispatchAction } = bindActionCreators(ActionCreators , dispatch)
     const [LastItem, setLastItem] = useState<number>(3)
-    const query = new URLSearchParams(JSON.stringify(queryCities))
-    console.log("query"  , queryCities)
+    
+
+    const query = generateQueryCitiesSearchParam(queryCities)
+
+    console.log("query" , query)
     const {data , isLoading } = useQuery({
         queryKey : ["Cities" , JSON.stringify(queryCities) ] , 
         queryFn: async ()=>{
