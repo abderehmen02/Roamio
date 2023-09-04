@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios";
 
-export type CityWikipediaData = {
+export type PlaceWikipediaData = {
     subtitle : string | undefined, 
     image : string | undefined, 
     imageAspectRacio : number | undefined , 
@@ -13,8 +13,7 @@ export type CityWikipediaData = {
     error :  any 
 }
 
-
-export const useCityWikipediaData =(cityName : string ) : CityWikipediaData =>{
+export const usePlaceWikipediaData =(cityName : string ) : PlaceWikipediaData =>{
 const {data  , isLoading , error } = useQuery({
     queryKey : ["cityData" , cityName ] , 
     queryFn: async ()=>{
