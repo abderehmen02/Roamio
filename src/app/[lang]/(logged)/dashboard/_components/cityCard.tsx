@@ -36,8 +36,7 @@ export const CityCard : React.FC<CityDb> =  (city)=>{
     <div className="flex px-6 py-2 justify-around flex-col gap-1" >
      <Title  title={city.name} titleClassName="text-2xl" className="flex-row   items-center justify-start gap-7"  descreptionClassName="font-bold text-secondaryDark" descreption={subtitle}  />
      <P className="text-sm" >{extractedDescreption?.slice(0 ,extractedIndex ) }{ extractedIndex < Number(descreption?.length) && <span className="capitalize" >... {t("seeMore")}</span>}</P>
-     <div className="flex justify-between" ><P className="text-start  text-xs" >{city.continent} </P><P className="text-start text-xs" >{t("languages")} :<br/>{city.languages.map((lan , index)=><span>{lan} { index !== city.languages.length && ','} </span>)}</P><P className="text-start text-xs" >{t("cityCard.latitude")} :<br/> {lat} </P> <P className="text-start text-xs" >{t("cityCard.longitude")} :<br/> {lon} </P>       <div className="flex  px-8 gap-14" ><PrimaryBtn size={ButtonsSizes.medium} >{t("City Data")}</PrimaryBtn><SecondaryBtn size={ButtonsSizes.medium} >{t("Explore City")}</SecondaryBtn></div>
- </div>
+<div className="flex justify-between mx-16 my-7" >    <P className="text-start text-xs" >{t("cityCard.latitude")} :<br/> {lat} </P> <P className="text-start text-xs" >{t("cityCard.longitude")} :<br/> {lon} </P>       <div className="flex  px-8 gap-14" ><PrimaryBtn size={ButtonsSizes.medium} >{t("City Data")}</PrimaryBtn><SecondaryBtn size={ButtonsSizes.medium} >{t("Explore City")}</SecondaryBtn></div></div>
     </div>
     </div>
 }
