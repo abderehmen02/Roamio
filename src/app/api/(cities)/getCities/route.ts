@@ -19,6 +19,7 @@ export const GET = asyncWrapperApi(async (req )=>{
       const languages =    searchParams.get("languages")
    
 const queryDb : any = {}  ; 
+console.log("querydb" , queryDb)
 if(name ) queryDb.name = name 
 if(countries) queryDb.country = {$in: JSON.parse(countries)} 
 if(continents) queryDb.continent = {$in: JSON.parse(continents)} 

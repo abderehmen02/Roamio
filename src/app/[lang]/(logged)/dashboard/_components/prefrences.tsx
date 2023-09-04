@@ -14,7 +14,7 @@ import { CitiesQueryActionTypes } from "@/types/state/citiesQuery"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import { CitiesActionTypes } from "@/types/state/cities"
-import { generateQueryCitiesSearchParam } from "@/utils/queryCities"
+import { generateQueryCitiesSearchParam, isPrefrenceIncluded } from "@/utils/queryCities"
 
 const rowsFields : PrefrencesArray = [{  option : PrefrencesOptions.CATEGORIES , prefrence :  Categories }  , {   option: PrefrencesOptions.PRICES , prefrence: Prices } , { option : PrefrencesOptions.YEAR_TIMES , prefrence :  YearTimes } ,  {  option :  PrefrencesOptions.MEALS , prefrence : Meals }  , {option : PrefrencesOptions.WEATHERS , prefrence : Weathers} , {option : PrefrencesOptions.LANGUAGES , prefrence : Languages}  ]
 
@@ -34,19 +34,19 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
     
 
     const query = generateQueryCitiesSearchParam(queryCities)
-
     console.log("query" , query)
     const {data , isLoading } = useQuery({
-        queryKey : ["Cities" , JSON.stringify(queryCities) ] , 
+        queryKey : ["Cities" , query ] , 
         queryFn: async ()=>{
           dispatchAction({type : CitiesActionTypes.LOADING_CITIES})
-          const response = await axios.get("/api/getCities")
+          const response = await axios.get(`/api/getCities?${query}`)
           return response.data 
         } ,
         onSuccess : (data)=>{
           dispatchAction({type : CitiesActionTypes.EDIT_CITIES ,  payload :{cities: data , error : null , loading : false}})
         } ,
         onError : (err : any )=>{
+            console.log("err" , err)
           dispatchAction({type : CitiesActionTypes.FAIL_CITIES , payload  : {message : err?.message || "Internal server error : can not get the cities"} })
         }
     })
@@ -64,7 +64,7 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
     return <div className="flex-col py-3">
 {
 
-    items.slice(0 , LastItem).map((item=> <div className="flex  items-center gap-1" > <P className="  text-sm capitalize"  onClick={()=>toglePrefrence(item)} >{item}  </P> <i className="bi bi-record-circle text-xs"></i> </div>))
+    items.slice(0 , LastItem).map((item=> <div className="flex  items-center gap-1" > <P className="  text-sm capitalize"  onClick={()=>toglePrefrence(item)} >{item}  </P> { isPrefrenceIncluded(queryCities , option , item ) && <i className="bi bi-record-circle text-xs"></i> } </div>))
 }    
 <P className="w-full capitalize text-sm" onClick={()=>{items?.length> LastItem  && setLastItem(val=>val+ 3) , console.log("clicked") }} >{t("seeMore")}<i className="bi bi-arrow-down"></i></P>
 <P className="w-full capitalize text-sm" onClick={()=>{ items?.length> 2  &&  setLastItem(val=>val  -  3) , console.log("clicked") }} >{t("seeLess")}<i className="bi bi-arrow-up"></i></P>
