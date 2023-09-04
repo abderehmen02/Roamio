@@ -2,11 +2,13 @@
 
 import { useTranslation } from "@/app/i18n/client"
 import { CityDb } from "@/db/models/city"
-import { useCityWikipediaData } from "@/hooks/cityWikipediaData"
+import { usePlaceWikipediaData } from "@/hooks/cityWikipediaData"
+import { cn } from "@/lib/tailwind"
 import { ButtonsSizes, PrimaryBtn, SecondaryBtn } from "@/ui/buttons"
 import { Title } from "@/ui/title"
 import {  P } from "@/ui/typography"
 import { useEffect, useRef, useState } from "react"
+import { Landmarks } from "./landmarks"
 
 const generateExtractDescreptionIndex : (length : number  , aspectRacio : number | undefined )=>number = (length , aspectRacio )  =>{
   if(aspectRacio){
@@ -20,7 +22,12 @@ const generateExtractDescreptionIndex : (length : number  , aspectRacio : number
 }
 
 export const CityCard : React.FC<CityDb> =  (city)=>{
-    const cityWikipediaData   =  useCityWikipediaData(city.name)
+  const [viewLandMarks, setViewLandMarks] = useState<boolean>(false)
+
+
+
+
+  const cityWikipediaData   =  usePlaceWikipediaData(city.name)
    
     
 
@@ -31,12 +38,15 @@ export const CityCard : React.FC<CityDb> =  (city)=>{
     const {descreption , image , lat , lon , subtitle , imageAspectRacio } = cityWikipediaData
       const extractedIndex =     generateExtractDescreptionIndex(descreption?.length as number , imageAspectRacio as number )
      const extractedDescreption = descreption?.slice(  0  )
-    return <div  className=" flex border-2 bg-white rounded-xl w-full border-stone-600" >
+    return <div className="flex flex-col" >
+    <div  className=" flex border-2 bg-white rounded-xl  w-full border-stone-600" >
     <img  src={image}  style={{width : '200px' , height: '100%' , objectFit: 'cover' ,  }} className=" h-fit rounded-l-xl border-2  " />
     <div className="flex px-6 py-2 justify-around flex-col gap-1" >
      <Title  title={city.name} titleClassName="text-2xl" className="flex-row   items-center justify-start gap-7"  descreptionClassName="font-bold text-secondaryDark" descreption={subtitle}  />
      <P className="text-sm" >{extractedDescreption?.slice(0 ,extractedIndex ) }{ extractedIndex < Number(descreption?.length) && <span className="capitalize" >... {t("seeMore")}</span>}</P>
-<div className="flex justify-between  my-7" > <div className="flex flex-co" >   <P className="text-start text-xs" >{t("cityCard.latitude")} : {Number(lat).toFixed(10)} </P> <P className="text-start text-xs" >{t("cityCard.longitude")} :{Number(lon).toFixed(10)} </P></div>       <div className="flex  px-8 gap-14" ><PrimaryBtn size={ButtonsSizes.small} >{t("Explore Landmarks")}</PrimaryBtn><SecondaryBtn size={ButtonsSizes.small} >{t("Explore City")}</SecondaryBtn></div></div>
+<div className="flex justify-between  my-7" > <div className="flex flex-col gap-1" >   <P className="text-start text-xs" >{t("cityCard.latitude")} : {Number(lat).toFixed(10)} </P> <P className="text-start text-xs" >{t("cityCard.longitude")} :{Number(lon).toFixed(10)} </P></div>       <div className="flex  px-8 gap-8" ><PrimaryBtn size={ButtonsSizes.small} onClick={()=>setViewLandMarks((val)=>!val)} > {viewLandMarks ? <i className="bi bi-chevron-up"></i> : <i className= "bi bi-chevron-down " ></i> }  {t("Explore Landmarks")}  </PrimaryBtn><SecondaryBtn size={ButtonsSizes.small} >{t("Explore City")}</SecondaryBtn></div></div>
     </div>
     </div>
+    {  viewLandMarks &&  <Landmarks landmarks={city.landmarks} /> }
+   </div>
 }
