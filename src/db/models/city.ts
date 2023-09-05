@@ -6,7 +6,10 @@ import mongoose , {model , mongo, Schema} from "mongoose";
 
 export interface CityDb {
     name: string,
-    landmarks : string[]
+    landmarks : string[] ,
+    reviews  : string[] ,
+    likes : number, 
+    dislikes: number,
   }
 
 
@@ -14,7 +17,10 @@ export interface CityDb {
 
 const CitySchema = new mongoose.Schema<CityDb>({
     name: { type: String, required: true },
-    landmarks : {type : [String] , required : false }
+    landmarks : {type : [String] , required : true } , 
+    reviews: {type : [String ] , required: true }  ,
+    likes : {type : Number , required : true} ,
+    dislikes : {type : Number  , required  : true}
   });
   
 export const historicalModal  = ()=>{
