@@ -22,7 +22,7 @@ export const generateExtractDescreptionIndex : (length : number  , aspectRacio :
 }
 
 export const CityCard : React.FC<CityDb> =  (city)=>{
-  const [viewLandMarks, setViewLandMarks] = useState<boolean>(true)
+  const [viewLandMarks, setViewLandMarks] = useState<boolean>(false)
 
 
 
@@ -38,7 +38,7 @@ export const CityCard : React.FC<CityDb> =  (city)=>{
     const {descreption , image , lat , lon , subtitle , imageAspectRacio } = cityWikipediaData
       const extractedIndex =     generateExtractDescreptionIndex(descreption?.length as number , imageAspectRacio as number )
      const extractedDescreption = descreption?.slice(  0  )
-    return <div className="flex flex-col  border-2 bg-white rounded-xl  w-full border-stone-600" >
+    return <div className="flex flex-col shadow-md  bg-white rounded-xl  w-full border-stone-600" >
     <div  className=" flex" >
     <img  src={image}  style={{width : '200px' , height: '100%' , objectFit: 'cover' ,  }} className=" h-fit rounded-l-xl border-2  " />
     <div className="flex px-6 py-2 justify-around flex-col gap-1" >
