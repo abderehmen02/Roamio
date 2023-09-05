@@ -39,7 +39,7 @@ export const CityCard : React.FC<CityDb> =  (city)=>{
     return <div className="flex flex-col shadow-md  bg-white rounded-xl  w-full border-stone-600" >
     <div  className=" flex" >
     <img  src={image}  style={{width : '200px' , objectFit: 'cover' ,  }} className={ cn( "rounded-l-xl border-2 " , {"h-full" : !seeAllDescreption , "h-fit " : seeAllDescreption } )} />
-    <div className="flex px-6 py-1 justify-around flex-col " >
+    <div className="flex px-6 w-full py-1 justify-around flex-col " >
      <Title  title={city.name} titleClassName="text-2xl" className="flex-row   items-center justify-start gap-7"  descreptionClassName="font-bold text-secondaryDark" descreption={subtitle}  />
       { descreption &&  <P className="text-sm" >{ seeAllDescreption ? descreption  :  descreption?.slice(0 ,extractedIndex ) }{ extractedIndex < descreption.length &&  (  seeAllDescreption ?  <span style={{cursor: 'pointer'}} className="capitalize " onClick={()=>setSeeAllDescreption(false)} >... {t("seeLess")}</span>  :     <span style={{cursor: 'pointer'}} className="capitalize " onClick={()=>setSeeAllDescreption(true)} >... {t("seeMore")}</span> )}</P> }
 <div className="flex justify-end gap-6  my-1" ><PrimaryBtn size={ButtonsSizes.small} onClick={()=>setViewLandMarks((val)=>!val)} > {viewLandMarks ? <i className="bi bi-chevron-up"></i> : <i className= "bi bi-chevron-down " ></i> }  {t("Explore Landmarks")}  </PrimaryBtn><SecondaryBtn size={ButtonsSizes.small} >{t("Explore City")}</SecondaryBtn></div>
