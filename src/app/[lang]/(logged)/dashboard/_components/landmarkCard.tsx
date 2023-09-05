@@ -14,7 +14,7 @@ export const LandmarkCard : React.FC<{landMark : string , cityLon : number , cit
     const extractedDescreption = descreption?.slice(  0  )
 
     if(error || loading ) return 
-return  <div className=" flex border-2 bg-white rounded-xl  w-full border-stone-600" >
+return  <div className=" flex shadow-md  rounded-xl  w-full border-stone-600" >
     <img src={image} width="100px" height="100px"    style={{width : '200px' , height: '100%' , objectFit: 'cover' ,  }} className=" h-fit rounded-l-xl border-2  "  />
     
     <div className="flex px-6 py-2 justify-around flex-col gap-1" >
