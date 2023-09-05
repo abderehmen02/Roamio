@@ -23,12 +23,8 @@ export const generateExtractDescreptionIndex : (length : number  , aspectRacio :
 
 export const CityCard : React.FC<CityDb> =  (city)=>{
   const [viewLandMarks, setViewLandMarks] = useState<boolean>(city.name == "Cairo")
-
-
-
-
+   const [seeAllDescreption, setSeeAllDescreption] = useState(false)
   const cityWikipediaData   =  usePlaceWikipediaData(city.name)
-   
     
 
 
@@ -36,14 +32,16 @@ export const CityCard : React.FC<CityDb> =  (city)=>{
     const {t} = useTranslation()
     if(cityWikipediaData.error || !cityWikipediaData.infoAvailble || cityWikipediaData.loading ) return null
     const {descreption , image , lat , lon , subtitle , imageAspectRacio } = cityWikipediaData
-      const extractedIndex =     generateExtractDescreptionIndex(descreption?.length as number , imageAspectRacio as number )
-     const extractedDescreption = descreption?.slice(  0  )
+  
+     const extractedIndex = generateExtractDescreptionIndex(descreption?.length as number , imageAspectRacio as number )
+
+
     return <div className="flex flex-col shadow-md  bg-white rounded-xl  w-full border-stone-600" >
     <div  className=" flex" >
-    <img  src={image}  style={{width : '200px' , height: '100%' , objectFit: 'cover' ,  }} className=" h-fit rounded-l-xl border-2  " />
+    <img  src={image}  style={{width : '200px' , objectFit: 'cover' ,  }} className={ cn( "rounded-l-xl border-2 " , {"h-full" : !seeAllDescreption , "h-fit " : seeAllDescreption } )} />
     <div className="flex px-6 py-2 justify-around flex-col gap-1" >
      <Title  title={city.name} titleClassName="text-2xl" className="flex-row   items-center justify-start gap-7"  descreptionClassName="font-bold text-secondaryDark" descreption={subtitle}  />
-     <P className="text-sm" >{extractedDescreption?.slice(0 ,extractedIndex ) }{ extractedIndex < Number(descreption?.length) && <span className="capitalize" >... {t("seeMore")}</span>}</P>
+      { descreption &&  <P className="text-sm" >{ seeAllDescreption ? descreption  :  descreption?.slice(0 ,extractedIndex ) }{  seeAllDescreption ?  <span style={{cursor: 'pointer'}} className="capitalize " onClick={()=>setSeeAllDescreption(false)} >... {t("seeLess")}</span>  :  <span style={{cursor: 'pointer'}} className="capitalize " onClick={()=>setSeeAllDescreption(true)} >... {t("seeMore")}</span> }</P> }
 <div className="flex justify-end gap-6  my-7" ><PrimaryBtn size={ButtonsSizes.small} onClick={()=>setViewLandMarks((val)=>!val)} > {viewLandMarks ? <i className="bi bi-chevron-up"></i> : <i className= "bi bi-chevron-down " ></i> }  {t("Explore Landmarks")}  </PrimaryBtn><SecondaryBtn size={ButtonsSizes.small} >{t("Explore City")}</SecondaryBtn></div>
     </div>
     </div>
