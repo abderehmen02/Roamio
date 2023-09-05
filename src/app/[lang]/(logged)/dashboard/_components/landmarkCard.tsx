@@ -5,6 +5,7 @@ import { H3, P } from "@/ui/typography"
 import React, { useState } from "react"
 import { generateExtractDescreptionIndex } from "./cityCard"
 import { useTranslation } from "@/app/i18n/client"
+import { cn } from "@/lib/tailwind"
 
 
 export const LandmarkCard : React.FC<{landMark : string , cityLon : number , cityLat : number }> =({landMark , cityLon , cityLat })=>{
@@ -17,7 +18,7 @@ export const LandmarkCard : React.FC<{landMark : string , cityLon : number , cit
 
     if(error || loading ) return 
 return  <div className=" flex shadow-md  rounded-xl  w-full border-stone-600" >
-    <img src={image} width="100px" height="100px"    style={{width : '200px' , height: '100%' , objectFit: 'cover' ,  }} className=" h-fit rounded-l-xl border-2  "  />
+    <img  src={image}  style={{width : '200px' , objectFit: 'cover' ,  }} className={ cn( "rounded-l-xl border-2 " , {"h-full" : !seeAllDescreption , "h-fit " : seeAllDescreption } )} />
     
     <div className="flex px-6 py-2 justify-around flex-col gap-1" >
      <Title  title={landMark} titleClassName="text-xl" className="flex-row   items-center justify-start gap-7"  descreptionClassName="font-bold text-secondaryDark text-base" descreption={subtitle}  />
