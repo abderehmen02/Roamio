@@ -257,6 +257,16 @@ export const GET = asyncWrapperApi(async ()=>{
   { name: "Sarajevo", landmarks: ["Baščaršija", "Sarajevo_City_Hall", "Gazi_Husrev-beg's_Medresa", "Yellow_Fortress"] },
   { name: "Pécs", landmarks: ["Early_Christian_Mausoleum", "Pécs_Cathedral", "Zsolnay_Cultural_Quarter", "Pécs_National_Theatre"] },
   { name: "Leiden", landmarks: ["Leiden_University", "Leiden_Observatory", "Pieterskerk", "Molen_de_Valk"] },
+  { name: "Oxford", landmarks: ["University_of_Oxford", "Bodleian_Library", "Christ_Church,_Oxford", "Radcliffe_Camera"] },
+  { name: "York", landmarks: ["York_Minster", "York_City_Walls", "Clifford's_Tower", "National_Railway_Museum"] },
+  { name: "Strasbourg", landmarks: ["Strasbourg_Cathedral", "Palais_Rohans", "La_Petite_France", "Strasbourg_Museum_of_Fine_Arts"] },
+  { name: "Lviv", landmarks: ["Lviv_City_Hall", "Lviv_Opera", "High_Castle_(Lviv)", "Lychakiv_Cemetery"] },
+  { name: "Sarajevo", landmarks: ["Baščaršija", "Sarajevo_City_Hall", "Gazi_Husrev-beg's_Medresa", "Yellow_Fortress"] },
+  { name: "Pécs", landmarks: ["Early_Christian_Mausoleum", "Pécs_Cathedral", "Zsolnay_Cultural_Quarter", "Pécs_National_Theatre"] },
+  { name: "Leiden", landmarks: ["Leiden_University", "Leiden_Observatory", "Pieterskerk", "Molen_de_Valk"] },
+  { name: "Delft", landmarks: ["Nieuwe_Kerk,_Delft", "Royal_Delft", "Oude_Kerk,_Delft", "Prinsenhof"] },
+  { name: "Ghent", landmarks: ["Gravensteen", "Saint_Bavo_Cathedral,_Ghent", "Belfry_of_Ghent", "Museum_of_Fine_Arts,_Ghent"] },
+  { name: "Cologne", landmarks: ["Cologne_Cathedral", "Hohenzollern_Bridge", "Cologne_Zoo", "Ludwig_Museum"] },
           ];
 
 

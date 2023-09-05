@@ -10,7 +10,7 @@ import {  P } from "@/ui/typography"
 import { useEffect, useRef, useState } from "react"
 import { Landmarks } from "./landmarks"
 
-const generateExtractDescreptionIndex : (length : number  , aspectRacio : number | undefined )=>number = (length , aspectRacio )  =>{
+export const generateExtractDescreptionIndex : (length : number  , aspectRacio : number | undefined )=>number = (length , aspectRacio )  =>{
   if(aspectRacio){
   if(aspectRacio < 0.6) return 90
   if(aspectRacio < 0.7) return 200
@@ -22,7 +22,7 @@ const generateExtractDescreptionIndex : (length : number  , aspectRacio : number
 }
 
 export const CityCard : React.FC<CityDb> =  (city)=>{
-  const [viewLandMarks, setViewLandMarks] = useState<boolean>(false)
+  const [viewLandMarks, setViewLandMarks] = useState<boolean>(true)
 
 
 
@@ -38,15 +38,15 @@ export const CityCard : React.FC<CityDb> =  (city)=>{
     const {descreption , image , lat , lon , subtitle , imageAspectRacio } = cityWikipediaData
       const extractedIndex =     generateExtractDescreptionIndex(descreption?.length as number , imageAspectRacio as number )
      const extractedDescreption = descreption?.slice(  0  )
-    return <div className="flex flex-col" >
-    <div  className=" flex border-2 bg-white rounded-xl  w-full border-stone-600" >
+    return <div className="flex flex-col  border-2 bg-white rounded-xl  w-full border-stone-600" >
+    <div  className=" flex" >
     <img  src={image}  style={{width : '200px' , height: '100%' , objectFit: 'cover' ,  }} className=" h-fit rounded-l-xl border-2  " />
     <div className="flex px-6 py-2 justify-around flex-col gap-1" >
      <Title  title={city.name} titleClassName="text-2xl" className="flex-row   items-center justify-start gap-7"  descreptionClassName="font-bold text-secondaryDark" descreption={subtitle}  />
      <P className="text-sm" >{extractedDescreption?.slice(0 ,extractedIndex ) }{ extractedIndex < Number(descreption?.length) && <span className="capitalize" >... {t("seeMore")}</span>}</P>
-<div className="flex justify-between  my-7" > <div className="flex flex-col gap-1" >   <P className="text-start text-xs" >{t("cityCard.latitude")} : {Number(lat).toFixed(10)} </P> <P className="text-start text-xs" >{t("cityCard.longitude")} :{Number(lon).toFixed(10)} </P></div>       <div className="flex  px-8 gap-8" ><PrimaryBtn size={ButtonsSizes.small} onClick={()=>setViewLandMarks((val)=>!val)} > {viewLandMarks ? <i className="bi bi-chevron-up"></i> : <i className= "bi bi-chevron-down " ></i> }  {t("Explore Landmarks")}  </PrimaryBtn><SecondaryBtn size={ButtonsSizes.small} >{t("Explore City")}</SecondaryBtn></div></div>
+<div className="flex justify-end gap-6  my-7" ><PrimaryBtn size={ButtonsSizes.small} onClick={()=>setViewLandMarks((val)=>!val)} > {viewLandMarks ? <i className="bi bi-chevron-up"></i> : <i className= "bi bi-chevron-down " ></i> }  {t("Explore Landmarks")}  </PrimaryBtn><SecondaryBtn size={ButtonsSizes.small} >{t("Explore City")}</SecondaryBtn></div>
     </div>
     </div>
-    {  viewLandMarks &&  <Landmarks landmarks={city.landmarks} /> }
+    {  viewLandMarks && cityWikipediaData.lat && cityWikipediaData.lon &&  <Landmarks city={city} cityLat={cityWikipediaData.lat} cityLon={cityWikipediaData.lon} /> }
    </div>
 }
