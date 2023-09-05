@@ -12,7 +12,7 @@ size? : string
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const PrimaryBtn : React.FC<UiButtonProps> = ({children , className , size = ButtonsSizes.large , ...props })=>{
-return  <button  className={cn("   bg-white border-2 border-primary hover:text-white hover:bg-primary    hover:outline hover:outline-2 hover:outline-primary   text-primary  shadow-md"  , {"text-lg rounded-3xl font-bold px-4 py-2" : size === ButtonsSizes.large  , "text-base rounded-2xl font-semibold px-2 py-1" : size === ButtonsSizes.medium , "text-sm rounded-xl font-normal px-2 py-1" : size === ButtonsSizes.small  }   , montserratClassName , className)} {...props} >{children}</button>
+return  <button  className={cn("   bg-white border-2 border-primary hover:text-white hover:bg-primary    hover:outline hover:outline-2 hover:outline-primary   text-primary  shadow-md"  , {"text-lg rounded-3xl font-bold px-4 py-2" : size === ButtonsSizes.large  , "text-base rounded-2xl font-semibold px-2 py-1" : size === ButtonsSizes.medium , "text-xs rounded-xl font-normal px-2" : size === ButtonsSizes.small  }   , montserratClassName , className)} {...props} >{children}</button>
 }
 
 export const SecondaryBtn : React.FC<UiButtonProps>  = ({children , className , size = ButtonsSizes.large , ...props })=>{
