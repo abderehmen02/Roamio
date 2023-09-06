@@ -3,25 +3,25 @@ import mongoose , {model , mongo, Schema} from "mongoose";
 
 export type landMark = {
   name: string , 
-  likes : number, 
-  dislikes :number ,
-  reviews: string[]
+  reviews  : {user: string , review : string}[] ,
+  likes : string[], 
+  dislikes: string[],
 }
 
 export interface CityDb {
     name: string,
     landmarks : landMark[] ,
-    reviews  : string[] ,
-    likes : number, 
-    dislikes: number,
+    reviews  : {user: string , review : string}[] ,
+    likes : string[], 
+    dislikes: string[],
   }
 
 const CitySchema = new mongoose.Schema<CityDb>({
     name: { type: String, required: true },
-    landmarks : [{ name :  {type : [String] , required : true } , likes  :{type : Number , required : true} , dislikes : {type :Number , required : true} ,reviews: {type : [String] , required: true} } ] , 
-    reviews: {type : [String ] , required: true }  ,
-    likes : {type : Number , required : true} ,
-    dislikes : {type : Number  , required  : true}
+    landmarks : [{ name :  {type : String , required : true } , likes  :{type : [String] , required : true} , dislikes : {type :[String], required : true} ,reviews: {type : [{user: {type : String , required : true} , review : {type : String , required: true} }] , required: true} } ] , 
+    reviews: {type : [{user: {type : String} , review : {type: String} }]  }  ,
+    likes : [{type : String , required : true}] ,
+    dislikes : [{type : String  , required  : true}]
   });
   
 export const historicalModal  = ()=>{
