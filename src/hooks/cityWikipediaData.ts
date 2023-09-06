@@ -10,7 +10,8 @@ export type PlaceWikipediaData = {
     lon : number  | undefined,
     infoAvailble : boolean | undefined, 
     loading : boolean , 
-    error :  any 
+    error :  any ,
+    title : string 
 }
 
 export const usePlaceWikipediaData =(cityName : string ) : PlaceWikipediaData =>{
@@ -24,12 +25,13 @@ const {data  , isLoading , error } = useQuery({
 
 return {
     subtitle : data?.description ,
-    image: data?.thumbnail?.source || data?.originalimage?.source ,
+    image: data?.thumbnail?.source || data?.originalimage?.source || "/no-image.png",
     descreption : data?.extract  ,
     imageAspectRacio : data?.thumbnail?.height / data?.thumbnail?.width  || data?.originalimage?.height / data?.originalimage?.width ,
     infoAvailble : Boolean(data?.description && (data?.thumbnail?.source || data?.originalimage?.source) && data?.extract ) , 
     lat : data?.coordinates?.lat ,
     lon : data?.coordinates?.lon , 
+    title : data?.title ,
     loading : isLoading , 
     error : error
 }
