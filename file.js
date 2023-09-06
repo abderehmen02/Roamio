@@ -280,7 +280,7 @@ cleanArray([
 
 
 function addingInfo(array){
-console.log(    array.map(item=>({...item , landmarks : item.landmarks.map(landmark=>({name : landmark , likes : 0  , dislikes : 0 , reviews : []})) , reviews : [] , likes : 0 , dislikes : 0})))
+console.log(    array.map(item=>({name : item.name , reviews: []  , landmarks : item.landmarks.map(landmark=>({name : landmark.name , likes : []  , dislikes : [] , reviews : []})) , reviews : [] , likes : [] , dislikes : []})))
 }
 
 addingInfo([
