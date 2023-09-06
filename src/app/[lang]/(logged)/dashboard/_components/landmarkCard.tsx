@@ -19,7 +19,7 @@ export const LandmarkCard : React.FC<{landMark : landMark , cityLon : number , c
 
     if(error || loading ) return 
 return  <div className=" flex shadow-md  rounded-xl  w-full border-stone-600" >
-    <img  src={image}  style={{width : '200px' , objectFit: 'cover' ,  }} className={ cn( "rounded-l-xl border-2 " , {"h-full" : !seeAllDescreption , "h-fit " : seeAllDescreption } )} />
+    <img  src={image}  style={{width : '200px' , objectFit: 'cover' , minHeight : '60px' }} className={ cn( "rounded-l-xl border-2 " , {"h-full" : !seeAllDescreption , "h-fit " : seeAllDescreption } )} />
     
     <div className="flex px-6 py-2 justify-around flex-col gap-1" >
      <Title  title={title} titleClassName="text-xl" className="flex-row   items-center justify-start gap-7"  descreptionClassName="font-bold text-secondaryDark text-base" descreption={subtitle}  />

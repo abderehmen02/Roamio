@@ -10,7 +10,7 @@ import { PrefrenceField, PrefrencesRow } from "./_components/prefrences"
 import { Page } from "@/ui/containers"
 import { Cities } from "./_components/cities"
 export default function Dashboard  (){
-    return <Page className="bg-grayLight" >
+    return <Page className="" >
 <PrefrencesRow/>
 <Cities/>
 </Page>}
