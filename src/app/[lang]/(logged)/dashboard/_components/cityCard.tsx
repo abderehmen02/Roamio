@@ -9,6 +9,11 @@ import { Title } from "@/ui/title"
 import {  P } from "@/ui/typography"
 import { useEffect, useRef, useState } from "react"
 import { Landmarks } from "./landmarks"
+import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import CommentIcon from '@mui/icons-material/Comment';
+
+
 
 export const generateExtractDescreptionIndex : (length : number  , aspectRacio : number | undefined )=>number = (length , aspectRacio )  =>{
   if(aspectRacio){
@@ -42,7 +47,7 @@ export const CityCard : React.FC<CityDb> =  (city)=>{
     <div className="flex px-6 w-full py-1 justify-around flex-col " >
      <Title  title={city.name} titleClassName="text-2xl" className="flex-row   items-center justify-start gap-7"  descreptionClassName="font-bold text-secondaryDark" descreption={subtitle}  />
       { descreption &&  <P className="text-sm" >{ seeAllDescreption ? descreption  :  descreption?.slice(0 ,extractedIndex ) }{ extractedIndex < descreption.length &&  (  seeAllDescreption ?  <span style={{cursor: 'pointer'}} className="capitalize " onClick={()=>setSeeAllDescreption(false)} >... {t("seeLess")}</span>  :     <span style={{cursor: 'pointer'}} className="capitalize " onClick={()=>setSeeAllDescreption(true)} >... {t("seeMore")}</span> )}</P> }
-<div className="flex  justify-end gap-6  " ><PrimaryBtn size={ButtonsSizes.small} className="py-0 text-sm" onClick={()=>setViewLandMarks((val)=>!val)} > {viewLandMarks ? <i className="bi m-0 text-sm bi-chevron-up"></i> : <i className= "bi m-0  bi-chevron-down " ></i> } {t("Explore Landmarks")}  </PrimaryBtn><SecondaryBtn className="py-0 text-sm" size={ButtonsSizes.small} >{t("Explore City")}</SecondaryBtn></div>
+<div className="flex  justify-between gap-6  " ><div className="flex gap-5" ><FavoriteBorderIcon/><ThumbDownOffAltIcon/><CommentIcon/> </div><div className="flex gap-6 justiyf-center" ><PrimaryBtn size={ButtonsSizes.small} className="py-0 text-sm" onClick={()=>setViewLandMarks((val)=>!val)} > {viewLandMarks ? <i className="bi m-0 text-sm bi-chevron-up"></i> : <i className= "bi m-0  bi-chevron-down " ></i> } {t("Explore Landmarks")}  </PrimaryBtn><SecondaryBtn className="py-0 text-sm" size={ButtonsSizes.small} >{t("Explore City")}</SecondaryBtn></div></div>
     </div>
     </div>
     {  viewLandMarks && cityWikipediaData.lat && cityWikipediaData.lon &&  <Landmarks city={city} cityLat={cityWikipediaData.lat} cityLon={cityWikipediaData.lon} /> }
