@@ -18,7 +18,7 @@ export interface CityDb {
 
 const CitySchema = new mongoose.Schema<CityDb>({
     name: { type: String, required: true , unique : true },
-    landmarks : [{ name :  {type : String , required : true } , likes  :{type : [String] , required : true} , dislikes : {type :[String], required : true} ,reviews: {type : [{user: {type : String , required : true} , review : {type : String , required: true} }] , required: true} } ] , 
+    landmarks : [{ name :  {type : String  } , likes  :{type : [String] } , dislikes : {type :[String]} ,reviews: {type : [{user: {type : String } , review : {type : String } }] } } ] , 
     reviews: {type : [{user: {type : String} , review : {type: String} }]  }  ,
     likes : [{type : String , required : true}] ,
     dislikes : [{type : String  , required  : true}]
