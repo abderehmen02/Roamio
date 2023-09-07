@@ -1,4 +1,4 @@
-export const historicalArray = [
+export const historicalCities = [
     {
         "name": "Rome",
         "reviews": [],
@@ -29,7 +29,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Italy",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Italian",
+            "English"
+        ]
     },
     {
         "name": "Cairo",
@@ -61,7 +75,22 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Egypt",
+        "continent": "Africa",
+        "yearTimes": [
+            "Spring",
+            "Autumn",
+            "Winter"
+        ],
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Desert"
+        ],
+        "languages": [
+            "Arabic",
+            "English"
+        ]
     },
     {
         "name": "Athens",
@@ -93,7 +122,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Greece",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Greek",
+            "English"
+        ]
     },
     {
         "name": "Kyoto",
@@ -125,7 +168,22 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Japan",
+        "continent": "Asia",
+        "yearTimes": [
+            "Spring",
+            "Autumn",
+            "Cherry Blossom"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "Japanese",
+            "English"
+        ]
     },
     {
         "name": "Machu Picchu",
@@ -139,7 +197,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Peru",
+        "continent": "South America",
+        "yearTimes": [
+            "Dry Season"
+        ],
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Tropical",
+            "Mountainous"
+        ],
+        "languages": [
+            "Spanish",
+            "Quechua"
+        ]
     },
     {
         "name": "Jerusalem",
@@ -171,7 +243,22 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Israel",
+        "continent": "Asia",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Hebrew",
+            "Arabic",
+            "English"
+        ]
     },
     {
         "name": "Istanbul",
@@ -203,7 +290,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Turkey",
+        "continent": "Asia",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Turkish",
+            "English"
+        ]
     },
     {
         "name": "Baghdad",
@@ -235,7 +336,22 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Iraq",
+        "continent": "Asia",
+        "yearTimes": [
+            "Spring",
+            "Autumn",
+            "Winter"
+        ],
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Desert"
+        ],
+        "languages": [
+            "Arabic",
+            "Kurdish"
+        ]
     },
     {
         "name": "Beijing",
@@ -267,7 +383,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "China",
+        "continent": "Asia",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "Mandarin",
+            "English"
+        ]
     },
     {
         "name": "Varanasi",
@@ -299,7 +429,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "India",
+        "continent": "Asia",
+        "yearTimes": [
+            "Winter",
+            "Spring"
+        ],
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Tropical"
+        ],
+        "languages": [
+            "Hindi",
+            "English"
+        ]
     },
     {
         "name": "Cusco",
@@ -331,7 +475,20 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Peru",
+        "continent": "South America",
+        "yearTimes": [
+            "Dry Season"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Mountainous"
+        ],
+        "languages": [
+            "Spanish",
+            "Quechua"
+        ]
     },
     {
         "name": "Jerash",
@@ -363,7 +520,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Jordan",
+        "continent": "Asia",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Desert"
+        ],
+        "languages": [
+            "Arabic",
+            "English"
+        ]
     },
     {
         "name": "Luxor",
@@ -395,7 +566,22 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Egypt",
+        "continent": "Africa",
+        "yearTimes": [
+            "Spring",
+            "Autumn",
+            "Winter"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Desert"
+        ],
+        "languages": [
+            "Arabic",
+            "English"
+        ]
     },
     {
         "name": "Marrakech",
@@ -427,7 +613,22 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Morocco",
+        "continent": "Africa",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Desert"
+        ],
+        "languages": [
+            "Arabic",
+            "French",
+            "English"
+        ]
     },
     {
         "name": "Venice",
@@ -459,7 +660,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Italy",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Italian",
+            "English"
+        ]
     },
     {
         "name": "Cologne",
@@ -491,7 +706,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Germany",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "German",
+            "English"
+        ]
     },
     {
         "name": "Dubrovnik",
@@ -523,7 +752,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Croatia",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Croatian",
+            "English"
+        ]
     },
     {
         "name": "Salzburg",
@@ -555,7 +798,23 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Austria",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Summer",
+            "Autumn"
+        ],
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Alpine"
+        ],
+        "languages": [
+            "German",
+            "English"
+        ]
     },
     {
         "name": "Seville",
@@ -587,7 +846,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Spain",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Spanish",
+            "English"
+        ]
     },
     {
         "name": "Krakow",
@@ -619,7 +892,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Poland",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "Polish",
+            "English"
+        ]
     },
     {
         "name": "Budapest",
@@ -651,39 +938,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
-    },
-    {
-        "name": "Granada ",
-        "reviews": [],
-        "landmarks": [
-            {
-                "name": "Alhambra",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Generalife",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Royal_Chapel_of_Granada",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Granada_Cathedral",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            }
+        "dislikes": [],
+        "country": "Hungary",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
         ],
-        "likes": [],
-        "dislikes": []
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "Hungarian",
+            "English"
+        ]
     },
     {
         "name": "Fez",
@@ -715,199 +984,22 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
-    },
-    {
-        "name": "Dubrovnik ",
-        "reviews": [],
-        "landmarks": [
-            {
-                "name": "Walls_of_Dubrovnik",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Dubrovnik_Cathedral",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Sponza_Palace",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Old_Town,_Dubrovnik",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            }
+        "dislikes": [],
+        "country": "Morocco",
+        "continent": "Africa",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
         ],
-        "likes": [],
-        "dislikes": []
-    },
-    {
-        "name": "Salzburg ",
-        "reviews": [],
-        "landmarks": [
-            {
-                "name": "Hohensalzburg_Castle",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Mirabell_Palace",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Salzburg_Cathedral",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Mozart's_Birthplace",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            }
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Desert"
         ],
-        "likes": [],
-        "dislikes": []
-    },
-    {
-        "name": "Toledo ",
-        "reviews": [],
-        "landmarks": [
-            {
-                "name": "Alcázar_of_Toledo",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Toledo_Cathedral",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Synagogue_of_El_Transito",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Plaza_de_Zocodover",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            }
-        ],
-        "likes": [],
-        "dislikes": []
-    },
-    {
-        "name": "Seville ",
-        "reviews": [],
-        "landmarks": [
-            {
-                "name": "Alcázar_of_Seville",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Seville_Cathedral",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Plaza_de_España",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Metropol_Parasol",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            }
-        ],
-        "likes": [],
-        "dislikes": []
-    },
-    {
-        "name": "Krakow ",
-        "reviews": [],
-        "landmarks": [
-            {
-                "name": "Wawel_Royal_Castle",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Main_Market_Square,_Kraków",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "St._Mary's_Basilica,_Kraków",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Auschwitz_concentration_camp",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            }
-        ],
-        "likes": [],
-        "dislikes": []
-    },
-    {
-        "name": "Budapest ",
-        "reviews": [],
-        "landmarks": [
-            {
-                "name": "Buda_Castle",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Fisherman's_Bastion",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Hungarian_Parliament_Building",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Chain_Bridge,_Budapest",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            }
-        ],
-        "likes": [],
-        "dislikes": []
+        "languages": [
+            "Arabic",
+            "French",
+            "English"
+        ]
     },
     {
         "name": "Salamanca",
@@ -939,7 +1031,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Spain",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Spanish",
+            "English"
+        ]
     },
     {
         "name": "Antwerp",
@@ -971,7 +1077,22 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Belgium",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Summer",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "Dutch",
+            "English"
+        ]
     },
     {
         "name": "Toledo",
@@ -1003,7 +1124,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Spain",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Spanish",
+            "English"
+        ]
     },
     {
         "name": "Granada",
@@ -1035,7 +1170,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Spain",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Spanish",
+            "English"
+        ]
     },
     {
         "name": "Segovia",
@@ -1067,7 +1216,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Spain",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Spanish",
+            "English"
+        ]
     },
     {
         "name": "Dublin",
@@ -1099,7 +1262,23 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Ireland",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Summer",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "languages": [
+            "English",
+            "Irish"
+        ]
     },
     {
         "name": "Bruges",
@@ -1131,295 +1310,23 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
-    },
-    {
-        "name": "Siena ",
-        "reviews": [],
-        "landmarks": [
-            {
-                "name": "Siena_Cathedral",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Piazza_del_Campo",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Palazzo_Pubblico",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Torre_del_Mangia",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            }
+        "dislikes": [],
+        "country": "Belgium",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Summer",
+            "Autumn"
         ],
-        "likes": [],
-        "dislikes": []
-    },
-    {
-        "name": "Ephesus ",
-        "reviews": [],
-        "landmarks": [
-            {
-                "name": "Ephesus",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Celsus_Library",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Terrace_Houses,_Ephesus",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Temple_of_Artemis",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            }
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate"
         ],
-        "likes": [],
-        "dislikes": []
-    },
-    {
-        "name": "Cordoba ",
-        "reviews": [],
-        "landmarks": [
-            {
-                "name": "Great_Mosque_of_Cordoba",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Alcázar_of_the_Christians",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Roman_Bridge,_Cordoba",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Medina_Azahara",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            }
-        ],
-        "likes": [],
-        "dislikes": []
-    },
-    {
-        "name": "Agra ",
-        "reviews": [],
-        "landmarks": [
-            {
-                "name": "Taj_Mahal",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Agra_Fort",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Fatehpur_Sikri",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Itimad-ud-Daulah's_Tomb",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            }
-        ],
-        "likes": [],
-        "dislikes": []
-    },
-    {
-        "name": "Bath ",
-        "reviews": [],
-        "landmarks": [
-            {
-                "name": "Roman_Baths,_Bath",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Bath_Abbey",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Pulteney_Bridge",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "The_Circus,_Bath",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            }
-        ],
-        "likes": [],
-        "dislikes": []
-    },
-    {
-        "name": "Florence ",
-        "reviews": [],
-        "landmarks": [
-            {
-                "name": "Florence_Cathedral",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Uffizi_Gallery",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Ponte_Vecchio",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Palazzo_Pitti",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            }
-        ],
-        "likes": [],
-        "dislikes": []
-    },
-    {
-        "name": "Munich ",
-        "reviews": [],
-        "landmarks": [
-            {
-                "name": "Nymphenburg_Palace",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Marienplatz",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Munich_Residenz",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Viktualienmarkt",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            }
-        ],
-        "likes": [],
-        "dislikes": []
-    },
-    {
-        "name": "Edinburgh ",
-        "reviews": [],
-        "landmarks": [
-            {
-                "name": "Edinburgh_Castle",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Royal_Mile",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Holyrood_Palace",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Arthur's_Seat",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            }
-        ],
-        "likes": [],
-        "dislikes": []
-    },
-    {
-        "name": "St. Petersburg ",
-        "reviews": [],
-        "landmarks": [
-            {
-                "name": "Hermitage_Museum",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Peter_and_Paul_Fortress",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Catherine_Palace",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Church_of_the_Savior_on_Blood",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            }
-        ],
-        "likes": [],
-        "dislikes": []
+        "languages": [
+            "Dutch",
+            "English",
+            "French"
+        ]
     },
     {
         "name": "Agra",
@@ -1451,7 +1358,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "India",
+        "continent": "Asia",
+        "yearTimes": [
+            "Winter",
+            "Spring"
+        ],
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Tropical"
+        ],
+        "languages": [
+            "Hindi",
+            "English"
+        ]
     },
     {
         "name": "Vienna",
@@ -1483,7 +1404,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Austria",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "German",
+            "English"
+        ]
     },
     {
         "name": "Florence",
@@ -1515,7 +1450,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Italy",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Italian",
+            "English"
+        ]
     },
     {
         "name": "Ravenna",
@@ -1547,7 +1496,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Italy",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Italian",
+            "English"
+        ]
     },
     {
         "name": "Avignon",
@@ -1579,7 +1542,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "France",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "French",
+            "English"
+        ]
     },
     {
         "name": "Oxford",
@@ -1611,7 +1588,20 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "United Kingdom",
+        "continent": "Europe",
+        "yearTimes": [
+            "Summer",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "English"
+        ]
     },
     {
         "name": "Troy",
@@ -1643,7 +1633,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Turkey",
+        "continent": "Asia",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Turkish",
+            "English"
+        ]
     },
     {
         "name": "Pisa",
@@ -1675,7 +1679,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Italy",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Italian",
+            "English"
+        ]
     },
     {
         "name": "Ephesus",
@@ -1707,7 +1725,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Turkey",
+        "continent": "Asia",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Turkish",
+            "English"
+        ]
     },
     {
         "name": "Verona",
@@ -1739,7 +1771,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Italy",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Italian",
+            "English"
+        ]
     },
     {
         "name": "Cambridge",
@@ -1771,7 +1817,20 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "United Kingdom",
+        "continent": "Europe",
+        "yearTimes": [
+            "Summer",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "English"
+        ]
     },
     {
         "name": "Suzhou",
@@ -1803,7 +1862,22 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "China",
+        "continent": "Asia",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate",
+            "Humid"
+        ],
+        "languages": [
+            "Mandarin",
+            "English"
+        ]
     },
     {
         "name": "Nara",
@@ -1835,7 +1909,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Japan",
+        "continent": "Asia",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "Japanese",
+            "English"
+        ]
     },
     {
         "name": "Sintra",
@@ -1867,7 +1955,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Portugal",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Portuguese",
+            "English"
+        ]
     },
     {
         "name": "Eger",
@@ -1899,7 +2001,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Hungary",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "Hungarian",
+            "English"
+        ]
     },
     {
         "name": "Aix-en-Provence",
@@ -1931,7 +2047,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "France",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "French",
+            "English"
+        ]
     },
     {
         "name": "Plovdiv",
@@ -1963,7 +2093,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Bulgaria",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "Bulgarian",
+            "English"
+        ]
     },
     {
         "name": "Split",
@@ -1995,7 +2139,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Croatia",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Croatian",
+            "English"
+        ]
     },
     {
         "name": "Mostar",
@@ -2027,7 +2185,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Bosnia and Herzegovina",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Bosnian",
+            "English"
+        ]
     },
     {
         "name": "Strasbourg",
@@ -2059,7 +2231,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "France",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "French",
+            "English"
+        ]
     },
     {
         "name": "Bologna",
@@ -2091,7 +2277,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Italy",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Italian",
+            "English"
+        ]
     },
     {
         "name": "Lübeck",
@@ -2123,7 +2323,22 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Germany",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Summer",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "German",
+            "English"
+        ]
     },
     {
         "name": "Heidelberg",
@@ -2155,7 +2370,22 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Germany",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Summer",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "German",
+            "English"
+        ]
     },
     {
         "name": "Porto",
@@ -2187,7 +2417,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Portugal",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Mediterranean"
+        ],
+        "languages": [
+            "Portuguese",
+            "English"
+        ]
     },
     {
         "name": "Lviv",
@@ -2219,7 +2463,22 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Ukraine",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Summer",
+            "Autumn"
+        ],
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "Ukrainian",
+            "English"
+        ]
     },
     {
         "name": "York",
@@ -2251,7 +2510,20 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "United Kingdom",
+        "continent": "Europe",
+        "yearTimes": [
+            "Summer",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "English"
+        ]
     },
     {
         "name": "Sarajevo",
@@ -2283,7 +2555,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Bosnia and Herzegovina",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Continental"
+        ],
+        "languages": [
+            "Bosnian",
+            "English"
+        ]
     },
     {
         "name": "Pécs",
@@ -2315,7 +2601,22 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Hungary",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Summer",
+            "Autumn"
+        ],
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "Hungarian",
+            "English"
+        ]
     },
     {
         "name": "Leiden",
@@ -2347,7 +2648,22 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
+        "dislikes": [],
+        "country": "Netherlands",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Summer",
+            "Autumn"
+        ],
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "Dutch",
+            "English"
+        ]
     },
     {
         "name": "Delft",
@@ -2379,38 +2695,21 @@ export const historicalArray = [
             }
         ],
         "likes": [],
-        "dislikes": []
-    },
-    {
-        "name": "Ghent",
-        "reviews": [],
-        "landmarks": [
-            {
-                "name": "Gravensteen",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Saint_Bavo_Cathedral,_Ghent",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Belfry_of_Ghent",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            },
-            {
-                "name": "Museum_of_Fine_Arts,_Ghent",
-                "likes": [],
-                "dislikes": [],
-                "reviews": []
-            }
+        "dislikes": [],
+        "country": "Netherlands",
+        "continent": "Europe",
+        "yearTimes": [
+            "Spring",
+            "Summer",
+            "Autumn"
         ],
-        "likes": [],
-        "dislikes": []
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate"
+        ],
+        "languages": [
+            "Dutch",
+            "English"
+        ]
     }
 ]
