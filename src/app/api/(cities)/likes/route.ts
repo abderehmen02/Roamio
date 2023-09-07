@@ -10,12 +10,17 @@ import StatusCodes from 'http-status-codes'
 
 
 export const POST = asyncWrapperAuthorisedApi(async (req , userInfo)=>{ 
-    const parsedBody   = likesRequestValidator.safeParse(req.body)
+    const body = await  req.json()
+    console.log("body"  , body)
+    const parsedBody   = likesRequestValidator.safeParse(body)
+    console.log("userid" , userInfo.userId )
     if(!parsedBody.success)       return  apiResponse(StatusCodes.BAD_REQUEST , errorMessage("the request must include the userName of the user "))
-    const  { city } = parsedBody.data
+    const  { city   } = parsedBody.data
     const cityInfo = await cityModal().findOne({name : city})
+    console.log("city info" , cityInfo)
     if(!cityInfo) return  apiResponse(StatusCodes.BAD_REQUEST  , errorMessage("no city found in the database"))
-    const newCityInfo = await cityModal().findOneAndUpdate({name :city } , {...cityInfo , likes :  [ ...cityInfo.likes , userInfo.userId ] } )
+    if(cityInfo.likes.includes(userInfo.userId)) return apiResponse(StatusCodes.BAD_REQUEST , errorMessage("you already liked this city"))
+    const newCityInfo = await cityModal().findOneAndUpdate({name :city } , { likes :  [ ...cityInfo.likes , userInfo.userId ] } , {new:  true} )
     console.log("new city info"  , newCityInfo )
     return apiResponse(StatusCodes.CREATED , newCityInfo)
 })
