@@ -10,6 +10,7 @@ import StatusCodes from 'http-status-codes'
 
 
 export const POST = asyncWrapperApi(async (req )=>{ 
+    console.log("getting the request")
     const parsedBody   = likesRequestValidator.safeParse(req.body)
     if(!parsedBody.success)       return  apiResponse(StatusCodes.BAD_REQUEST , errorMessage("the request must include the userName of the user "))
     const {userName , city } = parsedBody.data

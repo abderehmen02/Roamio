@@ -7,7 +7,7 @@ export const authConfig ={
     bycryptSaltRounds : 10 ,
     refreshTokenCookieName : "refreshToken" ,
     tokenCookieName : "tokenCookieName" ,
-    userInfoLocalStorageName : "user-login" ,
+    userInfoLocalStorageName : "user-info" ,
     emailVerificationMessageSubject : `${appConfig.name} - Verify Email` ,
     unauthRoutes : ['/' , '/login' , '/signUp' ] ,
     authRoutes : ['/dashboard' ]  ,
