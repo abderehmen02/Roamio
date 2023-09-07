@@ -1,11 +1,19 @@
-import { historicalModal } from "@/db/models/city"
+import { cityModal } from "@/db/models/city"
 import { apiResponse } from "@/utils/api/nextResponse"
 import { asyncWrapperApi } from "@/utils/asyncWrapper"
-import { historicalArray } from "./static"
+import { historicalCities } from "./static"
+import { Categories } from "@/types/prefrences"
+import { StatusCodes } from "http-status-codes"
 
 export const GET = asyncWrapperApi(async ()=>{
-      const newCities = await historicalModal().create(historicalArray)
+   
+      for(let i  = 0 ; i < historicalCities.length ; i++){
+      const existCity = await cityModal().findOne({name : historicalCities[i].name})
+      if(existCity) await cityModal().findOneAndUpdate({name : historicalCities[i].name} , {...existCity , categories: [ ...existCity.categories , Categories.Historical ]} ,{new: true})
+      else await cityModal().create({...historicalCities[i] , categories: [Categories.Historical]})
+      console.log("added one city")
+      }
 
-      console.log("new cities" , newCities )
-      return  apiResponse(200 , {data : newCities})
+      const newCities = await cityModal().find({})
+      return apiResponse(StatusCodes.CREATED , JSON.stringify(newCities))      
 })

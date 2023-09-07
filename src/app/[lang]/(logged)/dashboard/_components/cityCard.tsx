@@ -31,7 +31,7 @@ export const CityCard : React.FC<CityDb> =  (city)=>{
    const [seeAllDescreption, setSeeAllDescreption] = useState(false)
   const cityWikipediaData   =  usePlaceWikipediaData(city.name)
     
-
+console.log("city info"  , city)
 
 
     const {t} = useTranslation()
