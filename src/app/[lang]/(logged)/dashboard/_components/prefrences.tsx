@@ -34,7 +34,7 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
     
 
     const query = generateQueryCitiesSearchParam(queryCities)
-    console.log("query" , query)
+
     const {data , isLoading } = useQuery({
         queryKey : ["Cities" , query ] , 
         queryFn: async ()=>{

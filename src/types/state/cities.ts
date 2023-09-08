@@ -9,8 +9,8 @@ export enum CitiesActionTypes {
 } 
  
 
-export type CitiesInfo = {cities : CityDb[] , loading : boolean , error : {message : string} | null }
-export type CitiesState = CitiesInfo 
+
+export type CitiesState = {cities : CityDb[] , loading : boolean , error : {message : string} | null }
 
 
 

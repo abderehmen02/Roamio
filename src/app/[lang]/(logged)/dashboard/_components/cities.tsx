@@ -9,7 +9,6 @@ import { CityCard } from "./cityCard"
 
 export const Cities = ()=>{
     const cities : CitiesState = useSelector((state : stateType)=>state.cities)
-    console.log("cities state" , cities)
     if(cities.loading) return <H2>Loading</H2>
     if(cities.error) return <H2>{cities.error.message}</H2>
     return <div className="flex flex-col  items-center gap-10" >
