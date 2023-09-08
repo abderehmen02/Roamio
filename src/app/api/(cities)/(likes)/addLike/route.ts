@@ -9,7 +9,7 @@ import StatusCodes from 'http-status-codes'
 
 
 
-export const POST = asyncWrapperAuthorisedApi(async (req , userInfo)=>{ 
+export const PATCH = asyncWrapperAuthorisedApi(async (req , userInfo)=>{ 
     const body = await  req.json()
     const parsedBody   = likesRequestValidator.safeParse(body)
     if(!parsedBody.success)       return  apiResponse(StatusCodes.BAD_REQUEST , errorMessage("the request must include the userName of the user "))
