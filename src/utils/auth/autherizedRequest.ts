@@ -7,3 +7,12 @@ return  axios.post(url , data , {
         }
     })
 }
+
+
+export const authorizedPatchRequest = <returnedDataType>(  token : string, url : string , data : any ): Promise<returnedDataType>=>{
+    return  axios.patch(url , data , {
+            headers : {
+                "authorization" : `bareare ${token}`
+            }
+        })
+    }
