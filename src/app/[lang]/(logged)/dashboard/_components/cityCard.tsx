@@ -54,6 +54,15 @@ export const CityCard : React.FC<CityDb> =  (city)=>{
      const extractedIndex = generateExtractDescreptionIndex(descreption?.length as number , imageAspectRacio as number )
 
      const likeCity = async  ()=>{
+isUserInfo(userInfo) &&      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities , cities : [...cities.cities.map(item=>{
+        if(item.name === city.name){
+          return ({
+            ...item , likes : [...item.likes , userInfo._id ]
+          })
+        }
+        else return item
+      }) ] }})
+
       const responce = loginInfo.token   && await   authorizedPostRequest<any>(loginInfo.token , "/api/likes" , {city  : city.name } )
       const data = responce.data ;
 
