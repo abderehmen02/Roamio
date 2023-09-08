@@ -22,6 +22,7 @@ import ActionCreators from "@/state/actionCreators/action"
 import { CitiesActionTypes } from "@/types/state/cities"
 import { isUserInfo } from "@/types/state/auth/userInfo"
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useCityCardActions } from "@/hooks/citiCardAction"
 
 
 export const generateExtractDescreptionIndex : (length : number  , aspectRacio : number | undefined )=>number = (length , aspectRacio )  =>{
@@ -44,7 +45,7 @@ export const CityCard : React.FC<CityDb> =  (city)=>{
   const cities = useSelector((state : stateType)=>state.cities)
   const {dispatchAction} = bindActionCreators(ActionCreators , dispatch)
   const userInfo = useSelector((state: stateType)=>state.userInfo)
-
+  const [likeCity , unlikeCity] = useCityCardActions(city)
 
 
     const {t} = useTranslation()
@@ -65,51 +66,6 @@ export const CityCard : React.FC<CityDb> =  (city)=>{
 
 
 //functions      
-     const likeCity = async  ()=>{
-isUserInfo(userInfo) &&      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities , cities : [...cities.cities.map(item=>{
-        if(item.name === city.name){
-          return ({
-            ...item , likes : [...item.likes , userInfo._id ]
-          })
-        }
-        else return item
-      }) ] }})
-
-      const responce = loginInfo.token   && await   authorizedPatchRequest<any>(loginInfo.token , "/api/addLike" , {city  : city.name } )
-      const data = responce.data ;
-
-      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload : {...cities , cities : [...cities.cities.map(item =>{
-        if(item.name === data.name){
-          return data
-        }
-        else return item
-      }) ]}})
-      }
-      
-  
-
-
-      const unlikeCity = async  ()=>{
-        isUserInfo(userInfo) &&      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities , cities : [...cities.cities.map(item=>{
-                if(item.name === city.name){
-                  return ({
-                    ...item , likes : item.likes.filter(item=>item !== userInfo._id)
-                  })
-                }
-                else return item
-              }) ] }})
-        
-              const responce = loginInfo.token   && await   authorizedPatchRequest<any>(loginInfo.token , "/api/cancelLike" , {city  : city.name } )
-              const data = responce.data ;
-        
-              dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload : {...cities , cities : [...cities.cities.map(item =>{
-                if(item.name === data.name){
-                  return data
-                }
-                else return item
-              }) ]}})
-              }
-        
 
 
 
