@@ -50,6 +50,7 @@ const dislikeCity = async  ()=>{
 
 
 const likeCity = async  ()=>{
+  setLoadingLike(true)
     isUserInfo(userInfo) &&      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities , cities : [...cities.cities.map(item=>{
             if(item.name === city.name){
               return ({
@@ -68,12 +69,14 @@ const likeCity = async  ()=>{
             }
             else return item
           }) ]}})
+          setLoadingLike(false)
           }
           
       
     
     
           const unlikeCity = async  ()=>{
+            setLoadingLike(true)
             isUserInfo(userInfo) &&      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities , cities : [...cities.cities.map(item=>{
                     if(item.name === city.name){
                       return ({
@@ -92,6 +95,7 @@ const likeCity = async  ()=>{
                     }
                     else return item
                   }) ]}})
+                  setLoadingLike(false)
                   }
             
 
