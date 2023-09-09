@@ -33,7 +33,7 @@ aria-describedby="parent-modal-description"
 <Box sx={{ ...style , width: "fit-content" }}>
 <Title title={t("Reviews")}  descreption={"See what people are saying about " + city.name + "city"}  />
 <div className="flex items-center justify-center gap-1" >
- <PrimaryInput/> <SendIcon/>
+ <PrimaryInput  /> <SendIcon/>
 </div>
 </Box>
 </Modal> 

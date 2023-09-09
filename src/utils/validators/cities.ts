@@ -8,5 +8,6 @@ export const likesRequestValidator = z.object({
 })
 
 export const cityReviewRequestValidator  = z.object({
-    review : z.string()
+    review : z.string().min(1) , 
+    city : z.string() 
 })
