@@ -4,11 +4,14 @@ import { stateType } from "@/state/reducers"
 import { isUserInfo } from "@/types/state/auth/userInfo"
 import { CitiesActionTypes } from "@/types/state/cities"
 import { authorizedPatchRequest } from "@/utils/auth/autherizedRequest"
+import { useState } from "react"
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { bindActionCreators } from "redux"
 
-export function useCityCardActions(city : CityDb): (()=>any)[]{
+export function useCityCardActions(city : CityDb): [(()=>void) , (()=>void) , (()=>void) , (()=>void) , boolean , boolean] {
+const [loadingLike, setLoadingLike] = useState<boolean>(false)
+const [loadingDislike, setLoadingDislike] = useState<boolean>(false)
 const dispatch = useDispatch()
 const loginInfo = useSelector((state : stateType)=>state.login)
 const cities = useSelector((state : stateType)=>state.cities)
@@ -17,6 +20,7 @@ const userInfo = useSelector((state: stateType)=>state.userInfo)
 
 
 const dislikeCity = async  ()=>{
+  setLoadingDislike(true)
   isUserInfo(userInfo) &&      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities , cities : [...cities.cities.map(item=>{
           if(item.name === city.name){
             return ({
@@ -35,6 +39,7 @@ const dislikeCity = async  ()=>{
           }
           else return item
         }) ]}})
+        setLoadingDislike(false)
         }
 
 
@@ -95,6 +100,7 @@ const likeCity = async  ()=>{
 
 
                   const cancelDislike = async  ()=>{
+                    setLoadingDislike(true)
                     isUserInfo(userInfo) &&      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities ,cities : [...cities.cities.map(item=>{
                             if(item.name === city.name){
                               return ({
@@ -113,7 +119,8 @@ const likeCity = async  ()=>{
                             }
                             else return item
                           }) ]}})
+                          setLoadingDislike(false)
                           }
         
-return  [likeCity , unlikeCity , dislikeCity , cancelDislike ]
+return  [likeCity , unlikeCity , dislikeCity , cancelDislike , loadingLike , loadingDislike ]
 }
