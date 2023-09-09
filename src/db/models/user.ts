@@ -1,4 +1,6 @@
+import { AuthServices } from "@/types/auth";
 import mongoose , {model , mongo, Schema} from "mongoose";
+import { googleUserModel } from "./googleUser";
 
 
 export interface UserDb { 
@@ -28,4 +30,10 @@ const userSchema = new mongoose.Schema<UserDb>({
   
 export const userModel = ()=>{
     return mongoose.models?.user || model<UserDb>("user" , userSchema)
+}
+
+
+export const userModelsMap = {
+    [AuthServices.NATIVE_USER] : userModel ,
+    [AuthServices.GOOGLE] : googleUserModel
 }

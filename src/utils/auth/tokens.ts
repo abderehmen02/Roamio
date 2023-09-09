@@ -28,7 +28,6 @@ export  const verifyLoginToken = (token : string  ) : UserStoredWithToken =>{2
 export const generateRefreshToken : (userId  : string , authService? : AuthService )=>Promise<string> = async (userId , authService = AuthServices.NATIVE_USER ) =>{
 const expirationDate =  format( addDays( new Date() , authConfig.jwtRefreshDays ), appConfig.dateFormate)
 let token = uuidv4();
-console.log("auth service" , authService)
 const dbRefreshToken = await  refreshTokenModel().create({userId  , token , authService  , expireIn : expirationDate })   
 if(dbRefreshToken?.token) return dbRefreshToken.token 
 throw new Error("Can not get the refresh token from the database") 
