@@ -34,6 +34,6 @@ export const userModel = ()=>{
 
 
 export const userModelsMap = {
-    [AuthServices.NATIVE_USER] : userModel ,
-    [AuthServices.GOOGLE] : googleUserModel
+    [AuthServices.NATIVE_USER] : userModel() ,
+    [AuthServices.GOOGLE] : googleUserModel()
 }
