@@ -3,7 +3,7 @@ import ActionCreators from "@/state/actionCreators/action"
 import { stateType } from "@/state/reducers"
 import { isUserInfo } from "@/types/state/auth/userInfo"
 import { CitiesActionTypes } from "@/types/state/cities"
-import { authorizedPatchRequest } from "@/utils/auth/autherizedRequest"
+import { authorizedPatchRequest, authorizedPostRequest } from "@/utils/auth/autherizedRequest"
 import { useState } from "react"
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
@@ -17,6 +17,18 @@ const loginInfo = useSelector((state : stateType)=>state.login)
 const cities = useSelector((state : stateType)=>state.cities)
 const {dispatchAction} = bindActionCreators(ActionCreators, dispatch)
 const userInfo = useSelector((state: stateType)=>state.userInfo)
+
+
+
+const addReview  = (review : string)=>{
+const responce = loginInfo.token &&  authorizedPostRequest( loginInfo.token ,  "/api/addCityReview" , {
+  review
+})
+console.log("responce " , responce)
+}
+
+
+
 
 
 const dislikeCity = async  ()=>{

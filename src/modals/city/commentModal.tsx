@@ -2,9 +2,10 @@ import { useTranslation } from "@/app/i18n/client";
 import { CityDb } from "@/db/models/city"
 import { Title } from "@/ui/title";
 import { H3 } from "@/ui/typography";
-import { Box, Modal, Typography } from "@mui/material"
+import { Box, IconButton, InputBase, Modal, Paper, TextField, Typography } from "@mui/material"
 import React, { useState } from "react"
-
+import SendIcon from '@mui/icons-material/Send';
+import { PrimaryInput } from "@/ui/input";
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -31,6 +32,9 @@ aria-describedby="parent-modal-description"
 >
 <Box sx={{ ...style , width: "fit-content" }}>
 <Title title={t("Reviews")}  descreption={"See what people are saying about " + city.name + "city"}  />
+<div className="flex items-center justify-center gap-1" >
+ <PrimaryInput/> <SendIcon/>
+</div>
 </Box>
 </Modal> 
 }
