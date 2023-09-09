@@ -15,7 +15,7 @@ export const PATCH = asyncWrapperAuthorisedApi(async (req , userInfo)=>{
     const cityInfo = await cityModal().findOne({name : city})
     if(!cityInfo) return  apiResponse(StatusCodes.BAD_REQUEST  , errorMessage("no city found in the database with the given name"))
     if(cityInfo.dislikes.includes(userInfo.userId)) return apiResponse(StatusCodes.BAD_REQUEST , errorMessage("you have already dislike this city"))
-    const newCityInfo = await cityModal().findOneAndUpdate({name :city } , { dislikes :  [ ...cityInfo.likes , userInfo.userId ] } , {new:  true} )
+    const newCityInfo = await cityModal().findOneAndUpdate({name :city } , { dislikes :  [ ...cityInfo.dislikes , userInfo.userId ] } , {new:  true} )
     
     return apiResponse(StatusCodes.CREATED , newCityInfo)
 })
