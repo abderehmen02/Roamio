@@ -16,6 +16,32 @@ const {dispatchAction} = bindActionCreators(ActionCreators, dispatch)
 const userInfo = useSelector((state: stateType)=>state.userInfo)
 
 
+const dislikeCity = async  ()=>{
+  isUserInfo(userInfo) &&      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities , cities : [...cities.cities.map(item=>{
+          if(item.name === city.name){
+            return ({
+              ...item , dislikes : [...item.dislikes , userInfo._id ]
+            })
+          }
+          else return item
+        }) ] }})
+  
+        const responce = loginInfo.token   && await   authorizedPatchRequest<any>(loginInfo.token , "/api/addDislike" , {city  : city.name } )
+        const data = responce.data ;
+  
+        dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload : {...cities , cities : [...cities.cities.map(item =>{
+          if(item.name === data.name){
+            return data
+          }
+          else return item
+        }) ]}})
+        }
+
+
+
+
+
+
 
 
 const likeCity = async  ()=>{
