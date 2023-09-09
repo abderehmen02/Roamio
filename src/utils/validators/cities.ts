@@ -7,6 +7,6 @@ export const likesRequestValidator = z.object({
     city : z.string()   ,
 })
 
-export const commentRequestValidator  = z.object({
+export const cityReviewRequestValidator  = z.object({
     review : z.string()
 })
