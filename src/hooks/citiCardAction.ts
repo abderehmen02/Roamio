@@ -89,7 +89,31 @@ const likeCity = async  ()=>{
                   }) ]}})
                   }
             
-    
 
-return  [likeCity , unlikeCity , dislikeCity]
+                  
+
+
+
+                  const cancelDislike = async  ()=>{
+                    isUserInfo(userInfo) &&      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities ,cities : [...cities.cities.map(item=>{
+                            if(item.name === city.name){
+                              return ({
+                                ...item , dislikes : item.dislikes.filter(item=>item !== userInfo._id)
+                              })
+                            }
+                            else return item
+                          }) ] }})
+                    
+                          const responce = loginInfo.token   && await   authorizedPatchRequest<any>(loginInfo.token , "/api/cancelLike" , {city  : city.name } )
+                          const data = responce.data ;
+                    
+                          dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload : {...cities , cities : [...cities.cities.map(item =>{
+                            if(item.name === data.name){
+                              return data
+                            }
+                            else return item
+                          }) ]}})
+                          }
+        
+return  [likeCity , unlikeCity , dislikeCity , cancelDislike ]
 }
