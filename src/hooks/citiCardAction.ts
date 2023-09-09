@@ -104,7 +104,7 @@ const likeCity = async  ()=>{
                             else return item
                           }) ] }})
                     
-                          const responce = loginInfo.token   && await   authorizedPatchRequest<any>(loginInfo.token , "/api/cancelLike" , {city  : city.name } )
+                          const responce = loginInfo.token   && await   authorizedPatchRequest<any>(loginInfo.token , "/api/cancelDislike" , {city  : city.name } )
                           const data = responce.data ;
                     
                           dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload : {...cities , cities : [...cities.cities.map(item =>{
