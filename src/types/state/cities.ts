@@ -45,4 +45,11 @@ export type CitiesResetAction = {
 //     return  Boolean( (citiesState as CitiesInfo).cities._id ) ;
 //   }
 
+
+
+export function isCityDb(city : any  ): city is CityDb {
+    return  Boolean( (city as CityDb).name ) && Boolean( (city as CityDb).continent ) && Boolean( (city as CityDb).country )  && Boolean( (city as CityDb).landmarks ) ;
+  }
+
+
 export type CitiesAction =  CityEditAction | CitiesEditAction | CitiesResetAction | FailCitiesAction | LoadingCitiesAction
