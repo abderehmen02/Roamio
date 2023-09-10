@@ -46,7 +46,7 @@ export function isUserInfo(user: UserInfoState): user is UserInfo {
   }
 
 
-export function isGoogleUser(user: UserInfo): user is GoogleUserDb {
+export function isGoogleUser(user: any ): user is GoogleUserDb {
     return user && ( user  as GoogleUserDb )?.googleUser ;
   }
 

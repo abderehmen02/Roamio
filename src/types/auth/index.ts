@@ -4,7 +4,6 @@ export const  AuthServices =  {
 } as const
 
 
-
 const AuthServisesArray = Object.values(AuthServices)
 
 export type AuthService  = typeof AuthServisesArray[number]

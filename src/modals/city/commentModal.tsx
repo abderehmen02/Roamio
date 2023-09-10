@@ -10,6 +10,8 @@ import { ButtonsSizes, PrimaryBtn } from "@/ui/buttons";
 import { useCityCardActions } from "@/hooks/citiCardAction";
 import { useMutation } from "@tanstack/react-query";
 import { useUsersInfo } from "@/hooks/useGetUsers";
+import { ReviewComponent } from "@/components/dashboard/review";
+import { isGoogleUser } from "@/types/state/auth/userInfo";
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -49,7 +51,11 @@ aria-describedby="parent-modal-description"
 <Box sx={{ ...style , width: "fit-content" }}>
 <Title title={t("Reviews")}  descreption={titleDescreption}  />
 <div className="flex flex-col" >
-{city.reviews.map(review=><p>{review.review}</p>)}
+{city.reviews.map(review=>{
+if(users.isLoading) return <ReviewComponent review={review.review} />
+const user = users?.data?.find(item=>item._id === review.userId)
+if(!user) return <span>somme error happened , please try again later</span>
+return <ReviewComponent   userName={isGoogleUser(user ) ? user.given_name : user.userName } review={review.review} image={isGoogleUser(user) ? user.picture :    "/unknownProfile.webp"} ></ReviewComponent>})}
 </div>
 <div className="flex items-center h-20 justify-center gap-1" >
 <div style={{borderWidth : 1}} className="bg-white py-2   w-full flex items-center border-black rounded-md px-2" >
