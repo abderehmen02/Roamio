@@ -38,7 +38,6 @@ const [reviewValue, setReviewValue] = useState<string>("")
 const users = useUsersInfo(city.reviews.map(item=>item.userId).filter(item=>item?.length))
 const titleDescreption = city.reviews.length ? "See what people are saying about " + city.name + " city" :  "What do you think about " + city.name + " city"
 
-console.log("city" , city)
 
 
 return    <Modal
