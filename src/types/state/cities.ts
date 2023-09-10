@@ -5,7 +5,8 @@ export enum CitiesActionTypes {
     EDIT_CITIES  = "EDIT_CITIES",
     RESET_CITIES = "RESET_CITIES"  ,
     FAIL_CITIES = "FAIL_CITIES" ,
-    LOADING_CITIES = "LOADING_CITIES"
+    LOADING_CITIES = "LOADING_CITIES" ,
+    EDIT_CITY = "EDIT_CITY"
 } 
  
 
@@ -17,6 +18,11 @@ export type CitiesState = {cities : CityDb[] , loading : boolean , error : {mess
 export type CitiesEditAction = {
     type : CitiesActionTypes.EDIT_CITIES ,
     payload : CitiesState
+}
+
+export type CityEditAction = {
+    type : CitiesActionTypes.EDIT_CITY  ,
+    payload: CityDb 
 }
 
 export type FailCitiesAction = {
@@ -34,8 +40,9 @@ export type CitiesResetAction = {
 }
 
 
+
 // export function isCitiesDb(citiesState: CitiesState ): citiesState is CitiesInfo {
 //     return  Boolean( (citiesState as CitiesInfo).cities._id ) ;
 //   }
 
-export type CitiesAction = CitiesEditAction | CitiesResetAction | FailCitiesAction | LoadingCitiesAction
+export type CitiesAction =  CityEditAction | CitiesEditAction | CitiesResetAction | FailCitiesAction | LoadingCitiesAction

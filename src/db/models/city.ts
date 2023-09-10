@@ -17,7 +17,7 @@ export interface CityDb {
     languages : Language[] ,
     landmarks : landMark[] ,
     categories : Category[] ,
-    reviews  : {user: string  , image: string , userName : string  , review : string}[] ,
+    reviews  : {userId: string  , review : string}[] ,
     yearTimes : YearTime[] ,
     likes : string[], 
     dislikes: string[],
@@ -39,7 +39,7 @@ const CitySchema = new mongoose.Schema<CityDb>({
      continent : {type : String} ,
      languages : {type : [String]}  ,
     landmarks : [{ name :  {type : String  } , likes  :{type : [String] } , dislikes : {type :[String]} ,reviews: {type : [{user: {type : String } , review : {type : String } }] } } ] , 
-    reviews: {type : [{user: {type : String} , userName: {type : String} , image : {type : String}   , review : {type: String} }]  }  ,
+    reviews: {type : [{userId: {type : String} , review : {type: String} }]  }  ,
     yearTimes : {type: [String]} ,
     likes : [{type : String , required : true}] ,
     dislikes : [{type : String  , required  : true}]

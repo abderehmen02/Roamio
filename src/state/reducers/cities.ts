@@ -7,7 +7,14 @@ switch(action.type){
     case CitiesActionTypes.EDIT_CITIES: {
         return action.payload
     }
-
+    case CitiesActionTypes.EDIT_CITY : {
+        return {
+            ...state , cities: state.cities.map(city=>{
+                if(city.name === action.payload.name) return action.payload
+                else return city
+            })
+        }
+    }
     case CitiesActionTypes.RESET_CITIES : {
         return initialCities
     } 
