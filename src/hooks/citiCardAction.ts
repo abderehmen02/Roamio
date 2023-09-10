@@ -2,7 +2,7 @@ import { CityDb } from "@/db/models/city"
 import ActionCreators from "@/state/actionCreators/action"
 import { stateType } from "@/state/reducers"
 import { isUserInfo } from "@/types/state/auth/userInfo"
-import { CitiesActionTypes } from "@/types/state/cities"
+import { CitiesActionTypes, isCityDb } from "@/types/state/cities"
 import { authorizedPatchRequest, authorizedPostRequest } from "@/utils/auth/autherizedRequest"
 import { useState } from "react"
 import { useSelector } from "react-redux"
@@ -20,12 +20,15 @@ const userInfo = useSelector((state: stateType)=>state.userInfo)
 
 
 
-const addReview  = (review : string)=>{
-const responce = loginInfo.token &&  authorizedPostRequest( loginInfo.token ,  "/api/addCityReview" , {
+const addReview  = async (review : string)=>{
+if(!loginInfo.token) return 
+const data  = await   authorizedPostRequest<CityDb>( loginInfo.token ,  "/api/addCityReview" , {
   city : city.name ,
   review
 })
-console.log("responce " , responce)
+console.log("data" , data)
+if(!isCityDb(data)) return 
+dispatchAction({type : CitiesActionTypes.EDIT_CITY , payload: data })
 }
 
 
