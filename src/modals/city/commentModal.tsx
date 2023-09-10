@@ -8,6 +8,7 @@ import SendIcon from '@mui/icons-material/Send';
 import { PrimaryInput } from "@/ui/input";
 import { ButtonsSizes, PrimaryBtn } from "@/ui/buttons";
 import { useCityCardActions } from "@/hooks/citiCardAction";
+import { useMutation } from "@tanstack/react-query";
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -33,7 +34,7 @@ export const CommentModal : React.FC<{open : boolean , setOpen : React.Dispatch<
 const {t}  = useTranslation()
 const [addReview ] = useCityCardActions(city)
 const [reviewValue, setReviewValue] = useState<string>("")
-console.log("city" , city)
+
 const titleDescreption = city.reviews.length ? "See what people are saying about " + city.name + " city" :  "What do you think about " + city.name + " city"
 return    <Modal
 open={open}
