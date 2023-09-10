@@ -9,6 +9,7 @@ import { PrimaryInput } from "@/ui/input";
 import { ButtonsSizes, PrimaryBtn } from "@/ui/buttons";
 import { useCityCardActions } from "@/hooks/citiCardAction";
 import { useMutation } from "@tanstack/react-query";
+import { useUsersInfo } from "@/hooks/useGetUsers";
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -34,8 +35,12 @@ export const CommentModal : React.FC<{open : boolean , setOpen : React.Dispatch<
 const {t}  = useTranslation()
 const [addReview ] = useCityCardActions(city)
 const [reviewValue, setReviewValue] = useState<string>("")
-
+const users = useUsersInfo(city.reviews.map(item=>item.userId).filter(item=>item?.length))
 const titleDescreption = city.reviews.length ? "See what people are saying about " + city.name + " city" :  "What do you think about " + city.name + " city"
+
+console.log("city" , city)
+
+
 return    <Modal
 open={open}
 onClose={()=>setOpen(false)}

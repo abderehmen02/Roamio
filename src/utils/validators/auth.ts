@@ -23,5 +23,10 @@ export const signInValidator = z.object({
 
 })
 
+
+export const getUsersValidator = z.object({
+    users: z.array(z.string())
+})
+
 export type signInDataType = typeof signInValidator._type
 export type signUpDataType = typeof signUpValidator._type
