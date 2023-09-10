@@ -7,6 +7,7 @@ import React, { useState } from "react"
 import SendIcon from '@mui/icons-material/Send';
 import { PrimaryInput } from "@/ui/input";
 import { ButtonsSizes, PrimaryBtn } from "@/ui/buttons";
+import { useCityCardActions } from "@/hooks/citiCardAction";
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -30,9 +31,10 @@ const style = {
 
 export const CommentModal : React.FC<{open : boolean , setOpen : React.Dispatch<React.SetStateAction<boolean>> , city : CityDb }> =  ({open , setOpen , city} )=>{
 const {t}  = useTranslation()
+const [addReview ] = useCityCardActions(city)
+const [reviewValue, setReviewValue] = useState<string>("")
 
-
-const titleDescreption = city.reviews.length ? "See what people are saying about " + city.name + " city" :  "What do you think about" + city.name + " city"
+const titleDescreption = city.reviews.length ? "See what people are saying about " + city.name + " city" :  "What do you think about " + city.name + " city"
 return    <Modal
 open={open}
 onClose={()=>setOpen(false)}
@@ -43,8 +45,8 @@ aria-describedby="parent-modal-description"
 <Title title={t("Reviews")}  descreption={titleDescreption}  />
 <div className="flex items-center h-20 justify-center gap-1" >
 <div style={{borderWidth : 1}} className="bg-white py-2   w-full flex items-center border-black rounded-md px-2" >
-  <input className="w-full" type="text"  placeholder="Write your review" style={{outline : 'none'}} />
-  <SendIcon/>
+  <input value={reviewValue} onChange={(e)=>setReviewValue(e.target.value)} className="w-full" type="text"  placeholder="Write your review" style={{outline : 'none'}} />
+  <div onClick={()=>addReview(reviewValue)} ><SendIcon  /></div>
 </div>
 </div>
 </Box>

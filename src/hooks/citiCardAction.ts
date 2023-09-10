@@ -9,7 +9,7 @@ import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { bindActionCreators } from "redux"
 
-export function useCityCardActions(city : CityDb): [(()=>void) , (()=>void) , (()=>void) , (()=>void) , boolean , boolean] {
+export function useCityCardActions(city : CityDb): [((review: string)=>void) , (()=>void) , ()=>void, (()=>void) , (()=>void) , boolean , boolean] {
 const [loadingLike, setLoadingLike] = useState<boolean>(false)
 const [loadingDislike, setLoadingDislike] = useState<boolean>(false)
 const dispatch = useDispatch()
@@ -22,6 +22,7 @@ const userInfo = useSelector((state: stateType)=>state.userInfo)
 
 const addReview  = (review : string)=>{
 const responce = loginInfo.token &&  authorizedPostRequest( loginInfo.token ,  "/api/addCityReview" , {
+  city : city.name ,
   review
 })
 console.log("responce " , responce)
@@ -138,5 +139,5 @@ const likeCity = async  ()=>{
                           setLoadingDislike(false)
                           }
         
-return  [likeCity , unlikeCity , dislikeCity , cancelDislike , loadingLike , loadingDislike ]
+return  [addReview , likeCity , unlikeCity , dislikeCity , cancelDislike   , loadingLike , loadingDislike ]
 }

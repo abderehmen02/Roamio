@@ -47,7 +47,7 @@ export const CityCard : React.FC<CityDb> =  (city)=>{
   const cities = useSelector((state : stateType)=>state.cities)
   const {dispatchAction} = bindActionCreators(ActionCreators , dispatch)
   const userInfo = useSelector((state: stateType)=>state.userInfo)
-  const [likeCity  , unlikeCity , dislikeCity  , cancelDislike , loadingLike , loadingDislke ] = useCityCardActions(city)
+  const [ addReview , likeCity  , unlikeCity , dislikeCity  , cancelDislike , loadingLike , loadingDislke ] = useCityCardActions(city)
   const [openCommentModal, setOpenCommentModal] = useState(false)
 
     const {t} = useTranslation()
