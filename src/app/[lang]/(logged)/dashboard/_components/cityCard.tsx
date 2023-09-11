@@ -20,7 +20,6 @@ import { authorizedPatchRequest, authorizedPostRequest } from "@/utils/auth/auth
 import { useDispatch } from "react-redux"
 import { bindActionCreators } from "redux"
 import ActionCreators from "@/state/actionCreators/action"
-import { CitiesActionTypes } from "@/types/state/cities"
 import { isUserInfo } from "@/types/state/auth/userInfo"
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useCityCardActions } from "@/hooks/citiCardAction"

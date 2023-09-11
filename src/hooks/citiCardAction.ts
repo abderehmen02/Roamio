@@ -9,7 +9,7 @@ import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { bindActionCreators } from "redux"
 
-export function useCityCardActions(city : CityDb): [((review: string)=>void) , (()=>void) , ()=>void, (()=>void) , (()=>void) , boolean , boolean] {
+export function useCityCardActions(city : CityDb): [((review: string  , setReview : React.Dispatch<React.SetStateAction<string>> )=>void) , (()=>void) , ()=>void, (()=>void) , (()=>void) , boolean , boolean] {
 const [loadingLike, setLoadingLike] = useState<boolean>(false)
 const [loadingDislike, setLoadingDislike] = useState<boolean>(false)
 const dispatch = useDispatch()
@@ -20,15 +20,15 @@ const userInfo = useSelector((state: stateType)=>state.userInfo)
 
 
 
-const addReview  = async (review : string)=>{
+const addReview  = async (review : string , setReview : React.Dispatch<React.SetStateAction<string>> )=>{
 if(!loginInfo.token) return 
 const data  = await   authorizedPostRequest<CityDb>( loginInfo.token ,  "/api/addCityReview" , {
   city : city.name ,
   review
 })
-console.log("data" , data)
 if(!isCityDb(data)) return 
 dispatchAction({type : CitiesActionTypes.EDIT_CITY , payload: data })
+setReview("")
 }
 
 

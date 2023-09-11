@@ -63,7 +63,7 @@ return <ReviewComponent   userName={isGoogleUser(user ) ? user.given_name : user
 <div className="flex items-center h-20 justify-center gap-1" >
 <div style={{borderWidth : 1}} className="bg-white py-2   w-full flex items-center border-black rounded-md px-2" >
   <input value={reviewValue} onChange={(e)=>setReviewValue(e.target.value)} className="w-full" type="text"  placeholder="Write your review" style={{outline : 'none'}} />
-  <div onClick={()=>addReview(reviewValue)} ><SendIcon  /></div>
+  <div onClick={()=>addReview(reviewValue , setReviewValue ) } className="cursor-pointer" ><SendIcon  /></div>
 </div>
 </div>
 </Box>
