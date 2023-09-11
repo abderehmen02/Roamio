@@ -12,7 +12,7 @@ export const appConfig = {
     name : 'Roamio' ,
     emailPassword : process.env.GMAIL_PASSWORD ,
     email: process.env.GMAIL_NAME , 
-    unknownPersonImg: 'unknownProfile.webp' ,
+    unknownPersonImg: '/unknownProfile.webp' ,
     sendGridMail : process.env.GMAIL_NAME ,
     mode  ,
     url : mode  === modes.DEVELOPMENT ? developmentUrl : productionUrl

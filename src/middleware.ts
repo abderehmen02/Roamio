@@ -8,7 +8,7 @@ acceptLanguage.languages(languages)
 
 export const config = {
   matcher: [
-    '/((?!api|_next/static|_next/image|.*\.svg|.*\.png|.*\.jpe?g|.*\.ico|assets|sw.js).*)' 
+    '/((?!api|_next/static|_next/image|.*\.svg|.*\.webp|.*\.png|.*\.jpe?g|.*\.ico|assets|sw.js).*)' 
   ]
 };
 const cookieName = 'i18next'
