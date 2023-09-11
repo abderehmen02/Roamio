@@ -40,7 +40,10 @@ const [reviewValue, setReviewValue] = useState<string>("")
 const users = useUsersInfo(city.reviews.map(item=>item.userId).filter(item=>item?.length))
 const titleDescreption = city.reviews.length ? "See what people are saying about " + city.name + " city" :  "What do you think about " + city.name + " city"
 
-
+const handleSubmitReview = (e : any )=>{
+  e.preventDefault()
+  addReview(reviewValue , setReviewValue )
+}
 
 return    <Modal
 open={open}
@@ -61,10 +64,10 @@ if(!user) return <span>somme error happened , please try again later</span>
 return <ReviewComponent   userName={isGoogleUser(user ) ? user.given_name : user.userName } review={review.review} image={isGoogleUser(user) ? user.picture :    "/unknownProfile.webp"} ></ReviewComponent>})}
 </div>
 <div className="flex items-center h-20 justify-center gap-1" >
-<div style={{borderWidth : 1}} className="bg-white py-2   w-full flex items-center border-black rounded-md px-2" >
+<form onSubmit={handleSubmitReview} style={{borderWidth : 1}} className="bg-white py-2   w-full flex items-center border-black rounded-md px-2" >
   <input value={reviewValue} onChange={(e)=>setReviewValue(e.target.value)} className="w-full" type="text"  placeholder="Write your review" style={{outline : 'none'}} />
-  <div onClick={()=>addReview(reviewValue , setReviewValue ) } className="cursor-pointer" ><SendIcon  /></div>
-</div>
+  <button type="submit" onClick={handleSubmitReview} className="cursor-pointer" ><SendIcon  /></button>
+</form>
 </div>
 </Box>
 </Modal> 
