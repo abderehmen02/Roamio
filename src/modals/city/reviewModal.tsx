@@ -50,8 +50,11 @@ aria-describedby="parent-modal-description"
 >
 <Box sx={{ ...style , width: "fit-content" }}>
 <Title title={t("Reviews")}  descreption={titleDescreption}  />
-<div className="flex flex-col" >
-{city.reviews.map(review=>{
+<div className="flex gap-2 py-4 w-full items-start flex-col" >
+{city.reviews.filter(review =>{
+  const user = users?.data?.find(item=>item._id === review.userId)
+  return Boolean(user) || users.isLoading
+}).map(review=>{
 if(users.isLoading) return <ReviewComponent review={review.review} />
 const user = users?.data?.find(item=>item._id === review.userId)
 if(!user) return <span>somme error happened , please try again later</span>
