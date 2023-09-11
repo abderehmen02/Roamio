@@ -22,11 +22,12 @@ const style = {
     width: 400,
     minHeight: '60vh',
     display :'flex' ,
+    gap : 3 ,
     flexDirection : 'column' ,
     justifyContent : 'space-between' ,
+    border: 'none' ,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
+    // border: '2px solid #000',
     pt: 2,
     px: 4,
     pb: 3,
@@ -39,12 +40,15 @@ const {t}  = useTranslation()
 const [addReview ] = useCityCardActions(city)
 const [reviewValue, setReviewValue] = useState<string>("")
 const users = useUsersInfo(city.reviews.map(item=>item.userId).filter(item=>item?.length))
-const titleDescreption = city.reviews.length ? "See what people are saying about " + city.name + " city" :  "What do you think about " + city.name + " city"
+const titleDescreption = city.reviews.length ? "See what people are saying about " + city.name + " city" :  "What do you think about " + city.name + " city?"
 
 const handleSubmitReview = (e : any )=>{
   e.preventDefault()
   addReview(reviewValue , setReviewValue )
 }
+
+
+
 
 return    <Modal
 open={open}
@@ -53,8 +57,8 @@ aria-labelledby="parent-modal-title"
 aria-describedby="parent-modal-description"
 >
 <Box sx={{ ...style , width: "fit-content" }}>
-<Title title={t("Reviews")}  descreption={titleDescreption}  />
-<div style={{maxHeight: '50vh', overflowY: city.reviews.length ? 'scroll' : 'hidden' }} className="flex reviews gap-2 py-4 w-full items-start flex-col" >
+<Title title={t("Reviews")} descreptionClassName="text-secondaryDark" descreption={titleDescreption}  />
+<div style={{maxHeight: '50vh', overflowY: city.reviews.length ? 'scroll' : 'hidden' }} className="flex reviews gap-4 w-full items-start flex-col" >
 {city.reviews.filter(review =>{
   const user = users?.data?.find(item=>item._id === review.userId)
   return Boolean(user) || users.isLoading
