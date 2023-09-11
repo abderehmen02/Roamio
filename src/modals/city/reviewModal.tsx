@@ -54,7 +54,7 @@ aria-describedby="parent-modal-description"
 >
 <Box sx={{ ...style , width: "fit-content" }}>
 <Title title={t("Reviews")}  descreption={titleDescreption}  />
-<div style={{maxHeight: '50vh', overflowY: 'scroll'}} className="flex gap-2 py-4 w-full items-start flex-col" >
+<div style={{maxHeight: '50vh', overflowY: city.reviews.length ? 'scroll' : 'hidden' }} className="flex reviews gap-2 py-4 w-full items-start flex-col" >
 {city.reviews.filter(review =>{
   const user = users?.data?.find(item=>item._id === review.userId)
   return Boolean(user) || users.isLoading

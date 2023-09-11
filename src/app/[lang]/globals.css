@@ -31,6 +31,17 @@
   border: 1px solid black
 }
 
+
+.reviews::-webkit-scrollbar {
+  width: 2px;
+}
+
+.reviews::-webkit-scrollbar-thumb{
+  background-color:  #FFA000;
+}
+.reviews::-webkit-scrollbar-track {
+  background-color: #0956A3
+}
 @media screen and (max-width : 640px) {
 .loginImg{
 width:  200px;
