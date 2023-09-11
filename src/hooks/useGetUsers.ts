@@ -5,7 +5,7 @@ import axios from "axios"
 import { useEffect } from "react"
 
 export const useUsersInfo = (users : string[]):  UseMutationResult<UserDb[] | GoogleUserDb[], unknown, void, unknown>=>{
-    console.log("users" , users )
+
     const mutationOutputs = useMutation({
         retry : 0 ,
         mutationFn : async  ()=>{

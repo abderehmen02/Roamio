@@ -24,7 +24,7 @@ import { CitiesActionTypes } from "@/types/state/cities"
 import { isUserInfo } from "@/types/state/auth/userInfo"
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useCityCardActions } from "@/hooks/citiCardAction"
-import { CommentModal } from "@/modals/city/commentModal"
+import { ReviewModal } from "@/modals/city/reviewModal"
 
 
 export const generateExtractDescreptionIndex : (length : number  , aspectRacio : number | undefined )=>number = (length , aspectRacio )  =>{
@@ -76,7 +76,7 @@ export const CityCard : React.FC<CityDb> =  (city)=>{
 
 
     return <div className="flex flex-col shadow-md  bg-white rounded-xl  w-full border-stone-600" >
-    <CommentModal open={openCommentModal} city={city} setOpen={setOpenCommentModal}  />
+    <ReviewModal open={openCommentModal} city={city} setOpen={setOpenCommentModal}  />
     <div  className=" flex" >
     <img  src={image}  style={{width : '300px' , objectFit: 'cover' ,  }} className={ cn( "rounded-l-xl border-2 " , {"h-full" : !seeAllDescreption , "h-fit " : seeAllDescreption } )} />
     <div className="flex px-6 w-full py-1 justify-around flex-col " >

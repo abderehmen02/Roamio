@@ -33,7 +33,7 @@ const style = {
   
 
 
-export const CommentModal : React.FC<{open : boolean , setOpen : React.Dispatch<React.SetStateAction<boolean>> , city : CityDb }> =  ({open , setOpen , city} )=>{
+export const ReviewModal : React.FC<{open : boolean , setOpen : React.Dispatch<React.SetStateAction<boolean>> , city : CityDb }> =  ({open , setOpen , city} )=>{
 const {t}  = useTranslation()
 const [addReview ] = useCityCardActions(city)
 const [reviewValue, setReviewValue] = useState<string>("")
