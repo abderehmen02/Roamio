@@ -12,8 +12,8 @@ export const ReviewComponent : React.FC<Review> = ({review , image , userName})=
     if(!review) return <span>skeleton</span>
     else if(review && !image && !userName) return <span>userName and image skeleton + {review}</span>
     return <div className="flex w-full px-2 items-center justify-start gap-1" >
-        <Image alt="profile image" src={appConfig.unknownPersonImg } width={20}  height={20} className=" rounded-full border-2 border-black " />
-        <div className="flex items-center justify-center gap-2 flex-col" >
+        <Image alt="profile image" src={appConfig.unknownPersonImg } width={50}  height={50} style={{border : '1px solid black'}} className=" rounded-full" />
+        <div className="flex items-center justify-center gap-1 flex-col" >
         <P>{review}</P>
         <P>{userName}</P>
         </div>
