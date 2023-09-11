@@ -17,6 +17,7 @@ const style = {
     position: 'absolute' as 'absolute',
     top: '50%',
     left: '50%',
+    borderRadius: '8px' ,
     transform: 'translate(-50%, -50%)',
     width: 400,
     minHeight: '60vh',
@@ -53,7 +54,7 @@ aria-describedby="parent-modal-description"
 >
 <Box sx={{ ...style , width: "fit-content" }}>
 <Title title={t("Reviews")}  descreption={titleDescreption}  />
-<div className="flex gap-2 py-4 w-full items-start flex-col" >
+<div style={{maxHeight: '50vh', overflowY: 'scroll'}} className="flex gap-2 py-4 w-full items-start flex-col" >
 {city.reviews.filter(review =>{
   const user = users?.data?.find(item=>item._id === review.userId)
   return Boolean(user) || users.isLoading

@@ -13,7 +13,7 @@ export const ReviewComponent : React.FC<Review> = ({review , image , userName})=
     return <div className="flex w-full px-2  items-center justify-start gap-2" >
         <img alt="profile image" src={ image || appConfig.unknownPersonImg } width={35}  height={35} style={{border : '1px solid black'}} className=" rounded-full" />
         <div className="flex items-start  flex-col" >
-        <P className="text-start " >{userName}</P>
+        <P className="text-start text-sm font-extrabold " >{userName}</P>
         <P className="text-start text-sm" >{review}</P>
     
         </div>
