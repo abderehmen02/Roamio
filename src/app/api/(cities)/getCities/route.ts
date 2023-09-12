@@ -6,12 +6,17 @@ import { asyncWrapperApi } from "@/utils/asyncWrapper"
 import { QueryObjParams } from "@/utils/queryCities"
 
 
-export const  getCities : (categories: Category[] , price:Price[] ) => Promise<CityDb[]> = async (categories )  =>{
+export const  getCities : (categories: Category[] , prices:Price[] ) => Promise<CityDb[]> = async (categories , prices )  =>{
       console.log("categories" , categories)
- let cities : CityDb[] = await cityModal().find({
-      $or: categories.map(category => ({ categories: category }))
-    })
- console.log("cities" , cities)
+      console.log("prices" , prices )
+ let cities : CityDb[] = await cityModal().find( {$and: [
+      {
+        $or: categories.map(category => ({ categories: category }))
+      },
+      {
+        $or: prices.map(price => ({ price:  price  }))
+      }
+    ]})
  return cities
 }
 
