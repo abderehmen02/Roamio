@@ -73,7 +73,7 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
 
 
 export const PrefrencesRow : React.FC = ()=>{
-    return <DashboardSection>     
+    return <DashboardSection className="bg-secondary text-primaryDark border-none shadow-lg h-fit" >     
 {
       rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence.prefrence} option={prefrence.option} />)
 }     

@@ -36,7 +36,7 @@ export const generateExtractDescreptionIndex : (length : number  , aspectRacio :
 }
 
 export const CityCard : React.FC<CityDb> =  (city)=>{
-  const [viewLandMarks, setViewLandMarks] = useState<boolean>(city.name == "Cairo")
+  const [viewLandMarks, setViewLandMarks] = useState<boolean>(false)
    const [seeAllDescreption, setSeeAllDescreption] = useState(false)
   const cityWikipediaData   =  usePlaceWikipediaData(city.name)
   const loginInfo = useSelector((state : stateType)=>state.login)
