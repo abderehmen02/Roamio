@@ -7,16 +7,11 @@ import { QueryObjParams } from "@/utils/queryCities"
 
 
 export const  getCities : (categories: Category[] , prices:Price[] ) => Promise<CityDb[]> = async (categories , prices )  =>{
-      console.log("categories" , categories)
-      console.log("prices" , prices )
- let cities : CityDb[] = await cityModal().find( {$and: [
-      {
-        $or: categories.map(category => ({ categories: category }))
-      },
-      {
-        $or: prices.map(price => ({ price:  price  }))
-      }
-    ]})
+  const queryArray = []
+  if(categories.length) queryArray.push({$or: categories.map(category => ({ categories: category }))})
+  if(prices.length) queryArray.push({$or: prices.map(price => ({ price:  price  })) })
+
+ let cities : CityDb[] = await cityModal().find( {$and: queryArray})
  return cities
 }
 
