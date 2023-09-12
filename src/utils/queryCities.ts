@@ -3,24 +3,46 @@ import { CitiesQueryState } from "@/types/state/citiesQuery";
 import { boolean } from "zod";
 
 
-export type  QueryObj =  {
-categoriesType? : string , 
-categories? : string ,
-continentType? : string ,
-continent? : string , 
-countryType?: string ,
-country? :string , 
-languagesType?: string ,
-languages? :string , 
-name? : string , 
-population? : string ,
-priceType? : string , 
-price? : string ,
-weathersType? : string ,
-weathers? : string ,
-yearTimesType? : string ,
-yearTimes? : string 
-}
+
+export type QueryObj = {
+    categoriesType?: string;
+    categories?: string;
+    continentType?: string;
+    continent?: string;
+    countryType?: string;
+    country?: string;
+    languagesType?: string;
+    languages?: string;
+    name?: string;
+    population?: string;
+    priceType?: string;
+    price?: string;
+    weathersType?: string;
+    weathers?: string;
+    yearTimesType?: string;
+    yearTimes?: string;
+  };
+    
+export const   QueryObjParams =  {
+    categoriesType : "categoriesType" , 
+    categories : "categories" ,
+    continentType : "continentType" ,
+    continent : "continent" , 
+    countryType: "countryType" ,
+    country : "country" , 
+    languagesType: "languagesType" ,
+    languages : "languages" , 
+    name : "name" , 
+    population : 'population',
+    priceType : "priceType", 
+    price : "price" ,
+    weathersType : "weathersType" ,
+    weathers : "weathers" ,
+    yearTimesType : "yearTimesType" ,
+    yearTimes : "yearTimes" 
+    } as const 
+
+
 
 export const generateQueryCitiesSearchParam = (query : CitiesQueryState)=>{
     let queryObj : QueryObj = {} ;

@@ -13,8 +13,10 @@ export const  getCities : (categories: Category[]) => Promise<CityDb[]> = async 
 
 
 export const GET = asyncWrapperApi(async (req )=>{
+      console.log("get cities request")
       const {searchParams} = new URL(req.url)
       const categories  : Category[]  =   JSON.parse(searchParams.get("categories") || '[]' )
+      console.log("caterogies" , categories)
       let cities : CityDb[] = await  getCities(categories)
       return  apiResponse(200 , cities)
 })

@@ -1,7 +1,7 @@
 "use client"
 
 import { useTranslation } from "@/app/i18n/client"
-import { Categories, Category, Languages, Meals, Prefrence, PrefrenceObject, PrefrencesArray, PrefrencesOptions, Prices, PricesArray, Weathers, YearTimes } from "@/types/prefrences"
+import { Categories, Category, Languages, Meals, Prefrence, PrefrenceObject, PrefrencesArray, PrefrencesOptions, Price, Prices, PricesArray, Weathers, YearTimes } from "@/types/prefrences"
 import { P } from "@/ui/typography"
 import { useState } from "react"
 import { DashboardSection } from "@/components/dashboard/containers"
@@ -59,6 +59,15 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
     if(includePrefrence)        dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , categories : {...queryCities.categories , value : queryCities.categories.value.filter(item =>item !== prefrence )}} })
     else dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , categories : {...queryCities.categories , value : [...queryCities.categories.value ,prefrence as Category ]}} })
     }
+    else if(option === PrefrencesOptions.PRICES){
+    let includePrefrence : boolean = queryCities.price.value.includes(prefrence as Price )
+    if(includePrefrence)        dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , price: {...queryCities.price, value : queryCities.price.value.filter(item =>item !== prefrence )}} })
+    else dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , price : {...queryCities.price, value : [...queryCities.price.value ,prefrence as Price]}} })
+
+
+
+
+    }
 }
 
 
@@ -74,7 +83,7 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
 
 
 export const PrefrencesRow : React.FC = ()=>{
-    return <DashboardSection className="bg-secondary text-primary border-none shadow-lg h-fit" >     
+    return <DashboardSection className="bg-white text-primary border-none shadow-md h-fit" >     
 {
       rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence.prefrence} option={prefrence.option} />)
 }     
