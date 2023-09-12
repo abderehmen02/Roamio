@@ -1,4 +1,4 @@
-import { Category, Prefrence, PrefrencesOptions } from "@/types/prefrences";
+import { Category, Prefrence, PrefrencesOptions, Price } from "@/types/prefrences";
 import { CitiesQueryState } from "@/types/state/citiesQuery";
 import { boolean } from "zod";
 
@@ -83,6 +83,9 @@ export const generateQueryCitiesSearchParam = (query : CitiesQueryState)=>{
 export const isPrefrenceIncluded  : (query : CitiesQueryState , option : PrefrencesOptions , prefrence : Prefrence)=>boolean = (query , option , prefrence)  =>{
 if(option=== PrefrencesOptions.CATEGORIES){
     return query.categories.value.includes(prefrence as Category )
+}
+if(option === PrefrencesOptions.PRICES){
+    return query.price.value.includes(prefrence as Price )
 }
 return false 
 }
