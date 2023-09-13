@@ -45,7 +45,8 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
           return response.data 
         } ,
         onSuccess : (data)=>{
-          dispatchAction({type : CitiesActionTypes.EDIT_CITIES ,  payload :{cities: data , error : null , loading : false}})
+          dispatchAction({type : CitiesActionTypes.EDIT_CITIES ,  payload :{cities: data , error : null , loading : false}}) ;
+          if(  ( typeof  queryCities.page   === "number" && data.length < queryCities.page * 50 ) || data.length < 50 ) dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , page : "end"}})
         } ,
         onError : (err : any )=>{
             console.log("err" , err)
