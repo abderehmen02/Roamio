@@ -23,7 +23,7 @@ export const GET = asyncWrapperApi(async (req )=>{
       const categories  : Category[]  =   JSON.parse(searchParams.get(QueryObjParams.categories) || '[]' )
       const price : Price[]  = JSON.parse(searchParams.get(QueryObjParams.price) || '[]' )
       const page : number = Number(searchParams.get(QueryObjParams.page) || 1)
-      let cities : CityDb[] = await  getCities(categories , price  )
+      let cities : CityDb[] = await  getCities(categories , price  ,page )
       return  apiResponse(200 , cities)
 })
 
