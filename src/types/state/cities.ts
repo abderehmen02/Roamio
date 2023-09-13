@@ -48,7 +48,7 @@ export type CitiesResetAction = {
 
 
 export function isCityDb(city : any  ): city is CityDb {
-    return  Boolean( (city as CityDb).name ) && Boolean( (city as CityDb).continent ) && Boolean( (city as CityDb).country )  && Boolean( (city as CityDb).landmarks ) ;
+    return  Boolean( (city as CityDb)?.name ) && Boolean( (city as CityDb)?.continent ) && Boolean( (city as CityDb).country )  && Boolean( (city as CityDb).landmarks ) ;
   }
 
 

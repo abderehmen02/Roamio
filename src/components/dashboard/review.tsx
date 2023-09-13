@@ -8,6 +8,7 @@ export type Review =  {
 }
 
 export const ReviewComponent : React.FC<Review> = ({review , image , userName})=>{
+    console.log("user image" , image )
     if(!review) return <span>skeleton</span>
     else if(review && !image && !userName) return <span>userName and image skeleton + {review}</span>
     return <div className="flex w-full px-2  items-center justify-start gap-2" >
