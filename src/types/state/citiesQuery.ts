@@ -1,4 +1,3 @@
-import { Continent } from "@/db/models/city"
 import { Category, Language, Price, Weather, YearTime } from "../prefrences"
 
 export enum CitiesQueryActionTypes {
@@ -12,9 +11,10 @@ export const QueryTypeArray = Object.values(QueryTypes)
 export type QueryType = typeof QueryTypeArray[number]   
 
 export interface CitiesQueryState {
+        page?: number ,
         name: string  | undefined ,
         country: {type : QueryType , value : string[]},
-        continent: { type: QueryType , value : Continent[] } ,
+        continent: { type: QueryType , value : string[] } ,
         population: number | undefined ,
         categories: { type : QueryType , value : Category[] },
         price: { type : QueryType , value :  Price[] },

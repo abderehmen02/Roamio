@@ -38,6 +38,7 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
 
     const {data , isLoading } = useQuery({
         queryKey : ["Cities" , query ] , 
+        keepPreviousData : true ,
         queryFn: async ()=>{
           dispatchAction({type : CitiesActionTypes.LOADING_CITIES})
           const response = await axios.get(`/api/getCities?${query}`)

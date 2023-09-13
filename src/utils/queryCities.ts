@@ -5,6 +5,7 @@ import { boolean } from "zod";
 
 
 export type QueryObj = {
+    page?: string,
     categoriesType?: string;
     categories?: string;
     continentType?: string;
@@ -24,6 +25,7 @@ export type QueryObj = {
   };
     
 export const   QueryObjParams =  {
+    page: "page"  ,
     categoriesType : "categoriesType" , 
     categories : "categories" ,
     continentType : "continentType" ,
@@ -46,6 +48,7 @@ export const   QueryObjParams =  {
 
 export const generateQueryCitiesSearchParam = (query : CitiesQueryState)=>{
     let queryObj : QueryObj = {} ;
+        queryObj.page = query.page ? String(query.page) : "1" 
     if(query.categories.value.length){
         queryObj.categoriesType = query.categories.type ,
         queryObj.categories = JSON.stringify( query.categories.value)
