@@ -9,7 +9,11 @@ import { bindActionCreators } from "redux";
 
 export const SeeMoreCities : React.FC = ()=>{
     const queryCities = useSelector((state: stateType)=>state.citiesQuery)
+    const citiesState  = useSelector((state : stateType)=>state.cities)
     const dispatch = useDispatch()
     const {dispatchAction} = bindActionCreators(ActionCreators , dispatch )
-    return <PrimaryBtn onClick={()=>dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , page : queryCities.page? queryCities.page + 1  : 1 } })} >See More</PrimaryBtn>
+    if(citiesState.cities.length === 0) return <></>
+    return <>
+{ citiesState.loading  ? <span>loading...</span> :  <PrimaryBtn onClick={()=>dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , page : queryCities.page? queryCities.page + 1  : 1 } })} >See More</PrimaryBtn>  }
+     </>
 }
