@@ -40,7 +40,7 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
         queryKey : ["Cities" , query ] , 
         keepPreviousData : true ,
         queryFn: async ()=>{
-          dispatchAction({type : CitiesActionTypes.LOADING_CITIES})
+          if(queryCities.page === 1)          dispatchAction({type : CitiesActionTypes.LOADING_CITIES})
           const response = await axios.get(`/api/getCities?${query}`)
           return response.data 
         } ,

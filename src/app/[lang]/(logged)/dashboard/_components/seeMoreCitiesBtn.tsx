@@ -10,7 +10,6 @@ import { bindActionCreators } from "redux";
 export const SeeMoreCities : React.FC = ()=>{
     const queryCities = useSelector((state: stateType)=>state.citiesQuery)
     const dispatch = useDispatch()
-    console.log("page" , queryCities.page)
     const {dispatchAction} = bindActionCreators(ActionCreators , dispatch )
     return <PrimaryBtn onClick={()=>dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , page : queryCities.page? queryCities.page + 1  : 1 } })} >See More</PrimaryBtn>
 }
