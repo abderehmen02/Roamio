@@ -8,6 +8,7 @@ import { QueryObjParams } from "@/utils/queryCities"
 
 export const  getCities : (categories: Category[] , prices:Price[] ) => Promise<CityDb[]> = async (categories , prices )  =>{
   const queryArray = []
+  if(!categories.length  ) queryArray.push({$or: [{ categories: [Categories.MostVisited] }]})
   if(categories.length) queryArray.push({$or: categories.map(category => ({ categories: category }))})
   if(prices.length) queryArray.push({$or: prices.map(price => ({ price:  price  })) })
 
@@ -21,6 +22,7 @@ export const GET = asyncWrapperApi(async (req )=>{
       const {searchParams} = new URL(req.url)
       const categories  : Category[]  =   JSON.parse(searchParams.get(QueryObjParams.categories) || '[]' )
       const price : Price[]  = JSON.parse(searchParams.get(QueryObjParams.price) || '[]' )
+
       let cities : CityDb[] = await  getCities(categories , price  )
       return  apiResponse(200 , cities)
 })
