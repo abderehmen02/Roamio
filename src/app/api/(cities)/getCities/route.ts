@@ -18,7 +18,6 @@ export const  getCities : (categories: Category[] , prices:Price[] ) => Promise<
 
 
 export const GET = asyncWrapperApi(async (req )=>{
-      console.log("get cities request")
       const {searchParams} = new URL(req.url)
       const categories  : Category[]  =   JSON.parse(searchParams.get(QueryObjParams.categories) || '[]' )
       const price : Price[]  = JSON.parse(searchParams.get(QueryObjParams.price) || '[]' )

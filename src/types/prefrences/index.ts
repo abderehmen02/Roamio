@@ -11,6 +11,7 @@ export type PrefrencesArray = { option : PrefrencesOptions ,   prefrence : Prefr
 
 export const  Categories  = {
 Historical:     "Historical",
+MostVisited: "Most-Visited" ,
 Modern :     "Modern",
 Nature :     "Nature",
 Religious :     "Religious",
