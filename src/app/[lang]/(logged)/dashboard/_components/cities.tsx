@@ -6,6 +6,7 @@ import { H2 } from "@/ui/typography"
 import { useState } from "react"
 import { useSelector } from "react-redux"
 import { CityCard } from "./cityCard"
+import { SeeMoreCities } from "./seeMoreCitiesBtn"
 
 export const Cities = ()=>{
     const cities : CitiesState = useSelector((state : stateType)=>state.cities)
@@ -13,5 +14,6 @@ export const Cities = ()=>{
     if(cities.error) return <H2>{cities.error.message}</H2>
     return <div className="flex flex-col  items-center gap-10" >
         {cities.cities.map((city)=><CityCard {...city} />)}
+        <SeeMoreCities/>
     </div>
 }

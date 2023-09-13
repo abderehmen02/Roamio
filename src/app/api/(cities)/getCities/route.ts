@@ -11,7 +11,8 @@ export const  getCities : ( categories: Category[] , prices:Price[] , page?: num
   if(categories.length) queryArray.push({$or: categories.map(category => ({ categories: category }))})
   if(prices.length) queryArray.push({$or: prices.map(price => ({ price:  price  })) })
 
- let cities : CityDb[] = await cityModal().find( {$and: queryArray})
+ let cities : CityDb[] = await cityModal().find( {$and: queryArray}).limit(page * 50)
+ console.log("cities length" , cities.length)
  return cities
 }
 
