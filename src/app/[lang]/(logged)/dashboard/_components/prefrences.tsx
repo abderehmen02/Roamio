@@ -57,8 +57,8 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
 const toglePrefrence = (prefrence : Prefrence ): void=>{
     if(option === PrefrencesOptions.CATEGORIES){
     let includePrefrence : boolean = queryCities.categories.value.includes(prefrence as Category ) 
-    if(includePrefrence)        dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , categories : {...queryCities.categories , value : queryCities.categories.value.filter(item =>item !== prefrence )}} })
-    else dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , categories : {...queryCities.categories , value : [...queryCities.categories.value ,prefrence as Category ]}} })
+    if(includePrefrence)        dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY  , payload : {...queryCities , page: 1 , categories : {...queryCities.categories , value : queryCities.categories.value.filter(item =>item !== prefrence )}} })
+    else dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , page : 1 , categories : {...queryCities.categories , value : [...queryCities.categories.value ,prefrence as Category ]}} })
     }
     else if(option === PrefrencesOptions.PRICES){
     let includePrefrence : boolean = queryCities.price.value.includes(prefrence as Price )
