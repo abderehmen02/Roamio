@@ -15,7 +15,6 @@ export const useUsersInfo = (users : string[]):  UseMutationResult<UserDb[] | Go
             return responce.data  as UserDb[] | GoogleUserDb[]
         } ,
         onSuccess : async (data)=>{
-            console.log("success data" , data )
         } , 
         onError : (err)=>{
             console.error("error :" + err)
