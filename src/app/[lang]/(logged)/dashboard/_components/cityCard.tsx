@@ -73,7 +73,7 @@ export const CityCard : React.FC<CityDb> =  (city)=>{
 
 
 
-
+console.log("user info " , userInfo )
 
 
 
