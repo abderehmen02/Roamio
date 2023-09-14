@@ -158,8 +158,10 @@ const likeCity = async  ()=>{
 
 
                     const unsaveCity = async ()=>{
+                      console.log("unsacing city")
                       setLoadingSave(true)
-                      const newUser  = loginInfo.token && await authorizedPatchRequest<{data: UserInfo}>( loginInfo.token,  "/api/unsaveCity" , {city : city.name} ) 
+                      const newUser  = loginInfo.token && await authorizedPatchRequest<{data: UserInfo}>( loginInfo.token,  "/api/unsaveCity" , {city : city.name} )
+                      console.log("new user" , newUser ) 
                       if(!newUser) return console.error("can not get the user from the api")
                         isUserInfo(newUser.data ) && dispatchAction({type : UserInfoActionTypes.ADD_USER_INFO , payload: newUser.data  })
                       setLoadingSave(false)
