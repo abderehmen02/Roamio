@@ -91,7 +91,7 @@ export const CityCard : React.FC<CityDb> =  (city)=>{
 </div>}
 
 <div className="flex gap-6 justiyf-center" >
-{ isUserInfo(userInfo) && <PrimaryBtn onClick={saveCity} className="py-0" size={ButtonsSizes.small} >Save  {userInfo.savedCities?.includes(cityWikipediaData.title) ? <TurnedInOutlinedIcon/>   : <TurnedInNotOutlinedIcon style={{width : 20 , height : 20 } } /> } </PrimaryBtn> }
+{ isUserInfo(userInfo) && <PrimaryBtn onClick={saveCity} className="py-0" size={ButtonsSizes.small} >Save  {userInfo.savedCities?.includes(city.name) ? <TurnedInOutlinedIcon/>   : <TurnedInNotOutlinedIcon style={{width : 20 , height : 20 } } /> } </PrimaryBtn> }
   <PrimaryBtn size={ButtonsSizes.small} className="py-0 " onClick={()=>setViewLandMarks((val)=>!val)} > {viewLandMarks ? <i className="bi m-0 text-sm bi-chevron-up"></i> : <i className= "bi m-0  bi-chevron-down " ></i> } {t("Explore Landmarks")}  </PrimaryBtn><SecondaryBtn className="py-0" size={ButtonsSizes.small} >{t("Explore City")}</SecondaryBtn>
 </div></div>
     </div>

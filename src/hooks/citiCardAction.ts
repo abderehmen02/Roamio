@@ -149,10 +149,10 @@ const likeCity = async  ()=>{
                       isUserInfo(userInfo)  && dispatchAction({type : UserInfoActionTypes.ADD_USER_INFO , payload: {
                         ...userInfo , savedCities :   userInfo.savedCities
                       }})
-                      const newUser  = loginInfo.token && await authorizedPatchRequest<UserInfo>( loginInfo.token,  "/api/saveCity" , {city : city.name} ) 
+                      const newUser  = loginInfo.token && await authorizedPatchRequest<{data: UserInfo}>( loginInfo.token,  "/api/saveCity" , {city : city.name} ) 
                       console.log("new user" , newUser)
                       if(!newUser) return console.error("can not get the user from the api")
-                      isUserInfo(newUser) &&  isUserInfo(newUser ) && dispatchAction({type : UserInfoActionTypes.ADD_USER_INFO , payload: newUser })
+                        isUserInfo(newUser.data ) && dispatchAction({type : UserInfoActionTypes.ADD_USER_INFO , payload: newUser.data  })
                       setLoadingSave(false)
                     }
             
