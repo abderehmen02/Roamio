@@ -13,6 +13,7 @@ export const appConfig = {
     emailPassword : process.env.GMAIL_PASSWORD ,
     email: process.env.GMAIL_NAME , 
     unknownPersonImg: '/unknownProfile.webp' ,
+    cityCashingTime : 86400000 , //one day 
     sendGridMail : process.env.GMAIL_NAME ,
     mode  ,
     url : mode  === modes.DEVELOPMENT ? developmentUrl : productionUrl

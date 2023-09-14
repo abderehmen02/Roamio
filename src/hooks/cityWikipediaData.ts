@@ -1,3 +1,4 @@
+import { appConfig } from "@/config";
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios";
 
@@ -16,8 +17,10 @@ export type PlaceWikipediaData = {
 
 export const usePlaceWikipediaData =(cityName : string ) : PlaceWikipediaData =>{
 const {data  , isLoading , error } = useQuery({
-    queryKey : ["cityData" , cityName ] , 
+    queryKey : ["cityData" , cityName] , 
+    staleTime: appConfig.cityCashingTime,
     queryFn: async ()=>{
+        console.log("fetching the data")
         const wikipediaUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${cityName}` ; 
         const response  = await axios.get(wikipediaUrl)
         return response.data
