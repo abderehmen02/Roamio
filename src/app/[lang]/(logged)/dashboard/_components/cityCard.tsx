@@ -22,6 +22,8 @@ import { isUserInfo } from "@/types/state/auth/userInfo"
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useCityCardActions } from "@/hooks/citiCardAction"
 import { ReviewModal } from "@/modals/city/reviewModal"
+import { Skeleton } from "@mui/material"
+import { CityCardSkeleton } from "@/components/skeletons/city/cityCardSkeleton"
 
 
 export const generateExtractDescreptionIndex : (length : number  , aspectRacio : number | undefined )=>number = (length , aspectRacio )  =>{
@@ -48,7 +50,7 @@ export const CityCard : React.FC<CityDb> =  (city)=>{
   const [openCommentModal, setOpenCommentModal] = useState(false)
 
     const {t} = useTranslation()
-    if(cityWikipediaData.loading ) return <div>loading...</div>
+    if(cityWikipediaData.loading ) return <CityCardSkeleton/>
     if(cityWikipediaData.error || !cityWikipediaData.infoAvailble  ) return null
    
     const {descreption , image , lat , lon , subtitle , imageAspectRacio } = cityWikipediaData

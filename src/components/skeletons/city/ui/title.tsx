@@ -15,7 +15,7 @@ type  TitleSkeletonProps   = {
 
 export const TitleSkeleton : React.FC<TitleSkeletonProps> = ({title , descreption   , className , titleStyle , descreptionClassName , titleClassName  , descreptionStyle  })=>{
 return <div  className={cn(  "w-full items-center flex flex-col" , className )}   >
-{ title && <Skeleton style={titleStyle} className={cn("text-primary text-center font-bold"  , titleClassName ) }  ></Skeleton>   }
-{ descreption &&  <Skeleton className={cn("text-center"  , descreptionClassName ) } style={descreptionStyle}  >{descreption}</Skeleton> }
+{ title && <Skeleton variant="text" style={titleStyle} className={cn("text-primary text-center font-bold"  , titleClassName ) }  ></Skeleton>   }
+{ descreption &&  <Skeleton variant="text" className={cn("text-center"  , descreptionClassName ) } style={descreptionStyle}  ></Skeleton> }
 </div>
 } 
