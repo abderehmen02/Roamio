@@ -1,17 +1,19 @@
 import { CityDb } from "@/db/models/city"
 import ActionCreators from "@/state/actionCreators/action"
 import { stateType } from "@/state/reducers"
-import { isUserInfo } from "@/types/state/auth/userInfo"
+import { UserInfo, UserInfoActionTypes, isUserInfo } from "@/types/state/auth/userInfo"
 import { CitiesActionTypes, isCityDb } from "@/types/state/cities"
 import { authorizedPatchRequest, authorizedPostRequest } from "@/utils/auth/autherizedRequest"
+import axios from "axios"
 import { useState } from "react"
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { bindActionCreators } from "redux"
 
-export function useCityCardActions(city : CityDb): [((review: string  , setReview : React.Dispatch<React.SetStateAction<string>> )=>void) , (()=>void) , ()=>void, (()=>void) , (()=>void) , boolean , boolean] {
+export function useCityCardActions(city : CityDb): [((review: string  , setReview : React.Dispatch<React.SetStateAction<string>> )=>void) , (()=>void) , ()=>void, (()=>void) , (()=>void) , (()=>void) , boolean , boolean , boolean] {
 const [loadingLike, setLoadingLike] = useState<boolean>(false)
 const [loadingDislike, setLoadingDislike] = useState<boolean>(false)
+const [loadingSave, setLoadingSave] = useState<boolean>(false)
 const dispatch = useDispatch()
 const loginInfo = useSelector((state : stateType)=>state.login)
 const cities = useSelector((state : stateType)=>state.cities)
@@ -141,6 +143,18 @@ const likeCity = async  ()=>{
                           }) ]}})
                           setLoadingDislike(false)
                           }
+
+                    const saveCity = async ()=>{
+                      setLoadingSave(true)
+                      isUserInfo(userInfo)  && dispatchAction({type : UserInfoActionTypes.ADD_USER_INFO , payload: {
+                        ...userInfo , savedCities :   userInfo.savedCities
+                      }})
+                      const newUser  = await axios.post("/api/saveCity") as UserInfo
+                      isUserInfo(userInfo) && dispatchAction({type : UserInfoActionTypes.ADD_USER_INFO , payload: newUser })
+                      setLoadingSave(false)
+                    }
+            
+          
         
-return  [addReview , likeCity , unlikeCity , dislikeCity , cancelDislike   , loadingLike , loadingDislike ]
+return  [addReview , likeCity , unlikeCity , dislikeCity , cancelDislike  , saveCity , loadingSave  , loadingLike , loadingDislike ]
 }
