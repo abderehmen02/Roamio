@@ -15,6 +15,7 @@ export type UserInfoError  =  {
 export type UserInfo =  {
      birthDate : string ,
     email : string , 
+    savedCities: string[]
     firstName: string ,
     lastName : string  ,
     verified : boolean , 
