@@ -1,6 +1,6 @@
 import { Title } from "@/ui/title"
 import { Skeleton } from "@mui/material"
-import { TitleSkeleton } from "./ui/title"
+import { TitleSkeleton } from "../ui/title"
 
 export const CityCardSkeleton : React.FC = ()=>{
     return <div className="flex flex-col shadow-md  bg-white rounded-xl  w-full border-stone-600" >
