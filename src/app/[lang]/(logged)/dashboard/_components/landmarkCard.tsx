@@ -7,6 +7,7 @@ import { generateExtractDescreptionIndex } from "./cityCard"
 import { useTranslation } from "@/app/i18n/client"
 import { cn } from "@/lib/tailwind"
 import { landMark } from "@/db/models/city"
+import { LandmarkSkeletonCard } from "@/components/skeletons/city/landmarkSkeleton"
 
 
 export const LandmarkCard : React.FC<{landMark : landMark , cityLon : number , cityLat : number }> =({landMark , cityLon , cityLat })=>{
@@ -17,7 +18,8 @@ export const LandmarkCard : React.FC<{landMark : landMark , cityLon : number , c
     const [seeAllDescreption, setseeAllDescreption] = useState<boolean>(false)
 
 
-    if(error || loading ) return 
+    if(error  ) return 
+    else if (loading) return <LandmarkSkeletonCard/>
 return  <div className=" flex shadow-md  rounded-xl  w-full border-stone-600" >
     <img  src={image}  style={{width : '200px' , objectFit: 'cover' , minHeight : '60px' }} className={ cn( "rounded-l-xl border-2 " , {"h-full" : !seeAllDescreption , "h-fit " : seeAllDescreption } )} />
     
