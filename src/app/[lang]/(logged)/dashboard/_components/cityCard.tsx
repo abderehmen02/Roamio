@@ -48,7 +48,9 @@ export const CityCard : React.FC<CityDb> =  (city)=>{
   const [openCommentModal, setOpenCommentModal] = useState(false)
 
     const {t} = useTranslation()
-    if(cityWikipediaData.error || !cityWikipediaData.infoAvailble || cityWikipediaData.loading ) return null
+    if(cityWikipediaData.loading ) return <div>loading...</div>
+    if(cityWikipediaData.error || !cityWikipediaData.infoAvailble  ) return null
+   
     const {descreption , image , lat , lon , subtitle , imageAspectRacio } = cityWikipediaData
   
      const extractedIndex = generateExtractDescreptionIndex(descreption?.length as number , imageAspectRacio as number )
