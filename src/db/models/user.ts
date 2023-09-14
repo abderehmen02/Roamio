@@ -11,7 +11,7 @@ export interface UserDb {
     verified : boolean ,
     lastName  : string ,
     _id: string , 
-    
+    savedCities: string[]  ,
     birthDate : Date ,
     gender : "MALE" | "FEMALE"
 }
@@ -22,7 +22,8 @@ const userSchema = new mongoose.Schema<UserDb>({
     email: { type: String, required: true },
     password: { type: String, required: true },
     firstName: { type: String, required: true },
-    verified : {type : Boolean , required : true} ,
+    savedCities: {type : [String] , default: [] } ,
+     verified : {type : Boolean , required : true} ,
     lastName: { type: String, required: true },
     birthDate: { type: Date , required: true },
     gender: { type: String, enum: ['MALE', 'FEMALE' , 'UNKNOWN' ], required: true }
