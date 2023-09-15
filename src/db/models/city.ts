@@ -23,8 +23,9 @@ export interface CityDb {
     dislikes: string[],
   }
 
-
-
+export function isUserDb (city : any) : city is CityDb {
+  return city?.name && city?.price && city?.country && city?.weathers?.length  && city?.continent && city?.languages?.length
+} 
 
 
 
