@@ -16,8 +16,8 @@ return     <div className="flex flex-col items-center" >
 
 export const Settings = ()=>{
 const {t} = useTranslation()
-const [OpenList, setOpenList] = useState(false)
-    return <div className="relative z-20 flex-col " > <SecondaryBtn onClick={(val)=>setOpenList(!val)}  >  {t("loggedHeader.settings")}   <i className="bi bi-gear-fill"></i> </SecondaryBtn>
-    <SettingsList/>
+const [OpenList, setOpenList] = useState(true)
+    return <div className="relative z-20 flex-col bg-white " > <SecondaryBtn onClick={()=>setOpenList((val)=>{ console.log("val" , !val)  ;  return  !val})}  >  {t("loggedHeader.settings")}   <i className="bi bi-gear-fill"></i> </SecondaryBtn>
+    {OpenList &&   <SettingsList/>  }
     </div>
 }

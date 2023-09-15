@@ -4,6 +4,7 @@ import { H3 } from "@/ui/typography"
 import Link from "next/link"
 import "bootstrap-icons/font/bootstrap-icons.css"
 import { useTranslation } from "@/app/i18n"
+import { Settings } from "../headings/settingList"
 
 
 
@@ -16,7 +17,7 @@ export  async function  LoggedHeader  (){
 <Link href="/" > <H3 className="text-primary " > {t("loggedHeader.findTargetCity")}</H3></Link>
 <Link href="/cityData" ><H3 className="text-primary" >{t("loggedHeader.cityData")}</H3></Link>
 <Link href="/Blog" > <PrimaryBtn>{t("unlogedHeader.blog")} <i className="bi bi-newspaper"></i> </PrimaryBtn></Link>
-<div className="relative z-20 flex-col " > <SecondaryBtn  >  {t("loggedHeader.settings")}   <i className="bi bi-gear-fill"></i> </SecondaryBtn></div>
+<Settings/>
         </div>
     )
 }
