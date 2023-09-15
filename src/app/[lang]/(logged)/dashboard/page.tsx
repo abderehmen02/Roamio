@@ -11,7 +11,7 @@ import { PageBody } from "@/ui/containers"
 import { Cities } from "./_components/cities"
 import { Title } from "@/ui/title"
 export default function Dashboard  (){
-    return <div className="flex flex-col gap-11 py-20 px-2" >
+    return <div className="flex  flex-col gap-11 py-8 px-2" >
 <Title title="Find Your Next Distination" descreption="Select your prefrences and start reading about diffrent cities"  />
 <PageBody className="" >
 <PrefrencesRow/>

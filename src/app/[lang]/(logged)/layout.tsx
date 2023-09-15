@@ -24,7 +24,7 @@ export default async function LoggedLayout({
 }) {
 
   return (
-<div className='bgBackground'  >   <AuthProvider> 
+<div className='bgBackground py-20'  >   <AuthProvider> 
 <LoggedHeader/>  
 {children}  </AuthProvider>
 </div>
