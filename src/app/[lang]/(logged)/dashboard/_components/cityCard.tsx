@@ -38,7 +38,7 @@ export const generateExtractDescreptionIndex : (length : number  , aspectRacio :
   return length
 }
 
-export const CityCard : React.FC<CityDb> =  (city)=>{
+export const CityCard : React.FC<CityDb > =  (city)=>{
   const [viewLandMarks, setViewLandMarks] = useState<boolean>(false)
    const [seeAllDescreption, setSeeAllDescreption] = useState(false)
   const cityWikipediaData   =  usePlaceWikipediaData(city.name)
