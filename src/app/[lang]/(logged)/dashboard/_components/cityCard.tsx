@@ -26,6 +26,10 @@ import { Skeleton } from "@mui/material"
 import { CityCardSkeleton } from "@/components/skeletons/city/cityCardSkeleton"
 import TurnedInOutlinedIcon from '@mui/icons-material/TurnedInOutlined';
 import TurnedInNotOutlinedIcon from '@mui/icons-material/TurnedInNotOutlined';
+import { useQuery } from "@tanstack/react-query"
+import { isCityDb } from "@/types/state/cities"
+import axios from "axios"
+import { getCity } from "@/functions/api/cities"
 
 export const generateExtractDescreptionIndex : (length : number  , aspectRacio : number | undefined )=>number = (length , aspectRacio )  =>{
   if(aspectRacio){
@@ -38,23 +42,27 @@ export const generateExtractDescreptionIndex : (length : number  , aspectRacio :
   return length
 }
 
-export const CityCard : React.FC<CityDb  > =  (city)=>{
+export const CityCard : React.FC<CityDb | {name : string} > =  (cityInfo)=>{
   const [viewLandMarks, setViewLandMarks] = useState<boolean>(false)
    const [seeAllDescreption, setSeeAllDescreption] = useState(false)
-  const cityWikipediaData   =  usePlaceWikipediaData(city.name)
+  const cityWikipediaData   =  usePlaceWikipediaData(cityInfo.name)
   const loginInfo = useSelector((state : stateType)=>state.login)
   const dispatch = useDispatch()
   const cities = useSelector((state : stateType)=>state.cities)
   const {dispatchAction} = bindActionCreators(ActionCreators , dispatch)
   const userInfo = useSelector((state: stateType)=>state.userInfo)
-  const [ addReview , likeCity  , unlikeCity , dislikeCity  , cancelDislike , saveCity , unsaveCity, loadingSave  , loadingLike  , loadingDislke ] = useCityCardActions(city)
+  const [ addReview , likeCity  , unlikeCity , dislikeCity  , cancelDislike , saveCity , unsaveCity, loadingSave  , loadingLike  , loadingDislke ] = useCityCardActions(cityInfo)
   const [openCommentModal, setOpenCommentModal] = useState(false)
-    const {t} = useTranslation()
+  const {t} = useTranslation()
+  const {data : fetchedCityDb , error , isLoading} = useQuery({
+    queryKey: [cityInfo.name] ,
+    queryFn : ()=>{ return   getCity(cityInfo.name) } ,
+    enabled : isCityDb(cityInfo) ,
+  })
+  const city : CityDb = isCityDb(cityInfo) ? cityInfo : fetchedCityDb 
 
 
-
-
-    const isSavedCity = isUserInfo(userInfo) && userInfo.savedCities.includes(city.name)
+    const isSavedCity = isUserInfo(userInfo) && userInfo.savedCities.includes(cityInfo.name)
     if(cityWikipediaData.loading ) return <CityCardSkeleton/>
     if(cityWikipediaData.error || !cityWikipediaData.infoAvailble  ) return null
    

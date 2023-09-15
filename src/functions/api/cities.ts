@@ -1,6 +1,7 @@
 
 
-export const getCities = async (city : string)=>{
+export const getCity = async (city : string)=>{
 const query = new URLSearchParams({name : city})
-console.log("query ")
+console.log("query " , query )
+return "data"
 }
