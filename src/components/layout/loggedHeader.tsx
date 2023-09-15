@@ -16,7 +16,7 @@ export  async function  LoggedHeader  (){
 <Link href="/" > <H3 className="text-primary " > {t("loggedHeader.findTargetCity")}</H3></Link>
 <Link href="/cityData" ><H3 className="text-primary" >{t("loggedHeader.cityData")}</H3></Link>
 <Link href="/Blog" > <PrimaryBtn>{t("unlogedHeader.blog")} <i className="bi bi-newspaper"></i> </PrimaryBtn></Link>
- <SecondaryBtn  >  {t("loggedHeader.settings")}   <i className="bi bi-gear-fill"></i> </SecondaryBtn>
+<div className="relative z-20 flex-col " > <SecondaryBtn  >  {t("loggedHeader.settings")}   <i className="bi bi-gear-fill"></i> </SecondaryBtn></div>
         </div>
     )
 }
