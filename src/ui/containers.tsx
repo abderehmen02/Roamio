@@ -6,3 +6,12 @@ export const PageBody : React.FC<HtmlHTMLAttributes<HTMLDivElement>> = ({classNa
 {children}
     </div>
 }
+
+
+
+
+export const LoggedPage : React.FC<HtmlHTMLAttributes<HTMLDivElement>> = ({className , children , ...props})=>{
+    return <div className={cn("flex  flex-col gap-11 py-8 px-2 " ,className)} {...props}  >
+{children}
+    </div>
+}
