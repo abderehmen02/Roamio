@@ -45,6 +45,14 @@
   border-radius:  2px;
 }
 
+
+.thinBorderBottom{
+  border-bottom-width:  0.5px;
+}
+.hoverSettingsList:hover{
+  border-bottom-width : 2px ;
+  text-shadow:  1px 1px 3px black;
+}
 @media screen and (max-width : 640px) {
 .loginImg{
 width:  200px;
