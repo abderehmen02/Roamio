@@ -22,6 +22,8 @@ export function asyncWrapperApi(
         return result;
       } catch (error) {
         console.error( "error thrown :" ,  error)
+
+        return apiResponse(StatusCodes.INTERNAL_SERVER_ERROR , errorMessage(JSON.stringify(error)))
       }
     };
   }
@@ -42,6 +44,7 @@ export function asyncWrapperApi(
         return result;
       } catch (error) {
         console.error( "error thrown :" ,  error)
-      }
+
+        return apiResponse(StatusCodes.INTERNAL_SERVER_ERROR , errorMessage(JSON.stringify(error)))      }
     };
   }

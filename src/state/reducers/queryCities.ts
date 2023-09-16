@@ -6,7 +6,7 @@ const initialQueryCitiesState : CitiesQueryState = {
     page: 1  ,
     categories : {
         type : QueryTypes.any , 
-        value : [Categories.MostVisited]
+        value : []
     } , 
     continent : {
         type : QueryTypes.any , 
