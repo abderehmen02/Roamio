@@ -8,6 +8,7 @@ import { QueryObjParams } from "@/utils/queryCities"
 export const  getCities  = async ( queries : {categories: Category[] , prices:Price[] , page?: number , name?: string }  ) : Promise<CityDb[]>  =>{
 const { categories , prices , page= 1 , name } = queries
   const queryArray = []
+  
   if(Object.keys(queries).length === 0  ) queryArray.push({$or: [{ categories: [Categories.MostVisited] }]})
   if(categories.length) queryArray.push({$or: categories.map(category => ({ categories: category }))})
   if(prices.length) queryArray.push({$or: prices.map(price => ({ price:  price  })) })
