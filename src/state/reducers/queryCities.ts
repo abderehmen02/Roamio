@@ -1,3 +1,4 @@
+import { Categories } from '@/types/prefrences'
 import { LoginAction , LoginState , LoginActionTypes } from '@/types/state/auth/signIn'
 import { CitiesQueryAction, CitiesQueryActionTypes, CitiesQueryState, QueryTypes } from '@/types/state/citiesQuery'
 
@@ -5,7 +6,7 @@ const initialQueryCitiesState : CitiesQueryState = {
     page: 1  ,
     categories : {
         type : QueryTypes.any , 
-        value : []
+        value : [Categories.MostVisited]
     } , 
     continent : {
         type : QueryTypes.any , 

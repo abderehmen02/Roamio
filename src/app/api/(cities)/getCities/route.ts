@@ -28,5 +28,3 @@ export const GET = asyncWrapperApi(async (req )=>{
       let cities : CityDb[] = await  getCities({categories , prices : price  ,page , name } )
       return  apiResponse(200 , cities)
 })
-
-
