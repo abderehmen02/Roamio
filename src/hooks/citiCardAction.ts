@@ -81,10 +81,10 @@ const dislikeCity = async  ()=>{
 
 
 const likeCity = async  ()=>{
-  console.log("city" , city)
-  if(!city) return 
+  if(!city || !isUserInfo(userInfo) ) return 
   setLoadingLike(true)
-    isUserInfo(userInfo) &&      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities , cities : [...cities.cities.map(item=>{
+  // setCity((cityVal)=>{if(cityVal)return ({...cityVal , likes: [...cityVal.likes , userInfo._id]})})
+  isUserInfo(userInfo) &&      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities , cities : [...cities.cities.map(item=>{
             if(item.name === city.name){
               return ({
                 ...item , likes : [...item.likes , userInfo._id ]
@@ -95,8 +95,8 @@ const likeCity = async  ()=>{
     
           const responce = loginInfo.token   && await   authorizedPatchRequest<any>(loginInfo.token , "/api/addLike" , {city  : city.name } )
           const data = responce.data ;
-          console.log("data" , data  )
           dispatchAction({type : CitiesActionTypes.EDIT_CITY , payload : data })
+          // setCity(data)
           setLoadingLike(false)
           }
           

@@ -56,8 +56,10 @@ export const CityCard : React.FC<CityDb | {name : string} > =  (cityInfo)=>{
   const {data : fetchedCityDb , error , refetch , isLoading} = useQuery({
     queryKey: [cityInfo.name] ,
     queryFn : ()=>{ return getCity(cityInfo.name) } ,
+    onSuccess : receiveCityDbData
   })
-   const [city, setCity] = useState<CityDb | undefined>(isCityDb(cityInfo) ? cityInfo : fetchedCityDb)
+  const cityDb : CityDb | undefined =     isCityDb(cityInfo) ? cityInfo :  fetchedCityDb
+  const [city , setCity]  = useState<CityDb | undefined>(cityDb)
   const [ addReview , likeCity  , unlikeCity , dislikeCity  , cancelDislike , saveCity , unsaveCity, loadingSave  , loadingLike  , loadingDislke ] = useCityCardActions(city , setCity )
  
   
@@ -76,8 +78,9 @@ export const CityCard : React.FC<CityDb | {name : string} > =  (cityInfo)=>{
 
 
 
-
-
+function receiveCityDbData (data: CityDb): void{
+  setCity(data)
+}
 
 
 //functions      
