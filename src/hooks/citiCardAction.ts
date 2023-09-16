@@ -96,6 +96,7 @@ const likeCity = async  ()=>{
           const responce = loginInfo.token   && await   authorizedPatchRequest<any>(loginInfo.token , "/api/addLike" , {city  : city.name } )
           const data = responce.data ;
           dispatchAction({type : CitiesActionTypes.EDIT_CITY , payload : data })
+          console.log("data" ,data )
           setCity(data)
           setLoadingLike(false)
           }
@@ -154,6 +155,8 @@ const likeCity = async  ()=>{
                             }
                             else return item
                           }) ]}})
+
+                          setCity(data)
                           setLoadingDislike(false)
                           }
 
