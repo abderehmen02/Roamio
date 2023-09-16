@@ -19,7 +19,7 @@ export default function Dashboard  (){
     if(cities.error?.message) return <LoggedPage> <Title title="Error !" descreption={"Some error hapened on the cities state! please try again later." + cities.error.message }  /></LoggedPage>
     return <LoggedPage >
 { (!cities.loading &&   cities.cities.length  === 0 ) ?  <Title title="No city found" descreption="Can not find any city! please select some other prefrences "  /> : <Title title="Find Your Next Distination" descreption="Select your prefrences and start reading about diffrent cities"  /> }
-<PageBody className="" >
+<PageBody  >
 <PrefrencesRow/>
 <Cities/>
 </PageBody>
