@@ -6,7 +6,7 @@ import { usePlaceWikipediaData } from "@/hooks/cityWikipediaData"
 import { cn } from "@/lib/tailwind"
 import { ButtonsSizes, PrimaryBtn, SecondaryBtn } from "@/ui/buttons"
 import { Title } from "@/ui/title"
-import {  P } from "@/ui/typography"
+import {  H3, P } from "@/ui/typography"
 import { useEffect, useRef, useState } from "react"
 import { Landmarks } from "./landmarks"
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
@@ -56,12 +56,11 @@ export const CityCard : React.FC<CityDb | {name : string} > =  (cityInfo)=>{
   const {t} = useTranslation()
   const {data : fetchedCityDb , error , isLoading} = useQuery({
     queryKey: [cityInfo.name] ,
-    queryFn : ()=>{ return   getCity(cityInfo.name) } ,
-    enabled : isCityDb(cityInfo) ,
+    queryFn : ()=>{ console.log("quering the city") ; getCity(cityInfo.name) } ,
   })
   const city : CityDb = isCityDb(cityInfo) ? cityInfo : fetchedCityDb 
 
-
+return <div>city card</div>
     const isSavedCity = isUserInfo(userInfo) && userInfo.savedCities.includes(cityInfo.name)
     if(cityWikipediaData.loading ) return <CityCardSkeleton/>
     if(cityWikipediaData.error || !cityWikipediaData.infoAvailble  ) return null

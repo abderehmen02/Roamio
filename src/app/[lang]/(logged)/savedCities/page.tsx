@@ -1,11 +1,12 @@
 import { LoggedPage } from "@/ui/containers";
 import { Title } from "@/ui/title";
 import { Cities } from "../dashboard/_components/cities";
+import { SavedCities } from "./_components/savedCities";
 
 
-export default function SavedCities (){
+export default function SavedCitiesPage (){
     return <LoggedPage>
         <Title title="Your Cities" descreption="Your Collection of Treasured Destinations." />
-        <Cities/>
+        <SavedCities/>
     </LoggedPage>
 }

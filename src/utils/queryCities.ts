@@ -46,30 +46,30 @@ export const   QueryObjParams =  {
 
 
 
-export const generateQueryCitiesSearchParam = (query : CitiesQueryState)=>{
+export const generateQueryCitiesSearchParam = (query :  Partial<CitiesQueryState>)=>{
     let queryObj : QueryObj = {} ;
         queryObj.page = query.page ? String(query.page) : "1" 
-    if(query.categories.value.length){
+    if(query?.categories?.value.length){
         queryObj.categoriesType = query.categories.type ,
         queryObj.categories = JSON.stringify( query.categories.value)
     }
-    if(query.continent.value.length){
+    if(query.continent?.value.length){
         queryObj.continentType = query.continent.type ,
         queryObj.continent = JSON.stringify( query.continent.value)
     }
-    if(query.country.value.length){
+    if(query.country?.value.length){
         queryObj.countryType = query.country.type , 
         queryObj.country = JSON.stringify(query.country.value)
     }
-    if(query.languages.value.length){
+    if(query.languages?.value.length){
         queryObj.languagesType = query.languages.type ,
         queryObj.languages = JSON.stringify(query.languages.value)
     }
-    if(query.price.value.length){
+    if(query.price?.value.length){
         queryObj.priceType =  query.price.type ,
         queryObj.price = JSON.stringify( query.price.value)
     }
-    if(query.weathers.value.length){
+    if(query.weathers?.value.length){
         queryObj.weathersType = query.weathers.type ,
         queryObj.weathers = JSON.stringify(query.weathers.value)
     }
