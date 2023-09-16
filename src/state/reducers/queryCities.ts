@@ -36,8 +36,9 @@ const initialQueryCitiesState : CitiesQueryState = {
      } 
 }
 
-export const  canotAbstractPrefrences = (query : CitiesQueryState): boolean => {
-return query.categories.value.length+ query.continent.value.length + query.country.value.length + query.languages.value.length + Number(query.name?.length ) + query.price.value.length + query.weathers.value.length + query.yearTimes.value.length < 2
+export const  canNotAbstractPrefrences = (query : CitiesQueryState): boolean => {
+const sum =  query.categories.value.length+ query.continent.value.length + query.country.value.length + query.languages.value.length + (query.name?.length|| 0 ) + query.price.value.length + query.weathers.value.length + query.yearTimes.value.length 
+return sum < 2
 }
 export const citiesQueryReducer =  (state : CitiesQueryState = initialQueryCitiesState , action : CitiesQueryAction )=>{
 switch(action.type){

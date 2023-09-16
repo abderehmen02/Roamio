@@ -16,6 +16,7 @@ import axios from "axios"
 import { CitiesActionTypes } from "@/types/state/cities"
 import { generateQueryCitiesSearchParam, isPrefrenceIncluded } from "@/utils/queryCities"
 import { cn } from "@/lib/tailwind"
+import { canNotAbstractPrefrences } from "@/state/reducers/queryCities"
 
 const rowsFields : PrefrencesArray = [{  option : PrefrencesOptions.CATEGORIES , prefrence :  Categories }  , {   option: PrefrencesOptions.PRICES , prefrence: Prices } , { option : PrefrencesOptions.YEAR_TIMES , prefrence :  YearTimes } ,  {  option :  PrefrencesOptions.MEALS , prefrence : Meals }  , {option : PrefrencesOptions.WEATHERS , prefrence : Weathers} , {option : PrefrencesOptions.LANGUAGES , prefrence : Languages}  ]
 
@@ -56,14 +57,20 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
    
 
 const toglePrefrence = (prefrence : Prefrence ): void=>{
+    const selectOnePrefrenceMessage = "You should select at least one prefrence"
     if(option === PrefrencesOptions.CATEGORIES){
     let includePrefrence : boolean = queryCities.categories.value.includes(prefrence as Category ) 
-    if(includePrefrence)        dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY  , payload : {...queryCities , page: 1 , categories : {...queryCities.categories , value : queryCities.categories.value.filter(item =>item !== prefrence )}} })
+    if(includePrefrence)    {  
+        if(canNotAbstractPrefrences(queryCities)) return alert(selectOnePrefrenceMessage)
+        dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY  , payload : {...queryCities , page: 1 , categories : {...queryCities.categories , value : queryCities.categories.value.filter(item =>item !== prefrence )}} }) }
     else dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , page : 1 , categories : {...queryCities.categories , value : [...queryCities.categories.value ,prefrence as Category ]}} })
     }
     else if(option === PrefrencesOptions.PRICES){
+
     let includePrefrence : boolean = queryCities.price.value.includes(prefrence as Price )
-    if(includePrefrence)        dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , price: {...queryCities.price, value : queryCities.price.value.filter(item =>item !== prefrence )}} })
+    if(includePrefrence)   {  
+        if(canNotAbstractPrefrences(queryCities)) return alert(selectOnePrefrenceMessage)
+        dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , price: {...queryCities.price, value : queryCities.price.value.filter(item =>item !== prefrence )}} }) }
     else dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , price : {...queryCities.price, value : [...queryCities.price.value ,prefrence as Price]}} })
 
 
