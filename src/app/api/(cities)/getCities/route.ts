@@ -5,12 +5,13 @@ import { asyncWrapperApi } from "@/utils/asyncWrapper"
 import { QueryObjParams } from "@/utils/queryCities"
 
 
-export const  getCities : ( categories: Category[] , prices:Price[] , page?: number ) => Promise<CityDb[]> = async (categories , prices , page= 1 )  =>{
+export const  getCities  = async ( queries : {categories: Category[] , prices:Price[] , page?: number , name?: string }  ) : Promise<CityDb[]>  =>{
+const { categories , prices , page= 1 , name } = queries
   const queryArray = []
-  if(!categories.length  ) queryArray.push({$or: [{ categories: [Categories.MostVisited] }]})
+  if(Object.keys(queries).length === 0  ) queryArray.push({$or: [{ categories: [Categories.MostVisited] }]})
   if(categories.length) queryArray.push({$or: categories.map(category => ({ categories: category }))})
   if(prices.length) queryArray.push({$or: prices.map(price => ({ price:  price  })) })
-
+  if(name) queryArray.push({name})
  let cities : CityDb[] = await cityModal().find( {$and: queryArray}).limit(page * 50)
  console.log("cities length" , cities.length)
  return cities
@@ -23,7 +24,8 @@ export const GET = asyncWrapperApi(async (req )=>{
       const categories  : Category[]  =   JSON.parse(searchParams.get(QueryObjParams.categories) || '[]' )
       const price : Price[]  = JSON.parse(searchParams.get(QueryObjParams.price) || '[]' )
       const page : number = Number(searchParams.get(QueryObjParams.page) || 1)
-      let cities : CityDb[] = await  getCities(categories , price  ,page )
+      const name : string = searchParams.get(QueryObjParams.name) || ""
+      let cities : CityDb[] = await  getCities({categories , prices : price  ,page , name } )
       return  apiResponse(200 , cities)
 })
 
