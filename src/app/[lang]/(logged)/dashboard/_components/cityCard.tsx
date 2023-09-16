@@ -51,7 +51,6 @@ export const CityCard : React.FC<CityDb | {name : string} > =  (cityInfo)=>{
   const cities = useSelector((state : stateType)=>state.cities)
   const {dispatchAction} = bindActionCreators(ActionCreators , dispatch)
   const userInfo = useSelector((state: stateType)=>state.userInfo)
-  const [ addReview , likeCity  , unlikeCity , dislikeCity  , cancelDislike , saveCity , unsaveCity, loadingSave  , loadingLike  , loadingDislke ] = useCityCardActions(cityInfo)
   const [openCommentModal, setOpenCommentModal] = useState(false)
   const {t} = useTranslation()
   const {data : fetchedCityDb , error , isLoading} = useQuery({
@@ -59,6 +58,11 @@ export const CityCard : React.FC<CityDb | {name : string} > =  (cityInfo)=>{
     queryFn : ()=>{ return getCity(cityInfo.name) } ,
   })
   const city : CityDb | undefined  = isCityDb(cityInfo) ? cityInfo : fetchedCityDb 
+
+  const [ addReview , likeCity  , unlikeCity , dislikeCity  , cancelDislike , saveCity , unsaveCity, loadingSave  , loadingLike  , loadingDislke ] = useCityCardActions(city)
+ 
+console.log("city" , city)
+  
     const isSavedCity = isUserInfo(userInfo) && userInfo.savedCities.includes(cityInfo.name)
     if(cityWikipediaData.loading ) return <CityCardSkeleton/>
     if(cityWikipediaData.error || !cityWikipediaData.infoAvailble  ) return null

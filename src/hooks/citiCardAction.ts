@@ -10,7 +10,7 @@ import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { bindActionCreators } from "redux"
 
-export function useCityCardActions(city : {name : string }): [((review: string  , setReview : React.Dispatch<React.SetStateAction<string>> )=>void) , (()=>void) , ()=>void, (()=>void) , (()=>void) , (()=>void) , (()=>void) , boolean , boolean , boolean] {
+export function useCityCardActions(city : CityDb | undefined): [((review: string  , setReview : React.Dispatch<React.SetStateAction<string>> )=>void) , (()=>void) , ()=>void, (()=>void) , (()=>void) , (()=>void) , (()=>void) , boolean , boolean , boolean] {
 const [loadingLike, setLoadingLike] = useState<boolean>(false)
 const [loadingDislike, setLoadingDislike] = useState<boolean>(false)
 const [loadingSave, setLoadingSave] = useState<boolean>(false)
@@ -23,13 +23,16 @@ const userInfo = useSelector((state: stateType)=>state.userInfo)
 
 
 const addReview  = async (review : string , setReview : React.Dispatch<React.SetStateAction<string>> )=>{
+if(!city) return 
 if(!loginInfo.token) return 
-const data  = await   authorizedPostRequest<CityDb>( loginInfo.token ,  "/api/addCityReview" , {
+isUserInfo(userInfo) && dispatchAction({type: CitiesActionTypes.EDIT_CITY , payload: {...city , reviews: [ ...city.reviews , {userId : userInfo._id , review : review} ]}   })
+authorizedPostRequest<CityDb>( loginInfo.token ,  "/api/addCityReview" , {
   city : city.name ,
   review
+}).then(data=>{
+  if(!isCityDb(data)) return 
+  dispatchAction({type : CitiesActionTypes.EDIT_CITY , payload: data })  
 })
-if(!isCityDb(data)) return 
-dispatchAction({type : CitiesActionTypes.EDIT_CITY , payload: data })
 setReview("")
 }
 
@@ -38,6 +41,7 @@ setReview("")
 
 
 const dislikeCity = async  ()=>{
+  if(!city) return 
   setLoadingDislike(true)
   isUserInfo(userInfo) &&      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities , cities : [...cities.cities.map(item=>{
           if(item.name === city.name){
@@ -68,6 +72,7 @@ const dislikeCity = async  ()=>{
 
 
 const likeCity = async  ()=>{
+  if(!city) return 
   setLoadingLike(true)
     isUserInfo(userInfo) &&      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities , cities : [...cities.cities.map(item=>{
             if(item.name === city.name){
@@ -94,6 +99,7 @@ const likeCity = async  ()=>{
     
     
           const unlikeCity = async  ()=>{
+            if(!city) return 
             setLoadingLike(true)
             isUserInfo(userInfo) &&      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities , cities : [...cities.cities.map(item=>{
                     if(item.name === city.name){
@@ -122,6 +128,7 @@ const likeCity = async  ()=>{
 
 
                   const cancelDislike = async  ()=>{
+                    if(!city) return 
                     setLoadingDislike(true)
                     isUserInfo(userInfo) &&      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities ,cities : [...cities.cities.map(item=>{
                             if(item.name === city.name){
@@ -145,6 +152,7 @@ const likeCity = async  ()=>{
                           }
 
                     const saveCity = async ()=>{
+                      if(!city) return 
                       setLoadingSave(true)
                       isUserInfo(userInfo)  && dispatchAction({type : UserInfoActionTypes.ADD_USER_INFO , payload: {
                         ...userInfo , savedCities :   userInfo.savedCities
@@ -158,6 +166,7 @@ const likeCity = async  ()=>{
 
 
                     const unsaveCity = async ()=>{
+                      if(!city) return
                       console.log("unsacing city")
                       setLoadingSave(true)
                       isUserInfo(userInfo) && dispatchAction({type : UserInfoActionTypes.ADD_USER_INFO , payload : {
