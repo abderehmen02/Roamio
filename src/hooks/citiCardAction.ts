@@ -5,7 +5,7 @@ import { UserInfo, UserInfoActionTypes, isUserInfo } from "@/types/state/auth/us
 import { CitiesActionTypes, isCityDb } from "@/types/state/cities"
 import { authorizedPatchRequest, authorizedPostRequest } from "@/utils/auth/autherizedRequest"
 import axios from "axios"
-import { useState } from "react"
+import { Dispatch, SetStateAction, useState } from "react"
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { bindActionCreators } from "redux"
@@ -15,7 +15,7 @@ import { bindActionCreators } from "redux"
 
 
 
-export function useCityCardActions(city : CityDb | undefined , refetch : ()=>any ): [((review: string  , setReview : React.Dispatch<React.SetStateAction<string>> )=>void) , (()=>void) , ()=>void, (()=>void) , (()=>void) , (()=>void) , (()=>void) , boolean , boolean , boolean] {
+export function useCityCardActions(city : CityDb | undefined , setCity : Dispatch<SetStateAction<CityDb | undefined>> ): [((review: string  , setReview : React.Dispatch<React.SetStateAction<string>> )=>void) , (()=>void) , ()=>void, (()=>void) , (()=>void) , (()=>void) , (()=>void) , boolean , boolean , boolean] {
 const [loadingLike, setLoadingLike] = useState<boolean>(false)
 const [loadingDislike, setLoadingDislike] = useState<boolean>(false)
 const [loadingSave, setLoadingSave] = useState<boolean>(false)

@@ -57,9 +57,8 @@ export const CityCard : React.FC<CityDb | {name : string} > =  (cityInfo)=>{
     queryKey: [cityInfo.name] ,
     queryFn : ()=>{ return getCity(cityInfo.name) } ,
   })
-  const city : CityDb | undefined  = isCityDb(cityInfo) ? cityInfo : fetchedCityDb 
-
-  const [ addReview , likeCity  , unlikeCity , dislikeCity  , cancelDislike , saveCity , unsaveCity, loadingSave  , loadingLike  , loadingDislke ] = useCityCardActions(city , refetch )
+   const [city, setCity] = useState<CityDb | undefined>(isCityDb(cityInfo) ? cityInfo : fetchedCityDb)
+  const [ addReview , likeCity  , unlikeCity , dislikeCity  , cancelDislike , saveCity , unsaveCity, loadingSave  , loadingLike  , loadingDislke ] = useCityCardActions(city , setCity )
  
   
     const isSavedCity = isUserInfo(userInfo) && userInfo.savedCities.includes(cityInfo.name)
@@ -89,7 +88,7 @@ export const CityCard : React.FC<CityDb | {name : string} > =  (cityInfo)=>{
 
 
     return <div className="flex flex-col shadow-md  bg-white rounded-xl  w-full border-stone-600" >
-   { isCityDb(city) &&  <ReviewModal open={openCommentModal} city={city} setOpen={setOpenCommentModal}  /> }
+   { isCityDb(city) &&  <ReviewModal addReviewFn={addReview} open={openCommentModal} city={city} setOpen={setOpenCommentModal}  /> }
     <div  className=" flex" >
     <img  src={image}  style={{width : '300px' , objectFit: 'cover' ,  }} className={ cn( "rounded-l-xl border-2 " , {"h-full" : !seeAllDescreption , "h-fit " : seeAllDescreption } )} />
     <div className="flex px-6 w-full py-1 justify-around flex-col " >
