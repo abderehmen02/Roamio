@@ -59,7 +59,6 @@ export const CityCard : React.FC<CityDb | {name : string} > =  (cityInfo)=>{
     queryFn : ()=>{ return getCity(cityInfo.name) } ,
   })
   const city : CityDb | undefined  = isCityDb(cityInfo) ? cityInfo : fetchedCityDb 
-console.log("city" , city)
     const isSavedCity = isUserInfo(userInfo) && userInfo.savedCities.includes(cityInfo.name)
     if(cityWikipediaData.loading ) return <CityCardSkeleton/>
     if(cityWikipediaData.error || !cityWikipediaData.infoAvailble  ) return null
