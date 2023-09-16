@@ -48,9 +48,10 @@ setReview("")
 
 
 const dislikeCity = async  ()=>{
-  if(!city) return 
+  if(!city || !isUserInfo(userInfo)) return 
   setLoadingDislike(true)
-  isUserInfo(userInfo) &&      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities , cities : [...cities.cities.map(item=>{
+  setCity((cityVal)=>{if(cityVal)return ({...cityVal , dislikes : [...cityVal.dislikes , userInfo._id]})})
+  dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities , cities : [...cities.cities.map(item=>{
           if(item.name === city.name){
             return ({
               ...item , dislikes : [...item.dislikes , userInfo._id ]
@@ -68,6 +69,7 @@ const dislikeCity = async  ()=>{
           }
           else return item
         }) ]}})
+        setCity(data)
         setLoadingDislike(false)
         }
 
