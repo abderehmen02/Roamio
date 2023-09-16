@@ -10,7 +10,12 @@ import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { bindActionCreators } from "redux"
 
-export function useCityCardActions(city : CityDb | undefined): [((review: string  , setReview : React.Dispatch<React.SetStateAction<string>> )=>void) , (()=>void) , ()=>void, (()=>void) , (()=>void) , (()=>void) , (()=>void) , boolean , boolean , boolean] {
+
+
+
+
+
+export function useCityCardActions(city : CityDb | undefined , refetch : ()=>any ): [((review: string  , setReview : React.Dispatch<React.SetStateAction<string>> )=>void) , (()=>void) , ()=>void, (()=>void) , (()=>void) , (()=>void) , (()=>void) , boolean , boolean , boolean] {
 const [loadingLike, setLoadingLike] = useState<boolean>(false)
 const [loadingDislike, setLoadingDislike] = useState<boolean>(false)
 const [loadingSave, setLoadingSave] = useState<boolean>(false)
@@ -72,6 +77,7 @@ const dislikeCity = async  ()=>{
 
 
 const likeCity = async  ()=>{
+  console.log("city" , city)
   if(!city) return 
   setLoadingLike(true)
     isUserInfo(userInfo) &&      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities , cities : [...cities.cities.map(item=>{
@@ -85,13 +91,8 @@ const likeCity = async  ()=>{
     
           const responce = loginInfo.token   && await   authorizedPatchRequest<any>(loginInfo.token , "/api/addLike" , {city  : city.name } )
           const data = responce.data ;
-    
-          dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload : {...cities , cities : [...cities.cities.map(item =>{
-            if(item.name === data.name){
-              return data
-            }
-            else return item
-          }) ]}})
+          console.log("data" , data  )
+          dispatchAction({type : CitiesActionTypes.EDIT_CITY , payload : data })
           setLoadingLike(false)
           }
           

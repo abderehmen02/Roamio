@@ -53,15 +53,14 @@ export const CityCard : React.FC<CityDb | {name : string} > =  (cityInfo)=>{
   const userInfo = useSelector((state: stateType)=>state.userInfo)
   const [openCommentModal, setOpenCommentModal] = useState(false)
   const {t} = useTranslation()
-  const {data : fetchedCityDb , error , isLoading} = useQuery({
+  const {data : fetchedCityDb , error , refetch , isLoading} = useQuery({
     queryKey: [cityInfo.name] ,
     queryFn : ()=>{ return getCity(cityInfo.name) } ,
   })
   const city : CityDb | undefined  = isCityDb(cityInfo) ? cityInfo : fetchedCityDb 
 
-  const [ addReview , likeCity  , unlikeCity , dislikeCity  , cancelDislike , saveCity , unsaveCity, loadingSave  , loadingLike  , loadingDislke ] = useCityCardActions(city)
+  const [ addReview , likeCity  , unlikeCity , dislikeCity  , cancelDislike , saveCity , unsaveCity, loadingSave  , loadingLike  , loadingDislke ] = useCityCardActions(city , refetch )
  
-console.log("city" , city)
   
     const isSavedCity = isUserInfo(userInfo) && userInfo.savedCities.includes(cityInfo.name)
     if(cityWikipediaData.loading ) return <CityCardSkeleton/>
@@ -97,7 +96,7 @@ console.log("city" , city)
      <Title  title={cityWikipediaData.title} titleClassName="text-2xl" className="flex-row   items-center justify-start gap-7"  descreptionClassName="font-bold text-secondaryDark" descreption={subtitle}  />
       { descreption &&  <P className="text-sm" >{ seeAllDescreption ? descreption  :  descreption?.slice(0 ,extractedIndex ) }{ extractedIndex < descreption.length &&  (  seeAllDescreption ?  <span style={{cursor: 'pointer'}} className="capitalize " onClick={()=>setSeeAllDescreption(false)} > {t("seeLess")}</span>  :     <span style={{cursor: 'pointer'}} className="capitalize " onClick={()=>setSeeAllDescreption(true)} >...{t("seeMore")}</span> )}</P> }
 <div className={cn("flex items-center justify-between gap-6 py-1" , {"py-3" : seeAllDescreption })} >{ loginInfo.token?.length  &&  <div className="flex items-center justify-center gap-5 h-4  " >  
-{ isUserInfo(userInfo) && isCityDb(city) && <div className="flex items-center justify-center gap-1" >{  ( city.likes.includes(userInfo._id) ? <div  onClick={ !loadingLike ? unlikeCity : undefined  } className={cn("cursor-pointer" , {"opacity-40"  : loadingLike} )} ><FavoriteIcon/></div> : <FavoriteBorderIcon className={cn("cursor-pointer" , {"opacity-40" :loadingLike }) } onClick={ !loadingLike ?  likeCity : undefined }   /> ) } {city.likes.length} </div>  }
+{ isUserInfo(userInfo) && isCityDb(city) && <div className="flex items-center justify-center gap-1" >{  ( city.likes.includes(userInfo._id) ? <div  onClick={ !loadingLike ? unlikeCity : undefined  } className={cn("cursor-pointer" , {"opacity-40"  : loadingLike} )} ><FavoriteIcon/></div> : <FavoriteBorderIcon className={cn("cursor-pointer" , {"opacity-40" :loadingLike }) } onClick={()=>{ !loadingLike ?  likeCity : undefined }}   /> ) } {city.likes.length} </div>  }
 { isUserInfo(userInfo) && isCityDb(city) && <div className={ cn( "flex items-center justify-center gap-1"  , {"opacity-40" : loadingDislke} )} >{  ( city.dislikes.includes(userInfo._id) ?  <div onClick={ !loadingDislke ? cancelDislike : undefined }  className="cursor-pointer" > <ThumbDownIcon   /></div> : <ThumbDownOffAltIcon className={cn("cursor-pointer" ,{"opacity-40" : loadingDislke})}  onClick={ !loadingDislke ?  dislikeCity : undefined  }   /> ) } {city.dislikes.length} </div>  }
 <div onClick={()=>setOpenCommentModal(true)} ><CommentIcon style={{cursor : "pointer"}} /></div> 
 </div>}

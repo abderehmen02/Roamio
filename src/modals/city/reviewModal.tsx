@@ -35,16 +35,15 @@ const style = {
   
 
 
-export const ReviewModal : React.FC<{open : boolean , setOpen : React.Dispatch<React.SetStateAction<boolean>> , city : CityDb }> =  ({open , setOpen , city} )=>{
+export const ReviewModal : React.FC<{open : boolean , setOpen : React.Dispatch<React.SetStateAction<boolean>> , city : CityDb , addReviewFn :((review: string  , setReview : React.Dispatch<React.SetStateAction<string>> )=>void) }> =  ({open , setOpen , city , addReviewFn } )=>{
 const {t}  = useTranslation()
-const [addReview ] = useCityCardActions(city)
 const [reviewValue, setReviewValue] = useState<string>("")
 const users = useUsersInfo(city.reviews.map(item=>item.userId).filter(item=>item?.length))
 const titleDescreption = city.reviews.length ? "See what people are saying about " + city.name + " city" :  "What do you think about " + city.name + " city?"
 
 const handleSubmitReview = (e : any )=>{
   e.preventDefault()
-  addReview(reviewValue , setReviewValue )
+  addReviewFn(reviewValue , setReviewValue )
 }
 
 
