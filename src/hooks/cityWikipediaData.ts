@@ -25,13 +25,12 @@ const {data  , isLoading , error } = useQuery({
         const response  = await axios.get(wikipediaUrl)
         return response.data
 }})
-
 return {
     subtitle : data?.description ,
     image: data?.thumbnail?.source || data?.originalimage?.source || "/no-image.png",
     descreption : data?.extract  ,
     imageAspectRacio : data?.thumbnail?.height / data?.thumbnail?.width  || data?.originalimage?.height / data?.originalimage?.width ,
-    infoAvailble : Boolean(data?.description && (data?.thumbnail?.source || data?.originalimage?.source) && data?.extract ) , 
+    infoAvailble : Boolean( data?.description !== "Topics referred to by the same term"  && data?.description && (data?.thumbnail?.source || data?.originalimage?.source) && data?.extract ) , 
     lat : data?.coordinates?.lat ,
     lon : data?.coordinates?.lon , 
     title : data?.title ,

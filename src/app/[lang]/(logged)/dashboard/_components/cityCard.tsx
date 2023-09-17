@@ -66,8 +66,8 @@ export const CityCard : React.FC<CityDb | {name : string} > =  (cityInfo)=>{
   
     const isSavedCity = isUserInfo(userInfo) && userInfo.savedCities.includes(cityInfo.name)
     if(cityWikipediaData.loading ) return <CityCardSkeleton/>
-    if(cityWikipediaData.error || !cityWikipediaData.infoAvailble  ) return null
-   
+    if(cityWikipediaData.title === "Karen Blixen Museum") console.log("city wikipedia data" , cityWikipediaData)
+    if(cityWikipediaData.error || !cityWikipediaData.infoAvailble || cityWikipediaData.descreption === "Topics referred to by the same term"  ) return null
     const {descreption , image , lat , lon , subtitle , imageAspectRacio } = cityWikipediaData
   
      const extractedIndex = generateExtractDescreptionIndex(descreption?.length as number , imageAspectRacio as number )

@@ -18,8 +18,8 @@ export const LandmarkCard : React.FC<{landMark : landMark , cityLon : number , c
     const [seeAllDescreption, setseeAllDescreption] = useState<boolean>(false)
 
 
-    if(error  ) return 
-    else if (loading) return <LandmarkSkeletonCard/>
+    if(error || !infoAvailble ) return 
+    else if (loading  ) return <LandmarkSkeletonCard/>
 return  <div className=" flex shadow-md  rounded-xl  w-full border-stone-600" >
     <img  src={image}  style={{width : '200px' , objectFit: 'cover' , minHeight : '60px' }} className={ cn( "rounded-l-xl border-2 " , {"h-full" : !seeAllDescreption , "h-fit " : seeAllDescreption } )} />
     

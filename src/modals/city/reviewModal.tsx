@@ -36,7 +36,6 @@ const style = {
 
 
 export const ReviewModal : React.FC<{open : boolean , setOpen : React.Dispatch<React.SetStateAction<boolean>> , city : CityDb , addReviewFn :((review: string  , setReview : React.Dispatch<React.SetStateAction<string>> )=>void) , deleteReviewFn : (review: string )=>void }> =  ({open , setOpen , city , addReviewFn , deleteReviewFn } )=>{
-console.log("city" , city)
 const {t}  = useTranslation()
 const [reviewValue, setReviewValue] = useState<string>("")
 const users = useUsersInfo(city.reviews.map(item=>item.userId).filter(item=>item?.length) , [ JSON.stringify(city.reviews)]  )

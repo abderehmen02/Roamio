@@ -6,7 +6,7 @@ import { useEffect } from "react"
 
 export const useUsersInfo = (users : string[] , keys : any[] = [] ):  UseQueryResult<UserDb[] | GoogleUserDb[]>=>{
 
-    const mutationOutputs = useQuery({
+    const usersQuery = useQuery({
         queryKey: keys, 
         keepPreviousData : true ,
         queryFn: async  ()=>{
@@ -20,5 +20,5 @@ export const useUsersInfo = (users : string[] , keys : any[] = [] ):  UseQueryRe
 
         
     
-  return mutationOutputs
+  return usersQuery
 }
