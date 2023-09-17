@@ -16,3 +16,9 @@ export const cityReviewRequestValidator  = z.object({
     review : z.string().min(1) , 
     city : z.string() 
 })
+
+
+export const deleteReviewValidator = z.object({
+    reveiwId: z.string()  ,
+    city : z.string()
+})
