@@ -196,8 +196,8 @@ const likeCity = async  ()=>{
                     const deleteReview = async  (reviewId : string)=>{
                 
                       if(!isCityDb(city) || !isUserInfo(userInfo) || !loginInfo.token ) return
-                      dispatchAction({type: CitiesActionTypes.EDIT_CITY , payload : {...city , reviews : city.reviews.filter(    item=> !(userInfo._id === item.userId && item._id !== reviewId)       )} })
-                      setCity((cityVal)=>{if(cityVal){return ({...cityVal , reviews : cityVal.reviews.filter(item=> !(userInfo._id === item.userId && item._id !== reviewId) ) })}})
+                      dispatchAction({type: CitiesActionTypes.EDIT_CITY , payload : {...city , reviews : city.reviews.filter(    item=> !(userInfo._id === item.userId && item._id === reviewId)       )} })
+                      setCity((cityVal)=>{if(cityVal){return ({...cityVal , reviews : cityVal.reviews.filter(item=> !(userInfo._id === item.userId && item._id === reviewId) ) })}})
                       const  queryObj = {reviewId , city : city?.name}
                       const query = new URLSearchParams(queryObj)
                       const response =  await authorizedDeleteRequest<{data: CityDb}>( loginInfo.token ,  "/api/deleteReview?" + query) 
