@@ -16,6 +16,5 @@ if(!city || !reviewId) return apiResponse(StatusCodes.BAD_REQUEST  , "the delete
 const parsedSearchParams  = deleteReviewValidator.safeParse(searchParams)
 console.log("parsed searhc params" , parsedSearchParams)
 const newCity = await  cityModal().findOneAndUpdate({name : city} , { $pull: { reviews : { _id: reviewId } } } , {new : true} )
-console.log("new city" , newCity)
-return apiResponse(StatusCodes.OK , {succuss : true} )
+return apiResponse(StatusCodes.OK , newCity )
 })

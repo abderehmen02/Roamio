@@ -11,9 +11,10 @@ export type Review =  {
 }
 
 export const ReviewComponent : React.FC<Review> = ({review , _id , image , userName , deleteReviewFn  })=>{
+    console.log("image " , image)
     if(!review) return <span>skeleton</span>
     else if(review && !image && !userName) return <span>userName and image skeleton + {review}</span>
-    return <div className="flex px-4 w-full justify-between" >
+    return <div className="flex px-4 items-center w-full justify-between" >
     <div className="flex w-full px-2  items-center justify-start gap-2" >
         <img alt="profile image" src={ image || appConfig.unknownPersonImg } width={35}  height={35} style={{border : '1px solid black'}} className=" rounded-full" />
         <div className="flex items-start  flex-col" >
@@ -21,6 +22,6 @@ export const ReviewComponent : React.FC<Review> = ({review , _id , image , userN
         <P className="text-start text-sm" >{review}</P>
         </div>
     </div>
-    <DeleteIcon  className="cursor-pointer" onClick={()=>{if(_id)deleteReviewFn(_id)}} />
+    <DeleteIcon  className="cursor-pointer hover:text-red-500 " onClick={()=>{if(_id)deleteReviewFn(_id)}} />
     </div>
 }

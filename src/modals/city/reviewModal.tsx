@@ -3,7 +3,7 @@ import { CityDb } from "@/db/models/city"
 import { Title } from "@/ui/title";
 import { H3 } from "@/ui/typography";
 import { Box, IconButton, Input, InputBase, Modal, Paper, TextField, Typography } from "@mui/material"
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import SendIcon from '@mui/icons-material/Send';
 import { PrimaryInput } from "@/ui/input";
 import { ButtonsSizes, PrimaryBtn } from "@/ui/buttons";
@@ -19,7 +19,7 @@ const style = {
     left: '50%',
     borderRadius: '8px' ,
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: 600,
     minHeight: '60vh',
     display :'flex' ,
     gap : 3 ,
@@ -36,18 +36,21 @@ const style = {
 
 
 export const ReviewModal : React.FC<{open : boolean , setOpen : React.Dispatch<React.SetStateAction<boolean>> , city : CityDb , addReviewFn :((review: string  , setReview : React.Dispatch<React.SetStateAction<string>> )=>void) , deleteReviewFn : (review: string )=>void }> =  ({open , setOpen , city , addReviewFn , deleteReviewFn } )=>{
-
+console.log("city" , city)
 const {t}  = useTranslation()
 const [reviewValue, setReviewValue] = useState<string>("")
 const users = useUsersInfo(city.reviews.map(item=>item.userId).filter(item=>item?.length) , city.reviews )
 const titleDescreption = city.reviews.length ? "See what people are saying about " + city.name + " city" :  "What do you think about " + city.name + " city?"
-
+const reviewsListScrollContainer = useRef<HTMLDivElement>(null)
 const handleSubmitReview = (e : any )=>{
   e.preventDefault()
   addReviewFn(reviewValue , setReviewValue )
 }
 
+useEffect(()=>{
+if(reviewsListScrollContainer.current)  reviewsListScrollContainer.current.scrollTop = reviewsListScrollContainer?.current?.scrollHeight;
 
+} , [city.reviews] )
 
 return    <Modal
 open={open}
@@ -55,9 +58,9 @@ onClose={()=>setOpen(false)}
 aria-labelledby="parent-modal-title"
 aria-describedby="parent-modal-description"
 >
-<Box sx={{ ...style , width: "fit-content" }}>
+<Box sx={{ ...style  }}>
 <Title title={t("Reviews")} descreptionClassName="text-secondaryDark" descreption={titleDescreption}  />
-<div style={{maxHeight: '50vh', overflowY: city.reviews.length ? 'scroll' : 'hidden' }} className="flex reviews gap-4 w-full items-start flex-col" >
+<div ref={reviewsListScrollContainer} style={{maxHeight: '50vh', overflowY: city.reviews.length ? 'scroll' : 'hidden' }} className="flex reviews gap-4 w-full items-start flex-col" >
 {city.reviews.filter(review =>{
   const user = users?.data?.find(item=>item._id === review.userId)
   return Boolean(user) || users.isLoading

@@ -3,6 +3,7 @@ import ActionCreators from "@/state/actionCreators/action"
 import { stateType } from "@/state/reducers"
 import { UserInfo, UserInfoActionTypes, isUserInfo } from "@/types/state/auth/userInfo"
 import { CitiesActionTypes, isCityDb } from "@/types/state/cities"
+import { CitiesQueryActionTypes } from "@/types/state/citiesQuery"
 import { authorizedDeleteRequest, authorizedPatchRequest, authorizedPostRequest } from "@/utils/auth/autherizedRequest"
 import axios from "axios"
 import { Dispatch, SetStateAction, useState } from "react"
@@ -35,7 +36,9 @@ authorizedPostRequest<CityDb>( loginInfo.token ,  "/api/addCityReview" , {
   city : city.name ,
   review
 }).then((data )=>{
-  if(!isCityDb(data)) return 
+  console.log("data" ,data)
+  if(!isCityDb(data)) return
+  console.log("dispatching") 
   dispatchAction({type : CitiesActionTypes.EDIT_CITY , payload: data })  
   setCity(data)
 })
@@ -134,10 +137,10 @@ const likeCity = async  ()=>{
 
 
                   const cancelDislike = async  ()=>{
-                    if(!city || !isUserInfo(userInfo) ) return 
+                    if(!city || !isUserInfo(userInfo) || !isUserInfo(userInfo)  ) return 
                     setLoadingDislike(true)
                     setCity((cityVal)=>{if(cityVal)return ({...cityVal , dislikes : cityVal.dislikes.filter((item)=>item !== userInfo._id)})})
-                    isUserInfo(userInfo) &&      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities ,cities : [...cities.cities.map(item=>{
+                         dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities ,cities : [...cities.cities.map(item=>{
                             if(item.name === city.name){
                               return ({
                                 ...item , dislikes : item.dislikes.filter(item=>item !== userInfo._id)
@@ -175,10 +178,9 @@ const likeCity = async  ()=>{
 
 
                     const unsaveCity = async ()=>{
-                      if(!city) return
-                      console.log("unsacing city")
+                      if(!city || !isUserInfo(userInfo)) return
                       setLoadingSave(true)
-                      isUserInfo(userInfo) && dispatchAction({type : UserInfoActionTypes.ADD_USER_INFO , payload : {
+                       dispatchAction({type : UserInfoActionTypes.ADD_USER_INFO , payload : {
                         ...userInfo , savedCities : userInfo.savedCities.filter(savedCity=>savedCity !== city.name)
                       }})
                       const newUser  = loginInfo.token && await authorizedPatchRequest<{data: UserInfo}>( loginInfo.token,  "/api/unsaveCity" , {city : city.name} )
@@ -192,11 +194,15 @@ const likeCity = async  ()=>{
 
 
                     const deleteReview = async  (reviewId : string)=>{
-                      if(!isCityDb(city) || !isUserInfo(userInfo) || !loginInfo.token ) return 
+                
+                      if(!isCityDb(city) || !isUserInfo(userInfo) || !loginInfo.token ) return
+                      dispatchAction({type: CitiesActionTypes.EDIT_CITY , payload : {...city , reviews : city.reviews.filter(    item=> !(userInfo._id === item.userId && item._id !== reviewId)       )} })
+                      setCity((cityVal)=>{if(cityVal){return ({...cityVal , reviews : cityVal.reviews.filter(item=> !(userInfo._id === item.userId && item._id !== reviewId) ) })}})
                       const  queryObj = {reviewId , city : city?.name}
                       const query = new URLSearchParams(queryObj)
-                      const newReview =  await authorizedDeleteRequest( loginInfo.token ,  "/api/deleteReview?" + query)
-                      console.log("new review" , newReview)
+                      const response =  await authorizedDeleteRequest<{data: CityDb}>( loginInfo.token ,  "/api/deleteReview?" + query) 
+                      setCity(response.data )
+                       dispatchAction({type: CitiesActionTypes.EDIT_CITY , payload  : response.data })                      
                     }
         
 return  [addReview , likeCity , unlikeCity , dislikeCity , cancelDislike  , saveCity , unsaveCity , deleteReview , loadingSave  , loadingLike , loadingDislike ]
