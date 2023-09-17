@@ -22,3 +22,12 @@ export const authorizedPatchRequest = <returnedDataType>(  token : string, url :
             }
         })
     }
+
+
+    export const authorizedDeleteRequest = <returnedDataType>(  token : string, url : string ): Promise<returnedDataType>=>{
+        return  axios.delete(url  , {
+                headers : {
+                    "authorization" : `bareare ${token}`
+                }
+            })
+        }

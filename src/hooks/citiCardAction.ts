@@ -187,8 +187,15 @@ const likeCity = async  ()=>{
                         isUserInfo(newUser.data ) && dispatchAction({type : UserInfoActionTypes.ADD_USER_INFO , payload: newUser.data  })
                       setLoadingSave(false)
                     }
+
+
+
+
                     const deleteReview = async  (reviewId : string)=>{
-                      const newReview =  await axios.post("/api/deleteReview")
+                      if(!isCityDb(city) || !isUserInfo(userInfo) ) return 
+                      const  queryObj = {reviewId , city : city?.name}
+                      const query = new URLSearchParams(queryObj)
+                      const newReview =  await axios.delete("/api/deleteReview?" + query)
                       console.log("new review" , newReview)
                     }
         
