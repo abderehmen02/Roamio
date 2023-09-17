@@ -35,9 +35,8 @@ const style = {
   
 
 
-export const ReviewModal : React.FC<{open : boolean , setOpen : React.Dispatch<React.SetStateAction<boolean>> , city : CityDb , addReviewFn :((review: string  , setReview : React.Dispatch<React.SetStateAction<string>> )=>void) }> =  ({open , setOpen , city , addReviewFn } )=>{
+export const ReviewModal : React.FC<{open : boolean , setOpen : React.Dispatch<React.SetStateAction<boolean>> , city : CityDb , addReviewFn :((review: string  , setReview : React.Dispatch<React.SetStateAction<string>> )=>void) , deleteReviewFn : (review: string )=>void }> =  ({open , setOpen , city , addReviewFn , deleteReviewFn } )=>{
 
-console.log("city" , city )  
 const {t}  = useTranslation()
 const [reviewValue, setReviewValue] = useState<string>("")
 const users = useUsersInfo(city.reviews.map(item=>item.userId).filter(item=>item?.length) , city.reviews )
@@ -63,10 +62,10 @@ aria-describedby="parent-modal-description"
   const user = users?.data?.find(item=>item._id === review.userId)
   return Boolean(user) || users.isLoading
 }).map(review=>{
-if(users.isLoading) return <ReviewComponent review={review.review} />
+if(users.isLoading) return <ReviewComponent deleteReviewFn={deleteReviewFn} _id={review._id} review={review.review} />
 const user = users?.data?.find(item=>item._id === review.userId)
 if(!user) return <span>somme error happened , please try again later</span>
-return <ReviewComponent   userName={isGoogleUser(user ) ? user.given_name : user.userName } review={review.review} image={isGoogleUser(user) ? user.picture :    "/unknownProfile.webp"} ></ReviewComponent>})}
+return <ReviewComponent deleteReviewFn={deleteReviewFn} _id={review._id}  userName={isGoogleUser(user ) ? user.given_name : user.userName } review={review.review} image={isGoogleUser(user) ? user.picture :    "/unknownProfile.webp"} ></ReviewComponent>})}
 </div>
 <div className="flex items-center h-20 justify-center gap-1" >
 <form onSubmit={handleSubmitReview} style={{borderWidth : 1}} className="bg-white py-2   w-full flex items-center border-black rounded-md px-2" >

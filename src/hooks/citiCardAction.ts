@@ -15,7 +15,7 @@ import { bindActionCreators } from "redux"
 
 
 
-export function useCityCardActions(city : CityDb | undefined , setCity : Dispatch<SetStateAction<CityDb | undefined>> ): [((review: string  , setReview : React.Dispatch<React.SetStateAction<string>> )=>void) , (()=>void) , ()=>void, (()=>void) , (()=>void) , (()=>void) , (()=>void) , boolean , boolean , boolean] {
+export function useCityCardActions(city : CityDb | undefined , setCity : Dispatch<SetStateAction<CityDb | undefined>> ): [((review: string  , setReview : React.Dispatch<React.SetStateAction<string>> )=>void) , (()=>void) , ()=>void, (()=>void) , (()=>void) , (()=>void) , (()=>void) , ((review : string)=>void) , boolean , boolean , boolean] {
 const [loadingLike, setLoadingLike] = useState<boolean>(false)
 const [loadingDislike, setLoadingDislike] = useState<boolean>(false)
 const [loadingSave, setLoadingSave] = useState<boolean>(false)
@@ -187,7 +187,10 @@ const likeCity = async  ()=>{
                         isUserInfo(newUser.data ) && dispatchAction({type : UserInfoActionTypes.ADD_USER_INFO , payload: newUser.data  })
                       setLoadingSave(false)
                     }
-                    
+                    const deleteReview = async  (reviewId : string)=>{
+                      const newReview =  await axios.post("/api/deleteReview")
+                      console.log("new review" , newReview)
+                    }
         
-return  [addReview , likeCity , unlikeCity , dislikeCity , cancelDislike  , saveCity , unsaveCity , loadingSave  , loadingLike , loadingDislike ]
+return  [addReview , likeCity , unlikeCity , dislikeCity , cancelDislike  , saveCity , unsaveCity , deleteReview , loadingSave  , loadingLike , loadingDislike ]
 }
