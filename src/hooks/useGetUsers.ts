@@ -4,10 +4,11 @@ import { UseMutationResult, useMutation } from "@tanstack/react-query"
 import axios from "axios"
 import { useEffect } from "react"
 
-export const useUsersInfo = (users : string[]):  UseMutationResult<UserDb[] | GoogleUserDb[], unknown, void, unknown>=>{
+export const useUsersInfo = (users : string[] , keys : any[] = [] ):  UseMutationResult<UserDb[] | GoogleUserDb[], unknown, void, unknown>=>{
 
     const mutationOutputs = useMutation({
         retry : 0 ,
+        mutationKey : keys , 
         mutationFn : async  ()=>{
             const responce = await  axios.post("/api/getUsers" , {
                 users

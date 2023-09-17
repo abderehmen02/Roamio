@@ -28,8 +28,7 @@ const userInfo = useSelector((state: stateType)=>state.userInfo)
 
 
 const addReview  = async (review : string , setReview : React.Dispatch<React.SetStateAction<string>> )=>{
-if(!city) return 
-if(!loginInfo.token || !isUserInfo(userInfo) ) return 
+if( !city || !loginInfo.token || !isUserInfo(userInfo) ) return 
 setCity((cityVal)=>{ if(cityVal)return({...cityVal , reviews : [...cityVal.reviews , {review , userId : userInfo._id} ] }) })
 dispatchAction({type: CitiesActionTypes.EDIT_CITY , payload: {...city , reviews: [ ...city.reviews , {userId : userInfo._id , review : review} ]}   })
 authorizedPostRequest<CityDb>( loginInfo.token ,  "/api/addCityReview" , {
@@ -105,10 +104,11 @@ const likeCity = async  ()=>{
     
     
           const unlikeCity = async  ()=>{
-            if(!city) return 
+            if(!city ||  !isUserInfo(userInfo) ) return 
             setLoadingLike(true)
-            isUserInfo(userInfo) &&      dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities , cities : [...cities.cities.map(item=>{
-                    if(item.name === city.name){
+              setCity((cityVal)=>{if(cityVal)return ({...cityVal , likes :cityVal.likes.filter((item)=>item !== userInfo._id)})})
+           dispatchAction({type : CitiesActionTypes.EDIT_CITIES , payload: {...cities , cities : [...cities.cities.map(item=>{
+                     if(item.name === city.name){
                       return ({
                         ...item , likes : item.likes.filter(item=>item !== userInfo._id)
                       })
