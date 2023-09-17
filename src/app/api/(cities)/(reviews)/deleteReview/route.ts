@@ -9,13 +9,13 @@ import { NextApiRequest } from "next";
 export const DELETE =  asyncWrapperAuthorisedApi( async (req )=>{
     console.log("getting a delete request")
 const {searchParams} = new URL(req?.url)
+const city = searchParams.get("city")
+const reviewId = searchParams.get("reviewId")
+console.log("city" ,city  , reviewId)
+if(!city || !reviewId) return apiResponse(StatusCodes.BAD_REQUEST  , "the delete review api should receive the city name and the review id")
 const parsedSearchParams  = deleteReviewValidator.safeParse(searchParams)
-if(!parsedSearchParams.success){ 
-    console.log(parsedSearchParams.error)
-    return apiResponse(StatusCodes.BAD_REQUEST , errorMessage('delete review api should accept a city name and a review id as a raquest') )
-}
 console.log("parsed searhc params" , parsedSearchParams)
-const newCity = await  cityModal().findOneAndUpdate({name : parsedSearchParams.data.city} , { $pull: { reviews : { _id: parsedSearchParams.data.reveiwId } } } , {new : true} )
+const newCity = await  cityModal().findOneAndUpdate({name : city} , { $pull: { reviews : { _id: reviewId } } } , {new : true} )
 console.log("new city" , newCity)
 return apiResponse(StatusCodes.OK , {succuss : true} )
 })

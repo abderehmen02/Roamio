@@ -3,7 +3,7 @@ import ActionCreators from "@/state/actionCreators/action"
 import { stateType } from "@/state/reducers"
 import { UserInfo, UserInfoActionTypes, isUserInfo } from "@/types/state/auth/userInfo"
 import { CitiesActionTypes, isCityDb } from "@/types/state/cities"
-import { authorizedPatchRequest, authorizedPostRequest } from "@/utils/auth/autherizedRequest"
+import { authorizedDeleteRequest, authorizedPatchRequest, authorizedPostRequest } from "@/utils/auth/autherizedRequest"
 import axios from "axios"
 import { Dispatch, SetStateAction, useState } from "react"
 import { useSelector } from "react-redux"
@@ -192,10 +192,10 @@ const likeCity = async  ()=>{
 
 
                     const deleteReview = async  (reviewId : string)=>{
-                      if(!isCityDb(city) || !isUserInfo(userInfo) ) return 
+                      if(!isCityDb(city) || !isUserInfo(userInfo) || !loginInfo.token ) return 
                       const  queryObj = {reviewId , city : city?.name}
                       const query = new URLSearchParams(queryObj)
-                      const newReview =  await axios.delete("/api/deleteReview?" + query)
+                      const newReview =  await authorizedDeleteRequest( loginInfo.token ,  "/api/deleteReview?" + query)
                       console.log("new review" , newReview)
                     }
         
