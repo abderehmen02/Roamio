@@ -6,15 +6,11 @@ import { deleteReviewValidator } from "@/utils/validators/cities";
 import { StatusCodes } from "http-status-codes";
 import { NextApiRequest } from "next";
 
-export const DELETE =  asyncWrapperAuthorisedApi( async (req )=>{
-    console.log("getting a delete request")
+export const DELETE =  asyncWrapperAuthorisedApi( async (req , userInfo )=>{
 const {searchParams} = new URL(req?.url)
 const city = searchParams.get("city")
 const reviewId = searchParams.get("reviewId")
-console.log("city" ,city  , reviewId)
 if(!city || !reviewId) return apiResponse(StatusCodes.BAD_REQUEST  , "the delete review api should receive the city name and the review id")
-const parsedSearchParams  = deleteReviewValidator.safeParse(searchParams)
-console.log("parsed searhc params" , parsedSearchParams)
-const newCity = await  cityModal().findOneAndUpdate({name : city} , { $pull: { reviews : { _id: reviewId } } } , {new : true} )
+const newCity = await  cityModal().findOneAndUpdate({name : city} , { $pull: { reviews : { _id: reviewId , userId: userInfo.userId  } } } , {new : true} )
 return apiResponse(StatusCodes.OK , newCity )
 })
