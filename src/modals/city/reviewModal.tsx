@@ -68,7 +68,7 @@ aria-describedby="parent-modal-description"
 if(users.isLoading) return <ReviewComponent deleteReviewFn={deleteReviewFn} _id={review._id} review={review.review} />
 const user = users?.data?.find(item=>item._id === review.userId)
 if(!user) return <span>somme error happened , please try again later</span>
-return <ReviewComponent deleteReviewFn={deleteReviewFn} _id={review._id}  userName={isGoogleUser(user ) ? user.given_name : user.userName } review={review.review} image={isGoogleUser(user) ? user.picture :    "/unknownProfile.webp"} ></ReviewComponent>})}
+return <ReviewComponent userId={review.userId} deleteReviewFn={deleteReviewFn} _id={review._id}  userName={isGoogleUser(user ) ? user.given_name : user.userName } review={review.review} image={isGoogleUser(user) ? user.picture :    "/unknownProfile.webp"} ></ReviewComponent>})}
 </div>
 <div className="flex items-center h-20 justify-center gap-1" >
 <form onSubmit={handleSubmitReview} style={{borderWidth : 1}} className="bg-white py-2   w-full flex items-center border-black rounded-md px-2" >
