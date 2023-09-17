@@ -39,7 +39,7 @@ export const ReviewModal : React.FC<{open : boolean , setOpen : React.Dispatch<R
 console.log("city" , city)
 const {t}  = useTranslation()
 const [reviewValue, setReviewValue] = useState<string>("")
-const users = useUsersInfo(city.reviews.map(item=>item.userId).filter(item=>item?.length) , city.reviews )
+const users = useUsersInfo(city.reviews.map(item=>item.userId).filter(item=>item?.length) , [ JSON.stringify(city.reviews)]  )
 const titleDescreption = city.reviews.length ? "See what people are saying about " + city.name + " city" :  "What do you think about " + city.name + " city?"
 const reviewsListScrollContainer = useRef<HTMLDivElement>(null)
 const handleSubmitReview = (e : any )=>{
