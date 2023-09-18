@@ -10,9 +10,8 @@ import { errorMessage } from "@/utils/api/error"
 export const POST =  asyncWrapperApi( async (req)=>{
     const refreshToken = cookies().get(authConfig.refreshTokenCookieName)?.value
     if(!refreshToken)  errorMessage("no refresh token found")
-    console.log("refresh token" , refreshToken)
+
     const deletedRefreshToken = await refreshTokenModel().deleteOne({token : refreshToken })
-    console.log("deleted" , deletedRefreshToken)
     cookies().delete(authConfig.refreshTokenCookieName)
     return apiResponse(ResponseStatuses.OK)
 })

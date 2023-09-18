@@ -43,7 +43,7 @@ export const submitSignUp  = asyncWrapper<[signUpDataType , Dispatch<SetStateAct
     const response = await axios.post("/api/signUp" , data )
 
     if(response.status === StatusCodes.CREATED){
-    console.log("response" , response)
+  
 // emitAction(LoginActionTypes.userLoginSuccuss , response.data.token  )    
 const {token  ,birthDate ,email , savedCities , firstName ,  gender , lastName , userName , _id , verified } = response.data
 const userInfo : UserInfo  =  { birthDate , savedCities ,   email , firstName , gender , lastName , userName , verified , _id}

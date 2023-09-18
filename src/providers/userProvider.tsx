@@ -1,10 +1,10 @@
 "use client"
-import React, { useEffect , useLayoutEffect, useState }  from "react"
+import React, { useEffect ,  useState }  from "react"
 import axios from "axios"
 import { StatusCodes } from "http-status-codes"
 import { useDispatch , useSelector } from "react-redux"
 import { bindActionCreators } from "redux"
-import ActionCreators, { emitAction } from "@/state/actionCreators/action"
+import ActionCreators  from "@/state/actionCreators/action"
 import { LoginActionTypes } from "@/types/state/auth/signIn"
 import {  UserInfo, UserInfoActionTypes, isGoogleUser, isUserInfo } from "@/types/state/auth/userInfo"
 import { stateType } from "@/state/reducers"
@@ -63,8 +63,6 @@ try {        const response =    await  axios.post('/api/getTokenAndUserInfo')
 
 
 
-console.log("session"  , SessionDialig)
-console.log("user login" , userLogin)
 
 useEffect(()=>{
 dispatchAction({type : LoginActionTypes.userLoginRequest})

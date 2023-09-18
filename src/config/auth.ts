@@ -2,7 +2,7 @@ import { appConfig } from "."
 
 export const authConfig ={
     jwtRefreshDays :       30, //30 days 
-    tokenExpiresIn : '20h' , 
+    tokenExpiresIn : '30h' , 
     minimumBirthDate : "01-01-1920"  ,
     bycryptSaltRounds : 10 ,
     refreshTokenCookieName : "refreshToken" ,
