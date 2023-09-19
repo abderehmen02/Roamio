@@ -1,7 +1,7 @@
 import { cityModal } from "@/db/models/city"
 import { apiResponse } from "@/utils/api/nextResponse"
 import { asyncWrapperApi } from "@/utils/asyncWrapper"
-import {  religiousCities } from "./static"
+import {  beachCities } from "./static"
 import { Categories } from "@/types/prefrences"
 import { StatusCodes } from "http-status-codes"
 
@@ -11,11 +11,11 @@ import { StatusCodes } from "http-status-codes"
 
 export const GET = asyncWrapperApi(async ()=>{
       let addedCities = 0 ;
-         for(let i  = 0 ; i < religiousCities.length ; i++){
-         const existCity = await cityModal().findOne({name : religiousCities[i].name})
-         if(existCity){ await cityModal().findOneAndUpdate({name : religiousCities[i].name} , { $addToSet: { categories: Categories.Religious  }} ,{new: true})
+         for(let i  = 0 ; i < beachCities.length ; i++){
+         const existCity = await cityModal().findOne({name : beachCities[i].name})
+         if(existCity){ await cityModal().findOneAndUpdate({name : beachCities[i].name} , { $addToSet: { categories: Categories.Beach  }} ,{new: true})
          }
-         else{ await cityModal().create({...religiousCities[i] , landmarks : religiousCities[i].landmarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [Categories.Religious]  , reviews: [] , likes: [] , dislikes : []  })
+         else{ await cityModal().create({...beachCities[i] , landmarks : beachCities[i].landmarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [Categories.Beach]  , reviews: [] , likes: [] , dislikes : []  })
          addedCities++ 
 
       }
