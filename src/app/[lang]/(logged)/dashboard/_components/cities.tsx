@@ -17,7 +17,7 @@ export const Cities = ()=>{
 
 
     return <div className="flex flex-col  items-center gap-10" >
-        {cities.cities.map((city)=><CityCard {...city} />)}
+        {cities.cities.map((city)=><CityCard key={city.name} {...city} />)}
         <SeeMoreCities/>
     </div>
 }
