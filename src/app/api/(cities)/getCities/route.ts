@@ -10,7 +10,7 @@ const { categories , prices , page= 1 , name } = queries
   const queryArray = []
   
   if(Object.keys(queries).length === 0  ) queryArray.push({$or: [{ categories: [Categories.MostVisited] }]})
-  if(categories.length) queryArray.push({$or: categories.map(category => ({ categories: category }))})
+  if(categories.length) queryArray.push({$or: categories.map(category => ({ "categories.name" : category }))})
   if(prices.length) queryArray.push({$or: prices.map(price => ({ price:  price  })) })
   if(name) queryArray.push({name})
  let cities : CityDb[] = await cityModal().find( {$and: queryArray}).limit(page * 50)
