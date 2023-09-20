@@ -3,7 +3,7 @@
 import { useTranslation } from "@/app/i18n/client"
 import { Categories, Category, Languages, Meals, Prefrence, PrefrenceObject, PrefrencesArray, PrefrencesOptions, Price, Prices, PricesArray, Weathers, YearTimes } from "@/types/prefrences"
 import { P } from "@/ui/typography"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { DashboardSection } from "@/components/dashboard/containers"
 import { useSelector } from "react-redux"
 import { stateType } from "@/state/reducers"
@@ -17,6 +17,8 @@ import { CitiesActionTypes } from "@/types/state/cities"
 import { generateQueryCitiesSearchParam, isPrefrenceIncluded } from "@/utils/queryCities"
 import { cn } from "@/lib/tailwind"
 import { canNotAbstractPrefrences } from "@/state/reducers/queryCities"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { appConfig } from "@/config"
 
 const rowsFields : PrefrencesArray = [{  option : PrefrencesOptions.CATEGORIES , prefrence :  Categories }  , {   option: PrefrencesOptions.PRICES , prefrence: Prices } , { option : PrefrencesOptions.YEAR_TIMES , prefrence :  YearTimes } ,  {  option :  PrefrencesOptions.MEALS , prefrence : Meals }  , {option : PrefrencesOptions.WEATHERS , prefrence : Weathers} , {option : PrefrencesOptions.LANGUAGES , prefrence : Languages}  ]
 
@@ -28,6 +30,9 @@ const rowsFields : PrefrencesArray = [{  option : PrefrencesOptions.CATEGORIES ,
 export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option : PrefrencesOptions }> = ({prefrence , option })=>{
     const items = Object.values(prefrence)
     const {t}  = useTranslation()
+    const router = useRouter()
+    const pathname = usePathname()
+    const searchParams = useSearchParams()!
     const queryCities = useSelector(((state : stateType) => state.citiesQuery))
     const cities = useSelector((state: stateType)=>state.cities)
     const dispatch= useDispatch()
@@ -41,7 +46,7 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
         queryKey : ["Cities" , query ] , 
         keepPreviousData : true ,
         queryFn: async ()=>{
-      dispatchAction({type : CitiesActionTypes.LOADING_CITIES})
+        dispatchAction({type : CitiesActionTypes.LOADING_CITIES})
           const response = await axios.get(`/api/getCities?${query}`)
           return response.data 
         } ,
@@ -78,6 +83,23 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
 
     }
 }
+
+
+
+
+
+useEffect(()=>{
+const params = new URLSearchParams()
+params.set(appConfig.cityQueryParamName , JSON.stringify(queryCities) )
+router.push(`${pathname}?${params}`  )
+} , [JSON.stringify(queryCities) , router ] )
+
+
+
+useEffect(()=>{
+    typeof    searchParams.get(appConfig.cityQueryParamName) === "string" &&        dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : JSON.parse(searchParams.get(appConfig.cityQueryParamName) as string  )})
+
+}, [])
 
 
     return <div className="flex-col  py-3">
