@@ -1,13 +1,61 @@
 import { CategoryDb, CityDb, cityModal } from "@/db/models/city"
 import { Categories, Category, Price } from "@/types/prefrences"
+import { isCityDb } from "@/types/state/cities"
 import { apiResponse } from "@/utils/api/nextResponse"
 import { asyncWrapperApi } from "@/utils/asyncWrapper"
 import { QueryObjParams } from "@/utils/queryCities"
 
 
+
+
+function orgnizeCitiesByPosition(cities  , query )  {
+      let mapCities = [] 
+      cities.forEach(city=>{
+      let categoriesSum = 1
+      const possitionSum = city.categories.reduce((acc , category )=>{
+          if(!category.name) return acc
+          if(query.categories.includes(category?.name))    {
+              categoriesSum++
+              return acc+category.position }
+          return acc
+          }, 0)
+      if(categoriesSum === 0) return 
+      const positionAverage = Math.round( possitionSum / categoriesSum)
+      if(!mapCities[positionAverage]) mapCities[positionAverage] = []
+      mapCities[positionAverage].push(city)
+      })
+      return mapCities.reduce((acc  , currArr)=>[...acc , ...currArr]  , [])
+        }
+  
+
+// function orgnizeCitiesByPosition(cities : CityDb[] , query : getCitiesQueryType ) : CityDb[] {
+//       let mapCities : CityDb[][] = [] 
+      
+//       cities.forEach(city=>{
+//       let categoriesSum = 0
+//       const positionAverage = Math.round(city.categories.reduce((acc: number , category:CategoryDb )=>{
+//       if(!category.name) return acc
+//       if(query.categories.includes(category?.name))      return acc+category.position
+//       return acc
+//       }, 0) / categoriesSum)
+//       if(!mapCities[positionAverage]) mapCities[positionAverage] = []
+//       mapCities[positionAverage].push(city)
+//       })
+//       console.log("map cities" ,mapCities.length)
+//       const orgnizedCities =  mapCities.reduce((acc : CityDb[] , currArr)=>[...acc , ...currArr]  , [])
+//       console.log("org citis" , orgnizedCities)
+//       return orgnizedCities
+// }
+
+
+
+
+
+
 export type getCitiesQueryType =  {categories: Category[] , prices:Price[] , page?: number , name?: string }
 
 const sortCities = (cities : CityDb[] , queries : getCitiesQueryType) : CityDb[]=>{
+      console.log("cities length"  , cities.length)
       const categories = queries.categories 
 
       const citiesWithAllCategories = cities.filter(city=>{
@@ -17,9 +65,21 @@ return categories.every(category=>city.categories.some(categoryObj=>categoryObj.
       const citiesWithAllCategoriesAndNoOtherCategory = citiesWithAllCategories.filter(city=>{
             return city.categories.every(caterogy=>categories.includes(caterogy.name))
       })
-      console.log(cities)
-      // console.log(citiesWithAllCategoriesAndNoOtherCategory.map(city=>[city.name , city.categories.map(category=>category.name) ]))
-return citiesWithAllCategories
+      const organizedCitiesWithAllCategoriesAndNoOtherCategory : CityDb[] = orgnizeCitiesByPosition(citiesWithAllCategoriesAndNoOtherCategory , queries )
+      const orgnizedCitiesWithAllCategories : CityDb[] = orgnizeCitiesByPosition(citiesWithAllCategories , queries )      // console.log(citiesWithAllCategoriesAndNoOtherCategory.map(city=>[city.name , city.categories.map(category=>category.name) ]))
+      const orgnizedCities : CityDb[] = orgnizeCitiesByPosition(cities , queries )
+const orgnizedArray : CityDb[] = organizedCitiesWithAllCategoriesAndNoOtherCategory  
+orgnizedCitiesWithAllCategories.forEach(item=>{
+      if(!orgnizedArray.some(orgnizedArrayItem=>item.name === orgnizedArrayItem.name   )) orgnizedArray.push(item) 
+})
+orgnizedCities.forEach(item=>{
+      if(!orgnizedArray.some(orgnizedArrayItem=>item.name === orgnizedArrayItem.name   )) orgnizedArray.push(item) 
+})
+console.log("orgnized with all and no other" , organizedCitiesWithAllCategoriesAndNoOtherCategory.length )
+console.log("orgnized cities" , orgnizedCities.length )
+console.log("orgnized with all " , orgnizedCitiesWithAllCategories.length )
+
+return orgnizedArray
 }
 
 
@@ -27,17 +87,17 @@ return citiesWithAllCategories
 export const  getCities  = async ( queries : getCitiesQueryType  ) : Promise<CityDb[]>  =>{
 const { categories , prices , page= 1 , name } = queries
   const queryArray = []
-  
+  if(!queries.page)queries.page = 1 
   if(Object.keys(queries).length === 0  ) queryArray.push({$or: [{ categories: [Categories.MostVisited] }]})
   if(categories.length) queryArray.push({$or: categories.map(category => ({ "categories.name" : category }))})
   if(prices.length) queryArray.push({$or: prices.map(price => ({ price:  price  })) })
   if(name) queryArray.push({name})
- let cities : CityDb[] = await cityModal().find( {$and: queryArray}).limit(page * 50)
+ let cities : CityDb[] = await cityModal().find( {$and: queryArray}).limit( 50)
+console.log("cities db length" , cities.length)
+const sortedCities = sortCities(cities  , queries)
 
-sortCities(cities  , queries)
 
-
- return cities
+ return sortedCities
 }
 
 
@@ -3321,18 +3381,3 @@ const citiesSample = [
 
 
 
-  function orgnizeCitiesByPosition(cities : CityDb[] , query : getCitiesQueryType ) : CityDb[] {
-let mapCities : CityDb[][] = [] 
-
-cities.forEach(city=>{
-let categoriesSum = 0
-const positionAverage = city.categories.reduce((acc: number , category:CategoryDb )=>{
-if(!category.name) return acc
-if(query.categories.includes(category?.name))      return acc+category.position
-return acc
-}, 0) / categoriesSum
-if(!mapCities[positionAverage]) mapCities[positionAverage] = []
-mapCities[positionAverage].push(city)
-})
-return mapCities.reduce((acc : CityDb[] , currArr)=>[...acc , ...currArr]  , [])
-  }

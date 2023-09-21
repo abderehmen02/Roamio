@@ -3449,18 +3449,24 @@ addingInfo([
 ]
 
 
-function orgnizeCitiesByPosition(cities )  {
+function orgnizeCitiesByPosition(cities  , query )  {
     let mapCities = [] 
-    
     cities.forEach(city=>{
-    const positionAverage = Math.round(city.categories.reduce((acc , category )=>acc+category.position, 0) / city.categories.length)
-
+    let categoriesSum = 1
+    const possitionSum = city.categories.reduce((acc , category )=>{
+        if(!category.name) return acc
+        if(query.categories.includes(category?.name))    {
+            categoriesSum++
+            return acc+category.position }
+        return acc
+        }, 0)
+    if(categoriesSum === 0) return 
+    const positionAverage = Math.round( possitionSum / categoriesSum)
     if(!mapCities[positionAverage]) mapCities[positionAverage] = []
     mapCities[positionAverage].push(city)
     })
     return mapCities.reduce((acc  , currArr)=>[...acc , ...currArr]  , [])
       }
-
 
 
 
