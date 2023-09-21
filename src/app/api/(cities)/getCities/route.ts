@@ -8,8 +8,14 @@ import { QueryObjParams } from "@/utils/queryCities"
 
 
 
-function orgnizeCitiesByPosition(cities  , query )  {
-      let mapCities = [] 
+
+export type getCitiesQueryType =  {categories: Category[] , prices:Price[] , page?: number , name?: string }
+
+
+
+
+function orgnizeCitiesByPosition(cities : CityDb[]  , query : getCitiesQueryType )  {
+      let mapCities : CityDb[][] = [] 
       cities.forEach(city=>{
       let categoriesSum = 1
       const possitionSum = city.categories.reduce((acc , category )=>{
@@ -28,31 +34,12 @@ function orgnizeCitiesByPosition(cities  , query )  {
         }
   
 
-// function orgnizeCitiesByPosition(cities : CityDb[] , query : getCitiesQueryType ) : CityDb[] {
-//       let mapCities : CityDb[][] = [] 
-      
-//       cities.forEach(city=>{
-//       let categoriesSum = 0
-//       const positionAverage = Math.round(city.categories.reduce((acc: number , category:CategoryDb )=>{
-//       if(!category.name) return acc
-//       if(query.categories.includes(category?.name))      return acc+category.position
-//       return acc
-//       }, 0) / categoriesSum)
-//       if(!mapCities[positionAverage]) mapCities[positionAverage] = []
-//       mapCities[positionAverage].push(city)
-//       })
-//       console.log("map cities" ,mapCities.length)
-//       const orgnizedCities =  mapCities.reduce((acc : CityDb[] , currArr)=>[...acc , ...currArr]  , [])
-//       console.log("org citis" , orgnizedCities)
-//       return orgnizedCities
-// }
 
 
 
 
 
 
-export type getCitiesQueryType =  {categories: Category[] , prices:Price[] , page?: number , name?: string }
 
 const sortCities = (cities : CityDb[] , queries : getCitiesQueryType) : CityDb[]=>{
       console.log("cities length"  , cities.length)
