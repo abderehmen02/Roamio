@@ -24,16 +24,16 @@ export const GET = asyncWrapperApi(async ()=>{
 
 // const cities = await cityModal().find({categories: {$in : [Categories.Modern]}})
 
-const cities = []
-for(let i =  0 ; i< modernCities.length ; i++){
+// const cities = []
+// for(let i =  0 ; i< modernCities.length ; i++){
 // const city = await cityModal().findOne({name : modernCities[i]})
 // const city = await cityModal().findOneAndUpdate({name : restCities[i]} , {$pull : {categories: Categories.Modern}} , {new : true} ) 
-const city = await  cityModal().findOneAndUpdate({name : modernCities[i]} , {$push : {categories :{ name : Categories.Modern , position : i  }}} , {new : true } )
-cities.push([city.name , city.categories] )
-}
+// const city = await  cityModal().findOneAndUpdate({name : modernCities[i]} , {$push : {categories :{ name : Categories.Modern , position : i  }}} , {new : true } )
+// cities.push([city.name , city.categories] )
+// }
 // console.log(cities.map(city=>city.name) )
-console.log(cities)
-return apiResponse(StatusCodes.CREATED , JSON.stringify({  cities} ))      
+// console.log(cities)
+return apiResponse(StatusCodes.CREATED , JSON.stringify({  } ))      
    })
 
 

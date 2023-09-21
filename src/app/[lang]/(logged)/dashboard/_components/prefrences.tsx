@@ -48,6 +48,7 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
         queryFn: async ()=>{
         dispatchAction({type : CitiesActionTypes.LOADING_CITIES})
           const response = await axios.get(`/api/getCities?${query}`)
+          console.log("cities"  , response.data)
           return response.data 
         } ,
         onSuccess : (data)=>{

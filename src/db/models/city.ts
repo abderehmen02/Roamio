@@ -15,7 +15,7 @@ export interface CityDb {
     continent: string,
     languages : Language[] ,
     landmarks : landMark[] ,
-    categories :  {name : string , position : number}[]    ,
+    categories :  {name : Category , position : number}[]    ,
     reviews  : {userId: string , _id? : string  , review : string}[] ,
     yearTimes : YearTime[] ,
     likes : string[], 
