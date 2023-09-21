@@ -3447,3 +3447,50 @@ addingInfo([
         "dislikes": 0
     }
 ]
+
+
+function orgnizeCitiesByPosition(cities )  {
+    let mapCities = [] 
+    
+    cities.forEach(city=>{
+    const positionAverage = Math.round(city.categories.reduce((acc , category )=>acc+category.position, 0) / city.categories.length)
+
+    if(!mapCities[positionAverage]) mapCities[positionAverage] = []
+    mapCities[positionAverage].push(city)
+    })
+    return mapCities.reduce((acc  , currArr)=>[...acc , ...currArr]  , [])
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

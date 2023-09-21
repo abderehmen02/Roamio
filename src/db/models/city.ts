@@ -7,6 +7,7 @@ export type landMark = {
   likes : string[], 
   dislikes: string[],
 }
+export type CategoryDb = {name : Category , position : number}
 export interface CityDb {
     name: string,
     price : Price ,
@@ -15,7 +16,7 @@ export interface CityDb {
     continent: string,
     languages : Language[] ,
     landmarks : landMark[] ,
-    categories :  {name : Category , position : number}[]    ,
+    categories :  CategoryDb[]    ,
     reviews  : {userId: string , _id? : string  , review : string}[] ,
     yearTimes : YearTime[] ,
     likes : string[], 
