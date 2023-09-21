@@ -7,7 +7,6 @@ export type landMark = {
   likes : string[], 
   dislikes: string[],
 }
-
 export interface CityDb {
     name: string,
     price : Price ,
@@ -16,7 +15,7 @@ export interface CityDb {
     continent: string,
     languages : Language[] ,
     landmarks : landMark[] ,
-    categories : {name : string , position : number}[] ,
+    categories :  {name : string , position : number}[]    ,
     reviews  : {userId: string , _id? : string  , review : string}[] ,
     yearTimes : YearTime[] ,
     likes : string[], 
@@ -29,14 +28,12 @@ export function isUserDb (city : any) : city is CityDb {
 
 
 
-
-
 const CitySchema = new mongoose.Schema<CityDb>({
     name: { type: String, required: true , unique : true },
     price: {type : String  }  ,
      country : {type : String}  ,
      weathers : {type : [String] } ,
-     categories : [{name : {type :String , unique : true }, position : {type : Number}}],
+     categories :  [{name : {type :String , unique : true }, position : {type : Number}}],     
      continent : {type : String} ,
      languages : {type : [String]}  ,
     landmarks : [{ name :  {type : String  } , likes  :{type : [String] } , dislikes : {type :[String]} ,reviews: {type : [{user: {type : String } , review : {type : String } }] } } ] , 
