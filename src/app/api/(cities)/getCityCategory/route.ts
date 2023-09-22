@@ -22,7 +22,7 @@ const modernCities = [
   
 export const GET = asyncWrapperApi(async ()=>{
 
-// const cities = await cityModal().find({categories: {$in : [Categories.Modern]}})
+const cities = await cityModal().find({categories: {$in : [Categories.Nature]}})
 
 // const cities = []
 // for(let i =  0 ; i< modernCities.length ; i++){
@@ -31,9 +31,9 @@ export const GET = asyncWrapperApi(async ()=>{
 // const city = await  cityModal().findOneAndUpdate({name : modernCities[i]} , {$push : {categories :{ name : Categories.Modern , position : i  }}} , {new : true } )
 // cities.push([city.name , city.categories] )
 // }
-// console.log(cities.map(city=>city.name) )
+console.log(cities.map(city=>city.name) )
 // console.log(cities)
-return apiResponse(StatusCodes.CREATED , JSON.stringify({  } ))      
+return apiResponse(StatusCodes.CREATED , JSON.stringify({ cities } ))      
    })
 
 
