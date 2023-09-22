@@ -6,42 +6,38 @@ import { StatusCodes } from "http-status-codes"
 
 
 
-const oldFootballCities = [
-   'Rome',         'Beijing',     'Venice',
-   'Budapest',     'Dublin',      'Florence',
-   'Porto',        'Paris',       'Tokyo',
-   'Amsterdam',    'Barcelona',   'Munich',
-   'Lisbon',       'Shanghai',    'Moscow',
-   'Chicago',      'Edinburgh',   'Osaka',
-   'Madrid',       'Miami',       'Los Angeles',
-   'London',       'Berlin',      'Bogota',
-   'Buenos Aires', 'Warsaw',      'Santiago',
-   'Manchester',   'Liverpool',   'Milan',
-   'Turin',        'Glasgow',     'Hamburg',
-   'Naples',       'Belfast',     'Cardiff',
-   'Sao Paulo',    'Montevideo',  'New York',
-   'Dallas',       'Mexico City', 'Guadalajara',
-   'Monterrey',    'Yokohama',    'St. Petersburg',
-   'Kiev'
- ]
-
 
 
   
-  
+const beachesCities = [
+   'Bali',
+   'Cancún',
+   'Malibu',
+   'Phuket',
+   'Gold Coast, Queensland',
+   'Miami Beach',
+   'Tulum',
+   'Santorini',
+   'Mykonos',
+   'Maui',
+   'Fiji',
+   'Sydney',
+   'Barcelona',
+   'Honolulu',
+ ];
   
   
 export const GET = asyncWrapperApi(async ()=>{
 
-const cities = await cityModal().find({categories: {$in : [Categories.Football]}})
+// const cities = await cityModal().find({categories: {$in : [Categories.Beach]}})
 
-// const cities = []
-// for(let i =  0 ; i< oldFootballCities.length ; i++){
-// const city = await cityModal().findOne({name : oldFootballCities[i]})
-// const city = await cityModal().findOneAndUpdate({name : oldFootballCities[i]} , {$pull : {categories: Categories.Football}} , {new : true} ) 
-// const city = await  cityModal().findOneAndUpdate({name : religiousCities[i]} , {$push : {categories :{ name : Categories.Religious , position : i  }}} , {new : true } )
-// cities.push([city.name , city.categories] )
-// }
+const cities = []
+for(let i =  0 ; i< beachesCities.length ; i++){
+// const city = await cityModal().findOne({name : [i]})
+// const city = await cityModal().findOneAndUpdate({name : beachesCities[i]} , {$pull : {categories: Categories.Beach}} , {new : true} ) 
+const city = await  cityModal().findOneAndUpdate({name : beachesCities[i]} , {$push : {categories :{ name : Categories.Beach , position : i  }}} , {new : true } )
+cities.push([city.name , city.categories] )
+}
 // console.log(cities.map(city=>city.name) )
 console.log(cities)
 return apiResponse(StatusCodes.CREATED , JSON.stringify({ cities } ))      
@@ -63,6 +59,29 @@ return apiResponse(StatusCodes.CREATED , JSON.stringify({ cities } ))
    //    'Gaya',         'Kadhimiya',     'Ankara',
    //    'Bannu',        'Kadhimayn',     'Baqubah',
    //    'Samarra',      'Hebron',        'Bethlehem'
+   //  ]
+   
+
+
+
+
+   // const oldFootballCities = [
+   //    'Rome',         'Beijing',     'Venice',
+   //    'Budapest',     'Dublin',      'Florence',
+   //    'Porto',        'Paris',       'Tokyo',
+   //    'Amsterdam',    'Barcelona',   'Munich',
+   //    'Lisbon',       'Shanghai',    'Moscow',
+   //    'Chicago',      'Edinburgh',   'Osaka',
+   //    'Madrid',       'Miami',       'Los Angeles',
+   //    'London',       'Berlin',      'Bogota',
+   //    'Buenos Aires', 'Warsaw',      'Santiago',
+   //    'Manchester',   'Liverpool',   'Milan',
+   //    'Turin',        'Glasgow',     'Hamburg',
+   //    'Naples',       'Belfast',     'Cardiff',
+   //    'Sao Paulo',    'Montevideo',  'New York',
+   //    'Dallas',       'Mexico City', 'Guadalajara',
+   //    'Monterrey',    'Yokohama',    'St. Petersburg',
+   //    'Kiev'
    //  ]
    
 
