@@ -33,7 +33,7 @@ const CitySchema = new mongoose.Schema<CityDb>({
     price: {type : String  }  ,
      country : {type : String}  ,
      weathers : {type : [String] } ,
-     categories :  [{name : {type :String , unique : true }, position : {type : Number}}     ],     
+     categories :  [String     ],     
      continent : {type : String} ,
      languages : {type : [String]}  ,
     landmarks : [{ name :  {type : String  } , likes  :{type : [String] } , dislikes : {type :[String]} ,reviews: {type : [{user: {type : String } , review : {type : String } }] } } ] , 

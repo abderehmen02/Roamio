@@ -5,20 +5,28 @@ import { Categories } from "@/types/prefrences"
 import { StatusCodes } from "http-status-codes"
 
 
-const religiousCities = [
-   'Jerusalem',    'Varanasi',      'Mecca',
-   'Vatican City', 'Lourdes',       'Amritsar',
-   'Karbala',      'Nazareth',      'Ayodhya',
-   'Bodh Gaya',    'Medina',        'Mathura',
-   'Najaf',        'Golden Temple', 'Haridwar',
-   'Sarnath',      'Srirangam',     'Tirupati',
-   'Madurai',      'Kufa',          'Qom',
-   'Kairouan',     'Faisalabad',    'Ajmer',
-   'Qadian',       'Badr',          'Basra',
-   'Gaya',         'Kadhimiya',     'Ankara',
-   'Bannu',        'Kadhimayn',     'Baqubah',
-   'Samarra',      'Hebron',        'Bethlehem'
+
+const oldFootballCities = [
+   'Rome',         'Beijing',     'Venice',
+   'Budapest',     'Dublin',      'Florence',
+   'Porto',        'Paris',       'Tokyo',
+   'Amsterdam',    'Barcelona',   'Munich',
+   'Lisbon',       'Shanghai',    'Moscow',
+   'Chicago',      'Edinburgh',   'Osaka',
+   'Madrid',       'Miami',       'Los Angeles',
+   'London',       'Berlin',      'Bogota',
+   'Buenos Aires', 'Warsaw',      'Santiago',
+   'Manchester',   'Liverpool',   'Milan',
+   'Turin',        'Glasgow',     'Hamburg',
+   'Naples',       'Belfast',     'Cardiff',
+   'Sao Paulo',    'Montevideo',  'New York',
+   'Dallas',       'Mexico City', 'Guadalajara',
+   'Monterrey',    'Yokohama',    'St. Petersburg',
+   'Kiev'
  ]
+
+
+
   
   
   
@@ -28,21 +36,35 @@ export const GET = asyncWrapperApi(async ()=>{
 const cities = await cityModal().find({categories: {$in : [Categories.Football]}})
 
 // const cities = []
-// for(let i =  0 ; i< religiousCities.length ; i++){
-// const city = await cityModal().findOne({name : modernCities[i]})
-// const city = await cityModal().findOneAndUpdate({name : religiousCities[i]} , {$pull : {categories: Categories.Religious}} , {new : true} ) 
+// for(let i =  0 ; i< oldFootballCities.length ; i++){
+// const city = await cityModal().findOne({name : oldFootballCities[i]})
+// const city = await cityModal().findOneAndUpdate({name : oldFootballCities[i]} , {$pull : {categories: Categories.Football}} , {new : true} ) 
 // const city = await  cityModal().findOneAndUpdate({name : religiousCities[i]} , {$push : {categories :{ name : Categories.Religious , position : i  }}} , {new : true } )
 // cities.push([city.name , city.categories] )
 // }
-console.log(cities.map(city=>city.name) )
-// console.log(cities)
+// console.log(cities.map(city=>city.name) )
+console.log(cities)
 return apiResponse(StatusCodes.CREATED , JSON.stringify({ cities } ))      
    })
 
 
 
 
-
+   // const religiousCities = [
+   //    'Jerusalem',    'Varanasi',      'Mecca',
+   //    'Vatican City', 'Lourdes',       'Amritsar',
+   //    'Karbala',      'Nazareth',      'Ayodhya',
+   //    'Bodh Gaya',    'Medina',        'Mathura',
+   //    'Najaf',        'Golden Temple', 'Haridwar',
+   //    'Sarnath',      'Srirangam',     'Tirupati',
+   //    'Madurai',      'Kufa',          'Qom',
+   //    'Kairouan',     'Faisalabad',    'Ajmer',
+   //    'Qadian',       'Badr',          'Basra',
+   //    'Gaya',         'Kadhimiya',     'Ankara',
+   //    'Bannu',        'Kadhimayn',     'Baqubah',
+   //    'Samarra',      'Hebron',        'Bethlehem'
+   //  ]
+   
 
 
 
