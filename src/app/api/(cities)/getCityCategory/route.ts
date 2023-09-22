@@ -5,43 +5,35 @@ import { Categories } from "@/types/prefrences"
 import { StatusCodes } from "http-status-codes"
 
 
-const natureCities = [
-   'Cairo',         'Kyoto',      'Machu Picchu',
-   'Cusco',         'Marrakech',  'Dubrovnik',
-   'Salzburg',      'Krakow',     'Budapest',
-   'Granada',       'Dublin',     'Bruges',
-   'Florence',      'Sydney',     'Amsterdam',
-   'Barcelona',     'Munich',     'Prague',
-   'Edinburgh',     'Nairobi',    'Vancouver',
-   'Auckland',      'Hanoi',      'Copenhagen',
-   'San Francisco', 'Zurich',     'Cape Town',
-   'Buenos Aires',  'Brussels',   'Santiago',
-   'Reykjavik',     'Ljubljana',  'Banff',
-   'Queenstown',    'Santorini',  'Bora Bora',
-   'Sapporo',       'Bergen',     'Bariloche',
-   'Kuala Lumpur',  'Bali',       'Lucerne',
-   'Quebec City',   'Wellington', 'Siem Reap',
-   'Cappadocia',    'Jaipur',     'Cinque Terre',
-   'San Diego',     'Victoria',   'Havana',
-   'Hoi An',        'Krabi'
+const religiousCities = [
+   'Jerusalem',    'Varanasi',      'Mecca',
+   'Vatican City', 'Lourdes',       'Amritsar',
+   'Karbala',      'Nazareth',      'Ayodhya',
+   'Bodh Gaya',    'Medina',        'Mathura',
+   'Najaf',        'Golden Temple', 'Haridwar',
+   'Sarnath',      'Srirangam',     'Tirupati',
+   'Madurai',      'Kufa',          'Qom',
+   'Kairouan',     'Faisalabad',    'Ajmer',
+   'Qadian',       'Badr',          'Basra',
+   'Gaya',         'Kadhimiya',     'Ankara',
+   'Bannu',        'Kadhimayn',     'Baqubah',
+   'Samarra',      'Hebron',        'Bethlehem'
  ]
-
-
   
   
   
   
 export const GET = asyncWrapperApi(async ()=>{
 
-const cities = await cityModal().find({categories: {$in : [Categories.Nature]}})
+// const cities = await cityModal().find({categories: {$in : [Categories.Religious]}})
 
-// const cities = []
-// for(let i =  0 ; i< natureCities.length ; i++){
+const cities = []
+for(let i =  0 ; i< religiousCities.length ; i++){
 // const city = await cityModal().findOne({name : modernCities[i]})
-// const city = await cityModal().findOneAndUpdate({name : natureCities[i]} , {$pull : {categories: Categories.Nature}} , {new : true} ) 
-// const city = await  cityModal().findOneAndUpdate({name : modernCities[i]} , {$push : {categories :{ name : Categories.Modern , position : i  }}} , {new : true } )
-// cities.push([city.name , city.categories] )
-// }
+// const city = await cityModal().findOneAndUpdate({name : religiousCities[i]} , {$pull : {categories: Categories.Religious}} , {new : true} ) 
+const city = await  cityModal().findOneAndUpdate({name : religiousCities[i]} , {$push : {categories :{ name : Categories.Religious , position : i  }}} , {new : true } )
+cities.push([city.name , city.categories] )
+}
 // console.log(cities.map(city=>city.name) )
 console.log(cities)
 return apiResponse(StatusCodes.CREATED , JSON.stringify({ cities } ))      
@@ -50,29 +42,6 @@ return apiResponse(StatusCodes.CREATED , JSON.stringify({ cities } ))
 
 
 
-
-
-
-// const natureCities =    [
-//     'Cairo',         'Kyoto',      'Machu Picchu',
-//     'Cusco',         'Marrakech',  'Dubrovnik',
-//     'Salzburg',      'Krakow',     'Budapest',
-//     'Granada',       'Dublin',     'Bruges',
-//     'Florence',      'Sydney',     'Amsterdam',
-//     'Barcelona',     'Munich',     'Prague',
-//     'Edinburgh',     'Nairobi',    'Vancouver',
-//     'Auckland',      'Hanoi',      'Copenhagen',
-//     'San Francisco', 'Zurich',     'Cape Town',
-//     'Buenos Aires',  'Brussels',   'Santiago',
-//     'Reykjavik',     'Ljubljana',  'Banff',
-//     'Queenstown',    'Santorini',  'Bora Bora',
-//     'Sapporo',       'Bergen',     'Bariloche',
-//     'Kuala Lumpur',  'Bali',       'Lucerne',
-//     'Quebec City',   'Wellington', 'Siem Reap',
-//     'Cappadocia',    'Jaipur',     'Cinque Terre',
-//     'San Diego',     'Victoria',   'Havana',
-//     'Hoi An',        'Krabi'
-//   ]
 
 
 
@@ -184,3 +153,74 @@ return apiResponse(StatusCodes.CREATED , JSON.stringify({ cities } ))
 //   'Budapest', 'Vienna', 'Lisbon', 'Prague', 'Moscow', 'Bangkok', 'Rome', 'Barcelona', 'Warsaw', 'Brussels', 'Ljubljana',
 //   'Tallinn', 'Kraków', 'Nairobi', 'Auckland', 'Reykjavik', 'Cape Town'
 // ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const naturalCities = [
+//    "Vancouver",
+//    "Cape Town",
+//    "Queenstown",
+//    "Bergen",
+//    "Boulder",
+//    "Auckland",
+//    "Reykjavik",
+//    "Kyoto",
+//    "Bariloche",
+//    "Santorini",
+//    "Machu Picchu",
+//    "Banff",
+//    "Interlaken",
+//    "Zhangjiajie",
+//    "Halong Bay",
+//    "Helsinki",
+//    "Victoria",
+//    "Cusco",
+//    "Krabi",
+//    "Salzburg",
+//    "San Francisco",
+//    "Copenhagen",
+//    "Wellington",
+//    "Innsbruck",
+//    "Portland",
+//    "Cork",
+//    "Jeju Island",
+//    "Bora Bora",
+//    "Aoraki / Mount Cook",
+//    "Antigua",
+//    "Hanoi",
+//    "Yosemite National Park",
+//    "Cinque Terre",
+//    "Siem Reap",
+//    "San Sebastian",
+//    "Sapa",
+//    "Jasper",
+//    "Aoraki / Mount Cook Village",
+//    "Hobart",
+//    "Lake Bled",
+//    "Big Sur",
+//    "Lake Tahoe",
+//    "Tofino",
+//    "Zermatt",
+//    "Whistler",
+//    "Huaraz",
+//    "Jiuzhaigou",
+//    "Tromsø",
+//    "Zadar"
+//  ]
+ 
