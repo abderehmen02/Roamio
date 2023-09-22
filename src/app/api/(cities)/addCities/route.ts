@@ -1,4 +1,4 @@
-import { cityModal } from "@/db/models/city"
+import { CategoryDb, cityModal } from "@/db/models/city"
 import { apiResponse } from "@/utils/api/nextResponse"
 import { asyncWrapperApi } from "@/utils/asyncWrapper"
 import {  NaturalCitiesData } from "./static"
@@ -13,11 +13,11 @@ export const GET = asyncWrapperApi(async ()=>{
       let addedCities = 0 ;
          for(let i  = 0 ; i < NaturalCitiesData.length ; i++){
          const existCity = await cityModal().findOne({name : NaturalCitiesData[i].name})
-         if(existCity){ await cityModal().findOneAndUpdate({name : NaturalCitiesData[i].name} , { $addToSet: { categories: Categories.Beach  }} ,{new: true})
+         if(existCity && existCity.categories.some((category : CategoryDb )=>category.name === Categories.Nature ) ) continue ;
+         if(existCity  ){ await cityModal().findOneAndUpdate({name : NaturalCitiesData[i].name} , { $push: { categories: {name : Categories.Nature , position : i  }  }} ,{new: true})
          }
-         else{ await cityModal().create({...NaturalCitiesData[i] , landmarks : NaturalCitiesData[i].landmarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [Categories.Beach]  , reviews: [] , likes: [] , dislikes : []  })
+         else{ await cityModal().create({...NaturalCitiesData[i] , landmarks : NaturalCitiesData[i].landmarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [{name : Categories.Nature , position : i}]  , reviews: [] , likes: [] , dislikes : []  })
          addedCities++ 
-
       }
          }
          const newCities = await cityModal().find({})
