@@ -14,7 +14,7 @@ import { CitiesQueryActionTypes } from "@/types/state/citiesQuery"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import { CitiesActionTypes } from "@/types/state/cities"
-import { tagglePrefrenceAndGenerateQueryCitiesSearchParams, isPrefrenceIncluded } from "@/utils/queryCities"
+import { tagglePrefrenceAndGenerateQueryCitiesSearchParams,  QueryObjParams } from "@/utils/queryCities"
 import { cn } from "@/lib/tailwind"
 import { canNotAbstractPrefrences } from "@/state/reducers/queryCities"
 import { usePathname, useSearchParams } from "next/navigation"
@@ -38,15 +38,26 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
     const searchParams = useSearchParams()
 
     const queryCities = useSelector(((state : stateType) => state.citiesQuery))
-    const cities = useSelector((state: stateType)=>state.cities)
     const dispatch= useDispatch()
     const { dispatchAction } = bindActionCreators(ActionCreators , dispatch)
     const [LastItem, setLastItem] = useState<number>(3)
-    const citySearchQueryString = searchParams.toString() || tagglePrefrenceAndGenerateQueryCitiesSearchParams(PrefrencesOptions.CATEGORIES , Categories.MostVisited , searchParams )
-   
+    let activePrefrence : boolean = false; 
+    let currentActivePrefrences : Prefrence[] ;
+    if(option === PrefrencesOptions.CATEGORIES){
+     currentActivePrefrences = searchParams.get(QueryObjParams.categories) ?  JSON.parse(searchParams.get(QueryObjParams.categories) as string ) : []
+    }
     // const query = generateQueryCitiesSearchParam(queryCities)
 
-   
+
+
+
+
+
+
+
+
+
+    const isPrefrenceIncluded = (item : Prefrence)=>currentActivePrefrences?.includes(item)
 
 const toglePrefrence = (prefrence : Prefrence ): void=>{
     const selectOnePrefrenceMessage = "You should select at least one prefrence"
@@ -93,7 +104,7 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
     return <div className="flex-col  py-3">
 {
 
-    items.slice(0 , LastItem).map((item=> <div   onClick={()=>toglePrefrence(item)} className={ cn( " cursor-pointer  capitalize flex items-center gap-1"  , {"text-black " :  isPrefrenceIncluded(queryCities , option , item )} )} > <P className="w-32" >{item}  </P> { isPrefrenceIncluded(queryCities , option , item ) && <i className="bi bi-record-circle text-sm"></i> } </div>))
+    items.slice(0 , LastItem).map((item=> <div   onClick={()=>toglePrefrence(item)} className={ cn( " cursor-pointer  capitalize flex items-center gap-1"  , {"text-black " :  isPrefrenceIncluded( item )} )} > <P className="w-32" >{item}  </P> { isPrefrenceIncluded( item ) && <i className="bi bi-record-circle text-sm"></i> } </div>))
 }    
 <P className=" capitalize text-sm" onClick={()=>{items?.length> LastItem  && setLastItem(val=>val+ 3) , console.log("clicked") }} >{t("seeMore")}<i className="bi bi-arrow-down"></i></P>
 <P className=" capitalize text-sm" onClick={()=>{ items?.length> 2  &&  setLastItem(val=>val  -  3) , console.log("clicked") }} >{t("seeLess")}<i className="bi bi-arrow-up"></i></P>
