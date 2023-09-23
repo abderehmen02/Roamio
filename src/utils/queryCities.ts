@@ -51,10 +51,9 @@ export const tagglePrefrenceAndGenerateQueryCitiesSearchParams = ( option : Pref
     let queryObj : QueryObj = {} ;
         // queryObj.page = query.page ? String(query.page) : "1" 
     if(option === PrefrencesOptions.CATEGORIES){
-        console.log("searchParamsCategoreis" , searchParams.get(QueryObjParams.categories) )
         const currentCategories : string[] = searchParams.get(QueryObjParams.categories) ?  JSON.parse(searchParams.get(QueryObjParams.categories) as string ) : []
         queryObj.categoriesType = "ANY " ; 
-        if(currentCategories.includes(prefrence) && currentCategories.length === 1 ) return alert("you should at least select one category") 
+        if(currentCategories.includes(prefrence) && currentCategories.length === 1 ) {alert("you should at least select one category") ; return searchParams.toString()   } 
         else if(currentCategories.includes(prefrence)) queryObj.categories = JSON.stringify( currentCategories.filter(item=>item !== prefrence))
          else         queryObj.categories = JSON.stringify( [...currentCategories ,  prefrence])
     // }
