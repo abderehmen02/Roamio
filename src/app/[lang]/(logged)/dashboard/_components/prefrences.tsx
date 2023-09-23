@@ -14,11 +14,14 @@ import { CitiesQueryActionTypes } from "@/types/state/citiesQuery"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import { CitiesActionTypes } from "@/types/state/cities"
-import { generateQueryCitiesSearchParam, isPrefrenceIncluded } from "@/utils/queryCities"
+import { tagglePrefrenceAndGenerateQueryCitiesSearchParams, isPrefrenceIncluded } from "@/utils/queryCities"
 import { cn } from "@/lib/tailwind"
 import { canNotAbstractPrefrences } from "@/state/reducers/queryCities"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { usePathname, useSearchParams } from "next/navigation"
 import { appConfig } from "@/config"
+import { WindSong } from "next/font/google"
+import { useRouter } from "next/navigation"
+import { generateExtractDescreptionIndex } from "./cityCard"
 
 const rowsFields : PrefrencesArray = [{  option : PrefrencesOptions.CATEGORIES , prefrence :  Categories }  , {   option: PrefrencesOptions.PRICES , prefrence: Prices } , { option : PrefrencesOptions.YEAR_TIMES , prefrence :  YearTimes } ,  {  option :  PrefrencesOptions.MEALS , prefrence : Meals }  , {option : PrefrencesOptions.WEATHERS , prefrence : Weathers} , {option : PrefrencesOptions.LANGUAGES , prefrence : Languages}  ]
 
@@ -32,44 +35,29 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
     const {t}  = useTranslation()
     const router = useRouter()
     const pathname = usePathname()
-    const searchParams = useSearchParams()!
+    const searchParams = useSearchParams()
+
     const queryCities = useSelector(((state : stateType) => state.citiesQuery))
     const cities = useSelector((state: stateType)=>state.cities)
     const dispatch= useDispatch()
     const { dispatchAction } = bindActionCreators(ActionCreators , dispatch)
     const [LastItem, setLastItem] = useState<number>(3)
-    
+    const citySearchQueryString = searchParams.toString() || tagglePrefrenceAndGenerateQueryCitiesSearchParams(PrefrencesOptions.CATEGORIES , Categories.MostVisited , searchParams )
+   
+    // const query = generateQueryCitiesSearchParam(queryCities)
 
-    const query = generateQueryCitiesSearchParam(queryCities)
-
-    const {data , isLoading } = useQuery({
-        queryKey : ["Cities" , query ] , 
-        keepPreviousData : true ,
-        queryFn: async ()=>{
-        dispatchAction({type : CitiesActionTypes.LOADING_CITIES})
-          const response = await axios.get(`/api/getCities?${query}`)
-          console.log("cities"  , response.data)
-          return response.data 
-        } ,
-        onSuccess : (data)=>{
-          dispatchAction({type : CitiesActionTypes.EDIT_CITIES ,  payload :{cities: data , error : null , loading : false}}) ;
-          if(  ( typeof  queryCities.page   === "number" && data.length < queryCities.page * 50 ) || data.length < 50 ) dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , page : "end"}})
-        } ,
-        onError : (err : any )=>{
-            console.log("err" , err)
-          dispatchAction({type : CitiesActionTypes.FAIL_CITIES , payload  : {message : err?.message || "Internal server error : can not get the cities"} })
-        }
-    })
    
 
 const toglePrefrence = (prefrence : Prefrence ): void=>{
     const selectOnePrefrenceMessage = "You should select at least one prefrence"
     if(option === PrefrencesOptions.CATEGORIES){
-    let includePrefrence : boolean = queryCities.categories.value.includes(prefrence as Category ) 
-    if(includePrefrence)    {  
-        if(canNotAbstractPrefrences(queryCities)) return alert(selectOnePrefrenceMessage)
-        dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY  , payload : {...queryCities , page: 1 , categories : {...queryCities.categories , value : queryCities.categories.value.filter(item =>item !== prefrence )}} }) }
-    else dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , page : 1 , categories : {...queryCities.categories , value : [...queryCities.categories.value ,prefrence as Category ]}} })
+    const newQuery = tagglePrefrenceAndGenerateQueryCitiesSearchParams( option , prefrence , searchParams )
+    router.push(`${pathname}?${newQuery}` , {scroll : false}  )
+    // let includePrefrence : boolean = queryCities.categories.value.includes(prefrence as Category ) 
+    // if(includePrefrence)    {  
+    //     if(canNotAbstractPrefrences(queryCities)) return alert(selectOnePrefrenceMessage)
+    //     dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY  , payload : {...queryCities , page: 1 , categories : {...queryCities.categories , value : queryCities.categories.value.filter(item =>item !== prefrence )}} }) }
+    // else dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , page : 1 , categories : {...queryCities.categories , value : [...queryCities.categories.value ,prefrence as Category ]}} })
     }
     else if(option === PrefrencesOptions.PRICES){
 
@@ -89,18 +77,17 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
 
 
 
-useEffect(()=>{
-const params = new URLSearchParams()
-params.set(appConfig.cityQueryParamName , JSON.stringify(queryCities) )
-router.push(`${pathname}?${params}`  )
-} , [JSON.stringify(queryCities) , router ] )
+// useEffect(()=>{
+// const params = new URLSearchParams()
+// params.set(appConfig.cityQueryParamName , JSON.stringify(queryCities) )
+// router.push(`${pathname}?${generate}` , {scroll : false}  )
+// } , [generateQueryCitiesSearchParam(queryCities)  ] )
 
 
 
-useEffect(()=>{
-    typeof    searchParams.get(appConfig.cityQueryParamName) === "string" &&        dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : JSON.parse(searchParams.get(appConfig.cityQueryParamName) as string  )})
-
-}, [])
+// useEffect(()=>{
+//     typeof    searchParams.get(appConfig.cityQueryParamName) === "string" &&        dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : JSON.parse(searchParams.get(appConfig.cityQueryParamName) as string  )})
+// }, [])
 
 
     return <div className="flex-col  py-3">
@@ -115,6 +102,36 @@ useEffect(()=>{
 
 
 export const PrefrencesRow : React.FC = ()=>{
+    const searchParams = useSearchParams()
+    const queryCities = useSelector(((state : stateType) => state.citiesQuery))
+
+    const citySearchQueryString = searchParams.toString() || tagglePrefrenceAndGenerateQueryCitiesSearchParams(PrefrencesOptions.CATEGORIES , Categories.MostVisited , searchParams )
+ 
+    const dispatch= useDispatch()
+    const { dispatchAction } = bindActionCreators(ActionCreators , dispatch)
+
+    const {data , isLoading } = useQuery({
+        queryKey : ["Cities" ,  citySearchQueryString ] , 
+        keepPreviousData : true ,
+        queryFn: async ()=>{
+        dispatchAction({type : CitiesActionTypes.LOADING_CITIES})   
+        console.log("city search query string"  , citySearchQueryString)
+          const response = await axios.get(`/api/getCities?${citySearchQueryString}`)
+          return response.data 
+        } ,
+        onSuccess : (data)=>{
+          dispatchAction({type : CitiesActionTypes.EDIT_CITIES ,  payload :{cities: data , error : null , loading : false}}) ;
+          if(  ( typeof  queryCities.page   === "number" && data.length < queryCities.page * 50 ) || data.length < 50 ) dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , page : "end"}})
+        } ,
+        onError : (err : any )=>{
+            console.log("err" , err)
+          dispatchAction({type : CitiesActionTypes.FAIL_CITIES , payload  : {message : err?.message || "Internal server error : can not get the cities"} })
+        }
+    })
+
+
+
+
     return <DashboardSection className="bg-white  text-primary border-none shadow-md h-fit" >     
 {
       rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence.prefrence} option={prefrence.option} />)

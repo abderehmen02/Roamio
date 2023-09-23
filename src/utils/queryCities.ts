@@ -1,5 +1,6 @@
 import { Category, Prefrence, PrefrencesOptions, Price } from "@/types/prefrences";
 import { CitiesQueryState } from "@/types/state/citiesQuery";
+import { ReadonlyURLSearchParams } from "next/navigation";
 import { boolean } from "zod";
 
 
@@ -46,41 +47,55 @@ export const   QueryObjParams =  {
 
 
 
-export const generateQueryCitiesSearchParam = (query :  Partial<CitiesQueryState>)=>{
+export const tagglePrefrenceAndGenerateQueryCitiesSearchParams = ( option : PrefrencesOptions ,   prefrence :  string , searchParams : ReadonlyURLSearchParams )=>{
     let queryObj : QueryObj = {} ;
-        queryObj.page = query.page ? String(query.page) : "1" 
-    if(query?.categories?.value.length){
-        queryObj.categoriesType = query.categories.type ,
-        queryObj.categories = JSON.stringify( query.categories.value)
+        // queryObj.page = query.page ? String(query.page) : "1" 
+    if(option === PrefrencesOptions.CATEGORIES){
+        console.log("searchParamsCategoreis" , searchParams.get(QueryObjParams.categories) )
+        const currentCategories : string[] = searchParams.get(QueryObjParams.categories) ?  JSON.parse(searchParams.get(QueryObjParams.categories) as string ) : []
+        queryObj.categoriesType = "ANY " ; 
+        if(currentCategories.includes(prefrence) && currentCategories.length === 1 ) return alert("you should at least select one category") 
+        else if(currentCategories.includes(prefrence)) queryObj.categories = JSON.stringify( currentCategories.filter(item=>item !== prefrence))
+         else         queryObj.categories = JSON.stringify( [...currentCategories ,  prefrence])
+    // }
+    // if(query.continent?.value.length){
+    //     queryObj.continentType = query.continent.type ,
+    //     queryObj.continent = JSON.stringify( query.continent.value)
+    // }
+    // if(query.country?.value.length){
+    //     queryObj.countryType = query.country.type , 
+    //     queryObj.country = JSON.stringify(query.country.value)
+    // }
+    // if(query.languages?.value.length){
+    //     queryObj.languagesType = query.languages.type ,
+    //     queryObj.languages = JSON.stringify(query.languages.value)
+    // }
+    // if(query.price?.value.length){
+    //     queryObj.priceType =  query.price.type ,
+    //     queryObj.price = JSON.stringify( query.price.value)
+    // }
+    // if(query.weathers?.value.length){
+    //     queryObj.weathersType = query.weathers.type ,
+    //     queryObj.weathers = JSON.stringify(query.weathers.value)
+    // }
+    // if(query.name)queryObj.name = query.name
+    // if(query.population) queryObj.population = queryObj.population 
     }
-    if(query.continent?.value.length){
-        queryObj.continentType = query.continent.type ,
-        queryObj.continent = JSON.stringify( query.continent.value)
-    }
-    if(query.country?.value.length){
-        queryObj.countryType = query.country.type , 
-        queryObj.country = JSON.stringify(query.country.value)
-    }
-    if(query.languages?.value.length){
-        queryObj.languagesType = query.languages.type ,
-        queryObj.languages = JSON.stringify(query.languages.value)
-    }
-    if(query.price?.value.length){
-        queryObj.priceType =  query.price.type ,
-        queryObj.price = JSON.stringify( query.price.value)
-    }
-    if(query.weathers?.value.length){
-        queryObj.weathersType = query.weathers.type ,
-        queryObj.weathers = JSON.stringify(query.weathers.value)
-    }
-    if(query.name)queryObj.name = query.name
-    if(query.population) queryObj.population = queryObj.population 
 
 
-
-    const searchParams = new URLSearchParams(queryObj)
-    return searchParams.toString()
+    const newSearchParams = new URLSearchParams(queryObj)
+    return newSearchParams.toString()
 }
+
+
+
+
+
+
+
+
+
+
 
 
 export const isPrefrenceIncluded  : (query : CitiesQueryState , option : PrefrencesOptions , prefrence : Prefrence)=>boolean = (query , option , prefrence)  =>{
