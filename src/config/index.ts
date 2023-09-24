@@ -11,6 +11,7 @@ export const appConfig = {
     dateFormate : 'MM/dd/yyyy' ,
     name : 'Roamio' ,
     cityQueryParamName : "cityQuery"  ,
+    pageQueryParamName : "page" ,
     emailPassword : process.env.GMAIL_PASSWORD ,
     email: process.env.GMAIL_NAME , 
     unknownPersonImg: '/unknownProfile.webp' ,
