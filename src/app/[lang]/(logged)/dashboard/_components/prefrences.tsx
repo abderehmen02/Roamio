@@ -65,11 +65,6 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
     if(option === PrefrencesOptions.CATEGORIES){
     const newQuery = tagglePrefrenceAndGenerateQueryCitiesSearchParams( option , prefrence , searchParams )
     router.push(`${pathname}?${newQuery}` , {scroll : false}  )
-    // let includePrefrence : boolean = queryCities.categories.value.includes(prefrence as Category ) 
-    // if(includePrefrence)    {  
-    //     if(canNotAbstractPrefrences(queryCities)) return alert(selectOnePrefrenceMessage)
-    //     dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY  , payload : {...queryCities , page: 1 , categories : {...queryCities.categories , value : queryCities.categories.value.filter(item =>item !== prefrence )}} }) }
-    // else dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , page : 1 , categories : {...queryCities.categories , value : [...queryCities.categories.value ,prefrence as Category ]}} })
     }
     else if(option === PrefrencesOptions.PRICES){
 
@@ -78,11 +73,7 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
         if(canNotAbstractPrefrences(queryCities)) return alert(selectOnePrefrenceMessage)
         dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , price: {...queryCities.price, value : queryCities.price.value.filter(item =>item !== prefrence )}} }) }
     else dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , price : {...queryCities.price, value : [...queryCities.price.value ,prefrence as Price]}} })
-
-
-
-
-    }
+}
 }
 
 

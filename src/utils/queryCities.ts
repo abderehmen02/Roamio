@@ -48,42 +48,20 @@ export const   QueryObjParams =  {
 
 
 export const tagglePrefrenceAndGenerateQueryCitiesSearchParams = ( option : PrefrencesOptions ,   prefrence :  string , searchParams : ReadonlyURLSearchParams )=>{
-    let queryObj : QueryObj = {} ;
-        // queryObj.page = query.page ? String(query.page) : "1" 
+    const urlSearchParams = new URLSearchParams(searchParams.toString())
     if(option === PrefrencesOptions.CATEGORIES){
         const currentCategories : string[] = searchParams.get(QueryObjParams.categories) ?  JSON.parse(searchParams.get(QueryObjParams.categories) as string ) : []
-        queryObj.categoriesType = "ANY " ; 
+        urlSearchParams.set( QueryObjParams.categoriesType ,  "ANY" ) ; 
         if(currentCategories.includes(prefrence) && currentCategories.length === 1 ) {alert("you should at least select one category") ; return searchParams.toString()   } 
-        else if(currentCategories.includes(prefrence)) queryObj.categories = JSON.stringify( currentCategories.filter(item=>item !== prefrence))
-         else         queryObj.categories = JSON.stringify( [...currentCategories ,  prefrence])
-    // }
-    // if(query.continent?.value.length){
-    //     queryObj.continentType = query.continent.type ,
-    //     queryObj.continent = JSON.stringify( query.continent.value)
-    // }
-    // if(query.country?.value.length){
-    //     queryObj.countryType = query.country.type , 
-    //     queryObj.country = JSON.stringify(query.country.value)
-    // }
-    // if(query.languages?.value.length){
-    //     queryObj.languagesType = query.languages.type ,
-    //     queryObj.languages = JSON.stringify(query.languages.value)
-    // }
-    // if(query.price?.value.length){
-    //     queryObj.priceType =  query.price.type ,
-    //     queryObj.price = JSON.stringify( query.price.value)
-    // }
-    // if(query.weathers?.value.length){
-    //     queryObj.weathersType = query.weathers.type ,
-    //     queryObj.weathers = JSON.stringify(query.weathers.value)
-    // }
-    // if(query.name)queryObj.name = query.name
-    // if(query.population) queryObj.population = queryObj.population 
+        else if(currentCategories.includes(prefrence)){ 
+            urlSearchParams.set (QueryObjParams.categories ,  JSON.stringify( currentCategories.filter(item=>item !== prefrence))   )
+        }
+            else         urlSearchParams.set( QueryObjParams.categories , JSON.stringify( [...currentCategories ,  prefrence]) )
     }
 
+    urlSearchParams.set(QueryObjParams.page , "1")
 
-    const newSearchParams = new URLSearchParams(queryObj)
-    return newSearchParams.toString()
+    return urlSearchParams.toString()
 }
 
 
