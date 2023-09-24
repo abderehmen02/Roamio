@@ -116,6 +116,7 @@ export const PrefrencesRow : React.FC = ()=>{
     const router = useRouter()
     const citySearchQueryString =  searchParams.toString()
      const pathname = usePathname()
+     const currentPage : string = searchParams.get(QueryObjParams.page) || "1"
     const dispatch= useDispatch()
     const { dispatchAction } = bindActionCreators(ActionCreators , dispatch)
 
@@ -132,7 +133,11 @@ export const PrefrencesRow : React.FC = ()=>{
         } ,
         onSuccess : (data)=>{
           dispatchAction({type : CitiesActionTypes.EDIT_CITIES ,  payload :{cities: data , error : null , loading : false}}) ;
-          if(  ( typeof  queryCities.page   === "number" && data.length < queryCities.page * 50 ) || data.length < 50 ) dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , page : "end"}})
+          if(  (  data.length < Number(currentPage ) * 50 ) || data.length < 50 ) {
+                      const urlSearchParams = new URLSearchParams(searchParams.toString() )
+                      urlSearchParams.set(QueryObjParams.page , "end" ) 
+                      router.push(pathname + "?" + urlSearchParams.toString() , {scroll : false})
+          }
         } ,
         onError : (err : any )=>{
             console.log("err" , err)
