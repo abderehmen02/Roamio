@@ -47,6 +47,9 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
     if(option === PrefrencesOptions.CATEGORIES){
      currentActivePrefrences = searchParams.get(QueryObjParams.categories) ?  JSON.parse(searchParams.get(QueryObjParams.categories) as string ) : []
     }
+    else if(option === PrefrencesOptions.PRICES){
+        currentActivePrefrences = searchParams.get(QueryObjParams.price) ?  JSON.parse(searchParams.get(QueryObjParams.price) as string ) : []
+    }
     // const query = generateQueryCitiesSearchParam(queryCities)
 
 
@@ -61,19 +64,8 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
     const isPrefrenceIncluded = (item : Prefrence)=>currentActivePrefrences?.includes(item)
 
 const toglePrefrence = (prefrence : Prefrence ): void=>{
-    const selectOnePrefrenceMessage = "You should select at least one prefrence"
-    if(option === PrefrencesOptions.CATEGORIES){
     const newQuery = tagglePrefrenceAndGenerateQueryCitiesSearchParams( option , prefrence , searchParams )
     router.push(`${pathname}?${newQuery}` , {scroll : false}  )
-    }
-    else if(option === PrefrencesOptions.PRICES){
-
-    let includePrefrence : boolean = queryCities.price.value.includes(prefrence as Price )
-    if(includePrefrence)   {  
-        if(canNotAbstractPrefrences(queryCities)) return alert(selectOnePrefrenceMessage)
-        dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , price: {...queryCities.price, value : queryCities.price.value.filter(item =>item !== prefrence )}} }) }
-    else dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : {...queryCities , price : {...queryCities.price, value : [...queryCities.price.value ,prefrence as Price]}} })
-}
 }
 
 
