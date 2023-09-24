@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux"
 import { bindActionCreators } from "redux"
 import ActionCreators from "@/state/actionCreators/action"
 import { CitiesQueryActionTypes } from "@/types/state/citiesQuery"
-import { useQuery } from "@tanstack/react-query"
+import { Query, useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import { CitiesActionTypes } from "@/types/state/cities"
 import { tagglePrefrenceAndGenerateQueryCitiesSearchParams,  QueryObjParams } from "@/utils/queryCities"
@@ -22,6 +22,7 @@ import { appConfig } from "@/config"
 import { WindSong } from "next/font/google"
 import { useRouter } from "next/navigation"
 import { generateExtractDescreptionIndex } from "./cityCard"
+import { roundToNearestMinutes } from "date-fns"
 
 const rowsFields : PrefrencesArray = [{  option : PrefrencesOptions.CATEGORIES , prefrence :  Categories }  , {   option: PrefrencesOptions.PRICES , prefrence: Prices } , { option : PrefrencesOptions.YEAR_TIMES , prefrence :  YearTimes } ,  {  option :  PrefrencesOptions.MEALS , prefrence : Meals }  , {option : PrefrencesOptions.WEATHERS , prefrence : Weathers} , {option : PrefrencesOptions.LANGUAGES , prefrence : Languages}  ]
 
@@ -96,9 +97,6 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
 
 
 
-// useEffect(()=>{
-//     typeof    searchParams.get(appConfig.cityQueryParamName) === "string" &&        dispatchAction({type : CitiesQueryActionTypes.EDIT_CITIES_QUERY , payload : JSON.parse(searchParams.get(appConfig.cityQueryParamName) as string  )})
-// }, [])
 
 
     return <div className="flex-col  py-3">
@@ -115,15 +113,17 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
 export const PrefrencesRow : React.FC = ()=>{
     const searchParams = useSearchParams()
     const queryCities = useSelector(((state : stateType) => state.citiesQuery))
-
-    const citySearchQueryString = searchParams.toString() || tagglePrefrenceAndGenerateQueryCitiesSearchParams(PrefrencesOptions.CATEGORIES , Categories.MostVisited , searchParams )
- 
+    const router = useRouter()
+    const citySearchQueryString =  searchParams.toString()
+     const pathname = usePathname()
     const dispatch= useDispatch()
     const { dispatchAction } = bindActionCreators(ActionCreators , dispatch)
 
     const {data , isLoading } = useQuery({
-        queryKey : ["Cities" ,  citySearchQueryString ] , 
+        queryKey : ["Cities" ,  citySearchQueryString ] ,
+        enabled : typeof searchParams.get(QueryObjParams.categories) === "string"&& Boolean(JSON.parse(searchParams.get(QueryObjParams.categories) as string).length  ) ,
         keepPreviousData : true ,
+
         queryFn: async ()=>{
         dispatchAction({type : CitiesActionTypes.LOADING_CITIES})   
         console.log("city search query string"  , citySearchQueryString)
@@ -141,7 +141,14 @@ export const PrefrencesRow : React.FC = ()=>{
     })
 
 
-
+    useEffect(()=>{
+        const urlSearchParams = new URLSearchParams(searchParams.toString())
+        const paramsCategories = typeof urlSearchParams.get(QueryObjParams.categories) === "string" ?  JSON.parse(urlSearchParams.get(QueryObjParams.categories) as string ) : []
+        if(paramsCategories.length === 0) paramsCategories.push(Categories.MostVisited)
+        urlSearchParams.set(QueryObjParams.categories , JSON.stringify(paramsCategories))
+        router.push( pathname + "?" +  urlSearchParams.toString())
+    }, [])
+    
 
     return <DashboardSection className="bg-white  text-primary border-none shadow-md h-fit" >     
 {
