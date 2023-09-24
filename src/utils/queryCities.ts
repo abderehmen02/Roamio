@@ -59,6 +59,12 @@ export const tagglePrefrenceAndGenerateQueryCitiesSearchParams = ( option : Pref
             else         urlSearchParams.set( QueryObjParams.categories , JSON.stringify( [...currentCategories ,  prefrence]) )
     }
 
+    if(option === PrefrencesOptions.PRICES){
+       const currentPrices : string[]=   searchParams.get(QueryObjParams.price)  ?  JSON.parse( searchParams.get(QueryObjParams.price)  as string  ) : []
+       if(currentPrices.includes(prefrence)) urlSearchParams.set(QueryObjParams.price , JSON.stringify(currentPrices.filter(price =>price !== prefrence)))
+       else urlSearchParams.set(QueryObjParams.price , JSON.stringify([...currentPrices , prefrence]) )
+    }
+
     urlSearchParams.set(QueryObjParams.page , "1")
 
     return urlSearchParams.toString()
