@@ -86,7 +86,6 @@ const sortedCities = sortCities(cities  , queries)
 
 
 export const GET = asyncWrapperApi(async (req )=>{
-    console.log("getting an api request")
 
       const {searchParams} = new URL(req.url)
   
