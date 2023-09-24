@@ -89,8 +89,7 @@ export const GET = asyncWrapperApi(async (req )=>{
     console.log("getting an api request")
 
       const {searchParams} = new URL(req.url)
-      const queries = searchParams.get(appConfig.cityQueryParamName)
-      console.log("queries" , queries)
+  
       const categories  : Category[]  =   JSON.parse(searchParams.get(QueryObjParams.categories) || '[]' )
       const price : Price[]  = JSON.parse(searchParams.get(QueryObjParams.price) || '[]' )
       const page : number = Number(searchParams.get(QueryObjParams.page) || 1)
