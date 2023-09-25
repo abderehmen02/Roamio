@@ -58,14 +58,16 @@ export const tagglePrefrenceAndGenerateQueryCitiesSearchParams = ( option : Pref
         }
             else         urlSearchParams.set( QueryObjParams.categories , JSON.stringify( [...currentCategories ,  prefrence]) )
     }
-console.log("function is running")
     if(option === PrefrencesOptions.PRICES){
-        console.log("adding price")
        const currentPrices : string[]=   searchParams.get(QueryObjParams.price)  ?  JSON.parse( searchParams.get(QueryObjParams.price)  as string  ) : []
        if(currentPrices.includes(prefrence)) urlSearchParams.set(QueryObjParams.price , JSON.stringify(currentPrices.filter(price =>price !== prefrence)))
        else urlSearchParams.set(QueryObjParams.price , JSON.stringify([...currentPrices , prefrence]) )
     }
-
+    if(option === PrefrencesOptions.LANGUAGES){
+        const currentLanguages  : string[] = JSON.parse(searchParams.get(QueryObjParams.languages) ||"[]" )
+        if(currentLanguages.includes(prefrence)) urlSearchParams.set(QueryObjParams.languages , JSON.stringify(currentLanguages.filter(lan=>lan !== prefrence)))
+        else urlSearchParams.set(QueryObjParams.languages , JSON.stringify([...currentLanguages , prefrence]) )
+    }
     urlSearchParams.set(QueryObjParams.page , "1")
 
     return urlSearchParams.toString()

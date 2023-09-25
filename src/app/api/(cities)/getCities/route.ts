@@ -91,7 +91,8 @@ export const GET = asyncWrapperApi(async (req )=>{
       const categories  : Category[]  =   JSON.parse(searchParams.get(QueryObjParams.categories) || '[]' )
       const price : Price[]  = JSON.parse(searchParams.get(QueryObjParams.price) || '[]' )
       const page : number | string  = searchParams.get(QueryObjParams.page) === "end" ? "end"  :  Number(searchParams.get(QueryObjParams.page) ) ||1 
-      console.log("page first" , page)
+      const languages = JSON.parse(searchParams.get(QueryObjParams.languages) || '[]')
+      
       const name : string = searchParams.get(QueryObjParams.name) || ""
       let cities : CityDb[] = await  getCities({categories , prices : price   , name } )
       return  apiResponse(200 , page === "end"  ?cities :  cities.slice(0 , page as number * 50 ))
