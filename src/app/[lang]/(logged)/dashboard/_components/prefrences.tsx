@@ -50,6 +50,9 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
     else if(option === PrefrencesOptions.PRICES){
         currentActivePrefrences = searchParams.get(QueryObjParams.price) ?  JSON.parse(searchParams.get(QueryObjParams.price) as string ) : []
     }
+    else if(option === PrefrencesOptions.LANGUAGES){
+        currentActivePrefrences = JSON.parse(searchParams.get(QueryObjParams.languages) || "[]" )
+    }
     // const query = generateQueryCitiesSearchParam(queryCities)
 
 

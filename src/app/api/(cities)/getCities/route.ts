@@ -1,6 +1,6 @@
 import { appConfig } from "@/config"
 import { CategoryDb, CityDb, cityModal } from "@/db/models/city"
-import { Categories, Category, Price } from "@/types/prefrences"
+import { Categories, Category, Language, Price } from "@/types/prefrences"
 import { isCityDb } from "@/types/state/cities"
 import { apiResponse } from "@/utils/api/nextResponse"
 import { asyncWrapperApi } from "@/utils/asyncWrapper"
@@ -10,7 +10,7 @@ import { QueryObjParams } from "@/utils/queryCities"
 
 
 
-export type getCitiesQueryType =  {categories: Category[] , prices:Price[] , name?: string }
+export type getCitiesQueryType =  {categories: Category[] , languages: Language[] , prices:Price[] , name?: string }
 
 
 
@@ -69,11 +69,12 @@ return orgnizedArray
 
 
 export const  getCities  = async ( queries : getCitiesQueryType  ) : Promise<CityDb[]>  =>{
-const { categories , prices  , name } = queries
+const { categories , prices  , name , languages } = queries
   const queryArray = []
   if(Object.keys(queries).length === 0  ) queryArray.push({$or: [{ categories: [Categories.MostVisited] }]})
   if(categories.length) queryArray.push({$or: categories.map(category => ({ "categories.name" : category }))})
   if(prices.length) queryArray.push({$or: prices.map(price => ({ price:  price  })) })
+  if(languages.length) queryArray.push({$or : languages.map(language=>({languages : language })) })
   if(name) queryArray.push({name})
  let cities : CityDb[] = await cityModal().find( {$and: queryArray})
 const sortedCities = sortCities(cities  , queries)
@@ -94,7 +95,7 @@ export const GET = asyncWrapperApi(async (req )=>{
       const languages = JSON.parse(searchParams.get(QueryObjParams.languages) || '[]')
       
       const name : string = searchParams.get(QueryObjParams.name) || ""
-      let cities : CityDb[] = await  getCities({categories , prices : price   , name } )
+      let cities : CityDb[] = await  getCities({categories , prices : price , languages  , name } )
       return  apiResponse(200 , page === "end"  ?cities :  cities.slice(0 , page as number * 50 ))
 })
 
