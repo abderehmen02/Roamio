@@ -48,10 +48,17 @@ export const generateExtractDescreptionIndex : (length : number  , aspectRacio :
 
 
 export const CityDbInfo : React.FC<{citydb : CityDb , query : string}> = ({citydb , query } )=>{
+const [seeMore, setSeeMore] = useState(false)
 const urlSearchParams = new URLSearchParams(query)
 const currentCategories : string[] = JSON.parse(urlSearchParams.get(QueryObjParams.categories) || '[]')
-return <div className="flex" >
-{citydb.categories.filter(category=>currentCategories.includes(category.name)).map(category=><P className="text-sm mx-1" >{category.name} </P>)}
+return <div className="flex flex-col" >
+<div className={cn("flex "  , {"justify-between" : !seeMore } )} ><div className="flex m-0 " >{ Array.from(new Set( citydb.categories.filter(category=>currentCategories.includes(category.name)))).slice(0 , 5).map(category=><P key={category.name} className="text-sm mr-1" >{category.name} </P>)}</div>{ !seeMore &&  <P  className="text-sm" onClick={()=>setSeeMore(true)} >See More</P>}</div>
+{ seeMore &&  <div className="flex flex-col text-sm" >
+<P >country: <span className="mx-1" >{citydb.country}</span></P>
+<P>continent: <span className="mx-1">{citydb.continent}</span> </P>
+<div className="flex" ><P>Best times to visit the city: </P><div className="flex mx-1" > {citydb.yearTimes.slice(0 , 5).map(time=><P key={time} className="mx-1"  >{time}</P>)}</div></div>
+</div>
+}
 </div>
 }
 
