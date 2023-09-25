@@ -30,6 +30,8 @@ import { useQuery } from "@tanstack/react-query"
 import { isCityDb } from "@/types/state/cities"
 import axios from "axios"
 import { getCity } from "@/functions/api/cities"
+import { useSearchParams } from "next/navigation"
+import { QueryObjParams } from "@/utils/queryCities"
 
 export const generateExtractDescreptionIndex : (length : number  , aspectRacio : number | undefined )=>number = (length , aspectRacio )  =>{
   if(aspectRacio){
@@ -42,12 +44,27 @@ export const generateExtractDescreptionIndex : (length : number  , aspectRacio :
   return length
 }
 
+
+
+
+export const CityDbInfo : React.FC<{citydb : CityDb , query : string}> = ({citydb , query } )=>{
+const urlSearchParams = new URLSearchParams(query)
+const currentCategories : string[] = JSON.parse(urlSearchParams.get(QueryObjParams.categories) || '[]')
+return <div className="flex" >
+{citydb.categories.filter(category=>currentCategories.includes(category.name)).map(category=><P className="text-sm mx-1" >{category.name} </P>)}
+</div>
+}
+
+
+
+
 export const CityCard : React.FC<CityDb | {name : string} > =  (cityInfo)=>{
   const [viewLandMarks, setViewLandMarks] = useState<boolean>(false)
    const [seeAllDescreption, setSeeAllDescreption] = useState(false)
   const cityWikipediaData   =  usePlaceWikipediaData(cityInfo.name)
   const loginInfo = useSelector((state : stateType)=>state.login)
   const dispatch = useDispatch()
+  const searchParams = useSearchParams()
   const cities = useSelector((state : stateType)=>state.cities)
   const {dispatchAction} = bindActionCreators(ActionCreators , dispatch)
   const userInfo = useSelector((state: stateType)=>state.userInfo)
@@ -108,6 +125,7 @@ function receiveCityDbData (data: CityDb): void{
 { isUserInfo(userInfo) && isCityDb(city) && <PrimaryBtn onClick={()=> isSavedCity ? unsaveCity() :  saveCity()} className={cn("py-0" , {"opacity-40" : loadingSave })} size={ButtonsSizes.small} >{isSavedCity ? "Saved" : "Save"}  {userInfo.savedCities?.includes(city.name) ? <TurnedInOutlinedIcon style={{width : 20 , height : 20 } } />   : <TurnedInNotOutlinedIcon style={{width : 20 , height : 20 } } /> } </PrimaryBtn> }
   <PrimaryBtn size={ButtonsSizes.small} className="py-0 " onClick={()=>setViewLandMarks((val)=>!val)} > {viewLandMarks ? <i className="bi m-0 text-sm bi-chevron-up"></i> : <i className= "bi m-0  bi-chevron-down " ></i> } {t("Explore Landmarks")}  </PrimaryBtn><SecondaryBtn className="py-0" size={ButtonsSizes.small} >{t("Explore City")}</SecondaryBtn>
 </div></div>
+{cityDb && <CityDbInfo citydb={cityDb} query={searchParams.toString()} />}
     </div>
     </div>
     { isCityDb(city) && viewLandMarks && cityWikipediaData.lat && cityWikipediaData.lon &&  <Landmarks city={city} cityLat={cityWikipediaData.lat} cityLon={cityWikipediaData.lon} /> }
