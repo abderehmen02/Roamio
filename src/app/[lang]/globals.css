@@ -32,8 +32,8 @@
 }
 .scrollPrefrences{
   overflow-y: scroll;
-  overflow-x: visible;
-  width :500px;
+  width :200px;
+  min-height: 200px;
   height: 90vh;
 }
 .scrollPrefrences::-webkit-scrollbar{

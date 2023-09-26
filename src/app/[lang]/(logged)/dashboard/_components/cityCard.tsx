@@ -73,10 +73,7 @@ export const CityCard : React.FC<CityDb | {name : string} > =  (cityInfo)=>{
    const [seeAllDescreption, setSeeAllDescreption] = useState(false)
   const cityWikipediaData   =  usePlaceWikipediaData(cityInfo.name)
   const loginInfo = useSelector((state : stateType)=>state.login)
-  const dispatch = useDispatch()
   const searchParams = useSearchParams()
-  const cities = useSelector((state : stateType)=>state.cities)
-  const {dispatchAction} = bindActionCreators(ActionCreators , dispatch)
   const userInfo = useSelector((state: stateType)=>state.userInfo)
   const [openCommentModal, setOpenCommentModal] = useState(false)
   const {t} = useTranslation()
@@ -118,7 +115,7 @@ function receiveCityDbData (data: CityDb): void{
 
 
 
-    return <div className="flex flex-col shadow-md  bg-white rounded-xl  w-full border-stone-600" >
+    return <div style={{maxWidth: '80vw'}} className="flex flex-col shadow-md  bg-white rounded-xl  w-fit border-stone-600" >
    { isCityDb(city) &&  <ReviewModal deleteReviewFn={deleteReviewFn} addReviewFn={addReview} open={openCommentModal} city={city} setOpen={setOpenCommentModal}  /> }
     <div  className=" flex" >
     <img  src={image}  style={{width : '300px' , objectFit: 'cover' ,  }} className={ cn( "rounded-l-xl border-2 " , {"h-full" : !seeAllDescreption && !seeMoreInfo  , "h-fit " : seeAllDescreption || seeMoreInfo } )} />

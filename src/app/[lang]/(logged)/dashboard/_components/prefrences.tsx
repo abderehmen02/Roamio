@@ -68,15 +68,14 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
 
     items.slice(0 , LastItem).map((item=> <div   onClick={()=>toglePrefrence(item)} className={ cn( " cursor-pointer  capitalize flex items-center gap-1"  , {"text-black " :  isPrefrenceIncluded( item )} )} > <P className="w-32" >{item}  </P> { isPrefrenceIncluded( item ) && <i className="bi bi-record-circle text-sm"></i> } </div>))
 }    
-<P className=" capitalize text-sm" onClick={()=>{items?.length> LastItem  && setLastItem(val=>val+ 3) , console.log("clicked") }} >{t("seeMore")}<i className="bi bi-arrow-down"></i></P>
-<P className=" capitalize text-sm" onClick={()=>{ items?.length> 2  &&  setLastItem(val=>val  -  3) , console.log("clicked") }} >{t("seeLess")}<i className="bi bi-arrow-up"></i></P>
+<P className=" capitalize cursor-pointer text-sm" onClick={()=>{items?.length> LastItem  && setLastItem(val=>val+ 3)  }} >{t("seeMore")}<i className="bi bi-arrow-down"></i></P>
+<P className=" capitalize cursor-pointer text-sm" onClick={()=>{ items?.length> 2  &&  setLastItem(val=>val  -  3) }} >{t("seeLess")}<i className="bi bi-arrow-up"></i></P>
     </div>
 }
 
 
 export const PrefrencesRow : React.FC = ()=>{
     const searchParams = useSearchParams()
-    const queryCities = useSelector(((state : stateType) => state.citiesQuery))
     const router = useRouter()
     const citySearchQueryString =  searchParams.toString()
      const pathname = usePathname()
@@ -91,7 +90,6 @@ export const PrefrencesRow : React.FC = ()=>{
 
         queryFn: async ()=>{
         dispatchAction({type : CitiesActionTypes.LOADING_CITIES})   
-        console.log("city search query string"  , citySearchQueryString)
           const response = await axios.get(`/api/getCities?${citySearchQueryString}`)
           return response.data 
         } ,
@@ -119,7 +117,7 @@ export const PrefrencesRow : React.FC = ()=>{
     }, [])
     
 
-    return <DashboardSection  className="bg-white sticky  top-6 scrollPrefrences  text-primary border-none shadow-md h-fit" >     
+    return <DashboardSection  className="bg-white sticky w-fit top-6 scrollPrefrences  text-primary border-none shadow-md h-fit" >     
 {
       rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence.prefrence} option={prefrence.option} />)
 }     
