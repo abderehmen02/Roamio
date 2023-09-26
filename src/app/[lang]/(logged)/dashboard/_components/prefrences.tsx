@@ -10,26 +10,15 @@ import { stateType } from "@/state/reducers"
 import { useDispatch } from "react-redux"
 import { bindActionCreators } from "redux"
 import ActionCreators from "@/state/actionCreators/action"
-import { CitiesQueryActionTypes } from "@/types/state/citiesQuery"
-import { Query, useQuery } from "@tanstack/react-query"
+import {  useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import { CitiesActionTypes } from "@/types/state/cities"
 import { tagglePrefrenceAndGenerateQueryCitiesSearchParams,  QueryObjParams } from "@/utils/queryCities"
 import { cn } from "@/lib/tailwind"
-import { canNotAbstractPrefrences } from "@/state/reducers/queryCities"
 import { usePathname, useSearchParams } from "next/navigation"
-import { appConfig } from "@/config"
-import { WindSong } from "next/font/google"
 import { useRouter } from "next/navigation"
-import { generateExtractDescreptionIndex } from "./cityCard"
-import { roundToNearestMinutes } from "date-fns"
 
 const rowsFields : PrefrencesArray = [{  option : PrefrencesOptions.CATEGORIES , prefrence :  Categories }  , {   option: PrefrencesOptions.PRICES , prefrence: Prices } , { option : PrefrencesOptions.YEAR_TIMES , prefrence :  YearTimes } ,  {  option :  PrefrencesOptions.MEALS , prefrence : Meals }  , {option : PrefrencesOptions.WEATHERS , prefrence : Weathers} , {option : PrefrencesOptions.LANGUAGES , prefrence : Languages}  ]
-
-
-
-
-
 
 export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option : PrefrencesOptions }> = ({prefrence , option })=>{
     const items = Object.values(prefrence)
@@ -37,33 +26,26 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
     const router = useRouter()
     const pathname = usePathname()
     const searchParams = useSearchParams()
+    let initialLastItem = 3 ;
 
-    const queryCities = useSelector(((state : stateType) => state.citiesQuery))
-    const dispatch= useDispatch()
-    const { dispatchAction } = bindActionCreators(ActionCreators , dispatch)
-    const [LastItem, setLastItem] = useState<number>(option === PrefrencesOptions.CATEGORIES ? 15 :3)
     let currentActivePrefrences : Prefrence[] ;
     if(option === PrefrencesOptions.CATEGORIES){
+    initialLastItem = 15
      currentActivePrefrences = searchParams.get(QueryObjParams.categories) ?  JSON.parse(searchParams.get(QueryObjParams.categories) as string ) : []
     }
     else if(option === PrefrencesOptions.PRICES){
+        initialLastItem = 4
         currentActivePrefrences = searchParams.get(QueryObjParams.price) ?  JSON.parse(searchParams.get(QueryObjParams.price) as string ) : []
     }
     else if(option === PrefrencesOptions.LANGUAGES){
+   
         currentActivePrefrences = JSON.parse(searchParams.get(QueryObjParams.languages) || "[]" )
     }
     else if(option === PrefrencesOptions.WEATHERS){
+        initialLastItem = 7
         currentActivePrefrences = JSON.parse(searchParams.get(QueryObjParams.weathers)|| "[]")
     }
-    // const query = generateQueryCitiesSearchParam(queryCities)
-
-
-
-
-
-
-
-
+    const [LastItem, setLastItem] = useState<number>(option === PrefrencesOptions.CATEGORIES ? 15 :3)
 
 
     const isPrefrenceIncluded = (item : Prefrence)=>currentActivePrefrences?.includes(item)
@@ -77,11 +59,6 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
 
 
 
-// useEffect(()=>{
-// const params = new URLSearchParams()
-// params.set(appConfig.cityQueryParamName , JSON.stringify(queryCities) )
-// router.push(`${pathname}?${generate}` , {scroll : false}  )
-// } , [generateQueryCitiesSearchParam(queryCities)  ] )
 
 
 

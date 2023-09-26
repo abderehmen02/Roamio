@@ -30,7 +30,15 @@
 .clearBorder{
   border: 1px solid black
 }
+.scrollCities{
+  overflow-y: scroll;
 
+}
+
+.scrollCities::-webkit-scrollbar{
+  width:   0px;
+  height : 0px ;
+}
 
 .reviews::-webkit-scrollbar {
   width: 6px;
