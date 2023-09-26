@@ -10,7 +10,13 @@ import { QueryObjParams } from "@/utils/queryCities"
 
 
 
-export type getCitiesQueryType =  {categories: Category[] , languages: Language[] , prices:Price[] , name?: string }
+export type getCitiesQueryType =  {
+    categories: Category[] , 
+    languages: Language[] , 
+    prices:Price[] ,
+     name?: string ,
+    weathers : string[]
+    }
 
 
 
@@ -69,17 +75,16 @@ return orgnizedArray
 
 
 export const  getCities  = async ( queries : getCitiesQueryType  ) : Promise<CityDb[]>  =>{
-const { categories , prices  , name , languages } = queries
+const { categories , prices  , name , languages , weathers } = queries
   const queryArray = []
   if(Object.keys(queries).length === 0  ) queryArray.push({$or: [{ categories: [Categories.MostVisited] }]})
   if(categories.length) queryArray.push({$or: categories.map(category => ({ "categories.name" : category }))})
   if(prices.length) queryArray.push({$or: prices.map(price => ({ price:  price  })) })
   if(languages.length) queryArray.push({$or : languages.map(language=>({languages : language })) })
+  if(weathers.length) queryArray.push({$or : weathers.map(weather=>({weathers: weather})) })  
   if(name) queryArray.push({name})
  let cities : CityDb[] = await cityModal().find( {$and: queryArray})
-const sortedCities = sortCities(cities  , queries)
-
-
+ const sortedCities = sortCities(cities  , queries)
  return sortedCities
 }
 
@@ -93,9 +98,9 @@ export const GET = asyncWrapperApi(async (req )=>{
       const price : Price[]  = JSON.parse(searchParams.get(QueryObjParams.price) || '[]' )
       const page : number | string  = searchParams.get(QueryObjParams.page) === "end" ? "end"  :  Number(searchParams.get(QueryObjParams.page) ) ||1 
       const languages = JSON.parse(searchParams.get(QueryObjParams.languages) || '[]')
-      
+      const weathers = JSON.parse(searchParams.get( QueryObjParams.weathers )|| "[]")
       const name : string = searchParams.get(QueryObjParams.name) || ""
-      let cities : CityDb[] = await  getCities({categories , prices : price , languages  , name } )
+      let cities : CityDb[] = await  getCities({categories , prices : price , languages   , weathers , name } )
       return  apiResponse(200 , page === "end"  ?cities :  cities.slice(0 , page as number * 50 ))
 })
 
