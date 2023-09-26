@@ -21,7 +21,7 @@ export const Cities = ()=>{
 
 
     return <div className="flex flex-col  items-center gap-10" >
-        <div style={{height: citiesScrollHeight }} className="flex flex-col items-ccenter gap-10 scrollCities " >        {cities.cities.map((city)=><CityCard key={city.name} {...city} />)}</div>
+         {cities.cities.map((city)=><CityCard key={city.name} {...city} />)}
         <SeeMoreCities/>
     </div>
 }
