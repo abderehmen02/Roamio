@@ -13,12 +13,9 @@ import { QueryObjParams } from "@/utils/queryCities"
 
 export const Cities = ()=>{
     const searchParams = useSearchParams()
-    const currentPage : number = searchParams.get(QueryObjParams.page) ?  Number(searchParams.get(QueryObjParams.page))  : 1
     const cities : CitiesState = useSelector((state : stateType)=>state.cities)
     if(cities.loading && cities.cities.length === 0 ) return <LoadingCities/>
     if(cities.error) return <H2>{cities.error.message}</H2>
-  const citiesScrollHeight : string = `${120  +  20 * currentPage}vh`
-
 
     return <div className="flex flex-col  items-center gap-10" >
          {cities.cities.map((city)=><CityCard key={city.name} {...city} />)}
