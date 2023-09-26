@@ -41,8 +41,7 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
     const queryCities = useSelector(((state : stateType) => state.citiesQuery))
     const dispatch= useDispatch()
     const { dispatchAction } = bindActionCreators(ActionCreators , dispatch)
-    const [LastItem, setLastItem] = useState<number>(3)
-    let activePrefrence : boolean = false; 
+    const [LastItem, setLastItem] = useState<number>(option === PrefrencesOptions.CATEGORIES ? 15 :3)
     let currentActivePrefrences : Prefrence[] ;
     if(option === PrefrencesOptions.CATEGORIES){
      currentActivePrefrences = searchParams.get(QueryObjParams.categories) ?  JSON.parse(searchParams.get(QueryObjParams.categories) as string ) : []
@@ -52,6 +51,9 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
     }
     else if(option === PrefrencesOptions.LANGUAGES){
         currentActivePrefrences = JSON.parse(searchParams.get(QueryObjParams.languages) || "[]" )
+    }
+    else if(option === PrefrencesOptions.WEATHERS){
+        currentActivePrefrences = JSON.parse(searchParams.get(QueryObjParams.weathers)|| "[]")
     }
     // const query = generateQueryCitiesSearchParam(queryCities)
 

@@ -68,6 +68,11 @@ export const tagglePrefrenceAndGenerateQueryCitiesSearchParams = ( option : Pref
         if(currentLanguages.includes(prefrence)) urlSearchParams.set(QueryObjParams.languages , JSON.stringify(currentLanguages.filter(lan=>lan !== prefrence)))
         else urlSearchParams.set(QueryObjParams.languages , JSON.stringify([...currentLanguages , prefrence]) )
     }
+    else if(option === PrefrencesOptions.WEATHERS){
+        const currentWeathers : string[] = JSON.parse(searchParams.get(QueryObjParams.weathers) || '[]' )
+        if(currentWeathers.includes(prefrence)) urlSearchParams.set(QueryObjParams.languages ,JSON.stringify(currentWeathers.filter(weather=>weather !== prefrence)) )
+        else urlSearchParams.set(QueryObjParams.weathers , JSON.stringify([...currentWeathers , prefrence]))
+    }
     urlSearchParams.set(QueryObjParams.page , "1")
 
     return urlSearchParams.toString()

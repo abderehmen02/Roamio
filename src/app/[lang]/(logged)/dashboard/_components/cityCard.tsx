@@ -7,7 +7,7 @@ import { cn } from "@/lib/tailwind"
 import { ButtonsSizes, PrimaryBtn, SecondaryBtn } from "@/ui/buttons"
 import { Title } from "@/ui/title"
 import {  H3, P } from "@/ui/typography"
-import { useEffect, useRef, useState } from "react"
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react"
 import { Landmarks } from "./landmarks"
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
@@ -47,16 +47,18 @@ export const generateExtractDescreptionIndex : (length : number  , aspectRacio :
 
 
 
-export const CityDbInfo : React.FC<{citydb : CityDb , query : string}> = ({citydb , query } )=>{
-const [seeMore, setSeeMore] = useState(false)
+export const CityDbInfo : React.FC<{citydb : CityDb , query : string , seeMoreInfo : boolean , setSeeMoreInfo : Dispatch<SetStateAction<boolean>> ,  }> = ({citydb , query , seeMoreInfo  , setSeeMoreInfo  , } )=>{
 const urlSearchParams = new URLSearchParams(query)
 const currentCategories : string[] = JSON.parse(urlSearchParams.get(QueryObjParams.categories) || '[]')
 return <div className="flex flex-col" >
-<div className={cn("flex "  , {"justify-between" : !seeMore } )} ><div className="flex m-0 " >{ Array.from(new Set( citydb.categories.filter(category=>currentCategories.includes(category.name)))).slice(0 , 5).map(category=><P key={category.name} className="text-sm mr-1" >{category.name} </P>)}</div>{ !seeMore &&  <P  className="text-sm" onClick={()=>setSeeMore(true)} >See More</P>}</div>
-{ seeMore &&  <div className="flex flex-col text-sm" >
+<div className={cn("flex "  , {"justify-between" : !seeMoreInfo } )} ><div className="flex " ><P className="text-sm">categories:</P><div className="mx-1 flex" >{ Array.from(new Set( citydb.categories.filter(category=>currentCategories.includes(category.name)))).slice(0 , 5).map(category=><P key={category.name} className="text-sm mr-1" >{category.name} </P>)}</div></div>{ !seeMoreInfo &&  <P  className="text-sm cursor-pointer" onClick={()=>setSeeMoreInfo(true)} >See More</P>}</div>
+{ seeMoreInfo &&  <div className="flex flex-col text-sm" >
 <P >country: <span className="mx-1" >{citydb.country}</span></P>
 <P>continent: <span className="mx-1">{citydb.continent}</span> </P>
+<P className="lowercase" >price: <span className="mx-1 lowercase" >{citydb.price}</span></P>
 <div className="flex" ><P>Best times to visit the city: </P><div className="flex mx-1" > {citydb.yearTimes.slice(0 , 5).map(time=><P key={time} className="mx-1"  >{time}</P>)}</div></div>
+<div className="flex" ><P>Languages spoken in the city</P><div className="flex mx-1" >{citydb.languages.map(lan=><P key={lan} className="mx-1" >{lan}</P>)}</div></div>
+<div className="flex justify-between"  ><div className="flex" ><P>Dominent Weathers in the city :</P><div className="flex mx-1" >{citydb.weathers.map(weather=><P key={weather}  className="mx-1" >{weather}</P>)}</div></div> { seeMoreInfo &&  <P className="text-sm cursor-pointer" onClick={()=>setSeeMoreInfo(false)} >See Less</P> }</div>
 </div>
 }
 </div>
@@ -67,6 +69,7 @@ return <div className="flex flex-col" >
 
 export const CityCard : React.FC<CityDb | {name : string} > =  (cityInfo)=>{
   const [viewLandMarks, setViewLandMarks] = useState<boolean>(false)
+  const [seeMoreInfo, setSeeMoreInfo] = useState(false)
    const [seeAllDescreption, setSeeAllDescreption] = useState(false)
   const cityWikipediaData   =  usePlaceWikipediaData(cityInfo.name)
   const loginInfo = useSelector((state : stateType)=>state.login)
@@ -118,7 +121,7 @@ function receiveCityDbData (data: CityDb): void{
     return <div className="flex flex-col shadow-md  bg-white rounded-xl  w-full border-stone-600" >
    { isCityDb(city) &&  <ReviewModal deleteReviewFn={deleteReviewFn} addReviewFn={addReview} open={openCommentModal} city={city} setOpen={setOpenCommentModal}  /> }
     <div  className=" flex" >
-    <img  src={image}  style={{width : '300px' , objectFit: 'cover' ,  }} className={ cn( "rounded-l-xl border-2 " , {"h-full" : !seeAllDescreption , "h-fit " : seeAllDescreption } )} />
+    <img  src={image}  style={{width : '300px' , objectFit: 'cover' ,  }} className={ cn( "rounded-l-xl border-2 " , {"h-full" : !seeAllDescreption && !seeMoreInfo  , "h-fit " : seeAllDescreption || seeMoreInfo } )} />
     <div className="flex px-6 w-full py-1 justify-around flex-col " >
      <Title  title={cityWikipediaData.title} titleClassName="text-2xl" className="flex-row   items-center justify-start gap-7"  descreptionClassName="font-bold text-secondaryDark" descreption={subtitle}  />
       { descreption &&  <P className="text-sm" >{ seeAllDescreption ? descreption  :  descreption?.slice(0 ,extractedIndex ) }{ extractedIndex < descreption.length &&  (  seeAllDescreption ?  <span style={{cursor: 'pointer'}} className="capitalize " onClick={()=>setSeeAllDescreption(false)} > {t("seeLess")}</span>  :     <span style={{cursor: 'pointer'}} className="capitalize " onClick={()=>setSeeAllDescreption(true)} >...{t("seeMore")}</span> )}</P> }
@@ -132,7 +135,7 @@ function receiveCityDbData (data: CityDb): void{
 { isUserInfo(userInfo) && isCityDb(city) && <PrimaryBtn onClick={()=> isSavedCity ? unsaveCity() :  saveCity()} className={cn("py-0" , {"opacity-40" : loadingSave })} size={ButtonsSizes.small} >{isSavedCity ? "Saved" : "Save"}  {userInfo.savedCities?.includes(city.name) ? <TurnedInOutlinedIcon style={{width : 20 , height : 20 } } />   : <TurnedInNotOutlinedIcon style={{width : 20 , height : 20 } } /> } </PrimaryBtn> }
   <PrimaryBtn size={ButtonsSizes.small} className="py-0 " onClick={()=>setViewLandMarks((val)=>!val)} > {viewLandMarks ? <i className="bi m-0 text-sm bi-chevron-up"></i> : <i className= "bi m-0  bi-chevron-down " ></i> } {t("Explore Landmarks")}  </PrimaryBtn><SecondaryBtn className="py-0" size={ButtonsSizes.small} >{t("Explore City")}</SecondaryBtn>
 </div></div>
-{cityDb && <CityDbInfo citydb={cityDb} query={searchParams.toString()} />}
+{cityDb && <CityDbInfo setSeeMoreInfo={setSeeMoreInfo} seeMoreInfo={seeMoreInfo} citydb={cityDb} query={searchParams.toString()} />}
     </div>
     </div>
     { isCityDb(city) && viewLandMarks && cityWikipediaData.lat && cityWikipediaData.lon &&  <Landmarks city={city} cityLat={cityWikipediaData.lat} cityLon={cityWikipediaData.lon} /> }
