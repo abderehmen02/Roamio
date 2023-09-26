@@ -1,5 +1,4 @@
 "use client"
-
 import { useTranslation } from "@/app/i18n/client"
 import { Categories, Category, Languages, Meals, Prefrence, PrefrenceObject, PrefrencesArray, PrefrencesOptions, Price, Prices, PricesArray, Weathers, YearTimes } from "@/types/prefrences"
 import { P } from "@/ui/typography"
@@ -120,7 +119,7 @@ export const PrefrencesRow : React.FC = ()=>{
     }, [])
     
 
-    return <DashboardSection className="bg-white  text-primary border-none shadow-md h-fit" >     
+    return <DashboardSection  className="bg-white sticky  top-6 scrollPrefrences  text-primary border-none shadow-md h-fit" >     
 {
       rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence.prefrence} option={prefrence.option} />)
 }     
