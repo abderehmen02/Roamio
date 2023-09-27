@@ -51,7 +51,7 @@ export const CityDbInfo : React.FC<{citydb : CityDb , query : string , seeMoreIn
 const urlSearchParams = new URLSearchParams(query)
 const currentCategories : string[] = JSON.parse(urlSearchParams.get(QueryObjParams.categories) || '[]')
 return <div className="flex flex-col" >
-<div className={cn("flex "  , {"justify-between" : !seeMoreInfo } )} ><div className="flex " ><P className="text-sm">categories:</P><div className="mx-1 flex" >{ Array.from(new Set( citydb.categories.filter(category=>currentCategories.includes(category.name)))).slice(0 , 5).map(category=><P key={category.name} className="text-sm mr-1" >{category.name} </P>)}</div></div>{ !seeMoreInfo &&  <P  className="text-sm cursor-pointer" onClick={()=>setSeeMoreInfo(true)} >See More</P>}</div>
+{ currentCategories.length ?  <div className={cn("flex "  , {"justify-between" : !seeMoreInfo } )} ><div className="flex " ><P className="text-sm">categories:</P><div className="mx-1 flex" >{ Array.from(new Set( citydb.categories.filter(category=>currentCategories.includes(category.name)))).slice(0 , 5).map(category=><P key={category.name} className="text-sm mr-1" >{category.name} </P>)}</div></div>{ !seeMoreInfo &&  <P  className="text-sm cursor-pointer" onClick={()=>setSeeMoreInfo(true)} >See More</P>}</div> : <P className={cn("cursor-pointer font-bold underline"  , {"invisible" : seeMoreInfo} ) } onClick={()=>setSeeMoreInfo(true)} >Explore City Info</P> }
 { seeMoreInfo &&  <div className="flex flex-col text-sm" >
 <P >country: <span className="mx-1" >{citydb.country}</span></P>
 <P>continent: <span className="mx-1">{citydb.continent}</span> </P>
