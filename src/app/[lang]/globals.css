@@ -32,7 +32,7 @@
 }
 .scrollPrefrences{
   overflow-y: scroll;
-  width :200px;
+  width : 20%;
   min-height: 200px;
   height: 90vh;
 }

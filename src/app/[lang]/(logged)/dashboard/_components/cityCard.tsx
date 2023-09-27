@@ -115,7 +115,7 @@ function receiveCityDbData (data: CityDb): void{
 
 
 
-    return <div style={{maxWidth: '80vw'}} className="flex flex-col shadow-md  bg-white rounded-xl  w-fit border-stone-600" >
+    return <div style={{width: '1000px'}} className="flex flex-col shadow-md  bg-white rounded-xl  w-fit border-stone-600" >
    { isCityDb(city) &&  <ReviewModal deleteReviewFn={deleteReviewFn} addReviewFn={addReview} open={openCommentModal} city={city} setOpen={setOpenCommentModal}  /> }
     <div  className=" flex" >
     <img  src={image}  style={{width : '300px' , objectFit: 'cover' ,  }} className={ cn( "rounded-l-xl border-2 " , {"h-full" : !seeAllDescreption && !seeMoreInfo  , "h-fit " : seeAllDescreption || seeMoreInfo } )} />
