@@ -63,10 +63,10 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
 
 
 
-    return <div className="flex-col  py-3">
+    return <div className="flex-col w-full py-3">
 {
 
-    items.slice(0 , LastItem).map((item=> <div   onClick={()=>toglePrefrence(item)} className={ cn( " cursor-pointer  capitalize flex items-center gap-1"  , {"text-black " :  isPrefrenceIncluded( item )} )} > <P className="w-32" >{item}  </P> { isPrefrenceIncluded( item ) && <i className="bi bi-record-circle text-sm"></i> } </div>))
+    items.slice(0 , LastItem).map((item=> <div   onClick={()=>toglePrefrence(item)} className={ cn( " cursor-pointer  capitalize flex items-center gap-1"  , {"text-black " :  isPrefrenceIncluded( item )} )} > <P  >{item}  </P> { isPrefrenceIncluded( item ) && <i className="bi bi-record-circle text-sm"></i> } </div>))
 }    
 <P className=" capitalize cursor-pointer text-sm" onClick={()=>{items?.length> LastItem  && setLastItem(val=>val+ 3)  }} >{t("seeMore")}<i className="bi bi-arrow-down"></i></P>
 <P className=" capitalize cursor-pointer text-sm" onClick={()=>{ items?.length> 2  &&  setLastItem(val=>val  -  3) }} >{t("seeLess")}<i className="bi bi-arrow-up"></i></P>
@@ -117,7 +117,7 @@ export const PrefrencesRow : React.FC = ()=>{
     }, [])
     
 
-    return <DashboardSection  className="bg-white sticky w-fit top-6 scrollPrefrences  text-primary border-none shadow-md h-fit" >     
+    return <DashboardSection  className="bg-white sticky pl-5 w-fit top-6 scrollPrefrences  text-primary border-none shadow-md h-fit" >     
 {
       rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence.prefrence} option={prefrence.option} />)
 }     
