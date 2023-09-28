@@ -11,16 +11,15 @@ import { Settings } from "../headings/settingList"
 export  async function  LoggedHeader  (){
     const {t} = await useTranslation()
     return(
-        <div className="flex w-full z-10 absolute top-0   pt-5 gap-24 justify-center" >
+        <div className="flex w-full px-10 z-10 absolute top-0   pt-5 gap-24 justify-between" >
 <img src="/logo-color.png" className="w-16 h-16" />
-<div className="flex gap-24  items-center   h-fit" >
+<div className="flex gap-24   h-fit" >
 
-<div className="max-w-3xl " ><IconInput Icon={<i className="bi bi-search "></i>} placeholder={t("unlogedHeader.search")} /></div>
-<Link href="/" > <H3 className="text-primary " > {t("loggedHeader.findTargetCity")}</H3></Link>
-<Link href="/cityData" ><H3 className="text-primary" >{t("loggedHeader.cityData")}</H3></Link>
-<Link href="/Blog" > <PrimaryBtn>{t("unlogedHeader.blog")} <i className="bi bi-newspaper"></i> </PrimaryBtn></Link>
-</div>
+{/* <Link href="/" > <H3 className="text-primary " > {t("unlogedHeader.blog")}</H3></Link> */}
+<Link href="/" > <PrimaryBtn>{t("loggedHeader.findTargetCity")} <i className="bi bi-newspaper"></i> </PrimaryBtn></Link>
 <Settings/>
+</div>
+
         </div>
     )
 }
