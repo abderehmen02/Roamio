@@ -83,6 +83,7 @@ export const CityCard : React.FC<CityDb | {name : string} > =  (cityInfo)=>{
     onSuccess : receiveCityDbData ,
     enabled : !isCityDb(cityInfo) ,
   })
+
   const cityDb : CityDb | undefined =     isCityDb(cityInfo) ? cityInfo :  fetchedCityDb
   const [city , setCity]  = useState<CityDb | undefined>(cityDb)
   const [ addReview , likeCity  , unlikeCity , dislikeCity  , cancelDislike , saveCity , unsaveCity , deleteReviewFn, loadingSave    , loadingLike  , loadingDislke ] = useCityCardActions(city , setCity )

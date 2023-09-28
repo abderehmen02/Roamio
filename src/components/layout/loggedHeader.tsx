@@ -12,13 +12,16 @@ export  async function  LoggedHeader  (){
     const {t} = await useTranslation()
     return(
         <div className="flex w-full px-10 z-10 absolute top-0   pt-5 gap-24 justify-between" >
-<img src="/logo-color.png" className="w-16 h-16" />
+        
+        <img src="/logo-color.png" className="w-16 h-16" />
+
 <div className="flex gap-24   h-fit" >
 
 {/* <Link href="/" > <H3 className="text-primary " > {t("unlogedHeader.blog")}</H3></Link> */}
 <Link href="/" > <PrimaryBtn>{t("loggedHeader.findTargetCity")} <i className="bi bi-newspaper"></i> </PrimaryBtn></Link>
 <Settings/>
 </div>
+
 
         </div>
     )

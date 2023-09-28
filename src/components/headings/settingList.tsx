@@ -4,11 +4,11 @@ import { useTranslation } from "@/app/i18n/client"
 import { appConfig } from "@/config"
 import { logout } from "@/functions/api/auth"
 import { cn } from "@/lib/tailwind"
-import { SecondaryBtn } from "@/ui/buttons"
+import { PrimaryBtn, SecondaryBtn } from "@/ui/buttons"
 import { H4, P } from "@/ui/typography"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import NotesIcon from '@mui/icons-material/Notes';
 import NotInterestedIcon from '@mui/icons-material/NotInterested';
@@ -28,8 +28,8 @@ return     <div   className="flex  menu  shadow-2xl   px-4 flex-col items-center
 export const Settings = ()=>{
 const {t} = useTranslation()
 const [OpenList, setOpenList] = useState(false)
-    return <div  className={cn("items-center w-64 rounded-t-3xl flex gap-2 relative rounded-b-xl  flex-col  "  )}> 
-    <SecondaryBtn  className="w-full px-5  "  onClick={()=>setOpenList((val)=>  !val)}  >  {t("loggedHeader.settings")}   <i className="bi bi-gear-fill"></i> </SecondaryBtn>
-    <div  className={cn({"visible bg-white w-full rounded-xl  mx-3" : OpenList , "invisible" : !OpenList })} >  <SettingsList/>  </div>
+    return <div  className={cn("items-center w-64  rounded-t-3xl flex gap-2 relative rounded-b-xl  flex-col  "  )}> 
+    <SecondaryBtn  className="w-full px-5 z-30 "  onClick={(e)=>{ e.preventDefault() ; e.stopPropagation() ; setOpenList((val)=>  !val)     }}  >  {t("loggedHeader.settings")}   <i className="bi bi-gear-fill"></i> </SecondaryBtn>
+    <div  className={cn({"visible bg-white w-full rounded-xl " : OpenList , "invisible" : !OpenList })} >  <SettingsList/>  </div>
     </div>
 }
