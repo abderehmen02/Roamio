@@ -63,7 +63,7 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
 
 
 
-    return <div className="flex-col w-full py-3">
+    return <div className="flex-col w-full  py-3">
 {
 
     items.slice(0 , LastItem).map((item=> <div   onClick={()=>toglePrefrence(item)} className={ cn( " cursor-pointer  capitalize flex items-center gap-1"  , {"text-black " :  isPrefrenceIncluded( item )} )} > <P  >{item}  </P> { isPrefrenceIncluded( item ) && <i className="bi bi-record-circle text-sm"></i> } </div>))
@@ -117,7 +117,7 @@ export const PrefrencesRow : React.FC = ()=>{
     }, [])
     
 
-    return <DashboardSection  className="bg-white sticky pl-5  top-28 scrollPrefrences  text-primary border-none shadow-md h-fit" >     
+    return <DashboardSection  className="bg-white sticky pl-5 py-2  top-28 scrollPrefrences  text-primary border-none shadow-md h-fit" >     
 {
       rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence.prefrence} option={prefrence.option} />)
 }     
