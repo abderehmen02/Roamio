@@ -3,7 +3,7 @@ import { Skeleton } from "@mui/material"
 import { TitleSkeleton } from "../ui/title"
 
 export const CityCardSkeleton : React.FC = ()=>{
-    return <div style={{maxWidth: '80vw'}} className="flex flex-col shadow-md  bg-white rounded-xl  w-full border-stone-600" >
+    return <div style={{width : '1000px'}} className="flex flex-col shadow-md  bg-white rounded-xl  w-full border-stone-600" >
     <div  className=" flex" >
     <Skeleton variant="rectangular"  style={{width : 300 , height : '100%'}} />
     <div className="flex px-6 w-full py-4 gap-3 justify-around flex-col " >
