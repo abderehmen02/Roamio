@@ -74,8 +74,8 @@
   border-bottom-width:  0.5px;
 }
 .hoverSettingsList:hover{
-  border-bottom-width : 2px ;
-  text-shadow:  0.5px 0.5px 1px black;
+  box-shadow: 0px 2px 0px 0px black;
+    text-shadow:  0.5px 0.5px 1px black;
 }
 @media screen and (max-width : 640px) {
 .loginImg{
