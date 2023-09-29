@@ -16,6 +16,9 @@ import { useRouter } from 'next/navigation'
 import { logout } from "@/functions/api/auth"
 import { ExpiredSessionDialog } from "@/app/[lang]/(logged)/_components/expiredSession"
 import { errorMessage } from "@/utils/api/error"
+import { H1 } from "@/ui/typography"
+import { appConfig } from "@/config"
+import { LoadingUserSkeleton } from "@/components/skeletons/loadingUser"
 
 export const AuthProvider : React.FC<{children : React.ReactNode  }> =  ({children   } )=>{
 const {t} = useTranslation()
@@ -24,13 +27,18 @@ const [SessionDialig, setSessionDialig] = useState<boolean>(false)
     const dispatch = useDispatch()
     const {dispatchAction } = bindActionCreators( ActionCreators  , dispatch )
     const userLogin = useSelector((state : stateType)=>state.login)
-    const   localUserInfo = typeof window !== 'undefined' && JSON.parse( localStorage?.getItem(authConfig.userInfoLocalStorageName) as string ) 
     const userInfo = useSelector((state : stateType ) =>state.userInfo )
     const router = useRouter()
     // getting the user 
  
     const getUser = async ()=>{
-try {        const response =    await  axios.post('/api/getTokenAndUserInfo')
+try {        
+    await new Promise((res  , rej)=>{
+setTimeout(()=>{
+res("continue")
+}  , 5000000 )
+    })
+    const response =    await  axios.post('/api/getTokenAndUserInfo')
         let userInfo : UserInfo | GoogleUserDb ; 
         let token : string; 
 
@@ -69,7 +77,7 @@ dispatchAction({type : LoginActionTypes.userLoginRequest})
 getUser()
 }  , [] )
 
-if( !userLogin.token && !userLogin.error  ) return <div>{t("loading")}</div>
+if( !userLogin.token && !userLogin.error  ) return <LoadingUserSkeleton/>
 if(  isUserInfo(userInfo) && !isGoogleUser(userInfo)  && !userInfo.verified  )return <div>{t("auth.verifyEmailMessageSent")}</div>
     return <div>
         <ExpiredSessionDialog open={SessionDialig} setOpen={setSessionDialig} />

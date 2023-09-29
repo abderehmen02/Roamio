@@ -11,7 +11,7 @@ import { Settings } from "../headings/settingList"
 export  async function  LoggedHeader  (){
     const {t} = await useTranslation()
     return(
-        <div className="flex w-full  bg-pageBg  top-0 px-10 z-20 fixed pt-5 gap-24 justify-between" >        
+        <div className="flex w-full  bg-pageBg  top-0 px-10 z-50 fixed pt-5 gap-24 justify-between" >        
 <img src="/logo-color.png " className="w-16 h-16 z-50 relative" />
 <div className="flex gap-24  relative z-50    h-fit" >
 
