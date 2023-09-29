@@ -26,7 +26,10 @@ export default async function LoggedLayout({
   return (
 <div className='bgBackground py-20 min-h-screen'  >   <AuthProvider> 
 <LoggedHeader/>  
-{children}  </AuthProvider>
+<div className='relative z-10' >{children}
+</div>
+  </AuthProvider>
+
 </div>
   )
 }
