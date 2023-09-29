@@ -30,6 +30,6 @@ const {t} = useTranslation()
 const [OpenList, setOpenList] = useState(false)
     return <div  className={cn("items-center w-64   rounded-t-3xl flex gap-2 relative rounded-b-xl  flex-col  "  )}> 
     <SecondaryBtn  className="w-full px-5 z-30 "  onClick={(e)=>{ e.preventDefault() ; e.stopPropagation() ; setOpenList((val)=>  !val)     }}  >  {t("loggedHeader.settings")}   <i className="bi bi-gear-fill"></i> </SecondaryBtn>
-    <div  className={cn({" bg-white absolute top-14 w-full rounded-xl " : OpenList , "hidden" : !OpenList })} >  <SettingsList/>  </div>
+    <div  className={cn({" bg-white absolute top-14 w-full  " : OpenList , "hidden" : !OpenList })} >  <SettingsList/>  </div>
     </div>
 }
