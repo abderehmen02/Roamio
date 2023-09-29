@@ -34,7 +34,7 @@
   overflow-y: scroll;
   width : 20%;
   min-height: 200px;
-  height: 90vh;
+  height: 80vh;
 }
 .scrollPrefrences::-webkit-scrollbar{
   width: 6px;
