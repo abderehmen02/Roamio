@@ -18,7 +18,8 @@ export const appConfig = {
     mode  ,
     links : {
         savedCities : '/savedCities' ,
-        
+        blog: '/blog' ,
+        notes: '/notes'
     } ,
     url : mode  === modes.DEVELOPMENT ? developmentUrl : productionUrl
 }
