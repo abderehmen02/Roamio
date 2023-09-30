@@ -8,7 +8,6 @@ import { PlaceWikipediaData } from "@/hooks/cityWikipediaData"
 
 export const Landmarks : React.FC<{city : CityDb, cityLat : number , cityLon : number}> = ({city  , cityLat , cityLon })=>{
     const {t} = useTranslation()
-    console.log("city db" , city)
     return <div  className="flex   flex-col my-10 mx-5 gap-3  pb-3"  >
         <Title titleClassName="text-xl" title={city.name + "'s " + t("Landmarks")  +':'} />
         {city.landmarks.map(landmark=>{ 

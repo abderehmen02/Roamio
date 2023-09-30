@@ -15,14 +15,16 @@ export type PlaceWikipediaData = {
     title : string 
 }
 
-export const usePlaceWikipediaData =(cityName : string ) : PlaceWikipediaData =>{
+export const usePlaceWikipediaData =(cityName : string , retry : boolean = true   ) : PlaceWikipediaData =>{
 const {data  , isLoading , error } = useQuery({
     queryKey : ["cityData" , cityName] , 
     staleTime: appConfig.cityCashingTime,
+    retry  ,
     queryFn: async ()=>{
-         await new Promise((res , rej )=> setTimeout(()=>{res("continue")} , 3000 ) )
+        //  await new Promise((res , rej )=> setTimeout(()=>{res("continue")} , 3000 ) )
         const wikipediaUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${cityName}` ; 
         const response  = await axios.get(wikipediaUrl)
+        
         return response.data
 }})
 return {
