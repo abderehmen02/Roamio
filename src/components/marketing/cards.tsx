@@ -1,5 +1,5 @@
 import { cn } from "@/lib/tailwind"
-import { H3, H4, P } from "@/ui/typography"
+import { H2, H3, H4, P } from "@/ui/typography"
 import React  , { HTMLAttributes }from "react"
 import Image from 'next/image'
 export enum cardsColors {
@@ -58,11 +58,11 @@ export const ListActionCard : React.FC<listActionCardProps> = ({btn , list}) =>{
 
 export const CategoryCard : React.FC<{   className? : string ,   title : string , descreption : string , images : string[]}> = ({ className,  title , descreption , images})=>{
     let currImage = images[0]
-    return <div style={{height : '500px'}} className={cn( " m-4 w-fit inline-block " , className)}  >
-        <div style={{width : '350px'}} className="px-4 " >
-        <H3 className="w-fit" >{title}</H3>
+    return <div  className={cn( " rounded-xl m-4 w-fit   flex justify-between flex-col " , className)}  >
+        <div style={{ height : '270px',  width : '350px'}} className="px-4  flex flex-col gap-4 my-6 " >
+        <H2>{title}</H2>
         <P  className="w-full box-border break-words" >{descreption}</P> 
         </div>
-        <img   src="/Brisbane-1.webp" style={{width : '350px' , height : '200px'}}   />
+        <img   src="/Brisbane-1.webp" className="rounded-b-xl"  style={{width : '350px' , height : '200px'}}   />
     </div>
 }
