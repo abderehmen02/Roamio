@@ -28,12 +28,15 @@ return <div className="flex w-full relative gap-0 items-center justify-center" >
     <H2 className="text-primary text-center font-bold" >{t("login.title")}</H2>
     <P className="text-center " >{t("login.welcome")}</P>
     </div>
-    <LogInWithGoogle/>
     <form onSubmit={handleSubmit((data)=>submitSignIn(data , dispatchAction , push  ))} className="flex flex-col items-center gap-8" >
+    
         <PrimaryInput {...register("userName")} action={<Link href="/forgetUsername" className="hover:font-semibold" >{t("login.forgetUsername")}</Link>}  label={t("login.username")} placeholder={t("login.userNamePlaceHolder")} containerStyle={{maxWidth : '500px'}} type="text" />
         <PrimaryInput  {...register("password")} action={<Link href="/forgetPassword" className="hover:font-semibold" >{t("login.forgetPassword")}</Link>}  label={t("login.password")}  placeholder={t("login.passwordPlaceHolder")} containerStyle={{maxWidth : '500px'}} className="max-w-xl " type="password" />
         <PrimaryBtn type="submit" className="text-lg w-full" style={{maxWidth : '500px'}} > {t("login.title")} </PrimaryBtn>
     </form>
+    <div className="flex w-full flex-col items-center my-8" >
+    <LogInWithGoogle className="w-fit" />
+    </div>
     <P className="w-full text-center " >{t("login.havingAProblem")} <Link href="/contact" className="underline hover:font-semibold" >{t("login.contactUs")} </Link></P>
     </div>
      <div className="relative loginImg w-5/12 h-full " >    <Image src="/eifelTower.jpg"    sizes="(max-width: 640px) 160px, (max-width: 1200px) 1400px , 1025px"   className=" object-contain rounded-md "  alt="eifel tower pic at night with gold color" fill  /></div>
