@@ -58,9 +58,11 @@ export const ListActionCard : React.FC<listActionCardProps> = ({btn , list}) =>{
 
 export const CategoryCard : React.FC<{   className? : string ,   title : string , descreption : string , images : string[]}> = ({ className,  title , descreption , images})=>{
     let currImage = images[0]
-    return <div className={cn( "w-fit inline-block " , className)}  >
+    return <div style={{height : '500px'}} className={cn( " m-4 w-fit inline-block " , className)}  >
+        <div style={{width : '350px'}} className="px-4 " >
         <H3 className="w-fit" >{title}</H3>
-        <P style={{width : '500px'}} className="w-full box-border break-words" >{descreption}</P> 
-        <Image   src="/Brisbane-1.webp" width={300} height={100} fill={false} alt={title + "image" }  />
+        <P  className="w-full box-border break-words" >{descreption}</P> 
+        </div>
+        <img   src="/Brisbane-1.webp" style={{width : '350px' , height : '200px'}}   />
     </div>
 }

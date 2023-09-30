@@ -34,8 +34,8 @@ const categoriesCardsInfo : {title: string  , images :string[] , descreption : s
 ]
 
 export const CategoriesCards = ()=>{
-return <div className="w-full flex items-center justify-center" >
-    <div  className="w-[1200px] border-2 gap-5 flex-wrap  border-red-600 flex items-center justify-center  " >
+return <div className="w-full  flex items-center justify-center" >
+    <div  style={{height : "fit-content"}} className="w-[1200px]  border-2 border-red-600   gap-5 flex flex-wrap   items-center justify-center  " >
     {categoriesCardsInfo.map((cardInfo , index )=><CategoryCard className={ cn("bg-green-300"  )  }  {...cardInfo} />)}
 </div></div>
 }
