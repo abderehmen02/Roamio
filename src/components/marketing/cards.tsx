@@ -56,11 +56,11 @@ export const ListActionCard : React.FC<listActionCardProps> = ({btn , list}) =>{
 }
 
 
-export const CategoryCard : React.FC<{   bgColor: string ,  title : string , descreption : string , images : string[]}> = ({ bgColor,  title , descreption , images})=>{
+export const CategoryCard : React.FC<{   className? : string ,   title : string , descreption : string , images : string[]}> = ({ className,  title , descreption , images})=>{
     let currImage = images[0]
-    return <div>
-        <H3>{title}</H3>
-        <P>{descreption}</P>
-        <Image src={currImage} alt={title + "image" }  />
+    return <div className={cn( "w-fit inline-block " , className)}  >
+        <H3 className="w-fit" >{title}</H3>
+        <P style={{width : '500px'}} className="w-full box-border break-words" >{descreption}</P> 
+        <Image   src="/Brisbane-1.webp" width={300} height={100} fill={false} alt={title + "image" }  />
     </div>
 }
