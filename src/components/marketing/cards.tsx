@@ -56,10 +56,11 @@ export const ListActionCard : React.FC<listActionCardProps> = ({btn , list}) =>{
 }
 
 
-export const CategoryCard : React.FC<{ imageAlt?: string ,  bgColor: string ,  title : string , descreption : string , image : string}> = ({ bgColor,  title , imageAlt , descreption , image})=>{
+export const CategoryCard : React.FC<{   bgColor: string ,  title : string , descreption : string , images : string[]}> = ({ bgColor,  title , descreption , images})=>{
+    let currImage = images[0]
     return <div>
         <H3>{title}</H3>
         <P>{descreption}</P>
-        <Image src={image} alt={imageAlt || title + "image" }  />
+        <Image src={currImage} alt={title + "image" }  />
     </div>
 }
