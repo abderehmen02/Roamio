@@ -13,7 +13,7 @@ export const Footer : React.FC  = async ()=>{
     t("footer.privacyPolicy") ]
     ]
     
-    return <footer className="flex  w-full items-center  bg-white justify-center px-16 py-9" >
+    return <footer className="flex  w-full items-center  border-t-2 border-black bg-white justify-center px-16 py-9" >
 {
     footerItems.map(row=>{
         return <div style={{width : '100%'}} className="flex   flex-col w-full items-start gap-2" >
