@@ -1,7 +1,7 @@
 import { cn } from "@/lib/tailwind"
 import { H3, H4, P } from "@/ui/typography"
 import React  , { HTMLAttributes }from "react"
-
+import Image from 'next/image'
 export enum cardsColors {
     primary = "PRIMARY" ,
     secondary = "SECONDARY" ,
@@ -52,5 +52,14 @@ export const ListActionCard : React.FC<listActionCardProps> = ({btn , list}) =>{
 }
 </ul>
 <div>{btn}</div>
+    </div>
+}
+
+
+export const CategoryCard : React.FC<{ imageAlt?: string ,  bgColor: string ,  title : string , descreption : string , image : string}> = ({ bgColor,  title , imageAlt , descreption , image})=>{
+    return <div>
+        <H3>{title}</H3>
+        <P>{descreption}</P>
+        <Image src={image} alt={imageAlt || title + "image" }  />
     </div>
 }
