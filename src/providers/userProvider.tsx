@@ -33,11 +33,11 @@ const [SessionDialig, setSessionDialig] = useState<boolean>(false)
  
     const getUser = async ()=>{
 try {        
-    await new Promise((res  , rej)=>{
-setTimeout(()=>{
-res("continue")
-}  , 5000000 )
-    })
+//     await new Promise((res  , rej)=>{
+// setTimeout(()=>{
+// res("continue")
+// }  , 5000000 )
+    // })
     const response =    await  axios.post('/api/getTokenAndUserInfo')
         let userInfo : UserInfo | GoogleUserDb ; 
         let token : string; 
