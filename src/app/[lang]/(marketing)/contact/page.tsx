@@ -7,7 +7,7 @@ import { P } from "@/ui/typography";
 import { InputBase } from "@mui/material";
 
 export default function ContactPage (){
-    return <div className="flex flex-col items-center justify-center h-screen">
+    return <div className="flex flex-col items-center gap-12 justify-center min-h-screen">
 <Title title="Contact Us" descreption="Have a proplem? leave us a message and we will get back to you asap" />
 <form className="flex gap-11 rounded-lg px-24 py-11 flex-col  bg-white" >
 <PrimaryInput className="w-[550px]" label="name" />
