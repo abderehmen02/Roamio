@@ -12,7 +12,7 @@ import { LandmarkSkeletonCard } from "@/components/skeletons/city/landmarkSkelet
 
 export const LandmarkCard : React.FC<{landMark : landMark , cityLon : number , cityLat : number }> =({landMark , cityLon , cityLat })=>{
     const {t} = useTranslation()
-    const {descreption , error  ,title , image , imageAspectRacio , infoAvailble , lat , loading , lon , subtitle } = usePlaceWikipediaData(landMark.name)
+    const {descreption , error  ,title , image , imageAspectRacio , infoAvailble , lat , loading , lon , subtitle } = usePlaceWikipediaData(landMark.name , false)
     const extractedIndex =     generateExtractDescreptionIndex(descreption?.length as number , imageAspectRacio as number )
     const extractedDescreption = descreption?.slice(  0  )
     const [seeAllDescreption, setseeAllDescreption] = useState<boolean>(false)

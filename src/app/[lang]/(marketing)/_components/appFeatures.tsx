@@ -18,7 +18,7 @@ export  const AppFeatures : React.FC = async  ()=>{
    
 
 
-    return <div className="flex px-16 py-9 items-center justify-center" >
-        <ListActionCard list={appFeatures} btn={<Link href="/blog " ><TextButton className="capitalize" >{t("homeFeaturesList.readAboutCities")}</TextButton></Link>} />       
+    return <div className="flex px-16 py-9  items-center justify-center" >
+        <ListActionCard  list={appFeatures} btn={<Link href="/blog " ><TextButton className="capitalize" >{t("homeFeaturesList.readAboutCities")}</TextButton></Link>} />       
     </div>
 }

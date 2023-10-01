@@ -17,10 +17,10 @@ type  infoCardProps =  {
     button? : JSX.Element
 } & HTMLAttributes<HTMLDivElement>
 
-interface listActionCardProps {
+interface listActionCardProps extends HTMLAttributes<HTMLDivElement> {
     list : string[]  , 
     btn :  JSX.Element 
-}
+}  
 
 type listCardProps = {
     list : string[] }
@@ -44,8 +44,8 @@ export const ListCard : React.FC<listCardProps> = ( {list})=>{
     </div>
 }
 
-export const ListActionCard : React.FC<listActionCardProps> = ({btn , list}) =>{
-    return <div className="w-full bg-white px-16 py-7 flex items-center justify-center flex-col gap-9 rounded-xl border-2 border-black text-black" >
+export const ListActionCard : React.FC<listActionCardProps> = ({btn , list , className , ...props}) =>{
+    return <div className={cn("w-full bg-white px-16 py-7 flex items-center justify-center flex-col gap-9 rounded-xl border-2 border-black text-black"  , className )} {...props} >
 <ul className="list-disc gap-4 flex flex-col" >
 {
  list.map(item=><li><H4>{item}</H4></li>)
