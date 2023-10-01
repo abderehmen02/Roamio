@@ -28,4 +28,4 @@ export const appConfig = {
         home: '/'
     } ,
     url : mode  === modes.DEVELOPMENT ? developmentUrl : productionUrl
-}
+} as const

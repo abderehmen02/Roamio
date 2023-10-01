@@ -25,7 +25,6 @@ const message  = {
     html : `<p>${text}</p>` , 
 }
 const response =  await  sendGrid.send(message) ; 
-console.log("response" , response)
 return true
 
 }
