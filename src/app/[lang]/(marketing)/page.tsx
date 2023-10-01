@@ -8,7 +8,8 @@ export default async  function Home ({ params: { lang }} : LangParam){
     const {t} = await useTranslation(lang)
     return <div className="flex w-full   flex-col  gap-20" >
 <AppHero/>
-<AppFeatures/>
 <CategoriesCards/>
+<AppFeatures/>
+
     </div>
 }
