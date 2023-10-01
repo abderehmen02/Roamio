@@ -11,7 +11,8 @@ export const appConfig = {
     dateFormate : 'MM/dd/yyyy' ,
     name : 'Roamio' ,
         emailPassword : process.env.GMAIL_PASSWORD ,
-    email: process.env.GMAIL_NAME , 
+    email: process.env.GMAIL_EMAIL ,
+    personalEmail : process.env.PERSONAL_EMAIL , 
     unknownPersonImg: '/unknownProfile.webp' ,
     cityCashingTime : 86400000 , //one day 
     sendGridMail : process.env.GMAIL_NAME ,
