@@ -4,15 +4,13 @@ import { H2, H3, P } from "@/ui/typography";
 
 export default function TermsOfUse(){
     return <div className="min-h-screen w-full flex flex-col items-center">
-<div>
-<Title title="Terms of use" descreption={`Please read our Terms of Use to understand the rules and guidelines for using ${appConfig.name}`} />
-<div className="w-[1000px] my-7 flex flex-col gap-1" >
-<H3>Last Updated: 1st October 2022</H3>
 
+<Title title="Terms of use" descreption={`Please read our Terms of Use to understand the rules and guidelines for using ${appConfig.name}`} />
+<div className="w-[1000px] my-7 flex flex-col gap-2" >
+<H3>Last Updated: 1st October 2022</H3>
 <H2  >Welcome to {appConfig.name}!</H2>
 
 <P>Please read these Terms of Use carefully before using our web app. By accessing or using our app, you agree to be bound by these Terms of Use. If you do not agree to these terms, please do not use our app.</P>
-
 <H2>1. Acceptance of Terms</H2>
 
 <P>1.1. By using our web app, you confirm that you have read, understood, and agreed to be bound by these Terms of Use.</P>
@@ -75,7 +73,6 @@ Interfering with the proper functioning of the app or its services.</P>
 <P>If you have any questions or concerns regarding these Terms of Use, please contact us at [contact email].</P>
 
 <P>Thank you for using [Your App Name]! We hope you enjoy exploring cities and sharing your experiences with us.</P>
-</div>
 </div>
     </div>
 }
