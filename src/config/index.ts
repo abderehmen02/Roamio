@@ -19,7 +19,11 @@ export const appConfig = {
     links : {
         savedCities : '/savedCities' ,
         blog: '/blog' ,
-        notes: '/notes'
+        notes: '/notes' ,
+        findCities : '/findCities'  , 
+        termsOfUse : '/termsOfUse'  ,
+        primacyPolicy : '/privacyPolicy' ,
+        contact: '/contact'
     } ,
     url : mode  === modes.DEVELOPMENT ? developmentUrl : productionUrl
 }
