@@ -23,7 +23,8 @@ export const appConfig = {
         findCities : '/findCities'  , 
         termsOfUse : '/termsOfUse'  ,
         primacyPolicy : '/privacyPolicy' ,
-        contact: '/contact'
+        contact: '/contact' ,
+        home: '/'
     } ,
     url : mode  === modes.DEVELOPMENT ? developmentUrl : productionUrl
 }
