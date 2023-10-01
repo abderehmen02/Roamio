@@ -6,7 +6,7 @@ export const Footer : React.FC  = async ()=>{
    const {t} = await useTranslation()
     const footerItems : {name: string , link : string}[][] = [ [
 {  link : appConfig.links.home, name :  t("footer.home")  },
-{  link : appConfig.links.findCities  ,name :  t("footer.exploreCites") },
+{  link : appConfig.links.findCities  ,name :  "explore cities" },
 {  link: appConfig.links.blog , name :   t("footer.blog") } ],
     [
 { name :   t("footer.termsOfUse") , link : appConfig.links.termsOfUse } ,
