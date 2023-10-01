@@ -1,6 +1,6 @@
 import React from 'react'
 import { UnlogedHeader } from '@/components/layout/unlogedHeader'
-import { Footer } from '../(marketing)/_components/footer'
+import { Footer } from '../../../components/layout/footer'
 
 
 
