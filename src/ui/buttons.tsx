@@ -1,6 +1,7 @@
 import React, { ButtonHTMLAttributes, HTMLAttributes } from "react";
 import { P, montserratClassName } from "./typography";
 import { cn } from "@/lib/tailwind";
+import { CircularProgress } from "@mui/material";
 
 export enum ButtonsSizes {
     small = "SMALL" ,
@@ -8,10 +9,11 @@ export enum ButtonsSizes {
     large = "LARGE" 
 }
 export type UiButtonProps  = {
+loading? : boolean ,
 size? : string 
 } & ButtonHTMLAttributes<HTMLButtonElement>
-export const PrimaryBtn : React.FC<UiButtonProps> = ({children , className , size = ButtonsSizes.large , ...props })=>{
-return  <button className={cn("h-fit text-white   bg-primary border-2 border-primary hover:text-primary hover:bg-white         hoer:text-primary  shadow-md"  , {"text-lg rounded-3xl font-bold px-4 py-2" : size === ButtonsSizes.large  , "text-base rounded-2xl font-semibold px-2 py-1" : size === ButtonsSizes.medium , "rounded-lg text-base font-normal py-1 px-2" : size === ButtonsSizes.small  }   , montserratClassName , className)} {...props} >{children}</button>
+export const PrimaryBtn : React.FC<UiButtonProps> = ({children , loading = false , className , size = ButtonsSizes.large , ...props })=>{
+return  <button disabled={props.disabled || loading} className={cn("h-fit text-white   bg-primary border-2 border-primary hover:text-primary hover:bg-white         hoer:text-primary  shadow-md"  , {"text-lg rounded-3xl font-bold px-4 py-2" : size === ButtonsSizes.large  , "text-base rounded-2xl font-semibold px-2 py-1" : size === ButtonsSizes.medium , "rounded-lg text-base font-normal py-1 px-2" : size === ButtonsSizes.small , "bg-gray-400 text-white hover:bg-gray-400 hover:text-white " :loading }   , montserratClassName , className)} {...props} >{children} { loading &&  <CircularProgress  style={{width: '25px' , height : '25px' }} className="opacity-60 " /> } </button>
 }
 
 export const SecondaryBtn : React.FC<UiButtonProps>  = ({children , className , size = ButtonsSizes.large , ...props })=>{
