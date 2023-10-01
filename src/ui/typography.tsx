@@ -16,14 +16,14 @@ return <h1 className={cn("text-4xl "  , montserratClassName , className)}  {...p
 }
     
 export const H2 : React.FC<HTMLAttributes<HTMLHeadElement>> = ({children , className   , ...props}  ) =>{
-  return <h2 style={{fontWeight : 700}} className={cn("text-3xl  "  , montserratClassName , className)}  {...props} >
+  return <h2 style={{fontWeight : 500}} className={cn("text-3xl  "  , montserratClassName , className)}  {...props} >
   {children}
   </h2>
   }
 
 
 export const H3 : React.FC<HTMLAttributes<HTMLHeadElement>> = ({children , className   , ...props}  ) =>{
-    return <h3 className={cn("text-xl font-bold  "  , montserratClassName , className)}  {...props} >
+    return <h3  className={cn("text-xl   "  , montserratClassName , className)}  {...props} >
     {children}
     </h3>
     }
