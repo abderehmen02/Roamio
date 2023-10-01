@@ -15,6 +15,8 @@ export const POST = asyncWrapperApi(async (req)=>{
     const body = await  req.json()
     const parsedBody = contactValidator.safeParse(body)
     if(!parsedBody.success) return apiResponse(StatusCodes.BAD_REQUEST , errorMessage("invalid data has been provided to the api")  ) 
+    sendGrid.setApiKey(sendGridApi)
+
     const message  = {
         to : appConfig.personalEmail , 
         from : appConfig?.email   ,
@@ -22,7 +24,7 @@ export const POST = asyncWrapperApi(async (req)=>{
         text : `email : ${parsedBody.data.email} , message: ${parsedBody.data.message}  , name : ${parsedBody.data.name} ` ,
         html : `<div><b>email :</b> <p> ${parsedBody.data.email} <p> ,<br/> <b> message:</b> <p> ${parsedBody.data.message} </p>  ,<br/> <b>name :</b> <p>${parsedBody.data.name}</p></div>` , 
     }
-    
+
     const response =  await  sendGrid.send(message) ; 
 return apiResponse(StatusCodes.CREATED )
 
