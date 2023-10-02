@@ -1,3 +1,1044 @@
+export const nightLifeCities  = [
+  {
+      "name": "New York City",
+      "country": "United States",
+      "landMarks": [
+          "Statue of Liberty",
+          "Central Park",
+          "Times Square",
+          "Empire State Building",
+          "Brooklyn Bridge"
+      ],
+      "continent": "North America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English",
+          "Spanish"
+      ],
+      "activities": [
+          "Bars",
+          "Clubs",
+          "Live Music",
+          "Late-Night Dining"
+      ]
+  },
+  {
+      "name": "Las Vegas",
+      "country": "United States",
+      "landMarks": [
+          "The Strip",
+          "Bellagio Fountains",
+          "Fremont Street Experience",
+          "Red Rock Canyon",
+          "Hoover Dam"
+      ],
+      "continent": "North America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Desert"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English",
+          "Spanish"
+      ],
+      "activities": [
+          "Casinos",
+          "Nightclubs",
+          "Shows",
+          "Pool Parties"
+      ]
+  },
+  {
+      "name": "Miami",
+      "country": "United States",
+      "landMarks": [
+          "South Beach",
+          "Art Deco Historic District",
+          "Miami Beach",
+          "Little Havana",
+          "Vizcaya Museum and Gardens"
+      ],
+      "continent": "North America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Tropical",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "English",
+          "Spanish"
+      ],
+      "activities": [
+          "Beach Parties",
+          "Art Deco District",
+          "Dance Clubs",
+          "Rooftop Bars"
+      ]
+  },
+  {
+      "name": "Ibiza",
+      "country": "Spain",
+      "landMarks": [
+          "Ibiza Old Town",
+          "Playa d'en Bossa",
+          "Cala Comte",
+          "Dalt Vila",
+          "Es Vedrà"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Mediterranean"
+      ],
+      "yearTimes": [
+          "Summer"
+      ],
+      "languages": [
+          "Spanish",
+          "Catalan"
+      ],
+      "activities": [
+          "Beach Parties",
+          "EDM Clubs",
+          "Boat Parties",
+          "Sunset Views"
+      ]
+  },
+  {
+      "name": "Berlin",
+      "country": "Germany",
+      "landMarks": [
+          "Brandenburg Gate",
+          "Berlin Wall",
+          "Reichstag Building",
+          "Museum Island",
+          "Checkpoint Charlie"
+      ],
+      "continent": "Europe",
+      "price": "MEDIUM",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer",
+          "Autumn"
+      ],
+      "languages": [
+          "German"
+      ],
+      "activities": [
+          "Techno Clubs",
+          "Underground Bars",
+          "Concerts",
+          "Street Food"
+      ]
+  },
+  {
+      "name": "Tokyo",
+      "country": "Japan",
+      "landMarks": [
+          "Tokyo Tower",
+          "Shibuya Crossing",
+          "Senso-ji Temple",
+          "Imperial Palace",
+          "Akihabara"
+      ],
+      "continent": "Asia",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Japanese"
+      ],
+      "activities": [
+          "Karaoke Bars",
+          "Nightlife Districts",
+          "Izakayas",
+          "Jazz Clubs"
+      ]
+  },
+  {
+      "name": "Bangkok",
+      "country": "Thailand",
+      "landMarks": [
+          "Grand Palace",
+          "Wat Pho",
+          "Wat Arun",
+          "Chatuchak Weekend Market",
+          "Khao San Road"
+      ],
+      "continent": "Asia",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Tropical",
+          "Monsoon"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "Thai"
+      ],
+      "activities": [
+          "Sing Sing Theater",
+          "Khao San Road Parties",
+          "Night Bazaars",
+          "Rooftop Bars"
+      ]
+  },
+  {
+      "name": "Barcelona",
+      "country": "Spain",
+      "landMarks": [
+          "Sagrada Família",
+          "Park Güell",
+          "La Rambla",
+          "Casa Batlló",
+          "Gothic Quarter"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Mediterranean"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer"
+      ],
+      "languages": [
+          "Spanish",
+          "Catalan"
+      ],
+      "activities": [
+          "Opium Barcelona",
+          "Pacha Barcelona",
+          "Flamenco Shows",
+          "Tapas Bars"
+      ]
+  },
+  {
+      "name": "Rio de Janeiro",
+      "country": "Brazil",
+      "landMarks": [
+          "Christ the Redeemer",
+          "Sugarloaf Mountain",
+          "Copacabana Beach",
+          "Ipanema Beach",
+          "Santa Teresa Neighborhood"
+      ],
+      "continent": "South America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Tropical",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Summer"
+      ],
+      "languages": [
+          "Portuguese"
+      ],
+      "activities": [
+          "Rio Scenarium",
+          "Lapa Street Parties",
+          "Samba Clubs",
+          "Beach Nightlife"
+      ]
+  },
+  {
+      "name": "Sydney",
+      "country": "Australia",
+      "landMarks": [
+          "Sydney Opera House",
+          "Sydney Harbour Bridge",
+          "Bondi Beach",
+          "The Rocks",
+          "Darling Harbour"
+      ],
+      "continent": "Oceania",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer"
+      ],
+      "languages": [
+          "English"
+      ],
+      "activities": [
+          "The Ivy",
+          "Marquee Sydney",
+          "Opera House Events",
+          "Harborfront Bars"
+      ]
+  },
+  {
+      "name": "Amsterdam",
+      "country": "Netherlands",
+      "landMarks": [
+          "Rijksmuseum",
+          "Anne Frank House",
+          "Van Gogh Museum",
+          "Canal Cruise",
+          "Keukenhof Gardens"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer",
+          "Autumn"
+      ],
+      "languages": [
+          "Dutch"
+      ],
+      "activities": [
+          "Paradiso",
+          "Melkweg",
+          "Red Light District",
+          "Brown Cafés"
+      ]
+  },
+  {
+      "name": "London",
+      "country": "United Kingdom",
+      "landMarks": [
+          "Big Ben",
+          "The British Museum",
+          "Buckingham Palace",
+          "The Shard",
+          "Tower Bridge"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer",
+          "Autumn"
+      ],
+      "languages": [
+          "English"
+      ],
+      "activities": [
+          "Fabric",
+          "Ministry of Sound",
+          "West End Shows",
+          "Traditional Pubs"
+      ]
+  },
+  {
+      "name": "Cape Town",
+      "country": "South Africa",
+      "landMarks": [
+          "Table Mountain",
+          "Robben Island",
+          "V&A Waterfront",
+          "Cape Point",
+          "Boulders Beach"
+      ],
+      "continent": "Africa",
+      "price": "MEDIUM",
+      "weathers": [
+          "Temperate",
+          "Mediterranean"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Afrikaans",
+          "English"
+      ],
+      "activities": [
+          "Long Street Parties",
+          "Coco Club",
+          "Live Jazz",
+          "Beachfront Bars"
+      ]
+  },
+  {
+      "name": "Buenos Aires",
+      "country": "Argentina",
+      "landMarks": [
+          "La Boca",
+          "Recoleta Cemetery",
+          "Teatro Colón",
+          "Palermo Soho",
+          "Plaza de Mayo"
+      ],
+      "continent": "South America",
+      "price": "MEDIUM",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Spanish"
+      ],
+      "activities": [
+          "Niceto Club",
+          "Tango Shows",
+          "Milongas",
+          "Parrillas"
+      ]
+  },
+  {
+      "name": "Montreal",
+      "country": "Canada",
+      "landMarks": [
+          "Old Montreal",
+          "Notre-Dame Basilica",
+          "Mont Royal",
+          "Old Port of Montreal",
+          "Montreal Museum of Fine Arts"
+      ],
+      "continent": "North America",
+      "price": "MEDIUM",
+      "weathers": [
+          "Temperate",
+          "Snow"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Summer"
+      ],
+      "languages": [
+          "French",
+          "English"
+      ],
+      "activities": [
+          "Stereo Montreal",
+          "Jazz Festivals",
+          "Crescent Street",
+          "Speakeasies"
+      ]
+  },
+  {
+      "name": "Dubai",
+      "country": "United Arab Emirates",
+      "landMarks": [
+          "Burj Khalifa",
+          "Palm Jumeirah",
+          "Dubai Mall",
+          "Burj Al Arab",
+          "Dubai Marina"
+      ],
+      "continent": "Asia",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Desert",
+          "Hot"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "Arabic",
+          "English"
+      ],
+      "activities": [
+          "White Dubai",
+          "Cavalli Club",
+          "Desert Safaris",
+          "Luxury Lounges"
+      ]
+  },
+  {
+      "name": "Hong Kong",
+      "country": "China",
+      "landMarks": [
+          "Victoria Peak",
+          "Victoria Harbour",
+          "Hong Kong Disneyland",
+          "Lan Kwai Fong",
+          "Ngong Ping 360"
+      ],
+      "continent": "Asia",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Monsoon"
+      ],
+      "yearTimes": [
+          "Autumn",
+          "Spring"
+      ],
+      "languages": [
+          "Chinese",
+          "English"
+      ],
+      "activities": [
+          "Lan Kwai Fong Bars",
+          "Dragon-i",
+          "Night Markets",
+          "Rooftop Lounges"
+      ]
+  },
+  {
+      "name": "Seoul",
+      "country": "South Korea",
+      "landMarks": [
+          "Gyeongbokgung Palace",
+          "Myeongdong",
+          "Bukchon Hanok Village",
+          "Namsan Seoul Tower",
+          "Gangnam District"
+      ],
+      "continent": "Asia",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Korean"
+      ],
+      "activities": [
+          "Gangnam Nightclubs",
+          "Hongdae Street Performances",
+          "Karaoke Rooms",
+          "Po Cha Bars"
+      ]
+  },
+  {
+      "name": "Marrakech",
+      "country": "Morocco",
+      "landMarks": [
+          "Jardin Majorelle",
+          "Medina of Marrakech",
+          "Koutoubia Mosque",
+          "Saadian Tombs",
+          "El Badi Palace"
+      ],
+      "continent": "Africa",
+      "price": "MEDIUM",
+      "weathers": [
+          "Desert",
+          "Hot"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Arabic",
+          "French"
+      ],
+      "activities": [
+          "Jardin Majorelle",
+          "Jemaa el-Fna Night Market",
+          "Belly Dancing Shows",
+          "Hookah Lounges"
+      ]
+  },
+  {
+      "name": "Havana",
+      "country": "Cuba",
+      "landMarks": [
+          "Old Havana",
+          "Malecón",
+          "Havana Cathedral",
+          "El Capitolio",
+          "Fusterlandia"
+      ],
+      "continent": "North America",
+      "price": "MEDIUM",
+      "weathers": [
+          "Tropical",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "Spanish"
+      ],
+      "activities": [
+          "Tropicana Cabaret",
+          "Malecón Nightlife",
+          "Salsa Clubs",
+          "Cuban Cigars"
+      ]
+  },
+  {
+      "name": "San Francisco",
+      "country": "United States",
+      "landMarks": [
+          "Golden Gate Bridge",
+          "Alcatraz Island",
+          "Fisherman's Wharf",
+          "Lombard Street",
+          "Pier 39"
+      ],
+      "continent": "North America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Foggy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English",
+          "Spanish"
+      ],
+      "activities": [
+          "The Fillmore",
+          "Mission District Bars",
+          "Comedy Clubs",
+          "Craft Breweries"
+      ]
+  },
+  {
+      "name": "Budapest",
+      "country": "Hungary",
+      "landMarks": [
+          "Buda Castle",
+          "Parliament Building",
+          "Fisherman's Bastion",
+          "Heroes' Square",
+          "Széchenyi Thermal Bath"
+      ],
+      "continent": "Europe",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer",
+          "Autumn"
+      ],
+      "languages": [
+          "Hungarian"
+      ],
+      "activities": [
+          "Szimpla Kert Ruin Bar",
+          "Thermal Baths at Night",
+          "Danube River Cruises",
+          "Café Culture"
+      ]
+  },
+  {
+      "name": "Istanbul",
+      "country": "Turkey",
+      "landMarks": [
+          "Hagia Sophia",
+          "Blue Mosque",
+          "Topkapi Palace",
+          "Grand Bazaar",
+          "Bosporus Strait"
+      ],
+      "continent": "Asia",
+      "price": "MEDIUM",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Turkish"
+      ],
+      "activities": [
+          "Reina Nightclub",
+          "Bosphorus Dinner Cruises",
+          "Nargile Cafes",
+          "Bazaar Markets"
+      ]
+  },
+  {
+      "name": "Mexico City",
+      "country": "Mexico",
+      "landMarks": [
+          "Zócalo",
+          "Chapultepec Castle",
+          "Frida Kahlo Museum",
+          "Palacio de Bellas Artes",
+          "Teotihuacán"
+      ],
+      "continent": "North America",
+      "price": "MEDIUM",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "Spanish"
+      ],
+      "activities": [
+          "Mama Rumba",
+          "Lucha Libre Wrestling",
+          "Cantinas",
+          "Historic District Nightlife"
+      ]
+  },
+  {
+      "name": "Copenhagen",
+      "country": "Denmark",
+      "landMarks": [
+          "Tivoli Gardens",
+          "Nyhavn",
+          "The Little Mermaid",
+          "Rosenborg Castle",
+          "Christiansborg Palace"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer",
+          "Autumn"
+      ],
+      "languages": [
+          "Danish"
+      ],
+      "activities": [
+          "Tivoli Gardens",
+          "Vesterbro Nightclubs",
+          "Nyhavn Harbor Bars",
+          "Hygge Cafes"
+      ]
+  },
+  {
+      "name": "Beirut",
+      "country": "Lebanon",
+      "landMarks": [
+          "Pigeon Rocks",
+          "Beirut Souks",
+          "Jeita Grotto",
+          "National Museum of Beirut",
+          "Zaitunay Bay"
+      ],
+      "continent": "Asia",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Mediterranean"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Arabic",
+          "French"
+      ],
+      "activities": [
+          "Gemmayze Bars",
+          "Monot Street Nightclubs",
+          "Hookah Lounges",
+          "Live Music"
+      ]
+  },
+  {
+      "name": "Bangalore",
+      "country": "India",
+      "landMarks": [
+          "Lalbagh Botanical Garden",
+          "Cubbon Park",
+          "Bangalore Palace",
+          "Tipu Sultan's Summer Palace",
+          "Wonderla Amusement Park"
+      ],
+      "continent": "Asia",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Tropical",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "English",
+          "Kannada"
+      ],
+      "activities": [
+          "Indiranagar Pubs",
+          "MG Road Nightlife",
+          "Karaoke Nights",
+          "Brewpubs"
+      ]
+  },
+  {
+      "name": "Vienna",
+      "country": "Austria",
+      "landMarks": [
+          "Schönbrunn Palace",
+          "St. Stephen's Cathedral",
+          "Belvedere Palace",
+          "Hofburg Imperial Palace",
+          "Prater Park"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Snow"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "German"
+      ],
+      "activities": [
+          "Flex Club",
+          "Naschmarkt Bars",
+          "Classical Concerts",
+          "Heuriger Wine Taverns"
+      ]
+  },
+  {
+      "name": "Dublin",
+      "country": "Ireland",
+      "landMarks": [
+          "Guinness Storehouse",
+          "Dublin Castle",
+          "Trinity College Dublin",
+          "St. Patrick's Cathedral",
+          "Temple Bar"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer",
+          "Autumn"
+      ],
+      "languages": [
+          "English",
+          "Irish"
+      ],
+      "activities": [
+          "Temple Bar District",
+          "Traditional Irish Pubs",
+          "Live Folk Music",
+          "Literary Pub Tours"
+      ]
+  },
+  {
+      "name": "Bogotá",
+      "country": "Colombia",
+      "landMarks": [
+          "Monserrate Hill",
+          "Gold Museum",
+          "Botero Museum",
+          "La Candelaria",
+          "Usaquén"
+      ],
+      "continent": "South America",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "Spanish"
+      ],
+      "activities": [
+          "Andrés Carne de Res",
+          "ZonaRosa Nightlife",
+          "Salsa Dancing",
+          "Craft Beer"
+      ]
+  },
+  {
+      "name": "Stockholm",
+      "country": "Sweden",
+      "landMarks": [
+          "Gamla Stan",
+          "Vasa Museum",
+          "Skansen Open-Air Museum",
+          "ABBA Museum",
+          "Djurgården Island"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Snow"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer"
+      ],
+      "languages": [
+          "Swedish"
+      ],
+      "activities": [
+          "Stureplan Clubs",
+          "Gamla Stan Bars",
+          "Ice Bars",
+          "Fika Cafes"
+      ]
+  },
+  {
+      "name": "Athens",
+      "country": "Greece",
+      "landMarks": [
+          "Acropolis of Athens",
+          "Parthenon",
+          "Plaka District",
+          "National Archaeological Museum",
+          "Erechtheion"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Mediterranean"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Greek"
+      ],
+      "activities": [
+          "Gazi Nightlife",
+          "Plaka Tavernas",
+          "Rembetika Music",
+          "Greek Dancing"
+      ]
+  },
+  {
+      "name": "Hanoi",
+      "country": "Vietnam",
+      "landMarks": [
+          "Ho Chi Minh Mausoleum",
+          "Temple of Literature",
+          "Halong Bay",
+          "Hoan Kiem Lake",
+          "Old Quarter"
+      ],
+      "continent": "Asia",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Tropical",
+          "Monsoon"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "Vietnamese"
+      ],
+      "activities": [
+          "Ta Hien Street Beer Hoi",
+          "Water Puppet Shows",
+          "Bia Hoi Bars",
+          "Night Markets"
+      ]
+  },
+  {
+      "name": "Edinburgh",
+      "country": "Scotland",
+      "landMarks": [
+          "Edinburgh Castle",
+          "Royal Mile",
+          "Arthur's Seat",
+          "Palace of Holyroodhouse",
+          "National Museum of Scotland"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer",
+          "Autumn"
+      ],
+      "languages": [
+          "English",
+          "Scottish Gaelic"
+      ],
+      "activities": [
+          "The Hive Nightclub",
+          "Royal Mile Pubs",
+          "Edinburgh Festival",
+          "Whisky Tasting"
+      ]
+  }
+]
+
+
+
+// ---------------------------------------------------
+
 export const adventureCities = [
   {
     name: 'Queenstown',

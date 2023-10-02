@@ -196,7 +196,6 @@ export const YearTimes = {
     hanukkah: "Hanukkah",
     diwali: "Diwali",
     lunarNewYear: "LunarNewYear",
-    etc: "Etc", // Add more times as needed
   } as const;
 
 export const YearTimesArray = Object.values(YearTimes)

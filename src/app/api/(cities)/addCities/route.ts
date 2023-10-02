@@ -1,7 +1,7 @@
 import { CategoryDb, cityModal } from "@/db/models/city"
 import { apiResponse } from "@/utils/api/nextResponse"
 import { asyncWrapperApi } from "@/utils/asyncWrapper"
-import { adventureCities } from "./static"
+import { nightLifeCities } from "./static"
 import { Categories } from "@/types/prefrences"
 import { StatusCodes } from "http-status-codes"
 
@@ -10,12 +10,12 @@ import { StatusCodes } from "http-status-codes"
 
 export const GET = asyncWrapperApi(async ()=>{
       let addedCities = 0 ;
-         for(let i  = 0 ; i < adventureCities.length ; i++){
-         const existCity = await cityModal().findOne({name : adventureCities[i].name})
-         if(existCity && existCity.categories?.some((category : CategoryDb )=>category.name === Categories.Adventure ) ) continue ;
-         if(existCity  ){ await cityModal().findOneAndUpdate({name : adventureCities[i].name} , { $push: { categories: {name : Categories.Adventure , position : i  }  }} ,{new: true})
+         for(let i  = 0 ; i < nightLifeCities.length ; i++){
+         const existCity = await cityModal().findOne({name : nightLifeCities[i].name})
+         if(existCity && existCity.categories?.some((category : CategoryDb )=>category.name === Categories.Nightlife ) ) continue ;
+         if(existCity  ){ await cityModal().findOneAndUpdate({name : nightLifeCities[i].name} , { $push: { categories: {name : Categories.Nightlife, position : i  }  }} ,{new: true})
          }
-         else{ await cityModal().create({...adventureCities[i] , landmarks : adventureCities[i].landmarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [{name : Categories.Adventure , position : i}]  , reviews: [] , likes: [] , dislikes : []  })
+         else{ await cityModal().create({...nightLifeCities[i] , landmarks : nightLifeCities[i].landMarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [{name : Categories.Nightlife , position : i}]  , reviews: [] , likes: [] , dislikes : []  })
          addedCities++ 
       }
          }
