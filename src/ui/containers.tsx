@@ -2,7 +2,7 @@ import { cn } from "@/lib/tailwind"
 import { HtmlHTMLAttributes } from "react"
 
 export const PageBody : React.FC<HtmlHTMLAttributes<HTMLDivElement>> = ({className , children , ...props})=>{
-    return <div className={cn("flex px-8 gap-16  py-4 " ,className)} {...props}  >
+    return <div className={cn("flex px-8 gap-16 min-h-screen w-full  py-4 " ,className)} {...props}  >
 {children}
     </div>
 }
