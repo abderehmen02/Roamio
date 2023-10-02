@@ -1,3 +1,487 @@
+export const adventureCities = [
+  {
+    name: 'Queenstown',
+    country: 'New Zealand',
+    continent: 'Oceania',
+    price: 'EXPENSIVE',
+    weathers: [ 'Temperate', 'Oceanic' ],
+    yearTimes: [ 'Spring', 'Summer', 'Autumn' ],
+    landmarks: [
+      'Lake Wakatipu',
+      'Milford Sound',
+      'The Remarkables',
+      'Skyline Queenstown',
+      'Arrowtown'
+    ],
+    activities: [ 'Bungee Jumping', 'Skydiving', 'Jet Boating', 'Hiking' ]
+  },
+  {
+    name: 'Moab',
+    country: 'United States',
+    continent: 'North America',
+    price: 'INEXPENSIVE',
+    weathers: [ 'Arid', 'Desert' ],
+    yearTimes: [ 'Spring', 'Autumn' ],
+    landmarks: [
+      'Arches National Park',
+      'Canyonlands National Park',
+      'Dead Horse Point State Park',
+      'Slickrock Bike Trail',
+      'La Sal Mountains'
+    ],
+    activities: [ 'Rock Climbing', 'Mountain Biking', 'Canyoneering' ]
+  },
+  {
+    name: 'Interlaken',
+    country: 'Switzerland',
+    continent: 'Europe',
+    price: 'EXPENSIVE',
+    weathers: [ 'Temperate', 'Alpine' ],
+    yearTimes: [ 'Spring', 'Summer', 'Autumn' ],
+    landmarks: [
+      'Jungfraujoch',
+      'Harder Kulm',
+      'Schynige Platte',
+      'Lake Thun',
+      'Lake Brienz'
+    ],
+    activities: [ 'Paragliding', 'White Water Rafting', 'Base Jumping' ]
+  },
+  {
+    name: 'Chamonix',
+    country: 'France',
+    continent: 'Europe',
+    price: 'EXPENSIVE',
+    weathers: [ 'Temperate', 'Alpine' ],
+    yearTimes: [ 'Spring', 'Summer', 'Autumn' ],
+    landmarks: [
+      'Mont Blanc',
+      'Aiguille du Midi',
+      'Mer de Glace',
+      'Chamonix-Mont-Blanc Church',
+      'Les Granges Waterfall'
+    ],
+    activities: [ 'Skiing', 'Ice Climbing', 'Mountaineering' ]
+  },
+  {
+    name: 'Cape Town',
+    country: 'South Africa',
+    continent: 'Africa',
+    price: 'EXPENSIVE',
+    weathers: [ 'Mediterranean', 'Oceanic' ],
+    yearTimes: [ 'Spring', 'Summer' ],
+    landmarks: [
+      'Table Mountain',
+      'Robben Island',
+      'V&A Waterfront',
+      'Cape Point',
+      'Boulders Beach'
+    ],
+    activities: [ 'Shark Cage Diving', 'Surfing', 'Kiteboarding' ]
+  },
+  {
+    name: 'Banff',
+    country: 'Canada',
+    continent: 'North America',
+    price: 'MEDIUM',
+    weathers: [ 'Temperate', 'Snow' ],
+    yearTimes: [ 'Winter', 'Summer' ],
+    landmarks: [
+      'Banff National Park',
+      'Lake Louise',
+      'Moraine Lake',
+      'Banff Gondola',
+      'Johnston Canyon'
+    ],
+activities: [ 'Skiing', 'Hiking', 'Canoeing', 'Dog Sledding' ]
+  },
+  {
+    name: 'Pokhara',
+    country: 'Nepal',
+    continent: 'Asia',
+    price: 'INEXPENSIVE',
+    weathers: [ 'Subtropical' ],
+    yearTimes: [ 'Spring', 'Autumn' ],
+    landmarks: [
+      'Phewa Lake',
+      'Annapurna Circuit',
+      'Davis Falls',
+      'World Peace Pagoda',
+      'Sarangkot'
+    ],
+    activities: [ 'Trekking', 'Paragliding', 'Zip-lining' ]
+  },
+  {
+    name: 'Reykjavik',
+    country: 'Iceland',
+    continent: 'Europe',
+    price: 'EXPENSIVE',
+    weathers: [ 'Subarctic', 'Oceanic' ],
+    yearTimes: [ 'Summer', 'Winter' ],
+    landmarks: [
+      'Hallgrímskirkja',
+      'Blue Lagoon',
+      'Harpa Concert Hall',
+      'Golden Circle',
+      'Perlan'
+    ],
+    activities: [ 'Glacier Hiking', 'Cave Exploring', 'Snowmobiling' ]
+  },
+  {
+    name: 'Cairns',
+    country: 'Australia',
+    continent: 'Oceania',
+    price: 'MEDIUM',
+    weathers: [ 'Tropical' ],
+    yearTimes: [ 'Summer', 'Autumn' ],
+    landmarks: [
+      'Great Barrier Reef',
+      'Daintree Rainforest',
+      'Cairns Esplanade',
+      'Kuranda Scenic Railway',
+      'Fitzroy Island'
+    ],
+    activities: [ 'Scuba Diving', 'Snorkeling', 'Rainforest Zip-lining' ]
+  },
+  {
+    name: 'San Gil',
+    country: 'Colombia',
+    continent: 'South America',
+    price: 'INEXPENSIVE',
+    weathers: [ 'Tropical', 'Mountain' ],
+    yearTimes: [ 'Dry Season', 'Rainy Season' ],
+    landmarks: [
+      'Parque Gallineral',
+      'Chicamocha National Park',
+      'San Gil Cathedral',
+      'Liberty Park',
+      'Pozos Azules'
+    ],
+    activities: [ 'Whitewater Rafting', 'Caving', 'Paragliding' ]
+  },
+  {
+    name: 'Bali',
+    country: 'Indonesia',
+    continent: 'Asia',
+    price: 'INEXPENSIVE',
+    weathers: [ 'Tropical' ],
+    yearTimes: [ 'Dry Season', 'Wet Season' ],
+    landmarks: [
+      'Uluwatu Temple',
+      'Ubud Monkey Forest',
+      'Kuta Beach',
+      'Tanah Lot',
+      'Tegallalang Rice Terraces'
+    ],
+    activities: [ 'Surfing', 'White Water Rafting', 'Hiking', 'Snorkeling' ]
+  },
+  {
+    name: 'Cusco',
+    country: 'Peru',
+    continent: 'South America',
+    price: 'INEXPENSIVE',
+    weathers: [ 'Temperate', 'Mountain' ],
+    yearTimes: [ 'Dry Season', 'Wet Season' ],
+    landmarks: [
+      'Machu Picchu',
+      'Sacsayhuamán',
+      'Cusco Cathedral',
+      'San Pedro Market',
+      'Coricancha'
+    ],
+    activities: [ 'Trekking to Machu Picchu', 'Mountain Biking', 'Paragliding' ]
+  },
+  {
+    name: 'Zermatt',
+    country: 'Switzerland',
+    continent: 'Europe',
+    price: 'EXPENSIVE',
+    weathers: [ 'Temperate', 'Alpine' ],
+    yearTimes: [ 'Spring', 'Summer', 'Autumn' ],
+    landmarks: [
+      'Matterhorn',
+      'Gornergrat Railway',
+      'Zermatt Village',
+      'Klein Matterhorn',
+      'Theodul Pass'
+    ],
+    activities: [ 'Skiing', 'Matterhorn Climbing', 'Snowboarding' ]
+  },
+  {
+    name: 'Rotorua',
+    country: 'New Zealand',
+    continent: 'Oceania',
+    price: 'MEDIUM',
+    weathers: [ 'Temperate' ],
+    yearTimes: [ 'Spring', 'Summer', 'Autumn' ],
+    landmarks: [
+      'Te Puia',
+      'Whakarewarewa Thermal Village',
+      'Wai-O-Tapu Thermal Wonderland',
+      'Redwoods Treewalk',
+      'Polynesian Spa'
+    ],
+    activities: [ 'Maori Cultural Experiences', 'Geothermal Spa', 'Ziplining' ]
+  },
+  {
+    name: 'Santorini',
+    country: 'Greece',
+    continent: 'Europe',
+    price: 'EXPENSIVE',
+    weathers: [ 'Mediterranean' ],
+    yearTimes: [ 'Summer', 'Autumn' ],
+    landmarks: [
+      'Oia Sunset',
+      'Fira',
+      'Akrotiri Archaeological Site',
+      'Red Beach',
+      'Santo Wines Winery'
+    ],
+    activities: [ 'Volcano Tours', 'Windsurfing', 'Scuba Diving' ]
+  },
+  {
+    name: 'Puerto Vallarta',
+    country: 'Mexico',
+    continent: 'North America',
+    price: 'MEDIUM',
+    weathers: [ 'Tropical' ],
+    yearTimes: [ 'Winter', 'Spring' ],
+    landmarks: [
+      'Malecón Puerto Vallarta',
+      'Los Arcos Marine Park',
+      'El Eden',
+      'Las Caletas Beach Hideaway',
+      'Vallarta Botanical Gardens'
+    ],
+    activities: [ 'Whale Watching', 'ATV Tours', 'Canopy Zip-lining' ]
+  },
+  {
+    name: 'Nairobi',
+    country: 'Kenya',
+    continent: 'Africa',
+    price: 'MEDIUM',
+    weathers: [ 'Tropical' ],
+    yearTimes: [ 'Dry Season', 'Rainy Season' ],
+    landmarks: [
+      'Nairobi National Park',
+      'David Sheldrick Wildlife Trust',
+      'Giraffe Centre',
+      'Karen Blixen Museum',
+      'Nairobi Railway Museum'
+    ],
+    activities: [ 'Safari Adventures', 'Hot Air Balloon Safaris', 'Hiking' ]
+  },
+  {
+    name: 'San Francisco',
+    country: 'United States',
+    continent: 'North America',
+    price: 'EXPENSIVE',
+    weathers: [ 'Temperate', 'Foggy' ],
+    yearTimes: [ 'Spring', 'Autumn' ],
+    landmarks: [
+      'Golden Gate Bridge',
+      'Alcatraz Island',
+      "Fisherman's Wharf",
+      'Lombard Street',
+      'Pier 39'
+    ],
+    activities: [ 'Rock Climbing', 'Golden Gate Bridge Biking', 'Surfing' ]
+  },
+  {
+    name: 'Lofoten',
+    country: 'Norway',
+    continent: 'Europe',
+    price: 'EXPENSIVE',
+    weathers: [ 'Temperate', 'Arctic' ],
+    yearTimes: [ 'Summer', 'Winter' ],
+    landmarks: [
+      'Reine',
+      'Kvalvika Beach',
+      'Henningsvær',
+      'Nusfjord',
+      'Haukland Beach'
+    ],
+    activities: [ 'Northern Lights Tours', 'Sea Kayaking', 'Hiking' ]
+  },
+  {
+    name: 'Bora Bora',
+    country: 'French Polynesia',
+    continent: 'Oceania',
+    price: 'EXPENSIVE',
+    weathers: [ 'Tropical' ],
+    yearTimes: [ 'Dry Season', 'Wet Season' ],
+    landmarks: [
+      'Mount Otemanu',
+      'Matira Beach',
+      'Bora Bora Lagoonarium',
+      'Coral Gardens',
+      'Shark and Ray Snorkel Safari'
+    ],
+    activities: [ 'Scuba Diving', 'Snorkeling', 'Jet Skiing', 'Shark Feeding' ]
+  },
+  {
+    name: 'Huaraz',
+    country: 'Peru',
+    continent: 'South America',
+    price: 'INEXPENSIVE',
+    weathers: [ 'Temperate', 'Mountain' ],
+    yearTimes: [ 'Dry Season', 'Wet Season' ],
+    landmarks: [
+      'Huascarán National Park',
+      'Laguna 69',
+      'Chavín de Huántar',
+      'Cordillera Blanca',
+      'Willcahuaín Ruins'
+    ],
+    activities: [
+      'Trekking in Huascaran National Park',
+      'Climbing',
+      'Mountain Biking'
+    ]
+  },
+  {
+    name: 'Manali',
+    country: 'India',
+    continent: 'Asia',
+    price: 'INEXPENSIVE',
+    weathers: [ 'Temperate', 'Mountain' ],
+    yearTimes: [ 'Spring', 'Summer' ],
+    landmarks: [
+      'Solang Valley',
+      'Rohtang Pass',
+      'Hidimba Devi Temple',
+      'Old Manali',
+      'Manu Temple'
+    ],
+    activities: [ 'Paragliding', 'River Rafting', 'Trekking', 'Skiing' ]
+  },
+  {
+    name: 'Cape Tribulation',
+    country: 'Australia',
+    continent: 'Oceania',
+    price: 'MEDIUM',
+    weathers: [ 'Tropical' ],
+    yearTimes: [ 'Summer', 'Autumn' ],
+    landmarks: [
+      'Daintree Rainforest',
+      'Cape Tribulation Beach',
+      'Myall Beach',
+      'Mount Sorrow Ridge Trail',
+      'Dubuji Boardwalk'
+    ],
+    activities: [
+      'Daintree Rainforest Tours',
+      'Great Barrier Reef Diving',
+      'Hiking'
+    ]
+  },
+  {
+    name: 'Vancouver',
+    country: 'Canada',
+    continent: 'North America',
+    price: 'EXPENSIVE',
+    weathers: [ 'Temperate', 'Oceanic' ],
+    yearTimes: [ 'Spring', 'Summer', 'Autumn' ],
+    landmarks: [
+      'Stanley Park',
+      'Granville Island',
+      'Grouse Mountain',
+      'Capilano Suspension Bridge Park',
+      'Science World'
+    ],
+    activities: [ 'Whale Watching', 'Skiing', 'Mountain Biking', 'Sea Kayaking' ]
+  },
+  {
+    name: 'Chiang Mai',
+    country: 'Thailand',
+    continent: 'Asia',
+    price: 'MEDIUM',
+    weathers: [ 'Tropical' ],
+    yearTimes: [ 'Cool Season', 'Hot Season' ],
+    landmarks: [
+      'Wat Phra Singh',
+      'Doi Suthep Temple',
+      'Old City of Chiang Mai',
+      'Elephant Nature Park',
+      'Chiang Mai Night Bazaar'
+    ],
+    activities: [ 'Ziplining', 'Elephant Sanctuary Visits', 'Jungle Trekking' ]
+  },
+  {
+    name: 'Sedona',
+    country: 'United States',
+    continent: 'North America',
+    price: 'MEDIUM',
+    weathers: [ 'Arid', 'Desert' ],
+    yearTimes: [ 'Spring', 'Autumn' ],
+    landmarks: [
+      'Red Rock State Park',
+      'Sedona Cathedral Rock',
+      'Chapel of the Holy Cross',
+      'Slide Rock State Park',
+      'Bell Rock'
+    ],
+    activities: [
+      'Hiking',
+      'Hot Air Ballooning',
+      'Rock Climbing',
+      'Mountain Biking'
+    ]
+  },
+  {
+    name: 'Victoria Falls',
+    country: 'Zimbabwe',
+    continent: 'Africa',
+    price: 'MEDIUM',
+    weathers: [ 'Subtropical' ],
+    yearTimes: [ 'Dry Season', 'Rainy Season'],
+    landmarks: [
+      'Victoria Falls',
+      'Zambezi River',
+      'Victoria Falls Bridge',
+      "Devil's Pool",
+      'Victoria Falls National Park'
+    ],
+    activities: [ 'Bungee Jumping', 'White Water Rafting', 'Safari' ]
+  },
+  {
+    name: 'Cappadocia',
+    country: 'Turkey',
+    continent: 'Asia',
+    price: 'MEDIUM',
+    weathers: [ 'Temperate' ],
+    yearTimes: [ 'Spring', 'Autumn' ],
+    landmarks: [
+      'Göreme Open-Air Museum',
+      'Hot Air Balloon Ride',
+      'Ürgüp',
+      'Zelve Open Air Museum',
+      'Pasabag (Monks Valley)'
+    ],
+    activities: [ 'Hot Air Balloon Rides', 'Cave Exploration', 'Hiking' ]
+  },
+  {
+    name: 'Kathmandu',
+    country: 'Nepal',
+    continent: 'Asia',
+    price: 'INEXPENSIVE',
+    weathers: [ 'Subtropical' ],
+    yearTimes: [ 'Spring', 'Autumn' ],
+    landmarks: [
+      'Swayambhunath (Monkey Temple)',
+      'Boudhanath Stupa',
+      'Pashupatinath Temple',
+      'Kathmandu Durbar Square',
+      'Thamel'
+    ],
+    activities: [
+      'Trekking in the Himalayas',
+      'Mountain Biking',
+      'Cultural Tours'
+    ]
+  }
+]
+
 export const beachCities = [
   { name: "Rio de Janeiro", country: "Brazil", continent: "South America", price: "EXPENSIVE", weathers: ["Tropical"], yearTimes: ["Summer", "Autumn"], landmarks: ["Christ the Redeemer", "Copacabana Beach", "Sugarloaf Mountain", "Ipanema Beach", "Tijuca Forest"] },
   { name: "Miami Beach", country: "United States", continent: "North America", price: "EXPENSIVE", weathers: ["Tropical"], yearTimes: ["Winter", "Spring"], landmarks: ["South Beach", "Art Deco Historic District", "Ocean Drive", "Lincoln Road Mall", "Wynwood Walls"] },

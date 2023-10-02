@@ -16,6 +16,3 @@ const appUsers = new mongoose.Schema({
      media : [String]
 });
   
-export const googleUserModel = ()=>{
-    return mongoose.models?.user || model<GoogleUserDb>("user" , googleUserSchema)
-}
