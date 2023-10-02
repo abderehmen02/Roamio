@@ -1,3 +1,2048 @@
+export const festivalCities = [
+  {
+      "name": "Rio de Janeiro",
+      "country": "Brazil",
+      "landMarks": [
+          "Christ the Redeemer",
+          "Copacabana Beach",
+          "Sugarloaf Mountain",
+          "Ipanema Beach",
+          "Tijuca Forest National Park"
+      ],
+      "continent": "South America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Tropical",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer"
+      ],
+      "languages": [
+          "Portuguese"
+      ],
+      "activities": [
+          {
+              "activity": "Carnival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Rock in Rio",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Rio International Film Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "New Orleans",
+      "country": "United States",
+      "landMarks": [
+          "French Quarter",
+          "Jackson Square",
+          "Garden District",
+          "Steamboat Natchez",
+          "Audubon Aquarium of the Americas"
+      ],
+      "continent": "North America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Humid"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English"
+      ],
+      "activities": [
+          {
+              "activity": "Mardi Gras",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Jazz & Heritage Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Essence Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Tokyo",
+      "country": "Japan",
+      "landMarks": [
+          "Tokyo Tower",
+          "Shibuya Crossing",
+          "Senso-ji Temple",
+          "Imperial Palace",
+          "Akihabara"
+      ],
+      "continent": "Asia",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Japanese"
+      ],
+      "activities": [
+          {
+              "activity": "Sanja Matsuri",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Kanda Matsuri",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Cherry Blossom Festivals",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Edinburgh",
+      "country": "United Kingdom",
+      "landMarks": [
+          "Edinburgh Castle",
+          "Royal Mile",
+          "Arthur's Seat",
+          "Holyrood Palace",
+          "National Museum of Scotland"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer",
+          "Autumn"
+      ],
+      "languages": [
+          "English"
+      ],
+      "activities": [
+          {
+              "activity": "Edinburgh Festival Fringe",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Hogmanay",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Royal Edinburgh Military Tattoo",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Salvador, Brazil",
+      "country": "Brazil",
+      "landMarks": [
+          "Pelourinho",
+          "Barra Lighthouse",
+          "Bonfim Church",
+          "Farol da Barra Beach",
+          "Mercado Modelo"
+      ],
+      "continent": "South America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Tropical",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer"
+      ],
+      "languages": [
+          "Portuguese"
+      ],
+      "activities": [
+          {
+              "activity": "Carnaval de Salvador",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Festa de Yemanjá",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Lavagem do Bonfim",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "New York City",
+      "country": "United States",
+      "landMarks": [
+          "Statue of Liberty",
+          "Times Square",
+          "Central Park",
+          "Empire State Building",
+          "Brooklyn Bridge"
+      ],
+      "continent": "North America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Snow"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English"
+      ],
+      "activities": [
+          {
+              "activity": "New Year's Eve in Times Square",
+              "category": "Festivals"
+          },
+          {
+              "activity": "West Indian American Day Carnival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Tribeca Film Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Barcelona",
+      "country": "Spain",
+      "landMarks": [
+          "Sagrada Familia",
+          "Park Güell",
+          "La Rambla",
+          "Casa Batlló",
+          "Barri Gòtic"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Mediterranean"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Spanish",
+          "Catalan"
+      ],
+      "activities": [
+          {
+              "activity": "La Mercè Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Primavera Sound",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Sónar Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "New Delhi",
+      "country": "India",
+      "landMarks": [
+          "Red Fort",
+          "India Gate",
+          "Qutub Minar",
+          "Humayun's Tomb",
+          "Lotus Temple"
+      ],
+      "continent": "Asia",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Tropical",
+          "Monsoon"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "Hindi",
+          "English"
+      ],
+      "activities": [
+          {
+              "activity": "Diwali Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Holi Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "International Mango Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Sydney",
+      "country": "Australia",
+      "landMarks": [
+          "Sydney Opera House",
+          "Sydney Harbour Bridge",
+          "Bondi Beach",
+          "The Rocks",
+          "Taronga Zoo"
+      ],
+      "continent": "Oceania",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Sunny"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English"
+      ],
+      "activities": [
+          {
+              "activity": "Sydney Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Vivid Sydney",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Sydney Gay and Lesbian Mardi Gras",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Munich",
+      "country": "Germany",
+      "landMarks": [
+          "Marienplatz",
+          "Nymphenburg Palace",
+          "English Garden",
+          "Viktualienmarkt",
+          "BMW Welt"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Snow"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "German"
+      ],
+      "activities": [
+          {
+              "activity": "Oktoberfest",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Starkbierfest",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Tollwood Winter Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Cape Town",
+      "country": "South Africa",
+      "landMarks": [
+          "Table Mountain",
+          "Robben Island",
+          "V&A Waterfront",
+          "Cape of Good Hope",
+          "Kirstenbosch National Botanical Garden"
+      ],
+      "continent": "Africa",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Mediterranean",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Afrikaans",
+          "English",
+          "Xhosa",
+          "Zulu"
+      ],
+      "activities": [
+          {
+              "activity": "Cape Town International Jazz Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Cape Town Carnival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "AfrikaBurn",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "San Francisco",
+      "country": "United States",
+      "landMarks": [
+          "Golden Gate Bridge",
+          "Alcatraz Island",
+          "Fisherman's Wharf",
+          "Lombard Street",
+          "Pier 39"
+      ],
+      "continent": "North America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Foggy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English",
+          "Spanish"
+      ],
+      "activities": [
+          {
+              "activity": "San Francisco Pride",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Outside Lands",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Fleet Week",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Amsterdam",
+      "country": "Netherlands",
+      "landMarks": [
+          "Anne Frank House",
+          "Rijksmuseum",
+          "Van Gogh Museum",
+          "Canal Cruise",
+          "Vondelpark"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer",
+          "Autumn"
+      ],
+      "languages": [
+          "Dutch",
+          "English"
+      ],
+      "activities": [
+          {
+              "activity": "King's Day",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Amsterdam Dance Event",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Tulip Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Dublin",
+      "country": "Ireland",
+      "landMarks": [
+          "Guinness Storehouse",
+          "Dublin Castle",
+          "Trinity College Dublin",
+          "St. Patrick's Cathedral",
+          "Temple Bar"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer",
+          "Autumn"
+      ],
+      "languages": [
+          "English",
+          "Irish"
+      ],
+      "activities": [
+          {
+              "activity": "St. Patrick's Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Dublin Fringe Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Bloomsday Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Rioja, Spain",
+      "country": "Spain",
+      "landMarks": [
+          "Vineyards of La Rioja",
+          "Marqués de Riscal Winery",
+          "Santa María de la Redonda Cathedral",
+          "Bodegas Franco-Españolas",
+          "Concatedral de Santa María de la Redonda"
+      ],
+      "continent": "Europe",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Spanish"
+      ],
+      "activities": [
+          {
+              "activity": "Batalla del Vino",
+              "category": "Festivals"
+          },
+          {
+              "activity": "San Mateo Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Haro Wine Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Cairo",
+      "country": "Egypt",
+      "landMarks": [
+          "Pyramids of Giza",
+          "The Sphinx",
+          "Khan El Khalili Bazaar",
+          "Egyptian Museum",
+          "Coptic Cairo"
+      ],
+      "continent": "Africa",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Desert",
+          "Hot"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "Arabic",
+          "English"
+      ],
+      "activities": [
+          {
+              "activity": "Cairo International Film Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Cairo Jazz Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Cairo International Book Fair",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Venice",
+      "country": "Italy",
+      "landMarks": [
+          "St. Mark's Basilica",
+          "Doge's Palace",
+          "Grand Canal",
+          "Rialto Bridge",
+          "Peggy Guggenheim Collection"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Italian"
+      ],
+      "activities": [
+          {
+              "activity": "Venice Carnival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Venice International Film Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Festa della Sensa",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Berlin",
+      "country": "Germany",
+      "landMarks": [
+          "Brandenburg Gate",
+          "Berlin Wall Memorial",
+          "Reichstag Building",
+          "Museum Island",
+          "Checkpoint Charlie"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "German"
+      ],
+      "activities": [
+          {
+              "activity": "Berlinale (Berlin International Film Festival)",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Karneval der Kulturen",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Fête de la Musique",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Prague",
+      "country": "Czech Republic",
+      "landMarks": [
+          "Charles Bridge",
+          "Prague Castle",
+          "Old Town Square",
+          "Astronomical Clock",
+          "Wenceslas Square"
+      ],
+      "continent": "Europe",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Czech"
+      ],
+      "activities": [
+          {
+              "activity": "Prague Spring International Music Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Christmas Markets",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Signal Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Austin",
+      "country": "United States",
+      "landMarks": [
+          "Texas State Capitol",
+          "Lady Bird Lake",
+          "Zilker Park",
+          "South by Southwest",
+          "Barton Springs Pool"
+      ],
+      "continent": "North America",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Humid"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English"
+      ],
+      "activities": [
+          {
+              "activity": "South by Southwest (SXSW)",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Austin City Limits Music Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Trail of Lights",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Buenos Aires",
+      "country": "Argentina",
+      "landMarks": [
+          "La Casa Rosada",
+          "Teatro Colón",
+          "Recoleta Cemetery",
+          "San Telmo Market",
+          "La Boca Neighborhood"
+      ],
+      "continent": "South America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Spanish"
+      ],
+      "activities": [
+          {
+              "activity": "Carnaval Porteño",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Feria de Mataderos",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Buenos Aires Tango Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Montreal",
+      "country": "Canada",
+      "landMarks": [
+          "Old Montreal",
+          "Notre-Dame Basilica",
+          "Mount Royal Park",
+          "Biodôme",
+          "Montreal Museum of Fine Arts"
+      ],
+      "continent": "North America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Snow"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer"
+      ],
+      "languages": [
+          "French",
+          "English"
+      ],
+      "activities": [
+          {
+              "activity": "Montreal Jazz Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Just for Laughs Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Nuit Blanche",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Seoul",
+      "country": "South Korea",
+      "landMarks": [
+          "Gyeongbokgung Palace",
+          "Myeongdong",
+          "Namsan Seoul Tower",
+          "Bukchon Hanok Village",
+          "Insadong"
+      ],
+      "continent": "Asia",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Korean"
+      ],
+      "activities": [
+          {
+              "activity": "Boryeong Mud Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Seoul International Fireworks Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Seoul Lantern Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Dubai",
+      "country": "United Arab Emirates",
+      "landMarks": [
+          "Burj Khalifa",
+          "The Dubai Mall",
+          "Palm Jumeirah",
+          "Dubai Fountain",
+          "Jumeirah Mosque"
+      ],
+      "continent": "Asia",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Desert",
+          "Hot"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "Arabic",
+          "English"
+      ],
+      "activities": [
+          {
+              "activity": "Dubai Shopping Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Dubai International Film Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Dubai Food Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Budapest",
+      "country": "Hungary",
+      "landMarks": [
+          "Buda Castle",
+          "Chain Bridge",
+          "Parliament Building",
+          "Fisherman's Bastion",
+          "St. Stephen's Basilica"
+      ],
+      "continent": "Europe",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Hungarian"
+      ],
+      "activities": [
+          {
+              "activity": "Budapest Wine Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Sziget Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Budapest International Documentary Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Melbourne",
+      "country": "Australia",
+      "landMarks": [
+          "Royal Botanic Gardens",
+          "Melbourne Cricket Ground",
+          "National Gallery of Victoria",
+          "Federation Square",
+          "St. Kilda Beach"
+      ],
+      "continent": "Oceania",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English"
+      ],
+      "activities": [
+          {
+              "activity": "Melbourne International Comedy Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Melbourne Food and Wine Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "White Night Melbourne",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Fez, Morocco",
+      "country": "Morocco",
+      "landMarks": [
+          "Fes el Bali (Medina of Fez)",
+          "Bab Bou Jeloud",
+          "Al-Attarine Madrasa",
+          "Bou Inania Madrasa",
+          "Dar Batha Museum"
+      ],
+      "continent": "Africa",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Hot"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Arabic",
+          "French"
+      ],
+      "activities": [
+          {
+              "activity": "Fes Festival of World Sacred Music",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Fez Festival of Sufi Culture",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Fez International Film Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Glasgow",
+      "country": "United Kingdom",
+      "landMarks": [
+          "Glasgow Cathedral",
+          "Kelvingrove Art Gallery and Museum",
+          "Glasgow Green",
+          "The Riverside Museum of Transport and Travel",
+          "George Square"
+      ],
+      "continent": "Europe",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer",
+          "Autumn"
+      ],
+      "languages": [
+          "English",
+          "Scots"
+      ],
+      "activities": [
+          {
+              "activity": "Glasgow International Comedy Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Glasgow Film Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Celtic Connections",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Lisbon",
+      "country": "Portugal",
+      "landMarks": [
+          "Belém Tower",
+          "Jeronimos Monastery",
+          "Alfama District",
+          "Tram 28",
+          "Lisbon Oceanarium"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Sunny"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Portuguese"
+      ],
+      "activities": [
+          {
+              "activity": "Lisbon Book Fair",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Lisbon International Documentary Film Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "NOS Alive",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Nairobi",
+      "country": "Kenya",
+      "landMarks": [
+          "Nairobi National Park",
+          "David Sheldrick Wildlife Trust",
+          "Karen Blixen Museum",
+          "Giraffe Centre",
+          "Nairobi Railway Museum"
+      ],
+      "continent": "Africa",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Swahili",
+          "English"
+      ],
+      "activities": [
+          {
+              "activity": "Nairobi International Film Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Nairobi Wine Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Koroga Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Quebec City",
+      "country": "Canada",
+      "landMarks": [
+          "Old Quebec",
+          "Château Frontenac",
+          "Plains of Abraham",
+          "Montmorency Falls",
+          "Parliament Building"
+      ],
+      "continent": "North America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Snow"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer"
+      ],
+      "languages": [
+          "French",
+          "English"
+      ],
+      "activities": [
+          {
+              "activity": "Carnaval de Québec",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Quebec City Summer Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Fête nationale du Québec",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Vienna",
+      "country": "Austria",
+      "landMarks": [
+          "Schönbrunn Palace",
+          "St. Stephen's Cathedral",
+          "Belvedere Palace",
+          "Hofburg Palace",
+          "Vienna State Opera"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "German"
+      ],
+      "activities": [
+          {
+              "activity": "Vienna Film Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Vienna Opera Ball",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Life Ball (formerly)",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Krakow",
+      "country": "Poland",
+      "landMarks": [
+          "Wawel Castle",
+          "Main Market Square",
+          "Auschwitz-Birkenau Memorial and Museum",
+          "St. Mary's Basilica",
+          "Krakow Cloth Hall"
+      ],
+      "continent": "Europe",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Polish"
+      ],
+      "activities": [
+          {
+              "activity": "Krakow Film Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Krakow Jewish Culture Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Unsound Festival Krakow",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Sapporo",
+      "country": "Japan",
+      "landMarks": [
+          "Sapporo Clock Tower",
+          "Sapporo Beer Museum",
+          "Odori Park",
+          "Hokkaido Shrine",
+          "Moerenuma Park"
+      ],
+      "continent": "Asia",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Snow"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "Japanese"
+      ],
+      "activities": [
+          {
+              "activity": "Sapporo Snow Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Sapporo International Art Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Sapporo Autumn Fest",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Dubrovnik",
+      "country": "Croatia",
+      "landMarks": [
+          "Walls of Dubrovnik",
+          "Old Town",
+          "Lokrum Island",
+          "Dubrovnik Cable Car",
+          "Rector's Palace"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Croatian"
+      ],
+      "activities": [
+          {
+              "activity": "Dubrovnik Summer Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Libertas Film Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Dubrovnik Carnival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "San Miguel de Allende",
+      "country": "Mexico",
+      "landMarks": [
+          "Parroquia de San Miguel Arcángel",
+          "El Jardín",
+          "Fabrica La Aurora",
+          "Mercado de Artesanias",
+          "Hot Air Balloon Rides"
+      ],
+      "continent": "North America",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Spanish"
+      ],
+      "activities": [
+          {
+              "activity": "San Miguel International Film Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Festival de San Miguel de Allende",
+              "category": "Festivals"
+          },
+          {
+              "activity": "San Miguel Writers' Conference",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Athens",
+      "country": "Greece",
+      "landMarks": [
+          "Acropolis of Athens",
+          "Parthenon",
+          "Plaka District",
+          "Ancient Agora of Athens",
+          "National Archaeological Museum"
+      ],
+      "continent": "Europe",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Mediterranean",
+          "Sunny"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Greek"
+      ],
+      "activities": [
+          {
+              "activity": "Athens Epidaurus Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Athens International Film Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Rockwave Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Montevideo",
+      "country": "Uruguay",
+      "landMarks": [
+          "Ciudad Vieja",
+          "Rambla of Montevideo",
+          "Independence Square",
+          "Solis Theatre",
+          "Mercado de la Abundancia"
+      ],
+      "continent": "South America",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Spanish"
+      ],
+      "activities": [
+          {
+              "activity": "Montevideo Carnival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Fiesta de la Patria Gaucha",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Montevideo International Jazz Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Edmonton",
+      "country": "Canada",
+      "landMarks": [
+          "West Edmonton Mall",
+          "Fort Edmonton Park",
+          "Muttart Conservatory",
+          "Royal Alberta Museum",
+          "Elk Island National Park"
+      ],
+      "continent": "North America",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Snow"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer"
+      ],
+      "languages": [
+          "English"
+      ],
+      "activities": [
+          {
+              "activity": "Edmonton International Film Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Edmonton Folk Music Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "K-Days",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Seville",
+      "country": "Spain",
+      "landMarks": [
+          "Alcázar of Seville",
+          "Seville Cathedral",
+          "Plaza de España",
+          "Barrio Santa Cruz",
+          "Metropol Parasol"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Mediterranean",
+          "Sunny"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Spanish"
+      ],
+      "activities": [
+          {
+              "activity": "Seville Fair (Feria de Abril)",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Seville Flamenco Biennial",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Seville International Film Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Auckland",
+      "country": "New Zealand",
+      "landMarks": [
+          "Auckland Sky Tower",
+          "Waiheke Island",
+          "Auckland War Memorial Museum",
+          "Piha Beach",
+          "Auckland Domain"
+      ],
+      "continent": "Oceania",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English",
+          "Māori"
+      ],
+      "activities": [
+          {
+              "activity": "Auckland Arts Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Auckland Diwali Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Pasifika Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Bristol",
+      "country": "United Kingdom",
+      "landMarks": [
+          "Clifton Suspension Bridge",
+          "SS Great Britain",
+          "Bristol Zoo Gardens",
+          "Bristol Cathedral",
+          "Bristol Museum and Art Gallery"
+      ],
+      "continent": "Europe",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer",
+          "Autumn"
+      ],
+      "languages": [
+          "English"
+      ],
+      "activities": [
+          {
+              "activity": "Bristol International Balloon Fiesta",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Bristol Harbour Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Bristol Comedy Garden",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Dakar",
+      "country": "Senegal",
+      "landMarks": [
+          "Gorée Island",
+          "African Renaissance Monument",
+          "House of Slaves",
+          "African Renaissance Monument",
+          "Dakar Grand Mosque"
+      ],
+      "continent": "Africa",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Tropical",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "French",
+          "Wolof"
+      ],
+      "activities": [
+          {
+              "activity": "Dak'Art Biennale",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Gorée Diaspora Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Saint-Louis Jazz Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Salzburg",
+      "country": "Austria",
+      "landMarks": [
+          "Hohensalzburg Fortress",
+          "Mozart's Birthplace",
+          "Mirabell Palace and Gardens",
+          "Salzburg Cathedral",
+          "Hellbrunn Palace"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer",
+          "Autumn"
+      ],
+      "languages": [
+          "German"
+      ],
+      "activities": [
+          {
+              "activity": "Salzburg Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Salzburg Christmas Market",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Mozart Week",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Havana",
+      "country": "Cuba",
+      "landMarks": [
+          "Old Havana",
+          "El Malecón",
+          "Havana Cathedral",
+          "The Morro Castle",
+          "Revolution Square"
+      ],
+      "continent": "North America",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Tropical",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "Spanish"
+      ],
+      "activities": [
+          {
+              "activity": "Havana International Jazz Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Havana Carnival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Havana Film Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Medellín",
+      "country": "Colombia",
+      "landMarks": [
+          "Parque Arvi",
+          "Plaza Botero",
+          "Comuna 13",
+          "Jardín Botánico de Medellín",
+          "Parque Explora"
+      ],
+      "continent": "South America",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Tropical",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "Spanish"
+      ],
+      "activities": [
+          {
+              "activity": "Feria de las Flores",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Festival Internacional de Tango",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Medellín International Poetry Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Granada",
+      "country": "Spain",
+      "landMarks": [
+          "Alhambra",
+          "Generalife",
+          "Royal Chapel of Granada",
+          "Sacromonte",
+          "Carrera del Darro"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Mediterranean",
+          "Sunny"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Spanish"
+      ],
+      "activities": [
+          {
+              "activity": "Granada International Music and Dance Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Corpus Christi Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Festival Internacional de Jazz de Granada",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Nashville",
+      "country": "United States",
+      "landMarks": [
+          "Grand Ole Opry",
+          "Country Music Hall of Fame",
+          "Ryman Auditorium",
+          "The Parthenon",
+          "Belle Meade Plantation"
+      ],
+      "continent": "North America",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English"
+      ],
+      "activities": [
+          {
+              "activity": "CMA Music Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Nashville Film Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Nashville Cherry Blossom Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Tel Aviv",
+      "country": "Israel",
+      "landMarks": [
+          "Tel Aviv Beaches",
+          "Carmel Market",
+          "Old Jaffa",
+          "Neve Tzedek",
+          "Tel Aviv Museum of Art"
+      ],
+      "continent": "Asia",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Mediterranean",
+          "Sunny"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Hebrew",
+          "Arabic",
+          "English"
+      ],
+      "activities": [
+          {
+              "activity": "Tel Aviv International LGBT Film Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "White Night in Tel Aviv",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Tel Aviv Jazz Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Belgrade",
+      "country": "Serbia",
+      "landMarks": [
+          "Belgrade Fortress",
+          "Skadarlija",
+          "St. Sava Temple",
+          "Ada Ciganlija",
+          "Nikola Tesla Museum"
+      ],
+      "continent": "Europe",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Serbian"
+      ],
+      "activities": [
+          {
+              "activity": "Belgrade Beer Fest",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Belgrade International Documentary Film Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Belgrade Music Festival",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Sofia",
+      "country": "Bulgaria",
+      "landMarks": [
+          "Alexander Nevsky Cathedral",
+          "Vitosha Mountain",
+          "National Palace of Culture",
+          "Boyana Church",
+          "Sofia Ring Mall"
+      ],
+      "continent": "Europe",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Bulgarian"
+      ],
+      "activities": [
+          {
+              "activity": "Sofia International Film Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Sofia Pride",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Sofia Dance Week",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Jerusalem",
+      "country": "Israel",
+      "landMarks": [
+          "Western Wall",
+          "Dome of the Rock",
+          "Church of the Holy Sepulchre",
+          "Mount of Olives",
+          "Yad Vashem"
+      ],
+      "continent": "Asia",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Mediterranean",
+          "Sunny"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Hebrew",
+          "Arabic",
+          "English"
+      ],
+      "activities": [
+          {
+              "activity": "Jerusalem Film Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Jerusalem International Book Fair",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Festival of Light",
+              "category": "Festivals"
+          }
+      ]
+  },
+  {
+      "name": "Seogwipo, South Korea",
+      "country": "South Korea",
+      "landMarks": [
+          "Jeju Island",
+          "Seongsan Ilchulbong",
+          "Jeju Loveland",
+          "Cheonjiyeon Waterfall",
+          "Oedolgae"
+      ],
+      "continent": "Asia",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Korean"
+      ],
+      "activities": [
+          {
+              "activity": "Jeju Fire Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Seogwipo Cherry Blossom Festival",
+              "category": "Festivals"
+          },
+          {
+              "activity": "Jeju World Natural Heritage Center",
+              "category": "Festivals"
+          }
+      ]
+  }
+]
+
+
+
 export const shopingCities = [
   {
       "name": "New York City",

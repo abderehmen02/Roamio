@@ -1,7 +1,7 @@
 import { CategoryDb, cityModal } from "@/db/models/city"
 import { apiResponse } from "@/utils/api/nextResponse"
 import { asyncWrapperApi } from "@/utils/asyncWrapper"
-import { shopingCities } from "./static"
+import { festivalCities } from "./static"
 import { Categories } from "@/types/prefrences"
 import { StatusCodes } from "http-status-codes"
 
@@ -10,14 +10,14 @@ import { StatusCodes } from "http-status-codes"
 
 export const GET = asyncWrapperApi(async ()=>{
       let addedCities = 0 ;
-         for(let i  = 0 ; i < shopingCities.length ; i++){
-         const existCity = await cityModal().findOne({name : shopingCities[i].name})
-         if(existCity && existCity.categories?.some((category : CategoryDb )=>category.name === Categories.Shopping ) ) continue ;
-         if(existCity  ){ await cityModal().findOneAndUpdate({name : shopingCities[i].name} , { $push: { categories: {name : Categories.Shopping, position : i  }   } , $set: {
-            places: shopingCities[i].places , // Update another property here
+         for(let i  = 0 ; i < festivalCities.length ; i++){
+         const existCity = await cityModal().findOne({name : festivalCities[i].name})
+         if(existCity && existCity.categories?.some((category : CategoryDb )=>category.name === Categories.Festivals ) ) continue ;
+         if(existCity  ){ await cityModal().findOneAndUpdate({name : festivalCities[i].name} , { $push: { categories: {name : Categories.Festivals, position : i  }   } , $set: {
+            activities: festivalCities[i].activities , 
           }, } ,{new: true})
          }
-         else{ await cityModal().create({...shopingCities[i] , landmarks : shopingCities[i].landMarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [{name : Categories.Shopping , position : i}]  , reviews: [] , likes: [] , dislikes : [] , places : shopingCities[i].places  })
+         else{ await cityModal().create({...festivalCities[i] , landmarks : festivalCities[i].landMarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [{name : Categories.Festivals, position : i}]  , reviews: [] , likes: [] , dislikes : [] , activities : festivalCities[i].activities  })
          addedCities++ 
       }
          }
