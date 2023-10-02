@@ -1,7 +1,7 @@
 import { CategoryDb, cityModal } from "@/db/models/city"
 import { apiResponse } from "@/utils/api/nextResponse"
 import { asyncWrapperApi } from "@/utils/asyncWrapper"
-import { nightLifeCities } from "./static"
+import { shopingCities } from "./static"
 import { Categories } from "@/types/prefrences"
 import { StatusCodes } from "http-status-codes"
 
@@ -10,12 +10,14 @@ import { StatusCodes } from "http-status-codes"
 
 export const GET = asyncWrapperApi(async ()=>{
       let addedCities = 0 ;
-         for(let i  = 0 ; i < nightLifeCities.length ; i++){
-         const existCity = await cityModal().findOne({name : nightLifeCities[i].name})
-         if(existCity && existCity.categories?.some((category : CategoryDb )=>category.name === Categories.Nightlife ) ) continue ;
-         if(existCity  ){ await cityModal().findOneAndUpdate({name : nightLifeCities[i].name} , { $push: { categories: {name : Categories.Nightlife, position : i  }  }} ,{new: true})
+         for(let i  = 0 ; i < shopingCities.length ; i++){
+         const existCity = await cityModal().findOne({name : shopingCities[i].name})
+         if(existCity && existCity.categories?.some((category : CategoryDb )=>category.name === Categories.Shopping ) ) continue ;
+         if(existCity  ){ await cityModal().findOneAndUpdate({name : shopingCities[i].name} , { $push: { categories: {name : Categories.Shopping, position : i  }   } , $set: {
+            places: shopingCities[i].places , // Update another property here
+          }, } ,{new: true})
          }
-         else{ await cityModal().create({...nightLifeCities[i] , landmarks : nightLifeCities[i].landMarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [{name : Categories.Nightlife , position : i}]  , reviews: [] , likes: [] , dislikes : []  })
+         else{ await cityModal().create({...shopingCities[i] , landmarks : shopingCities[i].landMarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [{name : Categories.Shopping , position : i}]  , reviews: [] , likes: [] , dislikes : [] , places : shopingCities[i].places  })
          addedCities++ 
       }
          }

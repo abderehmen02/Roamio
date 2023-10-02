@@ -1,3 +1,1193 @@
+export const shopingCities = [
+  {
+      "name": "New York City",
+      "country": "United States",
+      "landMarks": [
+          "Statue of Liberty",
+          "Times Square",
+          "Central Park",
+          "Empire State Building",
+          "Brooklyn Bridge"
+      ],
+      "continent": "North America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Snow"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English"
+      ],
+      "places": [
+          {
+              "place": "Macy's",
+              "category": "Shopping"
+          },
+          {
+              "place": "Fifth Avenue",
+              "category": "Shopping"
+          },
+          {
+              "place": "Times Square",
+              "category": "Shopping"
+          },
+          {
+              "place": "Saks Fifth Avenue",
+              "category": "Shopping"
+          },
+          {
+              "place": "Bloomingdale's",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Los Angeles",
+      "country": "United States",
+      "landMarks": [
+          "Hollywood Walk of Fame",
+          "Griffith Observatory",
+          "Santa Monica Pier",
+          "Venice Beach",
+          "Universal Studios Hollywood"
+      ],
+      "continent": "North America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Sunny"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English",
+          "Spanish"
+      ],
+      "places": [
+          {
+              "place": "The Grove",
+              "category": "Shopping"
+          },
+          {
+              "place": "Rodeo Drive",
+              "category": "Shopping"
+          },
+          {
+              "place": "The Americana at Brand",
+              "category": "Shopping"
+          },
+          {
+              "place": "Santa Monica Place",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Chicago",
+      "country": "United States",
+      "landMarks": [
+          "Millennium Park",
+          "Navy Pier",
+          "Art Institute of Chicago",
+          "Willis Tower",
+          "The Magnificent Mile"
+      ],
+      "continent": "North America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Snow"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English"
+      ],
+      "places": [
+          {
+              "place": "Magnificent Mile",
+              "category": "Shopping"
+          },
+          {
+              "place": "Water Tower Place",
+              "category": "Shopping"
+          },
+          {
+              "place": "Navy Pier",
+              "category": "Shopping"
+          },
+          {
+              "place": "The Shops at North Bridge",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Miami",
+      "country": "United States",
+      "landMarks": [
+          "South Beach",
+          "Art Deco Historic District",
+          "Little Havana",
+          "Bayside Marketplace",
+          "Vizcaya Museum and Gardens"
+      ],
+      "continent": "North America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Tropical",
+          "Hurricane"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "English",
+          "Spanish"
+      ],
+      "places": [
+          {
+              "place": "Aventura Mall",
+              "category": "Shopping"
+          },
+          {
+              "place": "Dolphin Mall",
+              "category": "Shopping"
+          },
+          {
+              "place": "Lincoln Road",
+              "category": "Shopping"
+          },
+          {
+              "place": "Brickell City Centre",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Las Vegas",
+      "country": "United States",
+      "landMarks": [
+          "The Strip",
+          "Fremont Street Experience",
+          "Bellagio Fountains",
+          "Caesars Palace",
+          "Red Rock Canyon National Conservation Area"
+      ],
+      "continent": "North America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Desert",
+          "Hot"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English",
+          "Spanish"
+      ],
+      "places": [
+          {
+              "place": "The Forum Shops at Caesars",
+              "category": "Shopping"
+          },
+          {
+              "place": "Fashion Show Mall",
+              "category": "Shopping"
+          },
+          {
+              "place": "Las Vegas Premium Outlets",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "San Francisco",
+      "country": "United States",
+      "landMarks": [
+          "Golden Gate Bridge",
+          "Alcatraz Island",
+          "Fisherman's Wharf",
+          "Lombard Street",
+          "Pier 39"
+      ],
+      "continent": "North America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Foggy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English",
+          "Spanish"
+      ],
+      "places": [
+          {
+              "place": "Union Square",
+              "category": "Shopping"
+          },
+          {
+              "place": "Westfield San Francisco Centre",
+              "category": "Shopping"
+          },
+          {
+              "place": "Pier 39",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Dubai",
+      "country": "United Arab Emirates",
+      "landMarks": [
+          "Burj Khalifa",
+          "Palm Jumeirah",
+          "Dubai Mall",
+          "Jumeirah Beach",
+          "The Dubai Fountain"
+      ],
+      "continent": "Asia",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Desert",
+          "Hot"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "Arabic",
+          "English"
+      ],
+      "places": [
+          {
+              "place": "The Dubai Mall",
+              "category": "Shopping"
+          },
+          {
+              "place": "Mall of the Emirates",
+              "category": "Shopping"
+          },
+          {
+              "place": "Ibn Battuta Mall",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "London",
+      "country": "United Kingdom",
+      "landMarks": [
+          "Big Ben",
+          "Buckingham Palace",
+          "Tower of London",
+          "The British Museum",
+          "Hyde Park"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer",
+          "Autumn"
+      ],
+      "languages": [
+          "English"
+      ],
+      "places": [
+          {
+              "place": "Oxford Street",
+              "category": "Shopping"
+          },
+          {
+              "place": "Harrods",
+              "category": "Shopping"
+          },
+          {
+              "place": "Covent Garden",
+              "category": "Shopping"
+          },
+          {
+              "place": "Westfield London",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Tokyo",
+      "country": "Japan",
+      "landMarks": [
+          "Tokyo Tower",
+          "Shibuya Crossing",
+          "Senso-ji Temple",
+          "Imperial Palace",
+          "Akihabara"
+      ],
+      "continent": "Asia",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Japanese"
+      ],
+      "places": [
+          {
+              "place": "Ginza",
+              "category": "Shopping"
+          },
+          {
+              "place": "Shibuya 109",
+              "category": "Shopping"
+          },
+          {
+              "place": "Harajuku Takeshita Street",
+              "category": "Shopping"
+          },
+          {
+              "place": "Roppongi Hills",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Paris",
+      "country": "France",
+      "landMarks": [
+          "Eiffel Tower",
+          "Louvre Museum",
+          "Notre-Dame Cathedral",
+          "Champs-Élysées",
+          "Montmartre"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "French"
+      ],
+      "places": [
+          {
+              "place": "Champs-Élysées",
+              "category": "Shopping"
+          },
+          {
+              "place": "Galeries Lafayette",
+              "category": "Shopping"
+          },
+          {
+              "place": "Le Bon Marché",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Hong Kong",
+      "country": "China",
+      "landMarks": [
+          "Victoria Peak",
+          "Hong Kong Disneyland",
+          "Tsim Sha Tsui Promenade",
+          "Lan Kwai Fong",
+          "Ocean Park"
+      ],
+      "continent": "Asia",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Tropical",
+          "Monsoon"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Cantonese",
+          "English"
+      ],
+      "places": [
+          {
+              "place": "Times Square Hong Kong",
+              "category": "Shopping"
+          },
+          {
+              "place": "Harbour City",
+              "category": "Shopping"
+          },
+          {
+              "place": "Langham Place",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Singapore",
+      "country": "Singapore",
+      "landMarks": [
+          "Marina Bay Sands",
+          "Gardens by the Bay",
+          "Sentosa Island",
+          "Chinatown",
+          "Orchard Road"
+      ],
+      "continent": "Asia",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Tropical",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English",
+          "Malay",
+          "Mandarin",
+          "Tamil"
+      ],
+      "places": [
+          {
+              "place": "Orchard Road",
+              "category": "Shopping"
+          },
+          {
+              "place": "Marina Bay Sands",
+              "category": "Shopping"
+          },
+          {
+              "place": "VivoCity",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Shanghai",
+      "country": "China",
+      "landMarks": [
+          "The Bund",
+          "Shanghai Disneyland",
+          "Yu Garden",
+          "Oriental Pearl Tower",
+          "Jin Mao Tower"
+      ],
+      "continent": "Asia",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Mandarin"
+      ],
+      "places": [
+          {
+              "place": "Nanjing Road",
+              "category": "Shopping"
+          },
+          {
+              "place": "Xintiandi",
+              "category": "Shopping"
+          },
+          {
+              "place": "Super Brand Mall",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Sydney",
+      "country": "Australia",
+      "landMarks": [
+          "Sydney Opera House",
+          "Sydney Harbour Bridge",
+          "Bondi Beach",
+          "The Rocks",
+          "Taronga Zoo"
+      ],
+      "continent": "Oceania",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Sunny"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English"
+      ],
+      "places": [
+          {
+              "place": "Pitt Street Mall",
+              "category": "Shopping"
+          },
+          {
+              "place": "Queen Victoria Building",
+              "category": "Shopping"
+          },
+          {
+              "place": "Westfield Sydney",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Toronto",
+      "country": "Canada",
+      "landMarks": [
+          "CN Tower",
+          "Royal Ontario Museum",
+          "Distillery District",
+          "Toronto Islands",
+          "Ripley's Aquarium of Canada"
+      ],
+      "continent": "North America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Snow"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English",
+          "French"
+      ],
+      "places": [
+          {
+              "place": "Eaton Centre",
+              "category": "Shopping"
+          },
+          {
+              "place": "Yorkdale Shopping Centre",
+              "category": "Shopping"
+          },
+          {
+              "place": "Bloor-Yorkville",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Seoul",
+      "country": "South Korea",
+      "landMarks": [
+          "Gyeongbokgung Palace",
+          "Myeongdong",
+          "Bukchon Hanok Village",
+          "Namsan Seoul Tower",
+          "Lotte World Tower"
+      ],
+      "continent": "Asia",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Korean"
+      ],
+      "places": [
+          {
+              "place": "Myeongdong",
+              "category": "Shopping"
+          },
+          {
+              "place": "Dongdaemun Design Plaza",
+              "category": "Shopping"
+          },
+          {
+              "place": "Garosu-gil",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Milan",
+      "country": "Italy",
+      "landMarks": [
+          "Milan Cathedral",
+          "The Last Supper",
+          "Galleria Vittorio Emanuele II",
+          "Sforza Castle",
+          "Brera Art Gallery"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Italian"
+      ],
+      "places": [
+          {
+              "place": "Galleria Vittorio Emanuele II",
+              "category": "Shopping"
+          },
+          {
+              "place": "Corso Como",
+              "category": "Shopping"
+          },
+          {
+              "place": "La Rinascente",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Madrid",
+      "country": "Spain",
+      "landMarks": [
+          "Royal Palace of Madrid",
+          "Prado Museum",
+          "Retiro Park",
+          "Puerta del Sol",
+          "Plaza Mayor"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Sunny"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Spanish"
+      ],
+      "places": [
+          {
+              "place": "Gran Vía",
+              "category": "Shopping"
+          },
+          {
+              "place": "Puerta del Sol",
+              "category": "Shopping"
+          },
+          {
+              "place": "ABC Serrano",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Bangkok",
+      "country": "Thailand",
+      "landMarks": [
+          "Grand Palace",
+          "Wat Phra Kaew",
+          "Chatuchak Weekend Market",
+          "Wat Arun",
+          "MBK Center"
+      ],
+      "continent": "Asia",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Tropical",
+          "Monsoon"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "Thai"
+      ],
+      "places": [
+          {
+              "place": "Siam Paragon",
+              "category": "Shopping"
+          },
+          {
+              "place": "Chatuchak Weekend Market",
+              "category": "Shopping"
+          },
+          {
+              "place": "CentralWorld",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Istanbul",
+      "country": "Turkey",
+      "landMarks": [
+          "Hagia Sophia",
+          "Topkapi Palace",
+          "Blue Mosque",
+          "Grand Bazaar",
+          "Bosphorus Bridge"
+      ],
+      "continent": "Europe/Asia",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Turkish"
+      ],
+      "places": [
+          {
+              "place": "Grand Bazaar",
+              "category": "Shopping"
+          },
+          {
+              "place": "Istinye Park",
+              "category": "Shopping"
+          },
+          {
+              "place": "Nişantaşı",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Mumbai",
+      "country": "India",
+      "landMarks": [
+          "Gateway of India",
+          "Chhatrapati Shivaji Terminus",
+          "Elephanta Caves",
+          "Marine Drive",
+          "Siddhivinayak Temple"
+      ],
+      "continent": "Asia",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Tropical",
+          "Monsoon"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "Marathi",
+          "Hindi",
+          "English"
+      ],
+      "places": [
+          {
+              "place": "Phoenix Marketcity",
+              "category": "Shopping"
+          },
+          {
+              "place": "Colaba Causeway",
+              "category": "Shopping"
+          },
+          {
+              "place": "High Street Phoenix",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Dublin",
+      "country": "Ireland",
+      "landMarks": [
+          "Guinness Storehouse",
+          "Dublin Castle",
+          "Trinity College Dublin",
+          "St. Patrick's Cathedral",
+          "Temple Bar"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer",
+          "Autumn"
+      ],
+      "languages": [
+          "English",
+          "Irish"
+      ],
+      "places": [
+          {
+              "place": "Grafton Street",
+              "category": "Shopping"
+          },
+          {
+              "place": "Dundrum Town Centre",
+              "category": "Shopping"
+          },
+          {
+              "place": "Powerscourt Centre",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Rio de Janeiro",
+      "country": "Brazil",
+      "landMarks": [
+          "Christ the Redeemer",
+          "Copacabana Beach",
+          "Sugarloaf Mountain",
+          "Ipanema Beach",
+          "Tijuca Forest National Park"
+      ],
+      "continent": "South America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Tropical",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer"
+      ],
+      "languages": [
+          "Portuguese"
+      ],
+      "places": [
+          {
+              "place": "Rua do Lavradio",
+              "category": "Shopping"
+          },
+          {
+              "place": "Shopping Leblon",
+              "category": "Shopping"
+          },
+          {
+              "place": "Ipanema Hippie Fair",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Berlin",
+      "country": "Germany",
+      "landMarks": [
+          "Brandenburg Gate",
+          "Berlin Wall Memorial",
+          "Reichstag Building",
+          "Museum Island",
+          "Checkpoint Charlie"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "German"
+      ],
+      "places": [
+          {
+              "place": "Kurfürstendamm",
+              "category": "Shopping"
+          },
+          {
+              "place": "Mall of Berlin",
+              "category": "Shopping"
+          },
+          {
+              "place": "Bikini Berlin",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Barcelona",
+      "country": "Spain",
+      "landMarks": [
+          "Sagrada Familia",
+          "Park Güell",
+          "La Rambla",
+          "Casa Batlló",
+          "Barri Gòtic"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Mediterranean"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Spanish",
+          "Catalan"
+      ],
+      "places": [
+          {
+              "place": "Passeig de Gràcia",
+              "category": "Shopping"
+          },
+          {
+              "place": "La Maquinista",
+              "category": "Shopping"
+          },
+          {
+              "place": "El Raval",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Rome",
+      "country": "Italy",
+      "landMarks": [
+          "Colosseum",
+          "Roman Forum",
+          "Trevi Fountain",
+          "Pantheon",
+          "Vatican Museums"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Mediterranean"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "Italian"
+      ],
+      "places": [
+          {
+              "place": "Via del Corso",
+              "category": "Shopping"
+          },
+          {
+              "place": "Galleria Alberto Sordi",
+              "category": "Shopping"
+          },
+          {
+              "place": "Euroma2",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Kuala Lumpur",
+      "country": "Malaysia",
+      "landMarks": [
+          "Petronas Twin Towers",
+          "Batu Caves",
+          "KL Tower",
+          "Central Market",
+          "Chinatown"
+      ],
+      "continent": "Asia",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Tropical",
+          "Monsoon"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "Malay",
+          "English"
+      ],
+      "places": [
+          {
+              "place": "Pavilion Kuala Lumpur",
+              "category": "Shopping"
+          },
+          {
+              "place": "Suria KLCC",
+              "category": "Shopping"
+          },
+          {
+              "place": "Berjaya Times Square",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Mexico City",
+      "country": "Mexico",
+      "landMarks": [
+          "Chapultepec Castle",
+          "Zócalo",
+          "National Palace",
+          "Frida Kahlo Museum",
+          "Xochimilco"
+      ],
+      "continent": "North America",
+      "price": "INEXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Winter",
+          "Spring"
+      ],
+      "languages": [
+          "Spanish"
+      ],
+      "places": [
+          {
+              "place": "Antara Polanco",
+              "category": "Shopping"
+          },
+          {
+              "place": "Centro Santa Fe",
+              "category": "Shopping"
+          },
+          {
+              "place": "Perisur",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Vancouver",
+      "country": "Canada",
+      "landMarks": [
+          "Stanley Park",
+          "Granville Island",
+          "Capilano Suspension Bridge Park",
+          "Grouse Mountain",
+          "Science World"
+      ],
+      "continent": "North America",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Autumn"
+      ],
+      "languages": [
+          "English"
+      ],
+      "places": [
+          {
+              "place": "Pacific Centre",
+              "category": "Shopping"
+          },
+          {
+              "place": "Metropolis at Metrotown",
+              "category": "Shopping"
+          },
+          {
+              "place": "Robson Street",
+              "category": "Shopping"
+          }
+      ]
+  },
+  {
+      "name": "Copenhagen",
+      "country": "Denmark",
+      "landMarks": [
+          "Tivoli Gardens",
+          "Nyhavn",
+          "The Little Mermaid",
+          "Rosenborg Castle",
+          "Christiansborg Palace"
+      ],
+      "continent": "Europe",
+      "price": "EXPENSIVE",
+      "weathers": [
+          "Temperate",
+          "Rainy"
+      ],
+      "yearTimes": [
+          "Spring",
+          "Summer",
+          "Autumn"
+      ],
+      "languages": [
+          "Danish"
+      ],
+      "places": [
+          {
+              "place": "Strøget",
+              "category": "Shopping"
+          },
+          {
+              "place": "Magasin du Nord",
+              "category": "Shopping"
+          },
+          {
+              "place": "Illum",
+              "category": "Shopping"
+          }
+      ]
+  }
+]
+
+
+
+
 export const nightLifeCities  = [
   {
       "name": "New York City",
