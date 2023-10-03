@@ -21,6 +21,8 @@ export const appConfig = {
         savedCities : '/savedCities' ,
         blog: '/blog' ,
         notes: '/notes' ,
+        login : "/login" ,
+        signUp : "/signUp" ,
         findCities : '/findCities'  , 
         termsOfUse : '/termsOfUse'  ,
         primacyPolicy : '/privacyPolicy' ,
