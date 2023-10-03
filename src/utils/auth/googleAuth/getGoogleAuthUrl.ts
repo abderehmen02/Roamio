@@ -2,7 +2,6 @@ import { authConfig } from "@/config/auth"
 
 export const getGoogleAuthUrl =   (): string=> {
 
-console.log("getting tokens")
 if(!process.env.NEXT_PUBLIC_GOOGLE_AUTH_CLIENT_ID){
     const error = "can not get the client id from the envirement variables" 
     console.log(error)
