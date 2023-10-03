@@ -1,3 +1,5 @@
+import { osakaPost } from "./posts/osaka"
+
 export type Article ={
     title: string ,
     paragraphs: string[]
@@ -11,3 +13,6 @@ export type BlogPost = {
 }
 
 export type  BlogPosts = BlogPost[] 
+
+
+export const  blogPosts = [osakaPost]

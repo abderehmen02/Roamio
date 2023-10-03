@@ -1,6 +1,6 @@
 import { BlogPost } from "../blog";
 
-const osakaBlog: BlogPost = {
+export const osakaPost: BlogPost = {
     title: "Osaka Unveiled: Culinary Delights, History, and Wonders",
     descreption: "Explore the heart of Japan through Osaka's rich culture and flavors.",
     image : "osaka.jpg" ,
