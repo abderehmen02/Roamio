@@ -10,7 +10,7 @@ import { useSelector } from "react-redux"
 import { stateType } from "@/state/reducers"
 import { InfoCard, cardsColors } from "@/components/marketing/cards"
 import { appConfig } from "@/config"
-export default function Dashboard  (){
+export default function FindCitiesPage  (){
     const cities = useSelector((state : stateType)=>state.cities)
     const router = useRouter()    
     if(cities.error?.message) return <LoggedPage> <Title title="Error !" descreption={"Some error hapened on the cities state! please try again later." + cities.error.message }  /></LoggedPage>
