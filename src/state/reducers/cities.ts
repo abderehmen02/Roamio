@@ -1,7 +1,7 @@
 import { LoginAction , LoginState , LoginActionTypes } from '@/types/state/auth/signIn'
 import { CitiesAction, CitiesActionTypes, CitiesState } from '@/types/state/cities'
 
-const initialCities : CitiesState  = {cities : [] , loading : false , error : null} 
+const initialCities : CitiesState  = {cities : [] , loading : true , error : null} 
 export const citiesReducer =  (state : CitiesState = initialCities , action : CitiesAction )=>{
 switch(action.type){
     case CitiesActionTypes.EDIT_CITIES: {
