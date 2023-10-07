@@ -1,29 +1,45 @@
 import { CategoryDb, cityModal } from "@/db/models/city"
 import { apiResponse } from "@/utils/api/nextResponse"
 import { asyncWrapperApi } from "@/utils/asyncWrapper"
-import { festivalCities } from "./static"
+import { ecoFriendlyCities } from "./static"
 import { Categories } from "@/types/prefrences"
 import { StatusCodes } from "http-status-codes"
 
 
+// adding cities with activies
 
+// export const GET = asyncWrapperApi(async ()=>{
+//       let addedCities = 0 ;
+//          for(let i  = 0 ; i < festivalCities.length ; i++){
+//          const existCity = await cityModal().findOne({name : festivalCities[i].name})
+//          if(existCity && existCity.categories?.some((category : CategoryDb )=>category.name === Categories.Festivals ) ) continue ;
+//          if(existCity  ){ await cityModal().findOneAndUpdate({name : festivalCities[i].name} , { $push: { categories: {name : Categories.Festivals, position : i  }   } , $set: {
+//             activities: festivalCities[i].activities , 
+//           }, } ,{new: true})
+//          }
+//          else{ await cityModal().create({...festivalCities[i] , landmarks : festivalCities[i].landMarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [{name : Categories.Festivals, position : i}]  , reviews: [] , likes: [] , dislikes : [] , activities : festivalCities[i].activities  })
+//          addedCities++ 
+//       }
+//          }
+//          return apiResponse(StatusCodes.CREATED , JSON.stringify({ number : addedCities } ))      
+//    })
+
+
+// adding cities without activities
 
 export const GET = asyncWrapperApi(async ()=>{
-      let addedCities = 0 ;
-         for(let i  = 0 ; i < festivalCities.length ; i++){
-         const existCity = await cityModal().findOne({name : festivalCities[i].name})
-         if(existCity && existCity.categories?.some((category : CategoryDb )=>category.name === Categories.Festivals ) ) continue ;
-         if(existCity  ){ await cityModal().findOneAndUpdate({name : festivalCities[i].name} , { $push: { categories: {name : Categories.Festivals, position : i  }   } , $set: {
-            activities: festivalCities[i].activities , 
-          }, } ,{new: true})
-         }
-         else{ await cityModal().create({...festivalCities[i] , landmarks : festivalCities[i].landMarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [{name : Categories.Festivals, position : i}]  , reviews: [] , likes: [] , dislikes : [] , activities : festivalCities[i].activities  })
-         addedCities++ 
+   let addedCities = 0 ;
+      for(let i  = 0 ; i < ecoFriendlyCities.length ; i++){
+      const existCity = await cityModal().findOne({name : ecoFriendlyCities[i].name})
+      if(existCity && existCity.categories?.some((category : CategoryDb )=>category.name === Categories.EcoFriendly ) ) continue ;
+      if(existCity  ){ await cityModal().findOneAndUpdate({name : ecoFriendlyCities[i].name} , { $push: { categories: {name : Categories.EcoFriendly, position : i  }   }} ,{new: true})
       }
-         }
-         return apiResponse(StatusCodes.CREATED , JSON.stringify({ number : addedCities } ))      
-   })
-
+      else{ await cityModal().create({...ecoFriendlyCities[i] , landmarks : ecoFriendlyCities[i].landMarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [{name : Categories.EcoFriendly, position : i}]  , reviews: [] , likes: [] , dislikes : [] })
+      addedCities++ 
+   }
+      }
+      return apiResponse(StatusCodes.CREATED , JSON.stringify({ number : addedCities } ))      
+})
 
 
 //    const footballCities = [{ name: "Barcelona", country: "Spain", continent: "Europe", price: "EXPENSIVE", weathers: ["Mediterranean"], yearTimes: ["Spring", "Summer", "Autumn"], landmarks: ["Sagrada Família", "Park Güell", "Casa Batlló", "La Rambla", "Barri Gòtic (Gothic Quarter)"] },

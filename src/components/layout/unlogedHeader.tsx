@@ -10,7 +10,7 @@ export  async function  UnlogedHeader  (){
     const {t} = await useTranslation()
 
     return(
-        <div className="flex w-full items-center justify-around " >
+        <div  className="flex w-full items-center justify-around " >
 <img src="/logo-color.png" className="w-16 h-16" />
 <Link href={appConfig.links.blog} > <H3 className="text-primary " > {t("unlogedHeader.blog")}</H3></Link>
 <Link href={appConfig.links.findCities} ><H3 className="text-primary" >{t("find city")}</H3></Link>
