@@ -15,8 +15,8 @@ type  ErrorContainerProps  = {
 
 
 export const ErrorContainer : React.FC<ErrorContainerProps> = ({title , descreption   , className , titleStyle , descreptionClassName , titleClassName  , descreptionStyle , ...props })=>{
-return <div  className={cn(  "w-full items-center flex flex-col" , className )}  {...props} >
-{ typeof title === "string"  ?  <H2 style={titleStyle} className={cn("text-primary text-center font-bold"  , titleClassName ) }  >{title}</H2> :  <>{title}</>  }
-{ typeof descreption === "string"  ?   <P className={cn("text-center"  , descreptionClassName ) } style={descreptionStyle}  >{descreption}</P> :  <>{descreption}</>  }
+return <div  className={cn(  " items-center bg-white py-10 shadow-lg px-14 rounded-lg w-fit flex flex-col gap-3" , className )}  {...props} >
+{ typeof title === "string"  ?  <H2 style={titleStyle} className={cn("text-red-500 capitalize text-center font-bold"  , titleClassName ) }  >{title}</H2> :  <>{title}</>  }
+{ typeof descreption === "string"  ?   <P className={cn("text-center  capitalize"  , descreptionClassName ) } style={descreptionStyle}  >{descreption}</P> :  <>{descreption}</>  }
 </div>
 } 
