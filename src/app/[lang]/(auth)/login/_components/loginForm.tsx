@@ -23,7 +23,7 @@ const push = useRouter().push
 
 
 return <div className="flex w-full relative gap-0 items-center justify-center" >
-    <div className="flex bg-white w-7/12 gap-6 py-8 flex-col" >
+    <div className="flex bg-white w-7/12 gap-6 py-8 px-16 flex-col" >
     <div className="w-full  flex flex-col" >
     <H2 className="text-primary text-center font-bold" >{t("login.title")}</H2>
     <P className="text-center " >{t("login.welcome")}</P>
