@@ -17,7 +17,7 @@ export const LoggedPage : React.FC<HtmlHTMLAttributes<HTMLDivElement>> = ({class
 }
 
 export const Page : React.FC<HtmlHTMLAttributes<HTMLDivElement>> = ({className , children , ...props})=>{
-    return <div className={cn("flex flex-col gap-11  py-6 px-4")} {...props} >
+    return <div className={cn("flex flex-col gap-11 w-full  min-h-screen py-6 px-4" , className)} {...props} >
 {children}
     </div>
 }

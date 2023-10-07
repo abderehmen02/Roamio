@@ -8,9 +8,9 @@ import { Page } from "@/ui/containers"
 
  const BlogPage = ({params: {title}} : {params :{title: string}})=>{
 const blogPostInfo = blogPosts.find(post=>post.title === title)
-if(!blogPostInfo) return <Page>
-    <ErrorContainer title="Sorry!" descreption="can not find a post with the specified title" />
-</Page>
+if(!blogPostInfo) return    <Page className="bg-red-300 w-full hidden" >
+ <ErrorContainer title="Sorry!" descreption="can not find a post with the specified title" />
+ </Page>
 return <Page>
     <Title title={blogPostInfo?.title} />
 </Page>
