@@ -17,7 +17,6 @@ export default function FindCitiesPage  (){
     const cities = useSelector((state : stateType)=>state.cities)
     const userInfo  = useSelector((state : stateType)=>state.userInfo)
     const router = useRouter()   
-    console.log("loading" , cities.loading , cities.cities.length ) 
     if(cities.error?.message) return <LoggedPage> <Title title="Error !" descreption={"Some error hapened on the cities state! please try again later." + cities.error.message }  /></LoggedPage>
     return <Page >
 <div className=" flex items-center justify-between px-7" >

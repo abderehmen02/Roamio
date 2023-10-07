@@ -31,9 +31,9 @@ export default async function RootLayout({
 
   return (
     <html lang={lang} dir={dir(lang)} >
-      <body className='bg-pageBg' >   <TanstackProvider>
+      <body  >   <TanstackProvider>
          <StateProvider>   
-            {children}
+        <div className='bg-pageBg flex w-full items-center justify-center relative'>{children}</div>    
         </StateProvider></TanstackProvider>
       </body>
     </html>
