@@ -17,7 +17,7 @@ export const Cities = ()=>{
     if(cities.loading && cities.cities.length === 0 ) return <LoadingCities/>
     if(cities.error) return <H2>{cities.error.message}</H2>
 
-    return <div className="flex flex-col  items-center gap-10" >
+    return <div className="flex flex-col w-full  items-center gap-10" >
          {cities.cities.map((city)=><CityCard key={city.name} {...city} />)}
         <SeeMoreCities/>
     </div>
