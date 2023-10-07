@@ -1,3 +1,4 @@
+import { appConfig } from "@/config"
 import { BlogPost } from "@/constants/blog/blog"
 import { TextButton } from "@/ui/buttons"
 import { Title } from "@/ui/title"
@@ -12,7 +13,7 @@ export const BlogPostCard : React.FC<BlogPost> = (postInfo)=>{
 <P>
 {postInfo.overviewArticles}
 </P>
-<Link href={"/"  + postInfo.title}  ><TextButton className="w-full"  >See More</TextButton></Link>
+<Link href={appConfig.links.blog + '/'  + postInfo.title}  ><TextButton className="w-full"  >See More</TextButton></Link>
 </div>
     </div>
 }
