@@ -10,6 +10,7 @@ const productionUrl = "http://roamio.fr/"
 export const appConfig = {
     dateFormate : 'MM/dd/yyyy' ,
     name : 'Roamio' ,
+    logoImage : "/logo.png" ,
         emailPassword : process.env.GMAIL_PASSWORD ,
     email: process.env.GMAIL_EMAIL ,
     personalEmail : process.env.PERSONAL_EMAIL , 
