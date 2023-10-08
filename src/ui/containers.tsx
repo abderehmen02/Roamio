@@ -17,7 +17,7 @@ export const LoggedPage : React.FC<HtmlHTMLAttributes<HTMLDivElement>> = ({class
 }
 
 export const Page : React.FC<HtmlHTMLAttributes<HTMLDivElement>> = ({className , children , ...props})=>{
-    return <div className={cn("flex  flex-col gap-11 w-full    py-6 px-4" , className)} style={{...props.style, maxWidth : '1500px' , minHeight : '700px' }} {...props} >
+    return <div className={cn("flex  flex-col gap-11 w-full    py-6 px-12" , className)} style={{...props.style, maxWidth : '1500px' , minHeight : '700px' }} {...props} >
 {children}
     </div>
 }

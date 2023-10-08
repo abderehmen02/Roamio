@@ -14,10 +14,10 @@ import { Page } from "@/ui/containers"
 if(!blogPostInfo) return    <Page className="items-center justify-center" >
  <ErrorContainer title="Sorry!" descreption="can not find a post with the specified title" />
  </Page>
-return <Page>
+return <Page  >
     <Title title={blogPostInfo?.title} descreption={blogPostInfo.descreption} />
-    <img style={{height : '500px', width : '80%'  }} src={blogPostInfo.image} />
-<div style={{width : '80%'}} className="flex flex-col gap-5" >    {
+    <img style={{height : '500px', width : '90%'  }} src={blogPostInfo.image} />
+<div style={{width : '90%'}} className="flex flex-col gap-5" >    {
        blogPostInfo.articles.map(blogPost=><div >
             <H2>{blogPost.title}</H2>
             {
