@@ -19,7 +19,7 @@ export const SettingsList : React.FC = ()=>{
     const dispatch = useDispatch()
 return     <div   className="flex menu shadow-2xl px-4 flex-col items-center" >
     <Link href={appConfig.links.savedCities}  className="py-3 gap-3  cursor-pointer items-center justify-start hoverSettingsList  thinBorderBottom  flex px-7 border-black w-full " ><NotesIcon/><H4 className=" text-center  w-fit" >Saved Cities</H4>  </Link> 
-    <Link href="/notes" className="flex gap-3 items-center justify-start cursor-pointer py-3 hoverSettingsList thinBorderBottom    border-black w-full px-7" ><ArticleIcon/><H4 className="w-fit text-center" > Your Notes</H4></Link>
+    {/* <Link href="/notes" className="flex gap-3 items-center justify-start cursor-pointer py-3 hoverSettingsList thinBorderBottom    border-black w-full px-7" ><ArticleIcon/><H4 className="w-fit text-center" > Your Notes</H4></Link> */}
     <div onClick={()=>logout(dispatch , router.push)} className="py-3 flex items-center justify-start gap-3  cursor-pointer hoverSettingsList thinBorderBottom px-7   border-black w-full " ><NotInterestedIcon/><P className="w-fit text-center" >Logout</P></div>
     </div>
 

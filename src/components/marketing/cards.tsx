@@ -63,6 +63,6 @@ export const CategoryCard : React.FC<{   className? : string ,   title : string 
         <H2>{title}</H2>
         <P  className="w-full box-border break-words" >{descreption}</P> 
         </div>
-        <img   src="/Brisbane-1.webp" className="rounded-b-xl"  style={{width : '350px' , height : '200px'}}   />
+        <img   src={currImage} className="rounded-b-xl"  style={{width : '350px' , height : '200px'}}   />
     </div>
 }
