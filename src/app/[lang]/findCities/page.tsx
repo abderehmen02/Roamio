@@ -11,8 +11,8 @@ import { stateType } from "@/state/reducers"
 import { InfoCard, cardsColors } from "@/components/marketing/cards"
 import { appConfig } from "@/config"
 import { isUserInfo } from "@/types/state/auth/userInfo"
-import { userInfo } from "os"
-import { H1 } from "@/ui/typography"
+
+
 export default function FindCitiesPage  (){
     const cities = useSelector((state : stateType)=>state.cities)
     const userInfo  = useSelector((state : stateType)=>state.userInfo)

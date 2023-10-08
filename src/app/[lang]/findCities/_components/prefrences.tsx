@@ -69,8 +69,8 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
 
     items.slice(0 , LastItem).map((item=> <div   onClick={()=>toglePrefrence(item)} className={ cn( " cursor-pointer  capitalize flex items-center gap-1"  , {"text-black " :  isPrefrenceIncluded( item )} )} > <P  >{item}  </P>{isPrefrenceIncluded(item) && <RadioButtonCheckedIcon style={{fontSize : '13px'}} />} </div>))
 }    
-<P className=" capitalize cursor-pointer text-sm" onClick={()=>{items?.length> LastItem  && setLastItem(val=>val+ 3)  }} >{t("seeMore")}<i className="bi bi-arrow-down"></i></P>
-<P className=" capitalize cursor-pointer text-sm" onClick={()=>{ items?.length> 2  &&  setLastItem(val=>val  -  3) }} >{t("seeLess")}<i className="bi bi-arrow-up"></i></P>
+{ items.length > LastItem &&  <P className=" capitalize cursor-pointer text-sm" onClick={()=>{items?.length> LastItem  && setLastItem(val=>val+ 3)  }} >{t("seeMore")}<i className="bi bi-arrow-down"></i></P> }
+{ LastItem > 3 && <P className=" capitalize cursor-pointer text-sm" onClick={()=>{ LastItem> 2  &&  setLastItem(val=>val  -  3) }} >{t("seeLess")}<i className="bi bi-arrow-up"></i></P>}
     </div>
 }
 
