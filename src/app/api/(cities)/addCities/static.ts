@@ -1,4 +1,782 @@
-export const artisticCities = [
+export const ArchitectureCities =  [
+    {
+        "name": "Florence",
+        "country": "Italy",
+        "landMarks": [
+            "Uffizi Gallery",
+            "Florence Cathedral",
+            "Ponte Vecchio",
+            "Palazzo Vecchio",
+            "Boboli Gardens"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Mediterranean",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Italian"
+        ],
+        "places": [
+            {
+                "place": "Florence Cathedral",
+                "category": "Architecture"
+            },
+            {
+                "place": "Uffizi Gallery",
+                "category": "Architecture"
+            },
+            {
+                "place": "Ponte Vecchio",
+                "category": "Architecture"
+            }
+        ]
+    },
+    {
+        "name": "Copenhagen",
+        "country": "Denmark",
+        "landMarks": [
+            "Tivoli Gardens",
+            "The Little Mermaid",
+            "Nyhavn",
+            "Rosenborg Castle",
+            "Amalienborg Palace"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Danish"
+        ],
+        "places": [
+            {
+                "place": "The Little Mermaid",
+                "category": "Architecture"
+            },
+            {
+                "place": "Rosenborg Castle",
+                "category": "Architecture"
+            },
+            {
+                "place": "Copenhagen Opera House",
+                "category": "Architecture"
+            }
+        ]
+    },
+    {
+        "name": "Mumbai",
+        "country": "India",
+        "landMarks": [
+            "Gateway of India",
+            "Chhatrapati Shivaji Terminus",
+            "Elephanta Caves",
+            "Marine Drive",
+            "Haji Ali Dargah"
+        ],
+        "continent": "Asia",
+        "price": "MEDIUM",
+        "weathers": [
+            "Tropical",
+            "Monsoon"
+        ],
+        "yearTimes": [
+            "Winter",
+            "Summer"
+        ],
+        "languages": [
+            "Hindi"
+        ],
+        "places": [
+            {
+                "place": "Gateway of India",
+                "category": "Architecture"
+            },
+            {
+                "place": "Chhatrapati Shivaji Terminus",
+                "category": "Architecture"
+            },
+            {
+                "place": "Antilia",
+                "category": "Architecture"
+            }
+        ]
+    },
+    {
+        "name": "Seoul",
+        "country": "South Korea",
+        "landMarks": [
+            "Gyeongbokgung Palace",
+            "Namsan Seoul Tower",
+            "Myeongdong",
+            "Bukchon Hanok Village",
+            "Lotte World Tower"
+        ],
+        "continent": "Asia",
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Korean"
+        ],
+        "places": [
+            {
+                "place": "Dongdaemun Design Plaza",
+                "category": "Architecture"
+            },
+            {
+                "place": "Gyeongbokgung Palace",
+                "category": "Architecture"
+            },
+            {
+                "place": "Lotte World Tower",
+                "category": "Architecture"
+            }
+        ]
+    },
+    {
+        "name": "Prague",
+        "country": "Czech Republic",
+        "landMarks": [
+            "Prague Castle",
+            "Charles Bridge",
+            "Old Town Square",
+            "Astronomical Clock",
+            "St. Vitus Cathedral"
+        ],
+        "continent": "Europe",
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Czech"
+        ],
+        "places": [
+            {
+                "place": "Prague Castle",
+                "category": "Architecture"
+            },
+            {
+                "place": "Charles Bridge",
+                "category": "Architecture"
+            },
+            {
+                "place": "Astronomical Clock",
+                "category": "Architecture"
+            }
+        ]
+    },
+    {
+        "name": "Vienna",
+        "country": "Austria",
+        "landMarks": [
+            "Schönbrunn Palace",
+            "St. Stephen's Cathedral",
+            "Belvedere Palace",
+            "Hofburg Palace",
+            "Vienna State Opera"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "German"
+        ],
+        "places": [
+            {
+                "place": "Schönbrunn Palace",
+                "category": "Architecture"
+            },
+            {
+                "place": "St. Stephen's Cathedral",
+                "category": "Architecture"
+            },
+            {
+                "place": "Belvedere Palace",
+                "category": "Architecture"
+            }
+        ]
+    },
+    {
+        "name": "Amsterdam",
+        "country": "Netherlands",
+        "landMarks": [
+            "Rijksmuseum",
+            "Van Gogh Museum",
+            "Anne Frank House",
+            "Canal Ring",
+            "Dam Square"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Dutch"
+        ],
+        "places": [
+            {
+                "place": "Rijksmuseum",
+                "category": "Architecture"
+            },
+            {
+                "place": "Van Gogh Museum",
+                "category": "Architecture"
+            },
+            {
+                "place": "Anne Frank House",
+                "category": "Architecture"
+            }
+        ]
+    },
+    {
+        "name": "Beijing",
+        "country": "China",
+        "landMarks": [
+            "Great Wall of China",
+            "Forbidden City",
+            "Temple of Heaven",
+            "Summer Palace",
+            "Tiananmen Square"
+        ],
+        "continent": "Asia",
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Mandarin"
+        ],
+        "places": [
+            {
+                "place": "Great Wall of China",
+                "category": "Architecture"
+            },
+            {
+                "place": "Forbidden City",
+                "category": "Architecture"
+            },
+            {
+                "place": "Temple of Heaven",
+                "category": "Architecture"
+            }
+        ]
+    },
+    {
+        "name": "Dublin",
+        "country": "Ireland",
+        "landMarks": [
+            "Guinness Storehouse",
+            "Trinity College Dublin",
+            "Dublin Castle",
+            "St. Patrick's Cathedral",
+            "Temple Bar"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English",
+            "Irish"
+        ],
+        "places": [
+            {
+                "place": "Dublin Castle",
+                "category": "Architecture"
+            },
+            {
+                "place": "St. Patrick's Cathedral",
+                "category": "Architecture"
+            },
+            {
+                "place": "Trinity College Library",
+                "category": "Architecture"
+            }
+        ]
+    },
+    {
+        "name": "Stockholm",
+        "country": "Sweden",
+        "landMarks": [
+            "Vasa Museum",
+            "Gamla Stan",
+            "ABBA Museum",
+            "Skansen",
+            "Royal Palace"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Swedish"
+        ],
+        "places": [
+            {
+                "place": "Stockholm Palace",
+                "category": "Architecture"
+            },
+            {
+                "place": "Vasa Museum",
+                "category": "Architecture"
+            },
+            {
+                "place": "Skansen Open-Air Museum",
+                "category": "Architecture"
+            }
+        ]
+    },
+    {
+        "name": "Budapest",
+        "country": "Hungary",
+        "landMarks": [
+            "Buda Castle",
+            "Chain Bridge",
+            "Parliament Building",
+            "Fisherman's Bastion",
+            "Heroes' Square"
+        ],
+        "continent": "Europe",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Hungarian"
+        ],
+        "places": [
+            {
+                "place": "Buda Castle",
+                "category": "Architecture"
+            },
+            {
+                "place": "Fisherman's Bastion",
+                "category": "Architecture"
+            },
+            {
+                "place": "Parliament Building",
+                "category": "Architecture"
+            }
+        ]
+    },
+    {
+        "name": "Marrakech",
+        "country": "Morocco",
+        "landMarks": [
+            "Jardin Majorelle",
+            "Bahia Palace",
+            "Medina of Marrakech",
+            "Koutoubia Mosque",
+            "Saadian Tombs"
+        ],
+        "continent": "Africa",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Desert",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Arabic",
+            "French"
+        ],
+        "places": [
+            {
+                "place": "Koutoubia Mosque",
+                "category": "Architecture"
+            },
+            {
+                "place": "Bahia Palace",
+                "category": "Architecture"
+            },
+            {
+                "place": "Saadian Tombs",
+                "category": "Architecture"
+            }
+        ]
+    },
+    {
+        "name": "Cairo",
+        "country": "Egypt",
+        "landMarks": [
+            "Pyramids of Giza",
+            "The Sphinx",
+            "Khan el-Khalili",
+            "Egyptian Museum",
+            "Coptic Cairo"
+        ],
+        "continent": "Africa",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Desert",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Arabic"
+        ],
+        "places": [
+            {
+                "place": "Giza Pyramids",
+                "category": "Architecture"
+            },
+            {
+                "place": "Khan el-Khalili",
+                "category": "Architecture"
+            },
+            {
+                "place": "Salah El-Din Citadel",
+                "category": "Architecture"
+            }
+        ]
+    },
+    {
+        "name": "San Francisco",
+        "country": "United States",
+        "landMarks": [
+            "Golden Gate Bridge",
+            "Alcatraz Island",
+            "Fisherman's Wharf",
+            "Lombard Street",
+            "Chinatown"
+        ],
+        "continent": "North America",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English"
+        ],
+        "places": [
+            {
+                "place": "Golden Gate Bridge",
+                "category": "Architecture"
+            },
+            {
+                "place": "Alcatraz Island",
+                "category": "Architecture"
+            },
+            {
+                "place": "Palace of Fine Arts",
+                "category": "Architecture"
+            }
+        ]
+    },
+    {
+        "name": "Buenos Aires",
+        "country": "Argentina",
+        "landMarks": [
+            "La Recoleta Cemetery",
+            "Teatro Colón",
+            "Casa Rosada",
+            "San Telmo",
+            "Malba - Fundación Costantini"
+        ],
+        "continent": "South America",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Spanish"
+        ],
+        "places": [
+            {
+                "place": "Teatro Colón",
+                "category": "Architecture"
+            },
+            {
+                "place": "Casa Rosada",
+                "category": "Architecture"
+            },
+            {
+                "place": "Palermo Soho",
+                "category": "Architecture"
+            }
+        ]
+    },
+    {
+        "name": "Edinburgh",
+        "country": "Scotland",
+        "landMarks": [
+            "Edinburgh Castle",
+            "Royal Mile",
+            "Holyrood Palace",
+            "Arthur's Seat",
+            "Scott Monument"
+        ],
+        "continent": "Europe",
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English",
+            "Scots"
+        ],
+        "places": [
+            {
+                "place": "Edinburgh Castle",
+                "category": "Architecture"
+            },
+            {
+                "place": "Royal Mile",
+                "category": "Architecture"
+            },
+            {
+                "place": "Holyrood Palace",
+                "category": "Architecture"
+            }
+        ]
+    },
+    {
+        "name": "Munich",
+        "country": "Germany",
+        "landMarks": [
+            "Nymphenburg Palace",
+            "Marienplatz",
+            "Neuschwanstein Castle",
+            "English Garden",
+            "BMW Welt"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "German"
+        ],
+        "places": [
+            {
+                "place": "Nymphenburg Palace",
+                "category": "Architecture"
+            },
+            {
+                "place": "Frauenkirche",
+                "category": "Architecture"
+            },
+            {
+                "place": "Marienplatz",
+                "category": "Architecture"
+            }
+        ]
+    },
+    {
+        "name": "Shanghai",
+        "country": "China",
+        "landMarks": [
+            "The Bund",
+            "Yu Garden",
+            "Shanghai Tower",
+            "Jin Mao Tower",
+            "Oriental Pearl Tower"
+        ],
+        "continent": "Asia",
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Mandarin"
+        ],
+        "places": [
+            {
+                "place": "Shanghai World Financial Center",
+                "category": "Architecture"
+            },
+            {
+                "place": "The Bund",
+                "category": "Architecture"
+            },
+            {
+                "place": "Yu Garden",
+                "category": "Architecture"
+            }
+        ]
+    },
+    {
+        "name": "Toronto",
+        "country": "Canada",
+        "landMarks": [
+            "CN Tower",
+            "Royal Ontario Museum",
+            "Distillery District",
+            "Ripley's Aquarium",
+            "Toronto Islands"
+        ],
+        "continent": "North America",
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English",
+            "French"
+        ],
+        "places": [
+            {
+                "place": "CN Tower",
+                "category": "Architecture"
+            },
+            {
+                "place": "Royal Ontario Museum",
+                "category": "Architecture"
+            },
+            {
+                "place": "Art Gallery of Ontario",
+                "category": "Architecture"
+            }
+        ]
+    }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ const artisticCities = [
     {
         "name": "Paris",
         "country": "France",

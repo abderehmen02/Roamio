@@ -1,21 +1,22 @@
 import { CategoryDb, cityModal } from "@/db/models/city"
 import { apiResponse } from "@/utils/api/nextResponse"
 import { asyncWrapperApi } from "@/utils/asyncWrapper"
-import {  artisticCities } from "./static"
+import { ArchitectureCities } from "./static"
 import { Categories } from "@/types/prefrences"
 import { StatusCodes } from "http-status-codes"
+import { Arima } from "next/font/google"
 
 // adding cities with places 
 export const GET = asyncWrapperApi(async ()=>{
    let addedCities = 0 ;
-      for(let i  = 0 ; i < artisticCities.length ; i++){
-      const existCity = await cityModal().findOne({name : artisticCities[i].name})
-      if(existCity && existCity.categories?.some((category : CategoryDb )=>category.name === Categories.Artistic ) ) continue ;
-      if(existCity  ){ await cityModal().findOneAndUpdate({name : artisticCities[i].name} , { $push: { categories: {name : Categories.Artistic, position : i  }   } , $set: {
-         places: artisticCities[i].places , 
+      for(let i  = 0 ; i < ArchitectureCities.length ; i++){
+      const existCity = await cityModal().findOne({name : ArchitectureCities[i].name})
+      if(existCity && existCity.categories?.some((category : CategoryDb )=>category.name === Categories.Architecture ) ) continue ;
+      if(existCity  ){ await cityModal().findOneAndUpdate({name : ArchitectureCities[i].name} , { $push: { categories: {name : Categories.Architecture, position : i  }   } , $set: {
+         places: ArchitectureCities[i].places , 
        }, } ,{new: true})
       }
-      else{ await cityModal().create({...[i] , landmarks : artisticCities[i].landMarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [{name : Categories.Artistic, position : i}]  , reviews: [] , likes: [] , dislikes : [] , places : artisticCities[i].places  })
+      else{ await cityModal().create({...[i] , landmarks : ArchitectureCities[i].landMarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [{name : Categories.Architecture, position : i}]  , reviews: [] , likes: [] , dislikes : [] , places : ArchitectureCities[i].places  })
       addedCities++ 
    }
       }
