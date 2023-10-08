@@ -1,3 +1,1694 @@
+export const artisticCities = [
+    {
+        "name": "Paris",
+        "country": "France",
+        "landMarks": [
+            "Eiffel Tower",
+            "Louvre Museum",
+            "Notre-Dame Cathedral",
+            "Champs-Élysées",
+            "Montmartre"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "French"
+        ],
+        "places": [
+            {
+                "place": "Louvre Museum",
+                "category": "Artistic"
+            },
+            {
+                "place": "Eiffel Tower",
+                "category": "Artistic"
+            },
+            {
+                "place": "Musée d'Orsay",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Florence",
+        "country": "Italy",
+        "landMarks": [
+            "Uffizi Gallery",
+            "Florence Cathedral",
+            "Ponte Vecchio",
+            "Palazzo Vecchio",
+            "Boboli Gardens"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Mediterranean",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Italian"
+        ],
+        "places": [
+            {
+                "place": "Uffizi Gallery",
+                "category": "Artistic"
+            },
+            {
+                "place": "Florence Cathedral",
+                "category": "Artistic"
+            },
+            {
+                "place": "Ponte Vecchio",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Vienna",
+        "country": "Austria",
+        "landMarks": [
+            "Schönbrunn Palace",
+            "St. Stephen's Cathedral",
+            "Belvedere Palace",
+            "Hofburg Imperial Palace",
+            "Prater Park"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "German"
+        ],
+        "places": [
+            {
+                "place": "Belvedere Palace",
+                "category": "Artistic"
+            },
+            {
+                "place": "Kunsthistorisches Museum",
+                "category": "Artistic"
+            },
+            {
+                "place": "Vienna State Opera",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "New York City",
+        "country": "United States",
+        "landMarks": [
+            "Statue of Liberty",
+            "Central Park",
+            "Empire State Building",
+            "Times Square",
+            "Brooklyn Bridge"
+        ],
+        "continent": "North America",
+        "price": "COSTLY",
+        "weathers": [
+            "Temperate",
+            "Cold"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English"
+        ],
+        "places": [
+            {
+                "place": "The Metropolitan Museum of Art",
+                "category": "Artistic"
+            },
+            {
+                "place": "Museum of Modern Art (MoMA)",
+                "category": "Artistic"
+            },
+            {
+                "place": "Guggenheim Museum",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Barcelona",
+        "country": "Spain",
+        "landMarks": [
+            "Sagrada Familia",
+            "Park Güell",
+            "Casa Batlló",
+            "La Rambla",
+            "Barri Gòtic"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Mediterranean",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Spanish"
+        ],
+        "places": [
+            {
+                "place": "Sagrada Família",
+                "category": "Artistic"
+            },
+            {
+                "place": "Park Güell",
+                "category": "Artistic"
+            },
+            {
+                "place": "Picasso Museum",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Venice",
+        "country": "Italy",
+        "landMarks": [
+            "St. Mark's Square",
+            "Rialto Bridge",
+            "Doge's Palace",
+            "Grand Canal",
+            "Murano Island"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Mediterranean",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Italian"
+        ],
+        "places": [
+            {
+                "place": "Venice Biennale",
+                "category": "Artistic"
+            },
+            {
+                "place": "St. Mark's Basilica",
+                "category": "Artistic"
+            },
+            {
+                "place": "Doge's Palace",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "London",
+        "country": "United Kingdom",
+        "landMarks": [
+            "Big Ben",
+            "Tower of London",
+            "British Museum",
+            "Buckingham Palace",
+            "London Eye"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "English"
+        ],
+        "places": [
+            {
+                "place": "British Museum",
+                "category": "Artistic"
+            },
+            {
+                "place": "Tate Modern",
+                "category": "Artistic"
+            },
+            {
+                "place": "National Gallery",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Rome",
+        "country": "Italy",
+        "landMarks": [
+            "Colosseum",
+            "Roman Forum",
+            "Trevi Fountain",
+            "Pantheon",
+            "Vatican City"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Mediterranean",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Italian"
+        ],
+        "places": [
+            {
+                "place": "Vatican Museums",
+                "category": "Artistic"
+            },
+            {
+                "place": "Colosseum",
+                "category": "Artistic"
+            },
+            {
+                "place": "Pantheon",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Prague",
+        "country": "Czech Republic",
+        "landMarks": [
+            "Charles Bridge",
+            "Prague Castle",
+            "Old Town Square",
+            "Astronomical Clock",
+            "St. Vitus Cathedral"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Czech"
+        ],
+        "places": [
+            {
+                "place": "Prague Castle",
+                "category": "Artistic"
+            },
+            {
+                "place": "Charles Bridge",
+                "category": "Artistic"
+            },
+            {
+                "place": "National Gallery Prague",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Amsterdam",
+        "country": "Netherlands",
+        "landMarks": [
+            "Van Gogh Museum",
+            "Rijksmuseum",
+            "Anne Frank House",
+            "Canals of Amsterdam",
+            "Dam Square"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Dutch"
+        ],
+        "places": [
+            {
+                "place": "Rijksmuseum",
+                "category": "Artistic"
+            },
+            {
+                "place": "Van Gogh Museum",
+                "category": "Artistic"
+            },
+            {
+                "place": "Anne Frank House",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Berlin",
+        "country": "Germany",
+        "landMarks": [
+            "Brandenburg Gate",
+            "Berlin Wall",
+            "Reichstag Building",
+            "Museum Island",
+            "Alexanderplatz"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "German"
+        ],
+        "places": [
+            {
+                "place": "Berlin Wall East Side Gallery",
+                "category": "Artistic"
+            },
+            {
+                "place": "Pergamon Museum",
+                "category": "Artistic"
+            },
+            {
+                "place": "Alte Nationalgalerie",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "San Francisco",
+        "country": "United States",
+        "landMarks": [
+            "Golden Gate Bridge",
+            "Alcatraz Island",
+            "Fisherman's Wharf",
+            "Chinatown",
+            "Lombard Street"
+        ],
+        "continent": "North America",
+        "price": "COSTLY",
+        "weathers": [
+            "Temperate",
+            "Foggy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English"
+        ],
+        "places": [
+            {
+                "place": "San Francisco Museum of Modern Art",
+                "category": "Artistic"
+            },
+            {
+                "place": "Palace of Fine Arts",
+                "category": "Artistic"
+            },
+            {
+                "place": "de Young Museum",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Tokyo",
+        "country": "Japan",
+        "landMarks": [
+            "Tokyo Tower",
+            "Shibuya Crossing",
+            "Senso-ji Temple",
+            "Meiji Shrine",
+            "Tsukiji Fish Market"
+        ],
+        "continent": "Asia",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Japanese"
+        ],
+        "places": [
+            {
+                "place": "Tokyo National Museum",
+                "category": "Artistic"
+            },
+            {
+                "place": "The National Art Center",
+                "category": "Artistic"
+            },
+            {
+                "place": "TeamLab Borderless",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Sydney",
+        "country": "Australia",
+        "landMarks": [
+            "Sydney Opera House",
+            "Sydney Harbour Bridge",
+            "Bondi Beach",
+            "Taronga Zoo",
+            "The Rocks"
+        ],
+        "continent": "Australia",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English"
+        ],
+        "places": [
+            {
+                "place": "Art Gallery of New South Wales",
+                "category": "Artistic"
+            },
+            {
+                "place": "Sydney Opera House",
+                "category": "Artistic"
+            },
+            {
+                "place": "Museum of Contemporary Art",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Copenhagen",
+        "country": "Denmark",
+        "landMarks": [
+            "Nyhavn",
+            "Tivoli Gardens",
+            "The Little Mermaid",
+            "Rosenborg Castle",
+            "Christiansborg Palace"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Danish"
+        ],
+        "places": [
+            {
+                "place": "The National Gallery of Denmark",
+                "category": "Artistic"
+            },
+            {
+                "place": "Tivoli Gardens",
+                "category": "Artistic"
+            },
+            {
+                "place": "Nyhavn",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Buenos Aires",
+        "country": "Argentina",
+        "landMarks": [
+            "La Boca",
+            "Recoleta Cemetery",
+            "Teatro Colon",
+            "Plaza de Mayo",
+            "Puerto Madero"
+        ],
+        "continent": "South America",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Spanish"
+        ],
+        "places": [
+            {
+                "place": "Teatro Colón",
+                "category": "Artistic"
+            },
+            {
+                "place": "Museo Nacional de Bellas Artes",
+                "category": "Artistic"
+            },
+            {
+                "place": "La Boca Neighborhood",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "St. Petersburg",
+        "country": "Russia",
+        "landMarks": [
+            "Hermitage Museum",
+            "Winter Palace",
+            "Church of the Savior on Spilled Blood",
+            "Peter and Paul Fortress",
+            "Nevsky Prospekt"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Snow"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Russian"
+        ],
+        "places": [
+            {
+                "place": "Hermitage Museum",
+                "category": "Artistic"
+            },
+            {
+                "place": "Church of the Savior on Blood",
+                "category": "Artistic"
+            },
+            {
+                "place": "Russian Museum",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Istanbul",
+        "country": "Turkey",
+        "landMarks": [
+            "Hagia Sophia",
+            "Blue Mosque",
+            "Topkapi Palace",
+            "Basilica Cistern",
+            "Grand Bazaar"
+        ],
+        "continent": "Asia",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Turkish"
+        ],
+        "places": [
+            {
+                "place": "Hagia Sophia",
+                "category": "Artistic"
+            },
+            {
+                "place": "Topkapi Palace",
+                "category": "Artistic"
+            },
+            {
+                "place": "Istanbul Modern",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Mumbai",
+        "country": "India",
+        "landMarks": [
+            "Gateway of India",
+            "Chhatrapati Shivaji Terminus",
+            "Elephanta Caves",
+            "Marine Drive",
+            "Haji Ali Dargah"
+        ],
+        "continent": "Asia",
+        "price": "MEDIUM",
+        "weathers": [
+            "Tropical",
+            "Monsoon"
+        ],
+        "yearTimes": [
+            "Winter",
+            "Summer"
+        ],
+        "languages": [
+            "Hindi"
+        ],
+        "places": [
+            {
+                "place": "Chhatrapati Shivaji Maharaj Vastu Sangrahalaya",
+                "category": "Artistic"
+            },
+            {
+                "place": "Gateway of India",
+                "category": "Artistic"
+            },
+            {
+                "place": "Kala Ghoda Arts District",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Mexico City",
+        "country": "Mexico",
+        "landMarks": [
+            "Zocalo",
+            "Chapultepec Castle",
+            "Frida Kahlo Museum",
+            "Templo Mayor",
+            "National Palace"
+        ],
+        "continent": "North America",
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Spanish"
+        ],
+        "places": [
+            {
+                "place": "Palacio de Bellas Artes",
+                "category": "Artistic"
+            },
+            {
+                "place": "Frida Kahlo Museum",
+                "category": "Artistic"
+            },
+            {
+                "place": "Museo Soumaya",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Seoul",
+        "country": "South Korea",
+        "landMarks": [
+            "Gyeongbokgung Palace",
+            "Namsan Seoul Tower",
+            "Myeongdong",
+            "Bukchon Hanok Village",
+            "Lotte World Tower"
+        ],
+        "continent": "Asia",
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Korean"
+        ],
+        "places": [
+            {
+                "place": "National Museum of Korea",
+                "category": "Artistic"
+            },
+            {
+                "place": "Bukchon Hanok Village",
+                "category": "Artistic"
+            },
+            {
+                "place": "Dongdaemun Design Plaza",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Lisbon",
+        "country": "Portugal",
+        "landMarks": [
+            "Belem Tower",
+            "Jeronimos Monastery",
+            "Tram 28",
+            "Lisbon Cathedral",
+            "Alfama District"
+        ],
+        "continent": "Europe",
+        "price": "MEDIUM",
+        "weathers": [
+            "Mediterranean",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Portuguese"
+        ],
+        "places": [
+            {
+                "place": "Museu Nacional do Azulejo",
+                "category": "Artistic"
+            },
+            {
+                "place": "Belém Tower",
+                "category": "Artistic"
+            },
+            {
+                "place": "Lisbon Oceanarium",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Montreal",
+        "country": "Canada",
+        "landMarks": [
+            "Old Montreal",
+            "Notre-Dame Basilica",
+            "Mount Royal Park",
+            "Montreal Museum of Fine Arts",
+            "Montreal Botanical Garden"
+        ],
+        "continent": "North America",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Cold"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "French",
+            "English"
+        ],
+        "places": [
+            {
+                "place": "Montreal Museum of Fine Arts",
+                "category": "Artistic"
+            },
+            {
+                "place": "Old Montreal",
+                "category": "Artistic"
+            },
+            {
+                "place": "Biosphère",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Dublin",
+        "country": "Ireland",
+        "landMarks": [
+            "Guinness Storehouse",
+            "Trinity College",
+            "Dublin Castle",
+            "St. Patrick's Cathedral",
+            "Temple Bar"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "English",
+            "Irish"
+        ],
+        "places": [
+            {
+                "place": "National Gallery of Ireland",
+                "category": "Artistic"
+            },
+            {
+                "place": "Trinity College Library",
+                "category": "Artistic"
+            },
+            {
+                "place": "Dublin Castle",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Budapest",
+        "country": "Hungary",
+        "landMarks": [
+            "Buda Castle",
+            "Chain Bridge",
+            "Fisherman's Bastion",
+            "Parliament Building",
+            "Heroes' Square"
+        ],
+        "continent": "Europe",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Hungarian"
+        ],
+        "places": [
+            {
+                "place": "Buda Castle",
+                "category": "Artistic"
+            },
+            {
+                "place": "Hungarian National Museum",
+                "category": "Artistic"
+            },
+            {
+                "place": "Fisherman's Bastion",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Dubrovnik",
+        "country": "Croatia",
+        "landMarks": [
+            "Old Town Dubrovnik",
+            "City Walls",
+            "Stradun",
+            "Fort Lovrijenac",
+            "Sponza Palace"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Mediterranean",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Croatian"
+        ],
+        "places": [
+            {
+                "place": "Old Town Dubrovnik",
+                "category": "Artistic"
+            },
+            {
+                "place": "Dubrovnik Cathedral",
+                "category": "Artistic"
+            },
+            {
+                "place": "Rector's Palace",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Edinburgh",
+        "country": "United Kingdom",
+        "landMarks": [
+            "Edinburgh Castle",
+            "Royal Mile",
+            "Arthur's Seat",
+            "Palace of Holyroodhouse",
+            "National Museum of Scotland"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "English"
+        ],
+        "places": [
+            {
+                "place": "Edinburgh Castle",
+                "category": "Artistic"
+            },
+            {
+                "place": "Royal Mile",
+                "category": "Artistic"
+            },
+            {
+                "place": "National Gallery of Scotland",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Amman",
+        "country": "Jordan",
+        "landMarks": [
+            "Amman Citadel",
+            "Roman Theatre",
+            "Rainbow Street",
+            "The Boulevard",
+            "King Abdullah I Mosque"
+        ],
+        "continent": "Asia",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Arabic"
+        ],
+        "places": [
+            {
+                "place": "Amman Citadel",
+                "category": "Artistic"
+            },
+            {
+                "place": "Jordan National Gallery of Fine Arts",
+                "category": "Artistic"
+            },
+            {
+                "place": "Roman Theater",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Stockholm",
+        "country": "Sweden",
+        "landMarks": [
+            "Gamla Stan",
+            "Vasa Museum",
+            "ABBA The Museum",
+            "Stockholm Palace",
+            "Skansen Open-Air Museum"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Swedish"
+        ],
+        "places": [
+            {
+                "place": "Vasa Museum",
+                "category": "Artistic"
+            },
+            {
+                "place": "Stockholm Palace",
+                "category": "Artistic"
+            },
+            {
+                "place": "ABBA: The Museum",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Athens",
+        "country": "Greece",
+        "landMarks": [
+            "Acropolis",
+            "Parthenon",
+            "Plaka District",
+            "Temple of Olympian Zeus",
+            "National Archaeological Museum"
+        ],
+        "continent": "Europe",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Mediterranean",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Greek"
+        ],
+        "places": [
+            {
+                "place": "Acropolis Museum",
+                "category": "Artistic"
+            },
+            {
+                "place": "Parthenon",
+                "category": "Artistic"
+            },
+            {
+                "place": "National Archaeological Museum",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Krakow",
+        "country": "Poland",
+        "landMarks": [
+            "Wawel Castle",
+            "Main Market Square",
+            "Auschwitz-Birkenau",
+            "St. Mary's Basilica",
+            "Schindler's Factory"
+        ],
+        "continent": "Europe",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Cold"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Polish"
+        ],
+        "places": [
+            {
+                "place": "Wawel Castle",
+                "category": "Artistic"
+            },
+            {
+                "place": "St. Mary's Basilica",
+                "category": "Artistic"
+            },
+            {
+                "place": "Oskar Schindler's Factory",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Havana",
+        "country": "Cuba",
+        "landMarks": [
+            "Old Havana",
+            "Malecón",
+            "El Capitolio",
+            "Havana Cathedral",
+            "Museo Nacional de Bellas Artes"
+        ],
+        "continent": "North America",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Tropical",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Winter",
+            "Spring"
+        ],
+        "languages": [
+            "Spanish"
+        ],
+        "places": [
+            {
+                "place": "Museo Nacional de Bellas Artes",
+                "category": "Artistic"
+            },
+            {
+                "place": "El Malecón",
+                "category": "Artistic"
+            },
+            {
+                "place": "Old Havana",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Marrakech",
+        "country": "Morocco",
+        "landMarks": [
+            "Medina of Marrakech",
+            "Jardin Majorelle",
+            "Bahia Palace",
+            "Koutoubia Mosque",
+            "Saadian Tombs"
+        ],
+        "continent": "Africa",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Desert",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Arabic",
+            "French"
+        ],
+        "places": [
+            {
+                "place": "Jardin Majorelle",
+                "category": "Artistic"
+            },
+            {
+                "place": "Bahia Palace",
+                "category": "Artistic"
+            },
+            {
+                "place": "Marrakech Museum",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Kyoto",
+        "country": "Japan",
+        "landMarks": [
+            "Kinkaku-ji",
+            "Fushimi Inari Taisha",
+            "Arashiyama Bamboo Grove",
+            "Gion District",
+            "Nijo Castle"
+        ],
+        "continent": "Asia",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Japanese"
+        ],
+        "places": [
+            {
+                "place": "Kinkaku-ji (Golden Pavilion)",
+                "category": "Artistic"
+            },
+            {
+                "place": "Gion District",
+                "category": "Artistic"
+            },
+            {
+                "place": "Kyoto International Manga Museum",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Jerusalem",
+        "country": "Israel",
+        "landMarks": [
+            "Western Wall",
+            "Dome of the Rock",
+            "Church of the Holy Sepulchre",
+            "Mount of Olives",
+            "Israel Museum"
+        ],
+        "continent": "Asia",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Hebrew"
+        ],
+        "places": [
+            {
+                "place": "Israel Museum",
+                "category": "Artistic"
+            },
+            {
+                "place": "Western Wall",
+                "category": "Artistic"
+            },
+            {
+                "place": "Yad Vashem Holocaust Memorial",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Dubai",
+        "country": "United Arab Emirates",
+        "landMarks": [
+            "Burj Khalifa",
+            "Palm Jumeirah",
+            "Dubai Mall",
+            "Burj Al Arab",
+            "Dubai Creek"
+        ],
+        "continent": "Asia",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Desert",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Winter",
+            "Spring"
+        ],
+        "languages": [
+            "Arabic"
+        ],
+        "places": [
+            {
+                "place": "Burj Khalifa",
+                "category": "Artistic"
+            },
+            {
+                "place": "Dubai Opera",
+                "category": "Artistic"
+            },
+            {
+                "place": "Dubai Design District",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Helsinki",
+        "country": "Finland",
+        "landMarks": [
+            "Helsinki Cathedral",
+            "Suomenlinna",
+            "Temppeliaukio Church",
+            "Uspenski Cathedral",
+            "Seurasaari Open-Air Museum"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Snow"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Finnish",
+            "Swedish"
+        ],
+        "places": [
+            {
+                "place": "Ateneum Art Museum",
+                "category": "Artistic"
+            },
+            {
+                "place": "Helsinki Cathedral",
+                "category": "Artistic"
+            },
+            {
+                "place": "Sibelius Monument",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Oslo",
+        "country": "Norway",
+        "landMarks": [
+            "Vigeland Park",
+            "Royal Palace",
+            "Akershus Fortress",
+            "Munch Museum",
+            "Fram Museum"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Snow"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Norwegian"
+        ],
+        "places": [
+            {
+                "place": "The Munch Museum",
+                "category": "Artistic"
+            },
+            {
+                "place": "Vigeland Park",
+                "category": "Artistic"
+            },
+            {
+                "place": "The Norwegian National Opera & Ballet",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Kuala Lumpur",
+        "country": "Malaysia",
+        "landMarks": [
+            "Petronas Twin Towers",
+            "Batu Caves",
+            "Merdeka Square",
+            "Sultan Abdul Samad Building",
+            "Islamic Arts Museum Malaysia"
+        ],
+        "continent": "Asia",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Tropical",
+            "Monsoon"
+        ],
+        "yearTimes": [
+            "Winter",
+            "Summer"
+        ],
+        "languages": [
+            "Malay"
+        ],
+        "places": [
+            {
+                "place": "Petronas Twin Towers",
+                "category": "Artistic"
+            },
+            {
+                "place": "Islamic Arts Museum Malaysia",
+                "category": "Artistic"
+            },
+            {
+                "place": "Thean Hou Temple",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Cairo",
+        "country": "Egypt",
+        "landMarks": [
+            "Pyramids of Giza",
+            "The Sphinx",
+            "Khan el-Khalili",
+            "Egyptian Museum",
+            "Coptic Cairo"
+        ],
+        "continent": "Africa",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Desert",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Arabic"
+        ],
+        "places": [
+            {
+                "place": "Egyptian Museum",
+                "category": "Artistic"
+            },
+            {
+                "place": "Khan el-Khalili",
+                "category": "Artistic"
+            },
+            {
+                "place": "Cairo Opera House",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Auckland",
+        "country": "New Zealand",
+        "landMarks": [
+            "Sky Tower",
+            "Auckland War Memorial Museum",
+            "Waiheke Island",
+            "Auckland Art Gallery Toi o Tāmaki",
+            "Auckland Zoo"
+        ],
+        "continent": "Australia",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "English",
+            "Maori"
+        ],
+        "places": [
+            {
+                "place": "Auckland Art Gallery Toi o Tāmaki",
+                "category": "Artistic"
+            },
+            {
+                "place": "Auckland War Memorial Museum",
+                "category": "Artistic"
+            },
+            {
+                "place": "Sky Tower",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Cape Town",
+        "country": "South Africa",
+        "landMarks": [
+            "Table Mountain",
+            "Robben Island",
+            "Victoria & Alfred Waterfront",
+            "Boulders Beach",
+            "Cape of Good Hope"
+        ],
+        "continent": "Africa",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Afrikaans",
+            "English"
+        ],
+        "places": [
+            {
+                "place": "Zeitz Museum of Contemporary Art Africa",
+                "category": "Artistic"
+            },
+            {
+                "place": "Table Mountain",
+                "category": "Artistic"
+            },
+            {
+                "place": "Robben Island",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Brisbane",
+        "country": "Australia",
+        "landMarks": [
+            "South Bank Parklands",
+            "Lone Pine Koala Sanctuary",
+            "Brisbane Botanic Gardens",
+            "Story Bridge",
+            "Queensland Museum"
+        ],
+        "continent": "Australia",
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English"
+        ],
+        "places": [
+            {
+                "place": "Queensland Art Gallery",
+                "category": "Artistic"
+            },
+            {
+                "place": "Gallery of Modern Art (GOMA)",
+                "category": "Artistic"
+            },
+            {
+                "place": "Brisbane Powerhouse",
+                "category": "Artistic"
+            }
+        ]
+    },
+    {
+        "name": "Seville",
+        "country": "Spain",
+        "landMarks": [
+            "Alcázar of Seville",
+            "Seville Cathedral",
+            "Plaza de España",
+            "Barrio Santa Cruz",
+            "Metropol Parasol"
+        ],
+        "continent": "Europe",
+        "price": "MEDIUM",
+        "weathers": [
+            "Mediterranean",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Spanish"
+        ],
+        "places": [
+            {
+                "place": "Alcázar of Seville",
+                "category": "Artistic"
+            },
+            {
+                "place": "Seville Cathedral",
+                "category": "Artistic"
+            },
+            {
+                "place": "Metropol Parasol",
+                "category": "Artistic"
+            }
+        ]
+    }
+]
+
+
+
+
+
+
+
+
+
+
+
 export const HiddenGemsCities = [
     {
         "name": "Barcelona",

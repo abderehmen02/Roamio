@@ -1,21 +1,21 @@
 import { CategoryDb, cityModal } from "@/db/models/city"
 import { apiResponse } from "@/utils/api/nextResponse"
 import { asyncWrapperApi } from "@/utils/asyncWrapper"
-import { HiddenGemsCities } from "./static"
+import {  artisticCities } from "./static"
 import { Categories } from "@/types/prefrences"
 import { StatusCodes } from "http-status-codes"
 
 // adding cities with places 
 export const GET = asyncWrapperApi(async ()=>{
    let addedCities = 0 ;
-      for(let i  = 0 ; i < HiddenGemsCities.length ; i++){
-      const existCity = await cityModal().findOne({name : HiddenGemsCities[i].name})
-      if(existCity && existCity.categories?.some((category : CategoryDb )=>category.name === Categories.HiddenGems ) ) continue ;
-      if(existCity  ){ await cityModal().findOneAndUpdate({name : HiddenGemsCities[i].name} , { $push: { categories: {name : Categories.HiddenGems, position : i  }   } , $set: {
-         places: HiddenGemsCities[i].places , 
+      for(let i  = 0 ; i < artisticCities.length ; i++){
+      const existCity = await cityModal().findOne({name : artisticCities[i].name})
+      if(existCity && existCity.categories?.some((category : CategoryDb )=>category.name === Categories.Artistic ) ) continue ;
+      if(existCity  ){ await cityModal().findOneAndUpdate({name : artisticCities[i].name} , { $push: { categories: {name : Categories.Artistic, position : i  }   } , $set: {
+         places: artisticCities[i].places , 
        }, } ,{new: true})
       }
-      else{ await cityModal().create({...HiddenGemsCities[i] , landmarks : HiddenGemsCities[i].landMarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [{name : Categories.HiddenGems, position : i}]  , reviews: [] , likes: [] , dislikes : [] , places : HiddenGemsCities[i].places  })
+      else{ await cityModal().create({...[i] , landmarks : artisticCities[i].landMarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [{name : Categories.Artistic, position : i}]  , reviews: [] , likes: [] , dislikes : [] , places : artisticCities[i].places  })
       addedCities++ 
    }
       }
