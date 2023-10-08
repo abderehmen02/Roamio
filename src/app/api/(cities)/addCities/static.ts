@@ -1,3 +1,1437 @@
+export const HiddenGemsCities = [
+    {
+        "name": "Barcelona",
+        "country": "Spain",
+        "landMarks": [
+            "Sagrada Família",
+            "Park Güell",
+            "Casa Batlló",
+            "La Rambla",
+            "Gothic Quarter"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Mediterranean",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Spanish",
+            "Catalan"
+        ],
+        "places": [
+            {
+                "place": "Park Güell",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Bunkers del Carmel",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "El Raval Neighborhood",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Mercat de la Concepció",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Kyoto",
+        "country": "Japan",
+        "landMarks": [
+            "Kinkaku-ji",
+            "Fushimi Inari Taisha",
+            "Arashiyama Bamboo Grove",
+            "Kiyomizu-dera",
+            "Gion District"
+        ],
+        "continent": "Asia",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Japanese"
+        ],
+        "places": [
+            {
+                "place": "Fushimi Inari Shrine",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Arashiyama Bamboo Grove",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Kinkaku-ji (Golden Pavilion)",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Philosopher's Path",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Cape Town",
+        "country": "South Africa",
+        "landMarks": [
+            "Table Mountain",
+            "Robben Island",
+            "Victoria & Alfred Waterfront",
+            "Boulders Beach",
+            "Kirstenbosch National Botanical Garden"
+        ],
+        "continent": "Africa",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Mild"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Afrikaans",
+            "English"
+        ],
+        "places": [
+            {
+                "place": "Bo-Kaap Neighborhood",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Boulders Beach",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Chapman's Peak Drive",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Kirstenbosch National Botanical Garden",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Salzburg",
+        "country": "Austria",
+        "landMarks": [
+            "Hohensalzburg Fortress",
+            "Salzburg Cathedral",
+            "Mirabell Palace and Gardens",
+            "Mozart's Birthplace",
+            "Hellbrunn Palace"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "German"
+        ],
+        "places": [
+            {
+                "place": "Hohensalzburg Fortress",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Hellbrunn Palace and Trick Fountains",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Mozart's Birthplace",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Untersberg Mountain",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Hanoi",
+        "country": "Vietnam",
+        "landMarks": [
+            "Hoan Kiem Lake",
+            "Hanoi Old Quarter",
+            "Hoa Lo Prison",
+            "Temple of Literature",
+            "Ho Chi Minh Mausoleum"
+        ],
+        "continent": "Asia",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Tropical",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Vietnamese"
+        ],
+        "places": [
+            {
+                "place": "Hoan Kiem Lake",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Hoa Lo Prison",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Temple of Literature",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Bat Trang Ceramics Village",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Granada",
+        "country": "Spain",
+        "landMarks": [
+            "Alhambra",
+            "Generalife",
+            "Granada Cathedral",
+            "Albaicín",
+            "Sacromonte"
+        ],
+        "continent": "Europe",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Mediterranean",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Spanish"
+        ],
+        "places": [
+            {
+                "place": "Alhambra",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Sacromonte",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Generalife Gardens",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Basilica of San Juan de Dios",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Marrakech",
+        "country": "Morocco",
+        "landMarks": [
+            "Jardin Majorelle",
+            "Medina of Marrakech",
+            "Koutoubia Mosque",
+            "Saadian Tombs",
+            "Bahia Palace"
+        ],
+        "continent": "Africa",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Desert",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Arabic",
+            "Berber"
+        ],
+        "places": [
+            {
+                "place": "Jardin Majorelle",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Bahia Palace",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Medina of Marrakech",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Atlas Mountains",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Lisbon",
+        "country": "Portugal",
+        "landMarks": [
+            "Belém Tower",
+            "Jerónimos Monastery",
+            "Alfama District",
+            "Rossio Square",
+            "Lisbon Oceanarium"
+        ],
+        "continent": "Europe",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Mediterranean",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Portuguese"
+        ],
+        "places": [
+            {
+                "place": "Quinta da Regaleira",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Jerónimos Monastery",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "LX Factory",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Sintra",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Chiang Mai",
+        "country": "Thailand",
+        "landMarks": [
+            "Wat Phra Singh",
+            "Chiang Mai Old City",
+            "Doi Suthep",
+            "Sunday Night Market",
+            "Elephant Nature Park"
+        ],
+        "continent": "Asia",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Tropical",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Winter",
+            "Spring"
+        ],
+        "languages": [
+            "Thai"
+        ],
+        "places": [
+            {
+                "place": "Doi Suthep Temple",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Wat Umong",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Bua Thong Waterfalls",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Mae Sa Valley",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Dubrovnik",
+        "country": "Croatia",
+        "landMarks": [
+            "Old Town Dubrovnik",
+            "Walls of Dubrovnik",
+            "Stradun",
+            "Lokrum Island",
+            "Fort Lovrijenac"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Mediterranean",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Croatian"
+        ],
+        "places": [
+            {
+                "place": "City Walls of Dubrovnik",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Fort Lovrijenac",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Lokrum Island",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Rector's Palace",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Cappadocia",
+        "country": "Turkey",
+        "landMarks": [
+            "Göreme Open-Air Museum",
+            "Fairy Chimneys",
+            "Hot Air Balloon Rides",
+            "Uchisar Castle",
+            "Pasabag Valley"
+        ],
+        "continent": "Asia",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Turkish"
+        ],
+        "places": [
+            {
+                "place": "Göreme Open-Air Museum",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Hot Air Balloon Ride",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Derinkuyu Underground City",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Love Valley",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Siem Reap",
+        "country": "Cambodia",
+        "landMarks": [
+            "Angkor Wat",
+            "Bayon Temple",
+            "Ta Prohm",
+            "Angkor Night Market",
+            "Cambodian Cultural Village"
+        ],
+        "continent": "Asia",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Tropical",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Winter",
+            "Spring"
+        ],
+        "languages": [
+            "Khmer"
+        ],
+        "places": [
+            {
+                "place": "Angkor Wat",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Ta Prohm Temple",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Beng Mealea",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Phnom Kulen National Park",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Porto",
+        "country": "Portugal",
+        "landMarks": [
+            "Ribeira District",
+            "Douro River",
+            "Livraria Lello",
+            "São Bento Railway Station",
+            "Palácio da Bolsa"
+        ],
+        "continent": "Europe",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Mediterranean",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Portuguese"
+        ],
+        "places": [
+            {
+                "place": "Ribeira District",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Livaria Lello",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Clerigos Tower",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Douro Valley",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Budapest",
+        "country": "Hungary",
+        "landMarks": [
+            "Buda Castle",
+            "Fisherman's Bastion",
+            "Chain Bridge",
+            "Parliament Building",
+            "Gellért Hill"
+        ],
+        "continent": "Europe",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Hungarian"
+        ],
+        "places": [
+            {
+                "place": "Fisherman's Bastion",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Széchenyi Thermal Bath",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Danube Promenade",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Memento Park",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Reykjavik",
+        "country": "Iceland",
+        "landMarks": [
+            "Hallgrímskirkja",
+            "Blue Lagoon",
+            "Golden Circle",
+            "Harpa Concert Hall",
+            "Perlan"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Cold"
+        ],
+        "yearTimes": [
+            "Summer"
+        ],
+        "languages": [
+            "Icelandic"
+        ],
+        "places": [
+            {
+                "place": "Blue Lagoon",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Hallgrímskirkja",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Thingvellir National Park",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Seljalandsfoss Waterfall",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Bergen",
+        "country": "Norway",
+        "landMarks": [
+            "Bryggen Wharf",
+            "Mount Fløyen",
+            "Fish Market",
+            "Troldhaugen",
+            "Bergenhus Fortress"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Summer"
+        ],
+        "languages": [
+            "Norwegian"
+        ],
+        "places": [
+            {
+                "place": "Bryggen Wharf",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Mount Fløyen",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Edvard Grieg Museum",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Troldhaugen",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Ljubljana",
+        "country": "Slovenia",
+        "landMarks": [
+            "Ljubljana Castle",
+            "Triple Bridge",
+            "Tivoli Park",
+            "Preseren Square",
+            "Dragon Bridge"
+        ],
+        "continent": "Europe",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Slovenian"
+        ],
+        "places": [
+            {
+                "place": "Ljubljana Castle",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Tivoli Park",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Metelkova City",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Škocjan Caves",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Krakow",
+        "country": "Poland",
+        "landMarks": [
+            "Wawel Castle",
+            "St. Mary's Basilica",
+            "Main Market Square",
+            "Auschwitz-Birkenau",
+            "Kazimierz District"
+        ],
+        "continent": "Europe",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Polish"
+        ],
+        "places": [
+            {
+                "place": "Wawel Castle",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Auschwitz-Birkenau Memorial",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Wieliczka Salt Mine",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Kazimierz District",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Nara",
+        "country": "Japan",
+        "landMarks": [
+            "Todai-ji",
+            "Nara Park",
+            "Kofuku-ji",
+            "Nara National Museum",
+            "Nigatsu-do"
+        ],
+        "continent": "Asia",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Japanese"
+        ],
+        "places": [
+            {
+                "place": "Nara Park",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Todai-ji Temple",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Kasuga Taisha Shrine",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Nigatsu-do Hall",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Salvador",
+        "country": "Brazil",
+        "landMarks": [
+            "Pelourinho",
+            "Farol da Barra",
+            "Mercado Modelo",
+            "Igreja de Bonfim",
+            "Elevador Lacerda"
+        ],
+        "continent": "South America",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Tropical",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Portuguese"
+        ],
+        "places": [
+            {
+                "place": "Pelourinho",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Elevador Lacerda",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Itaparica Island",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Bonfim Church",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Valletta",
+        "country": "Malta",
+        "landMarks": [
+            "St. John's Co-Cathedral",
+            "Upper Barrakka Gardens",
+            "Grandmaster's Palace",
+            "Hypogeum of Ħal-Saflieni",
+            "Marsaxlokk"
+        ],
+        "continent": "Europe",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Mediterranean",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Maltese",
+            "English"
+        ],
+        "places": [
+            {
+                "place": "St. John's Co-Cathedral",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Upper Barrakka Gardens",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Mdina Old City",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Hypogeum of Ħal-Saflieni",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Riga",
+        "country": "Latvia",
+        "landMarks": [
+            "Old Town Riga",
+            "Riga Cathedral",
+            "House of the Blackheads",
+            "Freedom Monument",
+            "Art Nouveau District"
+        ],
+        "continent": "Europe",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Latvian"
+        ],
+        "places": [
+            {
+                "place": "Riga Old Town",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Art Nouveau District",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Riga Central Market",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Jurmala Beach",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Bucharest",
+        "country": "Romania",
+        "landMarks": [
+            "Palace of the Parliament",
+            "Old Town Bucharest",
+            "Village Museum",
+            "Herastrau Park",
+            "Arcul de Triumf"
+        ],
+        "continent": "Europe",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Romanian"
+        ],
+        "places": [
+            {
+                "place": "Palace of the Parliament",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Herastrau Park",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Village Museum",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Caru' cu Bere",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Helsinki",
+        "country": "Finland",
+        "landMarks": [
+            "Helsinki Cathedral",
+            "Suomenlinna",
+            "Senate Square",
+            "Kiasma Museum",
+            "Seurasaari Open-Air Museum"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Finnish",
+            "Swedish"
+        ],
+        "places": [
+            {
+                "place": "Suomenlinna Fortress",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Temppeliaukio Church",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Helsinki Design District",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Nuuksio National Park",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Beirut",
+        "country": "Lebanon",
+        "landMarks": [
+            "Downtown Beirut",
+            "Pigeon Rocks",
+            "National Museum of Beirut",
+            "Mohammad Al-Amin Mosque",
+            "Beirut Souks"
+        ],
+        "continent": "Asia",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Mediterranean",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Arabic"
+        ],
+        "places": [
+            {
+                "place": "Jeita Grotto",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Byblos Old Town",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Raouche Rocks",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "National Museum of Beirut",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Medellin",
+        "country": "Colombia",
+        "landMarks": [
+            "Comuna 13",
+            "Parque Arvi",
+            "Botanical Garden of Medellin",
+            "Museo de Antioquia",
+            "Pueblito Paisa"
+        ],
+        "continent": "South America",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Tropical",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Dry Season"
+        ],
+        "languages": [
+            "Spanish"
+        ],
+        "places": [
+            {
+                "place": "Comuna 13",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Jardín Botánico de Medellín",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Parque Arvi",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Pueblito Paisa",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Brasov",
+        "country": "Romania",
+        "landMarks": [
+            "Black Church",
+            "Council Square",
+            "Bran Castle",
+            "Rasnov Fortress",
+            "Poiana Brasov"
+        ],
+        "continent": "Europe",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Romanian"
+        ],
+        "places": [
+            {
+                "place": "Bran Castle",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Black Church",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Rasnov Fortress",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Poiana Brasov",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Tallinn",
+        "country": "Estonia",
+        "landMarks": [
+            "Alexander Nevsky Cathedral",
+            "Tallinn Old Town",
+            "Toompea Castle",
+            "Kadriorg Palace",
+            "Lennusadam Seaplane Harbour"
+        ],
+        "continent": "Europe",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Estonian"
+        ],
+        "places": [
+            {
+                "place": "Old Town of Tallinn",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Kadriorg Palace",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Seaplane Harbour Museum",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Pirita Beach",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Bologna",
+        "country": "Italy",
+        "landMarks": [
+            "Piazza Maggiore",
+            "Towers of Bologna",
+            "Basilica di San Petronio",
+            "Archiginnasio of Bologna",
+            "Museum for the Memory of Ustica"
+        ],
+        "continent": "Europe",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Italian"
+        ],
+        "places": [
+            {
+                "place": "Piazza Maggiore",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Asinelli Tower",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "San Petronio Basilica",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Archiginnasio of Bologna",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Sofia",
+        "country": "Bulgaria",
+        "landMarks": [
+            "Alexander Nevsky Cathedral",
+            "Vitosha Mountain",
+            "National Palace of Culture",
+            "Boyana Church",
+            "Sofia Central Mineral Baths"
+        ],
+        "continent": "Europe",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Bulgarian"
+        ],
+        "places": [
+            {
+                "place": "Alexander Nevsky Cathedral",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Vitosha Mountain",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Boyana Church",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "National Palace of Culture",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Cartagena",
+        "country": "Colombia",
+        "landMarks": [
+            "Cartagena Old Town",
+            "San Felipe de Barajas Castle",
+            "Rosario Islands",
+            "Cartagena Gold Museum",
+            "Las Bovedas"
+        ],
+        "continent": "South America",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Tropical",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Dry Season"
+        ],
+        "languages": [
+            "Spanish"
+        ],
+        "places": [
+            {
+                "place": "Walled City of Cartagena",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "San Felipe Castle",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Bocagrande Beach",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Mud Volcano El Totumo",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Hvar",
+        "country": "Croatia",
+        "landMarks": [
+            "Hvar Town",
+            "Hvar Fortress",
+            "Pakleni Islands",
+            "St. Stephen's Cathedral",
+            "Franciscan Monastery"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Mediterranean",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Summer"
+        ],
+        "languages": [
+            "Croatian"
+        ],
+        "places": [
+            {
+                "place": "Hvar Town",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Pakleni Islands",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Hvar Fortress",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Lavender Fields",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Tbilisi",
+        "country": "Georgia",
+        "landMarks": [
+            "Tbilisi Old Town",
+            "Narikala Fortress",
+            "Sioni Cathedral",
+            "Bridge of Peace",
+            "Tbilisi Botanical Garden"
+        ],
+        "continent": "Asia",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Georgian"
+        ],
+        "places": [
+            {
+                "place": "Narikala Fortress",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Old Town of Tbilisi",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Sioni Cathedral",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Tbilisi Botanical Garden",
+                "category": "HiddenGems"
+            }
+        ]
+    },
+    {
+        "name": "Santiago",
+        "country": "Chile",
+        "landMarks": [
+            "Plaza de Armas",
+            "San Cristobal Hill",
+            "La Chascona",
+            "Pablo Neruda's House",
+            "Santa Lucia Hill"
+        ],
+        "continent": "South America",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Spanish"
+        ],
+        "places": [
+            {
+                "place": "Cerro San Cristobal",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "La Chascona",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Valle Nevado",
+                "category": "HiddenGems"
+            },
+            {
+                "place": "Central Market (La Vega)",
+                "category": "HiddenGems"
+            }
+        ]
+    }
+]
+
+
+
 export const ecoFriendlyCities = [
     { name: "Copenhagen", country: "Denmark", landMarks: ["Tivoli Gardens", "Nyhavn", "The Little Mermaid", "Rosenborg Castle", "Christiania"], continent: "Europe", price: "EXPENSIVE", weathers: ["Temperate", "Rainy"], yearTimes: ["Spring", "Summer"], languages: ["Danish"] },
   { name: "Portland", country: "United States", landMarks: ["Powell's City of Books", "International Rose Test Garden", "Pittock Mansion", "Washington Park", "Powell Butte Nature Park"], continent: "North America", price: "INEXPENSIVE", weathers: ["Temperate", "Rainy"], yearTimes: ["Spring", "Summer"], languages: ["English"] },

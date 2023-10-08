@@ -1,9 +1,28 @@
 import { CategoryDb, cityModal } from "@/db/models/city"
 import { apiResponse } from "@/utils/api/nextResponse"
 import { asyncWrapperApi } from "@/utils/asyncWrapper"
-import { ecoFriendlyCities } from "./static"
+import { HiddenGemsCities } from "./static"
 import { Categories } from "@/types/prefrences"
 import { StatusCodes } from "http-status-codes"
+
+// adding cities with places 
+export const GET = asyncWrapperApi(async ()=>{
+   let addedCities = 0 ;
+      for(let i  = 0 ; i < HiddenGemsCities.length ; i++){
+      const existCity = await cityModal().findOne({name : HiddenGemsCities[i].name})
+      if(existCity && existCity.categories?.some((category : CategoryDb )=>category.name === Categories.HiddenGems ) ) continue ;
+      if(existCity  ){ await cityModal().findOneAndUpdate({name : HiddenGemsCities[i].name} , { $push: { categories: {name : Categories.HiddenGems, position : i  }   } , $set: {
+         places: HiddenGemsCities[i].places , 
+       }, } ,{new: true})
+      }
+      else{ await cityModal().create({...HiddenGemsCities[i] , landmarks : HiddenGemsCities[i].landMarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [{name : Categories.HiddenGems, position : i}]  , reviews: [] , likes: [] , dislikes : [] , places : HiddenGemsCities[i].places  })
+      addedCities++ 
+   }
+      }
+      return apiResponse(StatusCodes.CREATED , JSON.stringify({ number : addedCities } ))      
+})
+
+
 
 
 // adding cities with activies
@@ -27,19 +46,19 @@ import { StatusCodes } from "http-status-codes"
 
 // adding cities without activities
 
-export const GET = asyncWrapperApi(async ()=>{
-   let addedCities = 0 ;
-      for(let i  = 0 ; i < ecoFriendlyCities.length ; i++){
-      const existCity = await cityModal().findOne({name : ecoFriendlyCities[i].name})
-      if(existCity && existCity.categories?.some((category : CategoryDb )=>category.name === Categories.EcoFriendly ) ) continue ;
-      if(existCity  ){ await cityModal().findOneAndUpdate({name : ecoFriendlyCities[i].name} , { $push: { categories: {name : Categories.EcoFriendly, position : i  }   }} ,{new: true})
-      }
-      else{ await cityModal().create({...ecoFriendlyCities[i] , landmarks : ecoFriendlyCities[i].landMarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [{name : Categories.EcoFriendly, position : i}]  , reviews: [] , likes: [] , dislikes : [] })
-      addedCities++ 
-   }
-      }
-      return apiResponse(StatusCodes.CREATED , JSON.stringify({ number : addedCities } ))      
-})
+// export const GET = asyncWrapperApi(async ()=>{
+//    let addedCities = 0 ;
+//       for(let i  = 0 ; i < ecoFriendlyCities.length ; i++){
+//       const existCity = await cityModal().findOne({name : ecoFriendlyCities[i].name})
+//       if(existCity && existCity.categories?.some((category : CategoryDb )=>category.name === Categories.EcoFriendly ) ) continue ;
+//       if(existCity  ){ await cityModal().findOneAndUpdate({name : ecoFriendlyCities[i].name} , { $push: { categories: {name : Categories.EcoFriendly, position : i  }   }} ,{new: true})
+//       }
+//       else{ await cityModal().create({...ecoFriendlyCities[i] , landmarks : ecoFriendlyCities[i].landMarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [{name : Categories.EcoFriendly, position : i}]  , reviews: [] , likes: [] , dislikes : [] })
+//       addedCities++ 
+//    }
+//       }
+//       return apiResponse(StatusCodes.CREATED , JSON.stringify({ number : addedCities } ))      
+// })
 
 
 //    const footballCities = [{ name: "Barcelona", country: "Spain", continent: "Europe", price: "EXPENSIVE", weathers: ["Mediterranean"], yearTimes: ["Spring", "Summer", "Autumn"], landmarks: ["Sagrada Família", "Park Güell", "Casa Batlló", "La Rambla", "Barri Gòtic (Gothic Quarter)"] },
