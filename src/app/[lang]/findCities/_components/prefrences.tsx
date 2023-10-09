@@ -118,7 +118,7 @@ export const PrefrencesRow : React.FC = ()=>{
     }, [])
     
 
-    return <DashboardSection style={{width : '260px'}}  className="bg-white   sticky pl-5 py-2  top-28 scrollPrefrences  text-primary border-none block shadow-md h-fit" >     
+    return <DashboardSection style={{width : '15%'}}  className="  bg-green-500 sticky pl-5 py-2  top-28 scrollPrefrences  text-primary border-none block shadow-md h-fit" >     
 {
       rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence.prefrence} option={prefrence.option} />)
 }     
