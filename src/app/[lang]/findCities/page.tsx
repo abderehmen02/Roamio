@@ -29,9 +29,9 @@ export default function FindCitiesPage  (){
 
     }
 </div>
-<PageBody className="relative bg-red-400 w-full" >
+<div className="relative bg-red-400 w-full flex gap-5 px-0" >
 <PrefrencesRow/>
 <Cities/>
-</PageBody>
+</div>
     </Page>
 }

@@ -83,6 +83,9 @@ export const PrefrencesRow : React.FC = ()=>{
      const currentPage : string = searchParams.get(QueryObjParams.page) || "1"
     const dispatch= useDispatch()
     const { dispatchAction } = bindActionCreators(ActionCreators , dispatch)
+    const [showPrefrences, setshowPrefrences] = useState(false)
+
+
 
     const {data , isLoading } = useQuery({
         queryKey : ["Cities" ,  citySearchQueryString ] ,
@@ -118,9 +121,17 @@ export const PrefrencesRow : React.FC = ()=>{
     }, [])
     
 
-    return <DashboardSection   className=" w-[15%] bg-green-500 sticky pl-5 py-2  top-28 scrollPrefrences  text-primary border-none block shadow-md h-fit" >     
+    const scrollY =( typeof window !== "undefined" && window.scrollY) ||0
+
+
+    return <>
+    <div className={cn(  {"hidden" : showPrefrences , "block" : !showPrefrences} , "largeMonitor:hidden" )} >
+    <i className="bi cursor-pointer text-5xl bi-list" onClick={()=>setshowPrefrences(true)} ></i>
+</div>
+<DashboardSection   className={ cn("w-full z-10 left-0   bg-green-500  pl-5 py-2   scrollPrefrences  text-primary border-none  shadow-md h-fit"  ,{"hidden" :!showPrefrences , "block" : showPrefrences  } , "sticky top-9"  )} >     
 {
       rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence.prefrence} option={prefrence.option} />)
 }     
 </DashboardSection>
-}
+
+</>}
