@@ -23,7 +23,7 @@ interface listActionCardProps extends HTMLAttributes<HTMLDivElement> {
 }  
 
 type listCardProps = {
-    list : string[] }
+    list : string[] }& HTMLAttributes<HTMLDivElement>
 
 
 export const InfoCard : React.FC<infoCardProps> = ({ title  , description  , button  , className , color = cardsColors.primary  , ...props })=>{
@@ -35,8 +35,8 @@ export const InfoCard : React.FC<infoCardProps> = ({ title  , description  , but
 }
 
 
-export const ListCard : React.FC<listCardProps> = ( {list})=>{
-    return <div className="bg-secondary  text-white  w-fit rounded-lg   flex items-center justify-center gap-3 px-16 py-6 flex-col " >
+export const ListCard : React.FC<listCardProps> = ( {list , ...props })=>{
+    return <div className={cn("bg-secondary  text-white  w-fit rounded-lg   flex items-center justify-center gap-3 px-16 py-6 flex-col " , props.className   )}  >
 <ul className="list-disc text-primary gap-3" >
 { list.map(item => <li><H3>{item}</H3></li> )
 }

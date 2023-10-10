@@ -11,7 +11,7 @@ export  async function  UnlogedHeader  (){
 
     return(
         <div  className="flex w-full items-center justify-around " >
-<img src={appConfig.logoImage} className="w-16 h-16" />
+<Link href={appConfig.links.home} ><img src={appConfig.logoImage} className="w-16 h-16" /></Link>
 <Link href={appConfig.links.blog} > <H3 className="text-primary " > {t("unlogedHeader.blog")}</H3></Link>
 <Link href={appConfig.links.findCities} ><H3 className="text-primary" >{t("find city")}</H3></Link>
 <Link href={appConfig.links.login}> <PrimaryBtn>{t("unlogedHeader.signIn")} <i className="bi bi-person"></i> </PrimaryBtn></Link>
