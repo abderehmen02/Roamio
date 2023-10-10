@@ -2,7 +2,7 @@
 import { useTranslation } from "@/app/i18n/client"
 import { Categories, Category, Languages, Meals, Prefrence, PrefrenceObject, PrefrencesArray, PrefrencesOptions, Price, Prices, PricesArray, Weathers, YearTimes } from "@/types/prefrences"
 import { P } from "@/ui/typography"
-import { useEffect, useState } from "react"
+import { Dispatch, SetStateAction, useEffect, useState } from "react"
 import { DashboardSection } from "@/components/dashboard/containers"
 import { useSelector } from "react-redux"
 import { stateType } from "@/state/reducers"
@@ -17,8 +17,29 @@ import { cn } from "@/lib/tailwind"
 import { usePathname, useSearchParams } from "next/navigation"
 import { useRouter } from "next/navigation"
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
+import { Box, Modal } from "@mui/material"
+import { Title } from "@/ui/title"
 
 const rowsFields : PrefrencesArray = [{  option : PrefrencesOptions.CATEGORIES , prefrence :  Categories }  , {   option: PrefrencesOptions.PRICES , prefrence: Prices } , { option : PrefrencesOptions.YEAR_TIMES , prefrence :  YearTimes } ,  {  option :  PrefrencesOptions.MEALS , prefrence : Meals }  , {option : PrefrencesOptions.WEATHERS , prefrence : Weathers} , {option : PrefrencesOptions.LANGUAGES , prefrence : Languages}  ]
+
+
+const prefrencesModalStyle = {
+    position: 'absolute' as 'absolute',
+    top: '50%',
+    display : "flex" , 
+    alignItems : 'center' ,
+    justifyContent : 'center' ,
+    flexDirection : 'column' ,
+    gap : '16px' ,
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
+  
 
 export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option : PrefrencesOptions }> = ({prefrence , option })=>{
     const items = Object.values(prefrence)
@@ -75,7 +96,8 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
 }
 
 
-export const PrefrencesRow : React.FC = ()=>{
+export const PrefrencesRow : React.FC <{prefrencesModal : boolean , setPrefrencesModal  : Dispatch<SetStateAction<boolean>>
+}>= ({prefrencesModal , setPrefrencesModal })=>{
     const searchParams = useSearchParams()
     const router = useRouter()
     const citySearchQueryString =  searchParams.toString()
@@ -125,13 +147,24 @@ export const PrefrencesRow : React.FC = ()=>{
 
 
     return <>
-    <div className={cn(  {"hidden" : showPrefrences , "block" : !showPrefrences} , "largeMonitor:hidden" )} >
-    <i className="bi cursor-pointer text-5xl bi-list" onClick={()=>setshowPrefrences(true)} ></i>
-</div>
-<DashboardSection   className={ cn("w-full z-10 left-0   bg-green-500  pl-5 py-2   scrollPrefrences  text-primary border-none  shadow-md h-fit"  ,{"hidden" :!showPrefrences , "block" : showPrefrences  } , "sticky top-9"  )} >     
+<Modal open={prefrencesModal} onClose={()=>setPrefrencesModal(false)} >
+<Box sx={prefrencesModalStyle}  >
+<Title title="Prefrences" descreption="select your target prefrences" />
+<div style={{width: "200px"}} className=" z-10 left-0   bg-green-500  pl-5 py-2   scrollPrefrences  text-primary border-none h-fit" >
 {
       rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence.prefrence} option={prefrence.option} />)
 }     
-</DashboardSection>
+</div>
+</Box>
+</Modal>
+<div className="sticky hidden largeMonitor:block top-9 w-full z-10 left-0   bg-green-500  pl-5 py-2   scrollPrefrences  text-primary border-none  shadow-md h-fit" >
+{
+      rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence.prefrence} option={prefrence.option} />)
+}     
 
-</>}
+</div>
+<DashboardSection   className={ cn(""  )} >     
+</DashboardSection>
+</>
+
+}

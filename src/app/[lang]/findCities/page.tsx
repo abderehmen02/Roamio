@@ -11,11 +11,13 @@ import { stateType } from "@/state/reducers"
 import { InfoCard, cardsColors } from "@/components/marketing/cards"
 import { appConfig } from "@/config"
 import { isUserInfo } from "@/types/state/auth/userInfo"
+import { useState } from "react"
 
 
 export default function FindCitiesPage  (){
     const cities = useSelector((state : stateType)=>state.cities)
     const userInfo  = useSelector((state : stateType)=>state.userInfo)
+    const [prefrencesModal, setPrefrencesModal] = useState<boolean>(false)
     const router = useRouter()   
     if(cities.error?.message) return <LoggedPage> <Title title="Error !" descreption={"Some error hapened on the cities state! please try again later." + cities.error.message }  /></LoggedPage>
     return <Page className="bg-secondary" >
@@ -30,8 +32,8 @@ export default function FindCitiesPage  (){
     }
 </div>
 <div className="relative bg-red-400 w-full flex gap-5 px-0" >
-<PrefrencesRow/>
-<Cities/>
+<PrefrencesRow prefrencesModal={prefrencesModal} setPrefrencesModal={setPrefrencesModal} />
+<Cities  prefrencesModal={prefrencesModal} setPrefrencesModal={setPrefrencesModal} />
 </div>
     </Page>
 }
