@@ -16,7 +16,8 @@ export const Cities : React.FC<{prefrencesModal : boolean , setPrefrencesModal :
 }> = ({prefrencesModal , setPrefrencesModal })=>{
     const searchParams = useSearchParams()
     const cities : CitiesState = useSelector((state : stateType)=>state.cities)
-    if(cities.loading && cities.cities.length === 0 ) return <LoadingCities/>
+    console.log("cities ", cities)
+    if(cities.loading ) return <LoadingCities/>
     if(cities.error) return <H2>{cities.error.message}</H2>
 
     return <div  className="flex pt-10 largeMonitor:pt-0 flex-col w-full  z-0 largeMonitor:w-[85%] items-center gap-10 " >

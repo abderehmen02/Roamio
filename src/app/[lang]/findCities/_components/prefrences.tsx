@@ -117,6 +117,10 @@ export const PrefrencesRow : React.FC <{prefrencesModal : boolean , setPrefrence
 
         queryFn: async ()=>{
         dispatchAction({type : CitiesActionTypes.LOADING_CITIES})   
+        await new Promise((res , rej)=>{
+            setTimeout(()=>res("continue") , 100000 )
+        })
+
           const response = await axios.get(`/api/getCities?${citySearchQueryString}`)
           return response.data 
         } ,
