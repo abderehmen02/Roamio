@@ -14,10 +14,10 @@ export const Footer : React.FC  = async ()=>{
 { name :   t("footer.privacyPolicy") , link : appConfig.links.primacyPolicy }]
     ]
     
-    return <footer  className="flex w-full items-center  border-t-2 border-black  justify-center px-16 py-9" >
+    return <footer  className="flex w-full items-center  border-t-2 border-black  justify-center px-5 py-9" >
 {
     footerItems.map(row=>{
-        return <div style={{width : '100%'}} className="flex   flex-col w-full items-start gap-2" >
+        return <div style={{width : '100%'}} className="flex  w-fit flex-col  items-start gap-2" >
             {
                 row.map((item=><a href={item.link} ><P className="capitalize " >{item.name}</P></a>))
             }
