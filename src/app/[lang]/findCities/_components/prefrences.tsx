@@ -151,14 +151,14 @@ export const PrefrencesRow : React.FC <{prefrencesModal : boolean , setPrefrence
 <Modal open={prefrencesModal} onClose={()=>setPrefrencesModal(false)} >
 <Box sx={prefrencesModalStyle}  >
 <Title title="Prefrences" descreption="select your target prefrences" />
-<div style={{width: "200px"}} className=" z-10 left-0   bg-green-500  pl-5 py-2   scrollPrefrences  text-primary border-none h-fit" >
+<div style={{width: "200px"}} className=" z-10 left-0     pl-5 py-2   scrollPrefrences  text-primary border-none h-fit" >
 {
       rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence.prefrence} option={prefrence.option} />)
 }     
 </div>
 </Box>
 </Modal>
-<div className="sticky hidden largeMonitor:block top-9 w-full z-10 left-0   bg-green-500  pl-5 py-2   scrollPrefrences  text-primary border-none  shadow-md h-fit" >
+<div className="sticky hidden largeMonitor:block top-9 w-full z-10 left-0  bg-white   pl-5 py-2   scrollPrefrences  text-primary border-none  shadow-md h-fit" >
 {
       rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence.prefrence} option={prefrence.option} />)
 }     
