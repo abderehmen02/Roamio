@@ -5,7 +5,7 @@ import { UnlogedHeader } from '@/components/layout/unlogedHeader'
 
 
 export default function Layout ({children} : {children : React.ReactNode}){
-return <div  className="flex  w-full px-0 flex-col  gap-20" >
+return <div  className="flex items-center  w-full px-0 flex-col  gap-20" >
     <UnlogedHeader/>
 
 {children}
