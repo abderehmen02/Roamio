@@ -32,6 +32,7 @@ const prefrencesModalStyle = {
     flexDirection : 'column' ,
     gap : '16px' ,
     left: '50%',
+    maxHeight : '90vh' ,
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'background.paper',
@@ -163,8 +164,6 @@ export const PrefrencesRow : React.FC <{prefrencesModal : boolean , setPrefrence
 }     
 
 </div>
-<DashboardSection   className={ cn(""  )} >     
-</DashboardSection>
 </>
 
 }
