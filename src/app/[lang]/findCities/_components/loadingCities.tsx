@@ -5,9 +5,6 @@ export const LoadingCities: React.FC = ()=>{
     console.log("loading cities component")
 
     return  <div className="flex flex-col justify-center  w-full  items-center gap-10" >
-    < CityCardSkeleton />
-    <CityCardSkeleton/>
-    <CityCardSkeleton/>
-    <CityCardSkeleton/>
-</div>
+        {new Array(10).fill(undefined).map(()=><CityCardSkeleton/>)  }
+        </div>
 }

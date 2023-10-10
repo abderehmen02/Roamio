@@ -6,7 +6,7 @@ export const CityCardSkeleton : React.FC = ()=>{
     console.log("citycard skeleton")
     return <div className="flex flex-col shadow-md w-full   bg-white rounded-xl  border-stone-600" >
     <div  className=" flex" >
-    <Skeleton variant="rectangular"  style={{width : 250 , height : '100%'}} />
+    <Skeleton variant="rectangular"  style={{width : 400 , height : '100%'}} />
     <div className="flex px-6 w-full py-4 gap-3 justify-around flex-col " >
      <TitleSkeleton titleStyle={{width : 100 , height : 40 }} descreptionStyle={{width: 350 , height : 27}}  title={true} titleClassName="text-2xl" className="flex-row   items-center justify-start gap-7"  descreptionClassName="font-bold text-secondaryDark" descreption={true}  />
      <Skeleton variant="rectangular" className="w-full" height='100px' />
