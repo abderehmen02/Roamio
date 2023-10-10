@@ -23,6 +23,6 @@ export const UnlogedMobileHeader = ()=>{
 <Link href={appConfig.links.findCities} ><H3 className="text-primary underline" >{t("find city")}</H3></Link>
 <i onClick={()=>setOpenNav(false)} className="bi bi-x-lg text-4xl text-red-500 hover:text-red-800"></i>
 </div>
-<img src={appConfig.logoImage} className={cn("w-16 h-16" , {"invisible" : openNav }) } />
+<Link href={appConfig.links.home} > <img src={appConfig.logoImage} className={cn("w-16 h-16" , {"invisible" : openNav }) } /></Link>
     </div>
 }

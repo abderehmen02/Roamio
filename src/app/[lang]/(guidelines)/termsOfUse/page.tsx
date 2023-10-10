@@ -1,12 +1,12 @@
 import { appConfig } from "@/config";
+import { Page } from "@/ui/containers";
 import { Title } from "@/ui/title";
 import { H2, H3, P } from "@/ui/typography";
 
 export default function TermsOfUse(){
-    return <div className="min-h-screen w-full flex flex-col items-center">
-
+    return <Page>
 <Title title="Terms of use" descreption={`Please read our Terms of Use to understand the rules and guidelines for using ${appConfig.name}`} />
-<div className="w-[1000px] my-7 flex flex-col gap-2" >
+<div className="w-full  laptop:my-7 flex flex-col gap-2" >
 <H3>Last Updated: 1st October 2022</H3>
 <H2  >Welcome to {appConfig.name}!</H2>
 
@@ -74,5 +74,5 @@ Interfering with the proper functioning of the app or its services.</P>
 
 <P>Thank you for using [Your App Name]! We hope you enjoy exploring cities and sharing your experiences with us.</P>
 </div>
-    </div>
+</Page>
 }
