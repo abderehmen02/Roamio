@@ -8,7 +8,7 @@ export  default  async function  SignUpPage(){
     const {t} = await useTranslation()
     return <Page  className="flex items-center flex-col" >
         <Title titleClassName="text-5xl" className="my-12" title={t("appName")} descreptionClassName="font-semibold" descreption={t("signUp.titleDescreption")} />
-        <div className="bg-secondary relativ w-fit e items-center p-16 rounded-xl gap-10 justify-center flex" >
+        <div className="bg-secondary relativ w-full laptop:w-fit  items-center p-4 laptop:p-16 rounded-xl gap-10 justify-center flex  flex-col laptop:flex-row " >
      <SignUpForm/>
             <SignUpCards/>
         </div>
