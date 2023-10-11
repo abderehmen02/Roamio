@@ -15,20 +15,15 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import CommentIcon from '@mui/icons-material/Comment';
 import { useSelector } from "react-redux"
 import { stateType } from "@/state/reducers"
-import { useDispatch } from "react-redux"
-import { bindActionCreators } from "redux"
-import ActionCreators from "@/state/actionCreators/action"
 import { isUserInfo } from "@/types/state/auth/userInfo"
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useCityCardActions } from "@/hooks/citiCardAction"
 import { ReviewModal } from "@/modals/city/reviewModal"
-import { Skeleton } from "@mui/material"
 import { CityCardSkeleton } from "@/components/skeletons/city/cityCardSkeleton"
 import TurnedInOutlinedIcon from '@mui/icons-material/TurnedInOutlined';
 import TurnedInNotOutlinedIcon from '@mui/icons-material/TurnedInNotOutlined';
 import { useQuery } from "@tanstack/react-query"
 import { isCityDb } from "@/types/state/cities"
-import axios from "axios"
 import { getCity } from "@/functions/api/cities"
 import { useSearchParams } from "next/navigation"
 import { QueryObjParams } from "@/utils/queryCities"
@@ -56,9 +51,9 @@ return <div className="flex flex-col" >
 <P >country: <span className="mx-1" >{citydb.country}</span></P>
 <P>continent: <span className="mx-1">{citydb.continent}</span> </P>
 <P className="lowercase" >price: <span className="mx-1 lowercase" >{citydb.price}</span></P>
-<div className="flex" ><P>Best times to visit the city: </P><div className="flex mx-1" > {citydb.yearTimes.slice(0 , 5).map(time=><P key={time} className="mx-1"  >{time}</P>)}</div></div>
-<div className="flex" ><P>Languages spoken in the city</P><div className="flex mx-1" >{citydb.languages.map(lan=><P key={lan} className="mx-1" >{lan}</P>)}</div></div>
-<div className="flex justify-between"  ><div className="flex" ><P>Dominent Weathers in the city :</P><div className="flex mx-1" >{citydb.weathers.map(weather=><P key={weather}  className="mx-1" >{weather}</P>)}</div></div> { seeMoreInfo &&  <P className="text-sm cursor-pointer" onClick={()=>setSeeMoreInfo(false)} >See Less</P> }</div>
+<div className="flex" ><P>Best times to visit<span className="hidden tablet:inline" >the city</span>: </P><div className="flex mx-1" > {citydb.yearTimes.slice(0 , 5).map(time=><P key={time} className="mx-1"  >{time}</P>)}</div></div>
+<div className="flex" ><P>Languages spoken <span className="hidden tablet:inline" >in the city</span>:</P><div className="flex mx-1" >{citydb.languages.map(lan=><P key={lan} className="mx-1" >{lan}</P>)}</div></div>
+<div className="flex justify-between"  ><div className="flex" ><P><span className="hidden laptop:inline" >Dominent</span> Weathers <span className="hidden tablet:inline" >in the city</span> :</P><div className="flex mx-1" >{citydb.weathers.map(weather=><P key={weather}  className="mx-1" >{weather}</P>)}</div></div> { seeMoreInfo &&  <P className="text-sm cursor-pointer" onClick={()=>setSeeMoreInfo(false)} ><br className="laptop:hidden" />See Less</P> }</div>
 </div>
 }
 </div>
@@ -118,10 +113,10 @@ function receiveCityDbData (data: CityDb): void{
 
     return <div  className="flex w-full flex-col shadow-md   bg-white rounded-xl  border-stone-600" >
    { isCityDb(city) &&  <ReviewModal deleteReviewFn={deleteReviewFn} addReviewFn={addReview} open={openCommentModal} city={city} setOpen={setOpenCommentModal}  /> }
-    <div  className=" flex" >
-    <img  src={image}  style={{width : '300px' , objectFit: 'cover' ,  }} className={ cn( "rounded-l-xl border-2 " , {"h-full" : !seeAllDescreption && !seeMoreInfo  , "h-fit " : seeAllDescreption || seeMoreInfo } )} />
+    <div  className="flex-col laptop:flex-row flex" >
+    <img  src={image}  style={{ minHeight: '200px' , objectFit: 'cover' ,  }} className={ cn( "w-full laptop:w-[300px] rounded-l-xl border-2 " , {"h-full" : !seeAllDescreption && !seeMoreInfo  , "h-fit " : seeAllDescreption || seeMoreInfo } )} />
     <div className="flex px-6 w-full py-1 justify-around flex-col " >
-     <Title  title={cityWikipediaData.title} titleClassName="text-2xl" className="flex-row   items-center justify-start gap-7"  descreptionClassName="font-bold text-secondaryDark" descreption={subtitle}  />
+     <Title  title={cityWikipediaData.title} titleClassName="text-2xl" className="laptop:flex-row   items-center justify-start laptop:gap-7"  descreptionClassName="font-bold text-secondaryDark" descreption={subtitle}  />
       { descreption &&  <P className="text-sm" >{ seeAllDescreption ? descreption  :  descreption?.slice(0 ,extractedIndex ) }{ extractedIndex < descreption.length &&  (  seeAllDescreption ?  <span style={{cursor: 'pointer'}} className="capitalize " onClick={()=>setSeeAllDescreption(false)} > {t("seeLess")}</span>  :     <span style={{cursor: 'pointer'}} className="capitalize " onClick={()=>setSeeAllDescreption(true)} >...{t("seeMore")}</span> )}</P> }
 <div className={cn("flex items-center justify-between gap-6 py-1" , {"py-3" : seeAllDescreption })} >{ loginInfo.token?.length  &&  <div className="flex items-center justify-center gap-5 h-4  " >  
 { isUserInfo(userInfo) && isCityDb(city) && <div className="flex items-center justify-center gap-1" >{  ( city.likes.includes(userInfo._id) ? <div  onClick={ !loadingLike ? unlikeCity : undefined  } className={cn("cursor-pointer" , {"opacity-40"  : loadingLike} )} ><FavoriteIcon/></div> : <FavoriteBorderIcon className={cn("cursor-pointer" , {"opacity-40" :loadingLike }) } onClick={ !loadingLike  ?likeCity  :undefined }   /> ) } {city.likes.length} </div>  }
