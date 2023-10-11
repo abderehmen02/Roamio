@@ -4,6 +4,7 @@ import { TitleSkeleton } from "../ui/title"
 
 export const CityCardSkeleton : React.FC = ()=>{
     return <>
+    {/* skeleton for desktop */}
     <div className="hidden laptop:flex  shadow-md w-full   bg-white rounded-xl  border-stone-600" >
     <div  className="flex-col laptop:flex-row flex" >
     <Skeleton variant="rectangular"  style={{width : 400 , height : '100%'}} />
@@ -18,7 +19,7 @@ export const CityCardSkeleton : React.FC = ()=>{
     </div>
    </div>
 
-
+{/* skeleton for mobile  */}
    <div className="flex flex-col items-center justify-center py-0 laptop:hidden  shadow-md w-full   bg-white rounded-xl  border-stone-600" >
     <Skeleton variant="rectangular" style={{margin : "0px" , height : "250px" , width : "100%" , display : "block"  }}  />
     <TitleSkeleton titleStyle={{width : 100 , height : 40 }} descreptionStyle={{width: 350 , height : 27}}  title={true} titleClassName="text-2xl" className="flex-col   items-start justify-start w-[90%] "  descreptionClassName="font-bold text-secondaryDark" descreption={true}  />
