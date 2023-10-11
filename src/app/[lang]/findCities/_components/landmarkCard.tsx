@@ -20,9 +20,8 @@ export const LandmarkCard : React.FC<{landMark : landMark , cityLon : number , c
     if (loading  ) return <LandmarkSkeletonCard/>
     else if( error || !infoAvailble ) return 
 
-return  <div className=" flex shadow-md  rounded-xl  w-full border-stone-600" >
-    <img  src={image}  style={{width : '200px' , objectFit: 'cover' , minHeight : '60px' }} className={ cn( "rounded-l-xl border-2 " , {"h-full" : !seeAllDescreption , "h-fit " : seeAllDescreption } )} />
-    
+return  <div className=" flex flex-col laptop:flex-row shadow-md  rounded-xl  w-full border-stone-600" >
+    <img  src={image}  style={{  objectFit: 'cover' , minHeight : '60px' }} className={ cn( "rounded-l-xl border-2 w-full laptop:w-[200px] " , {"h-full" : !seeAllDescreption , "h-fit " : seeAllDescreption } )} />
     <div className="flex px-6 py-2 justify-around flex-col gap-1" >
      <Title  title={title} titleClassName="text-xl text-start" className="flex-row   items-center justify-start gap-7"  descreptionClassName="font-bold text-secondaryDark text-start text-base" descreption={subtitle}  />
      { descreption &&  <P className="text-sm" >{ seeAllDescreption ? descreption  :  descreption?.slice(0 ,extractedIndex ) }{ extractedIndex < descreption.length &&  (  seeAllDescreption ?  <span style={{cursor: 'pointer'}} className="capitalize " onClick={()=>setseeAllDescreption(false)} >... {t("seeLess")}</span>  :     <span style={{cursor: 'pointer'}} className="capitalize " onClick={()=>setseeAllDescreption(true)} >... {t("seeMore")}</span> )}</P> }
