@@ -12,7 +12,7 @@ import { appConfig } from "@/config"
 export  async function  LoggedHeader  (){
     const {t} = await useTranslation()
     return(<>
-<div  className="flex w-full  bg-pageBg  top-0 px-10 z-50 fixed pt-5 gap-24 justify-between" >        
+<div  className="flex w-full   top-0 px-10 z-50 fixed pt-5  justify-between" >        
 <Link href={appConfig.links.home} ><img src={appConfig.logoImage} className="w-16 h-16 z-50 relative" /></Link>
 <div className="flex gap-24  relative z-50    h-fit" >
 

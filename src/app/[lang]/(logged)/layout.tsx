@@ -26,10 +26,9 @@ export default async function LoggedLayout({
 
   return (
     <AuthProvider> 
-<div className='bgBackground py-20 min-h-screen'  >   
+<div style={{width : '100%'}} className="flex items-center pt-24 w justify-center  px-0 flex-col  gap-4" >    
 <LoggedHeader/>  
-<div className='relative z-10' >{children}
-</div>
+{children}
 <Footer/>
 </div>
 </AuthProvider>
