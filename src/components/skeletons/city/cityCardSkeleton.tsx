@@ -3,9 +3,9 @@ import { Skeleton } from "@mui/material"
 import { TitleSkeleton } from "../ui/title"
 
 export const CityCardSkeleton : React.FC = ()=>{
-    console.log("citycard skeleton")
-    return <div className="flex flex-col shadow-md w-full   bg-white rounded-xl  border-stone-600" >
-    <div  className=" flex" >
+    return <>
+    <div className="hidden laptop:flex  shadow-md w-full   bg-white rounded-xl  border-stone-600" >
+    <div  className="flex-col laptop:flex-row flex" >
     <Skeleton variant="rectangular"  style={{width : 400 , height : '100%'}} />
     <div className="flex px-6 w-full py-4 gap-3 justify-around flex-col " >
      <TitleSkeleton titleStyle={{width : 100 , height : 40 }} descreptionStyle={{width: 350 , height : 27}}  title={true} titleClassName="text-2xl" className="flex-row   items-center justify-start gap-7"  descreptionClassName="font-bold text-secondaryDark" descreption={true}  />
@@ -17,4 +17,15 @@ export const CityCardSkeleton : React.FC = ()=>{
     </div>
     </div>
    </div>
+
+
+   <div className="flex flex-col items-center justify-center py-0 laptop:hidden  shadow-md w-full   bg-white rounded-xl  border-stone-600" >
+    <Skeleton variant="rectangular" style={{margin : "0px" , height : "250px" , width : "100%" , display : "block"  }}  />
+    <TitleSkeleton titleStyle={{width : 100 , height : 40 }} descreptionStyle={{width: 350 , height : 27}}  title={true} titleClassName="text-2xl" className="flex-col   items-start justify-start w-[90%] "  descreptionClassName="font-bold text-secondaryDark" descreption={true}  />
+    <Skeleton variant="text" width="90%"  />
+    <Skeleton variant="text" width="90%"  />
+    <Skeleton variant="text"  width="90%"  />
+    <Skeleton variant="rectangular" className="mb-2" width="90%" height="50px" /> 
+   </div>
+    </>
 }
