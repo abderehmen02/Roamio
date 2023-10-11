@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { StateProvider } from '@/providers/stateProvider'
 import { AuthProvider } from '@/providers/userProvider'
 import { LoggedHeader } from '@/components/layout/loggedHeader'
+import { Footer } from '@/components/layout/footer'
 
 
 
@@ -29,6 +30,7 @@ export default async function LoggedLayout({
 <LoggedHeader/>  
 <div className='relative z-10' >{children}
 </div>
+<Footer/>
 </div>
 </AuthProvider>
 

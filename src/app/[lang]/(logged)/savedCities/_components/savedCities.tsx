@@ -4,10 +4,10 @@ import { isUserInfo } from "@/types/state/auth/userInfo";
 import { H3 } from "@/ui/typography";
 import React from "react";
 import { useSelector } from "react-redux";
-import { CityCard } from "../../dashboard/_components/cityCard";
 import { Title } from "@/ui/title";
 import Link from "next/link";
 import { PrimaryBtn } from "@/ui/buttons";
+import { CityCard } from "@/app/[lang]/findCities/_components/cityCard";
 
 export const SavedCities : React.FC = ()=>{
     const userInfo = useSelector((state : stateType)=>state.userInfo)
