@@ -25,16 +25,17 @@ const rowsFields : PrefrencesArray = [{  option : PrefrencesOptions.CATEGORIES ,
 
 const prefrencesModalStyle = {
     position: 'absolute' as 'absolute',
-    top: '50%',
+    top: '45%',
     display : "flex" , 
     alignItems : 'center' ,
     justifyContent : 'center' ,
     flexDirection : 'column' ,
     gap : '16px' ,
     left: '50%',
-    maxHeight : '90vh' ,
+    maxHeight : '80vh' ,
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: "fitContent",  
+    marginY : '40px' , 
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
@@ -86,7 +87,7 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
 
 
 
-    return <div className="flex-col w-full  py-3">
+    return <div  className="flex-col w-full  py-3">
 {
 
     items.slice(0 , LastItem).map((item=> <div   onClick={()=>toglePrefrence(item)} className={ cn( " cursor-pointer  capitalize flex items-center gap-1"  , {"text-black " :  isPrefrenceIncluded( item )} )} > <P  >{item}  </P>{isPrefrenceIncluded(item) && <RadioButtonCheckedIcon style={{fontSize : '13px'}} />} </div>))
@@ -154,7 +155,7 @@ export const PrefrencesRow : React.FC <{prefrencesModal : boolean , setPrefrence
     return <>
 <Modal open={prefrencesModal} onClose={()=>setPrefrencesModal(false)} >
 <Box sx={prefrencesModalStyle}  >
-<Title title="Prefrences" descreption="select your target prefrences" />
+<Title title="Prefrences" descreptionClassName="text-center text-xs laptop:text-sm " descreption="select  your target prefrences" />
 <div style={{width: "200px"}} className=" z-10 left-0     pl-5 py-2   scrollPrefrences  text-primary border-none h-fit" >
 {
       rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence.prefrence} option={prefrence.option} />)
