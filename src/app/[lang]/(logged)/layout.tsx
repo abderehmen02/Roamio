@@ -26,7 +26,7 @@ export default async function LoggedLayout({
 
   return (
     <AuthProvider> 
-<div style={{width : '100%'}} className="flex items-center pt-24 w justify-center  px-0 flex-col  gap-4" >    
+<div style={{maxWidth : '1500px'}} className="flex  w-full items-center justify-center pt-20  px-0 flex-col  gap-4" >    
 <LoggedHeader/>  
 {children}
 <Footer/>
