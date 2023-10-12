@@ -14,13 +14,14 @@ import NotesIcon from '@mui/icons-material/Notes';
 import NotInterestedIcon from '@mui/icons-material/NotInterested';
 import ArticleIcon from '@mui/icons-material/Article';
 
-export const SettingsList : React.FC = ()=>{
+export const SettingsList : React.FC<{setOpenList : React.Dispatch<React.SetStateAction<boolean>>}> = ({setOpenList})=>{
     const router= useRouter()
     const dispatch = useDispatch()
 return     <div   className="flex menu shadow-2xl px-4 flex-col items-center" >
     <Link href={appConfig.links.savedCities}  className="py-3 gap-3  cursor-pointer items-center justify-start hoverSettingsList  thinBorderBottom  flex px-7 border-black w-full " ><NotesIcon/><H4 className=" text-center  w-fit" >Saved Cities</H4>  </Link> 
     {/* <Link href="/notes" className="flex gap-3 items-center justify-start cursor-pointer py-3 hoverSettingsList thinBorderBottom    border-black w-full px-7" ><ArticleIcon/><H4 className="w-fit text-center" > Your Notes</H4></Link> */}
     <div onClick={()=>logout(dispatch , router.push)} className="py-3 flex items-center justify-start gap-3  cursor-pointer hoverSettingsList thinBorderBottom px-7   border-black w-full " ><NotInterestedIcon/><P className="w-fit text-center" >Logout</P></div>
+    <i onClick={()=>setOpenList(false)} className="bi bi-x-lg laptop:hidden text-red-500 text-2xl my-2"></i>
     </div>
 
 }
@@ -28,8 +29,9 @@ return     <div   className="flex menu shadow-2xl px-4 flex-col items-center" >
 export const Settings = ()=>{ 
 const {t} = useTranslation()
 const [OpenList, setOpenList] = useState(false)
-    return <div  className={cn("items-center w-64   rounded-t-3xl flex gap-2 relative rounded-b-xl  flex-col  "  )}> 
-    <SecondaryBtn  className="w-full px-5 z-30 "  onClick={(e)=>{ e.preventDefault() ; e.stopPropagation() ; setOpenList((val)=>  !val)     }}  >  {t("loggedHeader.settings")}   <i className="bi bi-gear-fill"></i> </SecondaryBtn>
-    <div  className={cn({" bg-white absolute top-14 w-full  " : OpenList , "hidden" : !OpenList })} >  <SettingsList/>  </div>
+    return <div  className={cn("items-end  laptop:items-center w-64 laptop:w-64  rounded-t-3xl flex gap-2 relative rounded-b-xl  flex-col  "  )}> 
+    <i onClick={()=>setOpenList(true)} className="bi text-4xl  laptop:hidden bi-gear-fill"></i>
+    <SecondaryBtn  className="w-full hidden laptop:block px-5 z-30 "  onClick={(e)=>{ e.preventDefault() ; e.stopPropagation() ; setOpenList((val)=>  !val)     }}  >  {t("loggedHeader.settings")}   <i className="bi bi-gear-fill"></i> </SecondaryBtn>
+    <div  className={cn({" bg-white w-64 laptop:w-full absolute top-14   " : OpenList , "hidden" : !OpenList })} >  <SettingsList setOpenList={setOpenList} />  </div>
     </div>
 }
