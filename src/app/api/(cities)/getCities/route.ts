@@ -101,7 +101,25 @@ export const GET = asyncWrapperApi(async (req )=>{
       const weathers = JSON.parse(searchParams.get( QueryObjParams.weathers )|| "[]")
       const name : string = searchParams.get(QueryObjParams.name) || ""
       let cities : CityDb[] = await  getCities({categories , prices : price , languages   , weathers , name } )
-      return  apiResponse(200 , page === "end"  ?cities :  cities.slice(0 , page as number * 50 ))
+      let slicedCities  : CityDb[] ;
+      let str = "" ;
+      cities.forEach((city)=>{
+        str += ( " " + city.name )
+      })
+      console.log("str" , str)
+      if(page === "end"){
+        console.log("typeof is end")
+        slicedCities = cities.slice(cities.length - cities.length%50)
+      }
+      else if(typeof page === "number"  ) {
+        console.log("typeof is number")
+        slicedCities = cities.slice( (page -1) * 50 , Number(page)  * 50)     
+      }
+      else {
+        console.log("page " , page) ;
+        slicedCities = []
+      } 
+      return  apiResponse(200 , slicedCities)
 })
 
 
