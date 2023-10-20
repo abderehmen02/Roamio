@@ -97,7 +97,8 @@ export const GET = asyncWrapperApi(async (req )=>{
       const categories  : Category[]  =   JSON.parse(searchParams.get(QueryObjParams.categories) || '[]' )
       const price : Price[]  = JSON.parse(searchParams.get(QueryObjParams.price) || '[]' )
       const page : number =   Number(searchParams.get(QueryObjParams.page) ) ||1 
-      const endPage : boolean = Boolean(searchParams.get(QueryObjParams.endPage )=== "true")
+      const endPage : boolean = Boolean(searchParams.get(QueryObjParams.endPage) === "true")
+      console.log("end page"  , searchParams.get(QueryObjParams.endPage))
       const languages = JSON.parse(searchParams.get(QueryObjParams.languages) || '[]')
       const weathers = JSON.parse(searchParams.get( QueryObjParams.weathers )|| "[]")
       const name : string = searchParams.get(QueryObjParams.name) || ""

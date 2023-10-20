@@ -33,6 +33,7 @@ const prevPage = () : void =>{
     if(Number(currentPage) < 2) return 
     const urlSearchParams = new URLSearchParams(searchParams.toString() )
      urlSearchParams.set(QueryObjParams.page, String(Number(currentPage) -  1))        
+     urlSearchParams.set(QueryObjParams.endPage , "false")
      router.push(pathname + "?" + urlSearchParams.toString()  )
 }
 
