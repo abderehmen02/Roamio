@@ -127,9 +127,9 @@ export const PrefrencesRow : React.FC <{prefrencesModal : boolean , setPrefrence
         } ,
         onSuccess : (data)=>{
           dispatchAction({type : CitiesActionTypes.EDIT_CITIES ,  payload :{cities: data , error : null , loading : false}}) ;
-          if(  (  data.length < Number(currentPage ) * 50 ) || data.length < 50 ) {
+          if(   data.length < 50 ) {
                       const urlSearchParams = new URLSearchParams(searchParams.toString() )
-                      urlSearchParams.set(QueryObjParams.page , "end" ) 
+                      urlSearchParams.set(QueryObjParams.endPage , "true" ) 
                       router.push(pathname + "?" + urlSearchParams.toString() , {scroll : false})
           }
         } ,

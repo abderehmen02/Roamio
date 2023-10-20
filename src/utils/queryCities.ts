@@ -27,6 +27,7 @@ export type QueryObj = {
     
 export const   QueryObjParams =  {
     page: "page"  ,
+    endPage : "endPage" ,
     categoriesType : "categoriesType" , 
     categories : "categories" ,
     continentType : "continentType" ,

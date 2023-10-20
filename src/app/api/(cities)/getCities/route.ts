@@ -96,7 +96,8 @@ export const GET = asyncWrapperApi(async (req )=>{
   
       const categories  : Category[]  =   JSON.parse(searchParams.get(QueryObjParams.categories) || '[]' )
       const price : Price[]  = JSON.parse(searchParams.get(QueryObjParams.price) || '[]' )
-      const page : number | string  = searchParams.get(QueryObjParams.page) === "end" ? "end"  :  Number(searchParams.get(QueryObjParams.page) ) ||1 
+      const page : number =   Number(searchParams.get(QueryObjParams.page) ) ||1 
+      const endPage : boolean = Boolean(searchParams.get(QueryObjParams.endPage )=== "true")
       const languages = JSON.parse(searchParams.get(QueryObjParams.languages) || '[]')
       const weathers = JSON.parse(searchParams.get( QueryObjParams.weathers )|| "[]")
       const name : string = searchParams.get(QueryObjParams.name) || ""
@@ -107,18 +108,13 @@ export const GET = asyncWrapperApi(async (req )=>{
         str += ( " " + city.name )
       })
       console.log("str" , str)
-      if(page === "end"){
+      if(endPage){
         console.log("typeof is end")
         slicedCities = cities.slice(cities.length - cities.length%50)
       }
-      else if(typeof page === "number"  ) {
-        console.log("typeof is number")
-        slicedCities = cities.slice( (page -1) * 50 , Number(page)  * 50)     
-      }
-      else {
-        console.log("page " , page) ;
-        slicedCities = []
-      } 
+      else    slicedCities = cities.slice( (page -1) * 50 , Number(page)  * 50)     
+      
+      
       return  apiResponse(200 , slicedCities)
 })
 
