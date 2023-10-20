@@ -145,7 +145,7 @@ export const PrefrencesRow : React.FC <{prefrencesModal : boolean , setPrefrence
         const paramsCategories = typeof urlSearchParams.get(QueryObjParams.categories) === "string" ?  JSON.parse(urlSearchParams.get(QueryObjParams.categories) as string ) : []
         if(paramsCategories.length === 0) paramsCategories.push(Categories.MostVisited)
         urlSearchParams.set(QueryObjParams.categories , JSON.stringify(paramsCategories))
-        router.push( pathname + "?" +  urlSearchParams.toString())
+        router.push( pathname + "?" +  urlSearchParams.toString() , {scroll : false} )
     }, [])
     
 
