@@ -3,7 +3,7 @@
 import { PrimaryBtn } from "@/ui/buttons"
 import { useRouter } from 'next/navigation'
 import {  PrefrencesRow } from "./_components/prefrences"
-import { LoggedPage, Page, PageBody } from "@/ui/containers"
+import { LoggedPage, Page } from "@/ui/containers"
 import { Cities } from "./_components/cities"
 import { Title } from "@/ui/title"
 import { useSelector } from "react-redux"

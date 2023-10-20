@@ -29,6 +29,6 @@ const nextPage = () : void =>{
 
     if(citiesState.cities.length === 0 || currentPage === "end"  ) return <></>
     return <>
-{ citiesState.loading  ? <span>loading...</span> : <span>loading...</span>   }
+{ citiesState.loading  ? <span>loading...</span> :  <PrimaryBtn onClick={nextPage} >See More</PrimaryBtn>  }
      </>
 }

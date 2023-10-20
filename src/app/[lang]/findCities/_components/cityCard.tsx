@@ -4,10 +4,10 @@ import { useTranslation } from "@/app/i18n/client"
 import { CityDb } from "@/db/models/city"
 import { usePlaceWikipediaData } from "@/hooks/cityWikipediaData"
 import { cn } from "@/lib/tailwind"
-import { ButtonsSizes, PrimaryBtn, SecondaryBtn } from "@/ui/buttons"
+import { ButtonsSizes, PrimaryBtn} from "@/ui/buttons"
 import { Title } from "@/ui/title"
-import {  H3, P } from "@/ui/typography"
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react"
+import {   P } from "@/ui/typography"
+import { Dispatch, SetStateAction,useState } from "react"
 import { Landmarks } from "./landmarks"
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
@@ -47,7 +47,7 @@ const urlSearchParams = new URLSearchParams(query)
 const currentCategories : string[] = JSON.parse(urlSearchParams.get(QueryObjParams.categories) || '[]')
 return <div className="flex flex-col" >
 { currentCategories.length ?<> <div className={cn("hidden laptop:flex"  , {"justify-between" : !seeMoreInfo } )} ><div className="flex " ><P className="text-sm">categories:</P><div className="mx-1 flex" >{ Array.from(new Set( citydb.categories.filter(category=>currentCategories.includes(category.name)))).slice(0 , 5).map(category=><P key={category.name} className="text-sm mr-1" >{category.name} </P>)}</div></div>{ !seeMoreInfo &&  <P  className="text-sm cursor-pointer" onClick={()=>setSeeMoreInfo(true)} >See More</P>}</div>
-<div className="flex items-center justify-between " ><div ><P  className="text-sm inline">categories:</P><div className="inline  " >{ Array.from(new Set( citydb.categories.filter(category=>currentCategories.includes(category.name)))).slice(0 , 5).map(category=><P key={category.name} className="inline text-sm" >{category.name} </P>)}</div></div>{ !seeMoreInfo &&  <P className="text-sm"  onClick={()=>setSeeMoreInfo(true)} >See More</P>}</div>
+<div className="flex laptop:hidden items-center justify-between " ><div ><P  className="text-sm inline">categories:</P><div className="inline  " >{ Array.from(new Set( citydb.categories.filter(category=>currentCategories.includes(category.name)))).slice(0 , 5).map(category=><P key={category.name} className="inline text-sm" >{category.name} </P>)}</div></div>{ !seeMoreInfo &&  <P className="text-sm"  onClick={()=>setSeeMoreInfo(true)} >See More</P>}</div>
 </> : <P className={cn("cursor-pointer font-bold underline"  , {"invisible" : seeMoreInfo} ) } onClick={()=>setSeeMoreInfo(true)} >Explore City Info</P> }
 { seeMoreInfo &&  <div className="flex flex-col text-sm" >
 <P >country: <span className="mx-1" >{citydb.country}</span></P>
