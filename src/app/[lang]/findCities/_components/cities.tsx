@@ -15,7 +15,7 @@ import { TextButton } from "@/ui/buttons"
 export const Cities : React.FC<{prefrencesModal : boolean , setPrefrencesModal : Dispatch<SetStateAction<boolean>>
 }> = ({prefrencesModal , setPrefrencesModal })=>{
     const cities : CitiesState = useSelector((state : stateType)=>state.cities)
-    if(cities.loading ) return <div  className="flex pt-10 largeMonitor:pt-0 flex-col w-full  z-0 largeMonitor:w-[85%] items-center gap-10 " >
+    if(cities.loading && !cities.cities.length ) return <div  className="flex pt-10 largeMonitor:pt-0 flex-col w-full  z-0 largeMonitor:w-[85%] items-center gap-10 " >
     <TextButton className="largeMonitor:hidden" onClick={()=>setPrefrencesModal(true)} >Select Prefrences</TextButton>
     <LoadingCities/>
 </div>
