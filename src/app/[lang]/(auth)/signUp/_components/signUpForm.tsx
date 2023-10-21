@@ -31,7 +31,7 @@ export const SignUpForm = ()=>{
     const loginState : LoginState = useSelector((state : stateType)=>state.login)
     const userInfoState : UserInfoState = useSelector((state : stateType)=>state.userInfo)
 return <form onSubmit={handleSubmit((data)=>submitSignUp(data , setFieldsErrors , emitAction  ))} className="bg-white px-4 laptop:px-10 w-[700px] max-w-full shadow-lg gap-10 py-5 signUpForm  h-fit rounded-lg items-start  flex flex-col" >
-<Title title={t("signUp.title")}  descreption={<div>{t("signUp.dontHaveAccount")} <Link href="/login" className="font-semibold underline" >{t("login.title")}</Link> </div>} />
+<Title title={t("signUp.title")}  descreption={<div>Already have an account ? <Link href="/login" className="font-semibold underline" >{t("login.title")}</Link> </div>} />
 <PrimaryInput  error={fieldsErrors.find(item =>item.field === SignUpFields.FIRSTNAME)?.message} {...register("firstName")}  label={t("signUp.firstName")} />
 <PrimaryInput  error={fieldsErrors.find(item =>item.field === SignUpFields.LASTNAME)?.message} {...register("lastName")} label={t("signUp.lastName")}  />
 <PrimaryInput  error={fieldsErrors.find(item =>item.field === SignUpFields.USERNAME)?.message} {...register("userName")} label={t("signUp.userName")}  action={<P>{t("signUp.generateUsername")}</P>}  helperText={t("signUp.helperUserName")} />

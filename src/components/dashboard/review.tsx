@@ -20,7 +20,7 @@ export const ReviewComponent : React.FC<Review> = ({review , userId  , _id , ima
 
    
    const userInfo =  useSelector((state: stateType)=>state.userInfo)
-    return <div className="flex px-4 items-center w-full justify-between" >
+    return <div className="flex px-1 items-center   w-full justify-between" >
     <div className="flex w-full px-2  items-center justify-start gap-2" >
         <img alt="profile image" src={ image || appConfig.unknownPersonImg } width={35}  height={35} style={{border : '1px solid black'}} className=" rounded-full" />
         <div className="flex items-start  flex-col" >

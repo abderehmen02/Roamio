@@ -2,7 +2,7 @@ import { useTranslation } from "@/app/i18n/client";
 import { CityDb } from "@/db/models/city"
 import { Title } from "@/ui/title";
 import { H3 } from "@/ui/typography";
-import { Box, IconButton, Input, InputBase, Modal, Paper, TextField, Typography } from "@mui/material"
+import { Box, IconButton, Input, InputBase, Modal, Paper, TextField, Typography, styled } from "@mui/material"
 import React, { useEffect, useRef, useState } from "react"
 import SendIcon from '@mui/icons-material/Send';
 import { PrimaryInput } from "@/ui/input";
@@ -13,26 +13,29 @@ import { useUsersInfo } from "@/hooks/useGetUsers";
 import { ReviewComponent } from "@/components/dashboard/review";
 import { isGoogleUser } from "@/types/state/auth/userInfo";
 
-const style = {
-    position: 'absolute' as 'absolute',
-    top: '50%',
-    left: '50%',
-    borderRadius: '8px' ,
-    transform: 'translate(-50%, -50%)',
-    width: 600,
-    minHeight: '60vh',
-    display :'flex' ,
-    gap : 3 ,
-    flexDirection : 'column' ,
-    justifyContent : 'space-between' ,
-    border: 'none' ,
-    bgcolor: 'background.paper',
-    // border: '2px solid #000',
-    pt: 2,
-    px: 4,
-    pb: 3,
-  };
-  
+const ModalContent = styled(Box)(({theme})=>({
+  position: 'absolute' as 'absolute',
+  top: '50%',
+  left: '50%',
+  borderRadius: '8px' ,
+  backgroundColor : "white"  ,
+  transform: 'translate(-50%, -50%)',
+  width :300 ,
+  minHeight: '60vh',
+  display :'flex' ,
+  gap : 3 ,
+  flexDirection : 'column' ,
+  justifyContent : 'space-between' ,
+  border: 'none' ,
+  bgcolor: 'background.paper',
+  // border: '2px solid #000',
+  pt: 2,
+  px: 1,
+  pb: 3,
+ [theme.breakpoints.up("md")] : {
+width : 600  
+ }
+})) 
 
 
 export const ReviewModal : React.FC<{open : boolean , setOpen : React.Dispatch<React.SetStateAction<boolean>> , city : CityDb , addReviewFn :((review: string  , setReview : React.Dispatch<React.SetStateAction<string>> )=>void) , deleteReviewFn : (review: string )=>void }> =  ({open , setOpen , city , addReviewFn , deleteReviewFn } )=>{
@@ -57,9 +60,9 @@ onClose={()=>setOpen(false)}
 aria-labelledby="parent-modal-title"
 aria-describedby="parent-modal-description"
 >
-<Box sx={{ ...style  }}>
+<ModalContent>
 <Title title={t("Reviews")} descreptionClassName="text-secondaryDark" descreption={titleDescreption}  />
-<div ref={reviewsListScrollContainer} style={{maxHeight: '50vh', overflowY: city.reviews.length ? 'scroll' : 'hidden' }} className="flex reviews gap-4 w-full items-start flex-col" >
+<div ref={reviewsListScrollContainer} style={{maxHeight: '50vh', overflowY: city.reviews.length ? 'scroll' : 'hidden' }} className="flex reviews  justify-between gap-4 w-full items-start flex-col" >
 {city.reviews.filter(review =>{
   const user = users?.data?.find(item=>item._id === review.userId)
   return Boolean(user) || users.isLoading
@@ -75,6 +78,6 @@ return <ReviewComponent userId={review.userId} deleteReviewFn={deleteReviewFn} _
   <button type="submit" onClick={handleSubmitReview} className="cursor-pointer" ><SendIcon  /></button>
 </form>
 </div>
-</Box>
+</ModalContent>
 </Modal> 
 }
