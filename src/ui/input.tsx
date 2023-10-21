@@ -34,7 +34,7 @@ export const PrimaryInput: React.FC<InputProps> = forwardRef<HTMLInputElement, I
       <div
         style={containerStyle}
         className={cn(
-          'flex flex-col w-full items-start justify-center',
+          'flex flex-col  w-full items-start justify-center',
           className
         )}
       >
@@ -48,7 +48,7 @@ export const PrimaryInput: React.FC<InputProps> = forwardRef<HTMLInputElement, I
         <input
           ref={ref}
           className={cn(
-            'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+            'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500'
           )}
           placeholder={placeholder}
           {...props}
