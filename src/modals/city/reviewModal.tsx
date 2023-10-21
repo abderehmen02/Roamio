@@ -29,9 +29,10 @@ const ModalContent = styled(Box)(({theme})=>({
   border: 'none' ,
   bgcolor: 'background.paper',
   // border: '2px solid #000',
-  pt: 2,
-  px: 1,
-  pb: 3,
+  paddingTop : 6,
+  paddingBottom : 6, 
+  paddingRight :3 ,
+  paddingLeft : 3 ,
  [theme.breakpoints.up("md")] : {
 width : 600  
  }
