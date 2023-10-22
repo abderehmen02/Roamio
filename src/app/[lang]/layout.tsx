@@ -5,6 +5,7 @@ import { languages } from '../i18n/settings'
 import { StateProvider } from '@/providers/stateProvider'
 import { AuthProvider } from '@/providers/userProvider'
 import { TanstackProvider } from '@/providers/tanstackProvider'
+import { ToosterProvider } from '@/providers/toosterProvider'
 
 
 
@@ -33,7 +34,9 @@ export default async function RootLayout({
     <html lang={lang} dir={dir(lang)} >
       <body className='bg-pageBg relative w-full flex items-center justify-center' >   <TanstackProvider>
          <StateProvider>   
+          <ToosterProvider>
         <div style={{maxWidth : '1600px'}}  className=' flex w-full  items-center justify-center relative'>{children}</div>    
+        </ToosterProvider>
         </StateProvider></TanstackProvider>
       </body>
     </html>
