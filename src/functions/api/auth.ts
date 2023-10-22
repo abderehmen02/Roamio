@@ -15,9 +15,10 @@ import { AnyAction } from 'redux'
 import { NavigateOptions } from 'next/dist/shared/lib/app-router-context'
 import { Url } from 'next/dist/shared/lib/router/router'
 import { TransitionsOptions } from '@mui/material'
+import { Toaster, toast } from 'sonner';
+import { appConfig } from '@/config'
 
-
-export const submitSignUp  = asyncWrapper<[signUpDataType , Dispatch<SetStateAction<signUpFieldError[]>>   , any , (url: Url, as?: Url | undefined) => Promise<boolean> , string ] , returnedApiFunctionData<{userName : string}> >(async (data , setFieldsErrors  , emitAction , pushFn  , pushUrl  )=>{
+export const submitSignUp  = asyncWrapper<[signUpDataType , Dispatch<SetStateAction<signUpFieldError[]>>   , any , (href: string, options?: NavigateOptions | undefined) => void, string ] , returnedApiFunctionData<{userName : string}> >(async (data , setFieldsErrors  , emitAction , pushFn  , pushUrl  )=>{
     setFieldsErrors([])
     let errors : signUpFieldError[] = []
     if(!data.userName) errors.push(signUpZodErrors.requiredUsername)
@@ -56,16 +57,22 @@ emitAction(LoginActionTypes.userLoginSuccuss  , token )
 
 emitAction(UserInfoActionTypes.ADD_USER_INFO , userInfo  )
 localStorage.setItem(authConfig.userInfoLocalStorageName  ,  JSON.stringify(userInfo)  )
-
+toast.success("Sign up successfully")
+pushFn(appConfig.links.home)
 return ({
     succuss : true ,
     data : response.data
 
 })
    }
-else return {
+
+else {
+    
+    toast.error("Something went wrong! please try again.")
+    return ({
     error : response?.data?.error ,
     succuss : false 
+})
 }
 })
 

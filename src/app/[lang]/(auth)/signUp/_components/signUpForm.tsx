@@ -19,7 +19,7 @@ import { stateType } from "@/state/reducers"
 import { LoginState } from "@/types/state/auth/signIn"
 import { UserInfoState } from "@/types/state/auth/userInfo"
 import actionCreators from "@/state/actionCreators/action"
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 
 
 
