@@ -5,7 +5,7 @@ import {Toaster} from "sonner"
 
 export const ToosterProvider : React.FC<{children : React.ReactNode}> = ({children})=>{
     return <div>
-<Toaster/>
+<Toaster richColors={true} />
 {children}
     </div>
 }

@@ -6,17 +6,18 @@ import { StatusCodes } from 'http-status-codes'
 import { signUpFieldError , signUpZodErrors,  signUpZodErrorShortMessages, genderType, signUpErrorTypes } from '@/types/errors/auth'
 import { Dispatch, SetStateAction } from 'react'
 import { parse } from 'path'
-import { EmitAction } from '@/state/actionCreators/action'
 import { LoginAction, LoginActionTypes } from '@/types/state/auth/signIn'
 import { UserInfo, UserInfoActionTypes } from '@/types/state/auth/userInfo'
 import { authConfig } from '@/config/auth'
-import { StateAction } from '@/types/state'
+import { StateAction, StateActionTypes } from '@/types/state'
 import { redirect } from 'next/navigation'
 import { AnyAction } from 'redux'
 import { NavigateOptions } from 'next/dist/shared/lib/app-router-context'
+import { Url } from 'next/dist/shared/lib/router/router'
+import { TransitionsOptions } from '@mui/material'
 
 
-export const submitSignUp  = asyncWrapper<[signUpDataType , Dispatch<SetStateAction<signUpFieldError[]>>   , any ] , returnedApiFunctionData<{userName : string}> >(async (data , setFieldsErrors  , emitAction )=>{
+export const submitSignUp  = asyncWrapper<[signUpDataType , Dispatch<SetStateAction<signUpFieldError[]>>   , any , (url: Url, as?: Url | undefined) => Promise<boolean> , string ] , returnedApiFunctionData<{userName : string}> >(async (data , setFieldsErrors  , emitAction , pushFn  , pushUrl  )=>{
     setFieldsErrors([])
     let errors : signUpFieldError[] = []
     if(!data.userName) errors.push(signUpZodErrors.requiredUsername)
@@ -35,11 +36,15 @@ export const submitSignUp  = asyncWrapper<[signUpDataType , Dispatch<SetStateAct
     }
     
    if(errors.length) {      setFieldsErrors(errors)     
+    pushFn(pushUrl)
     return {
         succuss : false ,
         error : signUpErrorTypes.VALIDATION_ERROR
      }
 }
+
+     emitAction(LoginActionTypes.userLoginRequest)
+     
     const response = await axios.post("/api/signUp" , data )
 
     if(response.status === StatusCodes.CREATED){
@@ -51,6 +56,7 @@ emitAction(LoginActionTypes.userLoginSuccuss  , token )
 
 emitAction(UserInfoActionTypes.ADD_USER_INFO , userInfo  )
 localStorage.setItem(authConfig.userInfoLocalStorageName  ,  JSON.stringify(userInfo)  )
+
 return ({
     succuss : true ,
     data : response.data
