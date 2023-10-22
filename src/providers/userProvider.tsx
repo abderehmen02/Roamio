@@ -16,9 +16,10 @@ import { useRouter } from 'next/navigation'
 import { logout } from "@/functions/api/auth"
 import { ExpiredSessionDialog } from "@/app/[lang]/(logged)/_components/expiredSession"
 import { errorMessage } from "@/utils/api/error"
-import { H1 } from "@/ui/typography"
-import { appConfig } from "@/config"
 import { LoadingUserSkeleton } from "@/components/skeletons/loadingUser"
+import { PrimaryBtn } from "@/ui/buttons"
+import { appConfig } from "@/config"
+import { VerifyEmail } from "@/components/auth/verifyEmail"
 
 export const AuthProvider : React.FC<{children : React.ReactNode  }> =  ({children   } )=>{
 const {t} = useTranslation()
@@ -78,11 +79,9 @@ getUser()
 }  , [] )
 
 if( !userLogin.token && !userLogin.error  ) return <LoadingUserSkeleton/>
-if(  isUserInfo(userInfo) && !isGoogleUser(userInfo)  && !userInfo.verified  )return <div>{t("auth.verifyEmailMessageSent")}</div>
+if(  isUserInfo(userInfo) && !isGoogleUser(userInfo)  && !userInfo.verified  ) return <VerifyEmail/>
     return <div className="w-full ">
         <ExpiredSessionDialog open={SessionDialig} setOpen={setSessionDialig} />
         {children}
     </div>
 }
-
-
