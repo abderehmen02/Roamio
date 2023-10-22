@@ -57,7 +57,7 @@ emitAction(LoginActionTypes.userLoginSuccuss  , token )
 
 emitAction(UserInfoActionTypes.ADD_USER_INFO , userInfo  )
 localStorage.setItem(authConfig.userInfoLocalStorageName  ,  JSON.stringify(userInfo)  )
-toast.success("Sign up successfully")
+// toast.success("Sign up successfully")
 pushFn(appConfig.links.home)
 return ({
     succuss : true ,

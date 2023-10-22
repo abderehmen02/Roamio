@@ -28,11 +28,12 @@ export const SignUpForm = ()=>{
     const { setValue  , register, handleSubmit,  formState: { errors },  } = useForm<signUpDataType>();
     const  [fieldsErrors , setFieldsErrors ] = useState<signUpFieldError[]>([])
     const dispatch  = useDispatch()
-    const pushFn = useRouter().push
+    const router = useRouter()
+    const pushFn = router.push
     const { emitAction } = bindActionCreators( actionCreators , dispatch)
     const loginState : LoginState = useSelector((state : stateType)=>state.login)
     const userInfoState : UserInfoState = useSelector((state : stateType)=>state.userInfo)
-return <form onSubmit={handleSubmit((data)=>submitSignUp(data , setFieldsErrors , emitAction , pushFn , "/"   ))} className="bg-white px-4 laptop:px-10 w-[700px] max-w-full shadow-lg gap-10 py-5 signUpForm  h-fit rounded-lg items-start  flex flex-col" >
+return <form onSubmit={handleSubmit((data)=>{   submitSignUp(data , setFieldsErrors , emitAction , pushFn , "/"   )  })} className="bg-white px-4 laptop:px-10 w-[700px] max-w-full shadow-lg gap-10 py-5 signUpForm  h-fit rounded-lg items-start  flex flex-col" >
 <Title title={t("signUp.title")}  descreption={<div>Already have an account ? <Link href="/login" className="font-semibold underline" >{t("login.title")}</Link> </div>} />
 <PrimaryInput  error={fieldsErrors.find(item =>item.field === SignUpFields.FIRSTNAME)?.message} {...register("firstName")}  label={t("signUp.firstName")} />
 <PrimaryInput  error={fieldsErrors.find(item =>item.field === SignUpFields.LASTNAME)?.message} {...register("lastName")} label={t("signUp.lastName")}  />
