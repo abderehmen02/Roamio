@@ -17,7 +17,7 @@ const dispatch = useDispatch()
 const router  = useRouter()
 const userInfo = useSelector((state : stateType)=>state.userInfo)
 
-const {data , isError , error , isLoading } = useMutation({
+const {data , isError , error , mutate , isLoading } = useMutation({
 mutationFn : async ()=>{
 const responce = await  axios.post("/api/sendVerifyMessage")
 return responce.data
@@ -35,9 +35,9 @@ onError : ()=>{
 
      return <div className="flex items-center px-2 gap-5 jusitfy-center py-12 flex-col" >
     <H4  className="text-center" >We sent a message to your email. please check and verify your email: {isUserInfo(userInfo) && userInfo.email} </H4>
-    <div>
+    <div className="flex items-center flex-col tablet:flex-row justify-center gap-5" >
     <SecondaryBtn size={ButtonsSizes.medium} onClick={()=>logout(dispatch  , router.push , appConfig.links.login)} >Log Out</SecondaryBtn>
-    <PrimaryBtn loading={isLoading} >Resend Verify Message</PrimaryBtn>
+    <PrimaryBtn onClick={()=>mutate()} loading={isLoading} size={ButtonsSizes.medium} >Resend Verify Message</PrimaryBtn>
     </div>
     </div>
 }
