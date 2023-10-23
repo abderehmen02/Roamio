@@ -6,6 +6,10 @@ import { generateRefreshToken, generateLoginToken } from "@/utils/auth/tokens"
 import bycrypt from 'bcrypt'
 import { authConfig } from "@/config/auth"
 import { NextResponse } from "next/server"
+import { googleUserModel } from "@/db/models/googleUser"
+import { apiResponse } from "@/utils/api/nextResponse"
+import { errorMessage } from "@/utils/api/error"
+import { signUpZodErrors } from "@/types/errors/auth"
 
 
 
@@ -17,7 +21,12 @@ export const POST   = asyncWrapperApi(async (req  ) =>{
         if(parsedBodyResult.success === false)  return new Response(JSON.stringify(parsedBodyResult)  ,{
             status : StatusCodes.BAD_REQUEST , 
         } )
-
+            const usersWithSameEmail = await userModel().findOne({email :parsedBodyResult.data.email })
+            console.log("users with same email" , usersWithSameEmail)
+            if(usersWithSameEmail) return apiResponse(StatusCodes.BAD_REQUEST , errorMessage(signUpZodErrors.EmailExists.shortMessage))
+            const googleUsersWithSameEmail = await googleUserModel().findOne({email : parsedBodyResult.data.email})
+             console.log("google users with same email" , googleUsersWithSameEmail)
+             if(googleUsersWithSameEmail)    return apiResponse(StatusCodes.BAD_REQUEST , errorMessage(signUpZodErrors.EmailSignedInWithGoogle.shortMessage))
             const newPassword = await bycrypt.hash(parsedBodyResult.data.password  , authConfig.bycryptSaltRounds )
             parsedBodyResult.data.password = newPassword 
             const newUserDb = await userModel().create({ ...parsedBodyResult.data, verified : false })

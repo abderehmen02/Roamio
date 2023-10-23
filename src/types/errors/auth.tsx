@@ -12,7 +12,7 @@ export enum SignUpFields {
 export type signUpZodErrorShortMessages = | "shortUsername" | "longUsername" | "shortPassword"
   | "invalidBirthDate" | "invalidFirstName" | "shortFirstName"
   | "longFirstName" | "invalidLastName" | "shortLastName"
-  | "longLastName" | "invalidEmail" | "missingProperty" | "invalidGender" | "requiredUsername" | "requiredPassword" | "requiredEmail" | "requiredFirstname" | "requiredLastname" | "requiredGender" |"requiredBirthDate" ;
+  | "longLastName" | "invalidEmail" | "missingProperty" | "invalidGender" | "requiredUsername" | "requiredPassword" | "requiredEmail" | "requiredFirstname" | "requiredLastname" | "requiredGender" |"requiredBirthDate" | "UsernameExists" | "EmailExists" | "EmailSignedInWithGoogle" ;
 
 
 type signUpFieldErrorsType   = {
@@ -26,6 +26,7 @@ type signUpFieldErrorsType   = {
 
 
 export const signUpZodErrors : signUpFieldErrorsType  =  {
+    
     shortUsername :{message : "Username must be at least 5 characters " , field : SignUpFields.USERNAME  ,  shortMessage : 'shortUsername' } ,
     longUsername : { message :  "Username must be at most 50 characters" , field : SignUpFields.USERNAME, shortMessage : "longUsername"  } ,
     shortPassword: { message : "Password must be at least 8 charachters" , field : SignUpFields.PASSWORD, shortMessage : "shortPassword"  }    ,
@@ -45,7 +46,10 @@ export const signUpZodErrors : signUpFieldErrorsType  =  {
     requiredGender : {message : "Gender is required" , field : SignUpFields.GENDER , shortMessage :"requiredGender"} , 
     requiredLastname : {message : "Lastname is required" , field : SignUpFields.LASTNAME , shortMessage : "requiredLastname"} ,
     requiredPassword : {message : "Password is required"   , field : SignUpFields.PASSWORD , shortMessage  :"requiredPassword"}  ,
-    requiredUsername : {message  : "Username is required" , field : SignUpFields.USERNAME , shortMessage : "requiredUsername"}
+    requiredUsername : {message  : "Username is required" , field : SignUpFields.USERNAME , shortMessage : "requiredUsername"} ,
+    EmailExists : {message : "Email already used! try another one" , field : SignUpFields.EMAIL , shortMessage  : "EmailExists" } ,
+    EmailSignedInWithGoogle : {message : "Email already signed in with google! please try to sign in with this email google account." , field : SignUpFields.EMAIL , shortMessage : "EmailSignedInWithGoogle" } ,
+    UsernameExists : { message : "Username already exists! try to use another username." ,field : SignUpFields.USERNAME , shortMessage : "UsernameExists" }
 } 
 
 export type  signUpFieldError  =  {
@@ -53,6 +57,9 @@ export type  signUpFieldError  =  {
   field? : SignUpFields ,
   shortMessage : signUpZodErrorShortMessages
 }
+
+
+
 
 
 export enum genderType {
