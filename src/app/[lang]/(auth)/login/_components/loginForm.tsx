@@ -13,13 +13,18 @@ import { bindActionCreators } from "redux"
 import { useRouter } from "next/navigation"
 import { useTranslation } from "@/app/i18n/client"
 import { LogInWithGoogle } from "@/components/auth/buttons"
+import { useState } from "react"
+import { signInFieldError } from "@/types/errors/auth"
 
 export const LoginForm  : React.FC=   ()=>{
 const {t} = useTranslation()
+const [fieldsErrors , setFieldsErrors ] = useState<signInFieldError[]>([])
 const dispath = useDispatch()
-const {dispatchAction} = bindActionCreators( ActionCreators , dispath)
 const {  register, handleSubmit,  formState: { errors },  } = useForm<signInDataType>();
+const dispatch = useDispatch()
 const push = useRouter().push
+
+
 
 
 return <div className="flex  w-full relative gap-0 flex-col laptop:flex-row items-center justify-center" >
@@ -28,7 +33,7 @@ return <div className="flex  w-full relative gap-0 flex-col laptop:flex-row item
     <H2 className="text-primary text-center font-bold" >{t("login.title")}</H2>
     <P className="text-center " >{t("login.welcome")}</P>
     </div>
-    <form onSubmit={handleSubmit((data)=>submitSignIn(data , dispatchAction , push  ))} className="flex flex-col items-center gap-8" >
+    <form onSubmit={handleSubmit((data)=>submitSignIn(data , dispatch , push   ))} className="flex flex-col items-center gap-8" >
     
         <PrimaryInput {...register("userName")} action={<Link href="/forgetUsername" className="hover:font-semibold" >{t("login.forgetUsername")}</Link>}  label={t("login.username")} placeholder={t("login.userNamePlaceHolder")} containerStyle={{maxWidth : '500px'}} type="text" />
         <PrimaryInput  {...register("password")} action={<Link href="/forgetPassword" className="hover:font-semibold" >{t("login.forgetPassword")}</Link>}  label={t("login.password")}  placeholder={t("login.passwordPlaceHolder")} containerStyle={{maxWidth : '500px'}} className="max-w-xl " type="password" />

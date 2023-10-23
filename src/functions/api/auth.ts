@@ -22,7 +22,7 @@ import { appConfig } from '@/config'
 
 
 
-export const submitSignUp  = async (data : signUpDataType , setFieldsErrors : Dispatch<SetStateAction<signUpFieldError[]>>     , emitAction :  any , pushFn :   (href: string, options?: NavigateOptions | undefined) => void  , pushUrl : string  ) : Promise<returnedApiFunctionData<{userName : string}>> =>{
+export const submitSignUp  = async (data : signUpDataType , setFieldsErrors : Dispatch<SetStateAction<signUpFieldError[]>>     , emitAction :  any , pushFn :   (href: string, options?: NavigateOptions | undefined) => void  , pushUrl : string   ) : Promise<returnedApiFunctionData<{userName : string}>> =>{
 try {
     setFieldsErrors([])
     let errors : signUpFieldError[] = []
@@ -115,13 +115,23 @@ export const logout = async (dispatch : Dispatch<AnyAction> , pushUrlFn : (href:
 
 
 
-export const submitSignIn = async ( data : signInDataType ,  dispatch : Dispatch<LoginAction> , pushUrlFn : (href: string, options?: NavigateOptions | undefined) => void )=>{
+export const submitSignIn = async ( data : signInDataType ,  dispatch : Dispatch<LoginAction> , pushUrlFn : (href: string, options?: NavigateOptions | undefined) => void , pushLink = appConfig.links.home )=>{
+try{    
+    dispatch({type : LoginActionTypes.userLoginRequest})
     const response = await axios.post("/api/signIn" , data)
-    console.log("response " , response)
-//     if(response.status === StatusCodes.OK){
-//         console.log
-// }
-    // else alert("someting went wrong! please try again")
+    if(response.status === StatusCodes.CREATED){
+    dispatch({type : LoginActionTypes.userLoginSuccuss , payload : response.data.token  })
+    toast.success("Loged in succussfully")
+    pushUrlFn(pushLink)
+}
+    else alert("someting went wrong! please try again")
+}
+catch(err){
+     console.log("err" , err)  
+}
+
+
+
 }
 
 
