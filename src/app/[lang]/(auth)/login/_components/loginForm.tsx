@@ -14,7 +14,9 @@ import { useRouter } from "next/navigation"
 import { useTranslation } from "@/app/i18n/client"
 import { LogInWithGoogle } from "@/components/auth/buttons"
 import { useState } from "react"
-import { signInFieldError } from "@/types/errors/auth"
+import { SignInFields, signInFieldError } from "@/types/errors/auth"
+import { useSelector } from "react-redux"
+import { stateType } from "@/state/reducers"
 
 export const LoginForm  : React.FC=   ()=>{
 const {t} = useTranslation()
@@ -23,7 +25,7 @@ const dispath = useDispatch()
 const {  register, handleSubmit,  formState: { errors },  } = useForm<signInDataType>();
 const dispatch = useDispatch()
 const push = useRouter().push
-
+const logInState = useSelector((state : stateType)=>state.login)
 
 
 
@@ -33,11 +35,11 @@ return <div className="flex  w-full relative gap-0 flex-col laptop:flex-row item
     <H2 className="text-primary text-center font-bold" >{t("login.title")}</H2>
     <P className="text-center " >{t("login.welcome")}</P>
     </div>
-    <form onSubmit={handleSubmit((data)=>submitSignIn(data , dispatch , push   ))} className="flex flex-col items-center gap-8" >
+    <form onSubmit={handleSubmit((data)=>submitSignIn(data , setFieldsErrors , dispatch , push   ))} className="flex flex-col items-center gap-8" >
     
-        <PrimaryInput {...register("userName")} action={<Link href="/forgetUsername" className="hover:font-semibold" >{t("login.forgetUsername")}</Link>}  label={t("login.username")} placeholder={t("login.userNamePlaceHolder")} containerStyle={{maxWidth : '500px'}} type="text" />
-        <PrimaryInput  {...register("password")} action={<Link href="/forgetPassword" className="hover:font-semibold" >{t("login.forgetPassword")}</Link>}  label={t("login.password")}  placeholder={t("login.passwordPlaceHolder")} containerStyle={{maxWidth : '500px'}} className="max-w-xl " type="password" />
-        <PrimaryBtn type="submit" className="text-lg w-full" style={{maxWidth : '500px'}} > {t("login.title")} </PrimaryBtn>
+        <PrimaryInput error={fieldsErrors.find(error=>error.field===SignInFields.USERNAME)?.message} {...register("userName")} action={<Link href="/forgetUsername" className="hover:font-semibold" >{t("login.forgetUsername")}</Link>}  label={t("login.username")} placeholder={t("login.userNamePlaceHolder")} containerStyle={{maxWidth : '500px'}} type="text" />
+        <PrimaryInput error={fieldsErrors.find(error=>error.field===SignInFields.PASSWORD)?.message}  {...register("password")} action={<Link href="/forgetPassword" className="hover:font-semibold" >{t("login.forgetPassword")}</Link>}  label={t("login.password")}  placeholder={t("login.passwordPlaceHolder")} containerStyle={{maxWidth : '500px'}} className="max-w-xl " type="password" />
+        <PrimaryBtn loading={logInState.loading} type="submit" className="text-lg w-full" style={{maxWidth : '500px'}} > {t("login.title")} </PrimaryBtn>
     </form>
     <div className="flex w-full flex-col items-center my-8" >
     <LogInWithGoogle className="w-fit" />

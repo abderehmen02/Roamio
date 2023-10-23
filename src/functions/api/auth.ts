@@ -1,9 +1,9 @@
-import { signInDataType, signUpDataType, signUpValidator } from '@/utils/validators/auth'
+import { signInDataType, signInValidator, signUpDataType, signUpValidator } from '@/utils/validators/auth'
 import { asyncWrapper } from '@/utils/clientAsyncWrapper'
 import axios, { AxiosError } from 'axios'
 import { returnedApiFunctionData } from '@/types/apiFunctions'
 import { StatusCodes } from 'http-status-codes'
-import { signUpFieldError , signUpZodErrors,  signUpZodErrorShortMessages, genderType, signUpErrorTypes } from '@/types/errors/auth'
+import { signUpFieldError , signUpZodErrors,  signUpZodErrorShortMessages, genderType, signUpErrorTypes, signInFieldErrors, signInErrorShortMessages, signInFieldError, SignInFields } from '@/types/errors/auth'
 import { Dispatch, SetStateAction } from 'react'
 import { LoginAction, LoginActionTypes } from '@/types/state/auth/signIn'
 import { UserInfo, UserInfoActionTypes } from '@/types/state/auth/userInfo'
@@ -115,8 +115,26 @@ export const logout = async (dispatch : Dispatch<AnyAction> , pushUrlFn : (href:
 
 
 
-export const submitSignIn = async ( data : signInDataType ,  dispatch : Dispatch<LoginAction> , pushUrlFn : (href: string, options?: NavigateOptions | undefined) => void , pushLink = appConfig.links.home )=>{
+export const submitSignIn = async ( data : signInDataType , setFieldsErrors : Dispatch<SetStateAction<signInFieldError[]>>  ,   dispatch : Dispatch<LoginAction> , pushUrlFn : (href: string, options?: NavigateOptions | undefined) => void , pushLink = appConfig.links.home )=>{
 try{    
+    const fieldErrors : signInFieldError[] = []
+    const errors : any[]  = []
+    if(!data.userName)  fieldErrors.push(signInFieldErrors.invalidUsername)
+    if(!data.password) fieldErrors.push(signInFieldErrors.invalidPassword)
+    const parsedData = signInValidator.safeParse(data)
+    if(!parsedData.success){
+        JSON.parse(parsedData.error.message).forEach((error : any ) => {
+            const errorObj = signInFieldErrors[error.message as signInErrorShortMessages ] 
+            if(errorObj)            fieldErrors.push(errorObj)
+            else errors.push(error.message)
+           });
+    }
+    if(fieldErrors.length)return setFieldsErrors(fieldErrors)
+    else if(errors.length) return errors.forEach((errMessage)=>{
+if(typeof errMessage === "string" ) toast.error(errMessage)
+else toast.error("something went wrong! please try again")
+})
+
     dispatch({type : LoginActionTypes.userLoginRequest})
     const response = await axios.post("/api/signIn" , data)
     if(response.status === StatusCodes.CREATED){

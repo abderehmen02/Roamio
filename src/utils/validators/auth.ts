@@ -18,8 +18,8 @@ export const signUpValidator = z.object({
 
 
 export const signInValidator = z.object({
-    userName : z.string().min(4 , signInFieldErrors.invalidUsername ).max(50    ,  signInFieldErrors.invalidUsername) ,
-    password : z.string().min(8,     signInFieldErrors.invalidPassword ) ,
+    userName : z.string().min(4 , signInFieldErrors.invalidUsername.shortMessage ).max(50    ,  signInFieldErrors.invalidUsername.shortMessage) ,
+    password : z.string().min(8,     signInFieldErrors.invalidPassword.shortMessage ) ,
 
 })
 
