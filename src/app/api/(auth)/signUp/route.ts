@@ -27,6 +27,8 @@ export const POST   = asyncWrapperApi(async (req  ) =>{
  
             const usersWithSameEmail = await userModel().findOne({email :parsedBodyResult.data.email })
             if(usersWithSameEmail) return apiResponse(StatusCodes.BAD_REQUEST , errorMessage(signUpZodErrors.EmailExists.shortMessage))
+            const userWithSameUsername = await userModel().findOne({userName : parsedBodyResult.data.userName})
+            if(userWithSameUsername) return apiResponse(StatusCodes.BAD_REQUEST , errorMessage(signUpZodErrors.UsernameExists.shortMessage))
             const newPassword = await bycrypt.hash(parsedBodyResult.data.password  , authConfig.bycryptSaltRounds )
             parsedBodyResult.data.password = newPassword 
             const newUserDb = await userModel().create({ ...parsedBodyResult.data, verified : false })
