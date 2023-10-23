@@ -48,7 +48,7 @@ export const signUpZodErrors : signUpFieldErrorsType  =  {
     requiredPassword : {message : "Password is required"   , field : SignUpFields.PASSWORD , shortMessage  :"requiredPassword"}  ,
     requiredUsername : {message  : "Username is required" , field : SignUpFields.USERNAME , shortMessage : "requiredUsername"} ,
     EmailExists : {message : "Email already used! try another one" , field : SignUpFields.EMAIL , shortMessage  : "EmailExists" } ,
-    EmailSignedInWithGoogle : {message : "Email already signed in with google! please try to sign in with this email google account." , field : SignUpFields.EMAIL , shortMessage : "EmailSignedInWithGoogle" } ,
+    EmailSignedInWithGoogle : {message : "Email already signed in with google! please try to sign in with google ussing this email!." , field : SignUpFields.EMAIL , shortMessage : "EmailSignedInWithGoogle" } ,
     UsernameExists : { message : "Username already exists! try to use another username." ,field : SignUpFields.USERNAME , shortMessage : "UsernameExists" }
 } 
 

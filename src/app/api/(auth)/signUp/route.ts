@@ -21,12 +21,12 @@ export const POST   = asyncWrapperApi(async (req  ) =>{
         if(parsedBodyResult.success === false)  return new Response(JSON.stringify(parsedBodyResult)  ,{
             status : StatusCodes.BAD_REQUEST , 
         } )
+        const googleUsersWithSameEmail = await googleUserModel().findOne({email : parsedBodyResult.data.email})
+        console.log("google users with same email" , googleUsersWithSameEmail)
+        if(googleUsersWithSameEmail)    return apiResponse(StatusCodes.BAD_REQUEST , errorMessage(signUpZodErrors.EmailSignedInWithGoogle.shortMessage))
+ 
             const usersWithSameEmail = await userModel().findOne({email :parsedBodyResult.data.email })
-            console.log("users with same email" , usersWithSameEmail)
             if(usersWithSameEmail) return apiResponse(StatusCodes.BAD_REQUEST , errorMessage(signUpZodErrors.EmailExists.shortMessage))
-            const googleUsersWithSameEmail = await googleUserModel().findOne({email : parsedBodyResult.data.email})
-             console.log("google users with same email" , googleUsersWithSameEmail)
-             if(googleUsersWithSameEmail)    return apiResponse(StatusCodes.BAD_REQUEST , errorMessage(signUpZodErrors.EmailSignedInWithGoogle.shortMessage))
             const newPassword = await bycrypt.hash(parsedBodyResult.data.password  , authConfig.bycryptSaltRounds )
             parsedBodyResult.data.password = newPassword 
             const newUserDb = await userModel().create({ ...parsedBodyResult.data, verified : false })
