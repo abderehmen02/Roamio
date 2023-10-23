@@ -5,17 +5,12 @@ import { returnedApiFunctionData } from '@/types/apiFunctions'
 import { StatusCodes } from 'http-status-codes'
 import { signUpFieldError , signUpZodErrors,  signUpZodErrorShortMessages, genderType, signUpErrorTypes } from '@/types/errors/auth'
 import { Dispatch, SetStateAction } from 'react'
-import { parse } from 'path'
 import { LoginAction, LoginActionTypes } from '@/types/state/auth/signIn'
 import { UserInfo, UserInfoActionTypes } from '@/types/state/auth/userInfo'
 import { authConfig } from '@/config/auth'
-import { StateAction, StateActionTypes } from '@/types/state'
-import { redirect } from 'next/navigation'
 import { AnyAction } from 'redux'
 import { NavigateOptions } from 'next/dist/shared/lib/app-router-context'
-import { Url } from 'next/dist/shared/lib/router/router'
-import { TransitionsOptions } from '@mui/material'
-import { Toaster, toast } from 'sonner';
+import {  toast } from 'sonner';
 import { appConfig } from '@/config'
 
 export const submitSignUp  = asyncWrapper<[signUpDataType , Dispatch<SetStateAction<signUpFieldError[]>>   , any , (href: string, options?: NavigateOptions | undefined) => void, string ] , returnedApiFunctionData<{userName : string}> >(async (data , setFieldsErrors  , emitAction , pushFn  , pushUrl  )=>{
@@ -37,7 +32,6 @@ export const submitSignUp  = asyncWrapper<[signUpDataType , Dispatch<SetStateAct
     }
     
    if(errors.length) {      setFieldsErrors(errors)     
-    pushFn(pushUrl)
     return {
         succuss : false ,
         error : signUpErrorTypes.VALIDATION_ERROR
