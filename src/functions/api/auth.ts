@@ -1,6 +1,6 @@
 import { signInDataType, signUpDataType, signUpValidator } from '@/utils/validators/auth'
 import { asyncWrapper } from '@/utils/clientAsyncWrapper'
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 import { returnedApiFunctionData } from '@/types/apiFunctions'
 import { StatusCodes } from 'http-status-codes'
 import { signUpFieldError , signUpZodErrors,  signUpZodErrorShortMessages, genderType, signUpErrorTypes } from '@/types/errors/auth'
@@ -13,7 +13,17 @@ import { NavigateOptions } from 'next/dist/shared/lib/app-router-context'
 import {  toast } from 'sonner';
 import { appConfig } from '@/config'
 
-export const submitSignUp  = asyncWrapper<[signUpDataType , Dispatch<SetStateAction<signUpFieldError[]>>   , any , (href: string, options?: NavigateOptions | undefined) => void, string ] , returnedApiFunctionData<{userName : string}> >(async (data , setFieldsErrors  , emitAction , pushFn  , pushUrl  )=>{
+
+
+
+
+
+   
+
+
+
+export const submitSignUp  = async (data : signUpDataType , setFieldsErrors : Dispatch<SetStateAction<signUpFieldError[]>>     , emitAction :  any , pushFn :   (href: string, options?: NavigateOptions | undefined) => void  , pushUrl : string  ) : Promise<returnedApiFunctionData<{userName : string}>> =>{
+try {
     setFieldsErrors([])
     let errors : signUpFieldError[] = []
     if(!data.userName) errors.push(signUpZodErrors.requiredUsername)
@@ -44,14 +54,13 @@ export const submitSignUp  = asyncWrapper<[signUpDataType , Dispatch<SetStateAct
 
     if(response.status === StatusCodes.CREATED){
   
-// emitAction(LoginActionTypes.userLoginSuccuss , response.data.token  )    
 const {token  ,birthDate ,email , savedCities , firstName ,  gender , lastName , userName , _id , verified } = response.data
 const userInfo : UserInfo  =  { birthDate , savedCities ,   email , firstName , gender , lastName , userName , verified , _id}
 emitAction(LoginActionTypes.userLoginSuccuss  , token )
 
 emitAction(UserInfoActionTypes.ADD_USER_INFO , userInfo  )
 localStorage.setItem(authConfig.userInfoLocalStorageName  ,  JSON.stringify(userInfo)  )
-// toast.success("Sign up successfully")
+toast.success("Sign up successfully")
 pushFn(appConfig.links.home)
 return ({
     succuss : true ,
@@ -68,7 +77,25 @@ else {
     succuss : false 
 })
 }
-})
+
+}
+catch(err){
+    console.log("err"  , err)
+
+    if(err instanceof AxiosError && err?.response?.data?.error?.message ){
+        const errMessage = err?.response?.data?.error?.message
+        emitAction(LoginActionTypes.userLoginFail , err.response.data.error.message || "Axios Fetching Error" )
+        const errorObj = typeof errMessage === "string" ?  signUpZodErrors[errMessage as signUpZodErrorShortMessages] : null 
+        if(errorObj) setFieldsErrors([errorObj])
+         toast.error(errorObj?.message)
+    }
+    else toast.error("Some error hapened! please try again")
+    return ({
+        error : err , 
+        succuss : false
+    })
+}
+}
 
 
 
