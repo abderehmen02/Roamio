@@ -34,7 +34,7 @@ onError : ()=>{
 // if(!isUserInfo(userInfo)) return   logout(dispatch  , router.push , appConfig.links.login)
 
      return <div className="flex items-center px-2 gap-5 jusitfy-center py-12 flex-col" >
-    <H4  className="text-center" >We sent a message to your email. please check and verify your email: {isUserInfo(userInfo) && userInfo.email} </H4>
+    <H4  className="text-center max-w-5xl" >We sent a message to your email. please check and verify your email: {isUserInfo(userInfo) && userInfo.email} , then refresh the page and start exploring </H4>
     <div className="flex items-center flex-col tablet:flex-row justify-center gap-5" >
     <SecondaryBtn size={ButtonsSizes.medium} onClick={()=>logout(dispatch  , router.push , appConfig.links.login)} >Log Out</SecondaryBtn>
     <PrimaryBtn onClick={()=>mutate()} loading={isLoading} size={ButtonsSizes.medium} >Resend Verify Message</PrimaryBtn>
