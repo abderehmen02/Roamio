@@ -48,7 +48,7 @@ export const sendResetPasswordEmail = async  ( userDb  : UserDb ) : Promise<true
     const token = generateLoginToken(tokenInfo)
     if(!token) return errorMessage("can not get the token")
     sendGrid.setApiKey(sendGridApi)
-    const link  = `${appConfig.url}/api/verifyEmail/${token}`  
+    const link  = `${appConfig.url}/resetPassword/${token}`  
     const text  = `Welcome to romio! please click the following link to reset your password: ${link} `
     let sent = false 
      
