@@ -18,6 +18,7 @@ export type UserInfo =  {
     savedCities: string[]
     firstName: string ,
     lastName : string  ,
+    image?:string ,
     verified : boolean , 
     userName : string ,
     _id : string ,
