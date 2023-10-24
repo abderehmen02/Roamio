@@ -17,11 +17,6 @@ if(!JwtSignature) throw new Error("No jwt signature in the envirement variables"
 return jwt.sign(data   ,  JwtSignature  , {expiresIn : authConfig.tokenExpiresIn} )
 }
 
-export const generateToken  = (data : unknown) : string =>{
-    if(!JwtSignature) throw new Error("No jwt signature in the envirement variables")
-    if(  typeof data === "string"  || ( typeof data === "object"  && data !== null )   )  return jwt.sign(data   ,  JwtSignature  , {expiresIn : authConfig.tokenExpiresIn} )    
-    throw new Error("can not generate token with the provided data")
-}
 
 export  const verifyLoginToken = (token : string  ) : UserStoredWithToken =>{2
     if(!JwtSignature) throw new Error("No jwt signature in the envirement variables")
@@ -36,4 +31,20 @@ let token = uuidv4();
 const dbRefreshToken = await  refreshTokenModel().create({userId  , token , authService  , expireIn : expirationDate })   
 if(dbRefreshToken?.token) return dbRefreshToken.token 
 throw new Error("Can not get the refresh token from the database") 
+}
+
+
+
+
+
+export const generateToken  = (data : unknown) : string =>{
+    if(!JwtSignature) throw new Error("No jwt signature in the envirement variables")
+    if(  typeof data === "string"  || ( typeof data === "object"  && data !== null )   )  return jwt.sign(data   ,  JwtSignature  , {expiresIn : authConfig.tokenExpiresIn} )    
+    throw new Error("can not generate token with the provided data")
+}
+
+export const verifyToken = (token : string) : unknown =>{
+    if(!token) throw new Error("No token provided")
+    if(!JwtSignature) throw new Error("No jwt signature provided ")
+    return jwt.verify(token , JwtSignature)
 }
