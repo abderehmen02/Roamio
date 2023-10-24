@@ -19,19 +19,17 @@ export const GET = asyncWrapperApi( async (req: Request)=>{
     const {searchParams} = new URL(req.url)
     const code = searchParams.get("code")
     if(!code ) return apiResponse(HttpStatusCodes.NOT_FOUND , errorMessage("can not get the access token "))
-    const { id_token }= await getGoogleAuthTokens(code  )
+    const googleAuthData = await getGoogleAuthTokens(code  )
+    if(!googleAuthData) throw new Error("can not get the google auth data")
+    const {id_token} = googleAuthData
     const googleUser = jwt.decode(id_token)
     if(!googleUser || typeof googleUser === "string"  ) throw new Error("can not get the google user from the token")
-    const {email ,  email_verified , family_name , picture , name , given_name} = googleUser
-    if(!email_verified){
-        return NextResponse.redirect(`${appConfig.url}/errors/google/unverifiedEmail`);   
-    }
+    const {email , family_name , picture , name , given_name} = googleUser
     const googleUserDb = await  googleUserModel().findOneAndUpdate<GoogleUserDb>({email } , { email,  family_name , picture , name , given_name} , {new : true , upsert: true} )
     const userId = googleUserDb._id.toString()
     const accessToken = generateLoginToken({userId  , authService: AuthServices.NATIVE_USER })
     const refreshToken = await generateRefreshToken(userId , AuthServices.GOOGLE )
-    console.log("refresh token" , refreshToken)
     cookieStore.set(authConfig.tokenCookieName , accessToken , {httpOnly : true} )
     cookieStore.set(authConfig.refreshTokenCookieName , refreshToken ,{httpOnly : true} )
-    return NextResponse.redirect("http://localhost:3000/dashboard");
+    return NextResponse.redirect(`http://localhost:3000/${appConfig.links.home}`);
     })
