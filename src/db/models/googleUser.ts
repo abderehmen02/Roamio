@@ -20,9 +20,10 @@ const googleUserSchema = new mongoose.Schema<GoogleUserDb>({
     lastName: { type: String, required: false },
     savedCities : {type: [String ] , default : [] } ,
     name : {type : String , required : true} ,
+
     picture  : {type : String , required : true}
   });
   
 export const googleUserModel = ()=>{
-    return mongoose.models?.user || model<GoogleUserDb>("user" , googleUserSchema)
+    return mongoose.models?.googleUser || model<GoogleUserDb>("googleUser" , googleUserSchema)
 }

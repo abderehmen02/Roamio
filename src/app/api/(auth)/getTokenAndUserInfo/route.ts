@@ -17,26 +17,20 @@ import { appConfig } from '@/config'
 
 export const POST   = asyncWrapperApi(async (req  ) =>{
         const  refreshTokenCookie = req.cookies.get(authConfig.refreshTokenCookieName)
-        console.log("refresh token cookies" , refreshTokenCookie)
-
         const  refreshToken = refreshTokenCookie?.value 
 
         if(!refreshToken) apiResponse( StatusCodes.BAD_REQUEST   , errorMessage("No refresh token found") )
         const tokenInfo = await  refreshTokenModel().findOne({
             token : refreshToken
          })
-         console.log( "refresh token info"  , tokenInfo)
          if(!tokenInfo) return apiResponse( StatusCodes.NOT_FOUND , errorMessage("Can not get the token from the database")  )
          const isValidToken = isAfter( parse(tokenInfo.expireIn, appConfig.dateFormate, new Date()) , new Date() )
-      console.log("is valid token" , isValidToken )
          if(!isValidToken){ 
             return apiResponse(StatusCodes.UNAUTHORIZED , errorMessage(AuthApiErrors.expiredJWT)) }
 
 
          if(tokenInfo.authService == AuthServices.GOOGLE){
-            console.log("google refresh token")
             const userInfo = await  googleUserModel().findById(tokenInfo.userId)
-            console.log("user info" , userInfo)
             if(!userInfo) return apiResponse(StatusCodes.NOT_FOUND , errorMessage("Can not get the info of the user from the database") )
             const token = generateLoginToken({userId : tokenInfo.userId.toString() , authService : AuthServices.GOOGLE  })
             return apiResponse(  StatusCodes.OK , { ...userInfo._doc ,  token})
@@ -45,7 +39,6 @@ export const POST   = asyncWrapperApi(async (req  ) =>{
            
 
          const userInfo = await  userModel().findById(tokenInfo.userId)
-         console.log("user info"  , userInfo)
          if(!userInfo) return apiResponse(StatusCodes.NOT_FOUND , errorMessage("Can not get the info of the user from the database") )
          const token = generateLoginToken({userId : tokenInfo.userId.toString() , authService : AuthServices.NATIVE_USER  })
          return apiResponse(  StatusCodes.OK , { ...userInfo._doc ,  token})
