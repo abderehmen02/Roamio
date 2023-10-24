@@ -17,6 +17,11 @@ if(!JwtSignature) throw new Error("No jwt signature in the envirement variables"
 return jwt.sign(data   ,  JwtSignature  , {expiresIn : authConfig.tokenExpiresIn} )
 }
 
+export const generateToken  = (data : unknown) : string =>{
+    if(!JwtSignature) throw new Error("No jwt signature in the envirement variables")
+    if(  typeof data === "string"  || ( typeof data === "object"  && data !== null )   )  return jwt.sign(data   ,  JwtSignature  , {expiresIn : authConfig.tokenExpiresIn} )    
+    throw new Error("can not generate token with the provided data")
+}
 
 export  const verifyLoginToken = (token : string  ) : UserStoredWithToken =>{2
     if(!JwtSignature) throw new Error("No jwt signature in the envirement variables")
