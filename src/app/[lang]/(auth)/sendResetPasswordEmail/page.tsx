@@ -21,7 +21,7 @@ const {register , handleSubmit }  = useForm<{newPassword : string}>()
 const router = useRouter()
 const { isLoading ,isError , mutate } = useMutation({
     mutationFn : async (data : {newPassword: string} )=>{
-        const response = await axios.post("/api/resetPassword" , data)
+        const response = await axios.post("/api/sendResetPasswordEmail" , data)
         return response.data
     } ,
     onSuccess : ()=>{
@@ -33,9 +33,10 @@ const { isLoading ,isError , mutate } = useMutation({
 
 return <Page >
 <form onSubmit={handleSubmit((data)=>mutate)}  className="flex flex-col gap-10 items-center" >
-<Title title="Reset Your Password"  descreption="Please enter a new password to use it the next time you login" />
-<PrimaryInput label="New password" type="password" placeholder="Type a new password" {...register("newPassword")} />
-<PrimaryBtn  type="submit" loading={isLoading} >Submit</PrimaryBtn>
+<Title title="Reset Your Password"  descreption="Please enter your email or username" />
+<PrimaryInput label="Your email or username" type="text" placeholder="Type a new password" {...register("newPassword")} />
+<PrimaryBtn  type="submit" loading={isLoading} >Send Email</PrimaryBtn>
 </form>
     </Page>
 }
+

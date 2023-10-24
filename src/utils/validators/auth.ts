@@ -28,5 +28,18 @@ export const getUsersValidator = z.object({
     users: z.array(z.string())
 })
 
+export const sendResetPasswordEmailValidator = z.object({
+    userIdentifier : z.string()
+})
+
+export const resetPasswordValidator = z.object({
+    token : z.string()  ,
+    newPassword: z.string() 
+})
+
+export type SendResetPasswordEmailData = typeof sendResetPasswordEmailValidator._type
+export type ResetPasswordData = typeof resetPasswordValidator._type
+
+
 export type signInDataType = typeof signInValidator._type
 export type signUpDataType = typeof signUpValidator._type
