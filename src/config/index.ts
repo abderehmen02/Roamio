@@ -18,6 +18,7 @@ export const appConfig = {
     cityCashingTime : 86400000 , //one day 
     sendGridMail : process.env.GMAIL_NAME ,
     mode  ,
+    unknownPersonImage : "/unknown-person.jpeg" ,
     links : {
         savedCities : '/savedCities' ,
         blog: '/blog' ,
