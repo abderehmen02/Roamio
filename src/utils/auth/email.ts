@@ -1,9 +1,10 @@
 import { authConfig } from "@/config/auth";
 import { UserDb } from "@/db/models/user";
-import { generateLoginToken } from "./tokens";
+import { generateLoginToken, generateToken } from "./tokens";
 import { appConfig } from "@/config";
 import sendGrid from '@sendgrid/mail'
 import { errorMessage } from "../api/error";
+import { ResetPasswordTokenInfo, TokenTypes } from "@/types/auth/token";
 const { StatusCodes } = require("http-status-codes");
 
 
@@ -31,7 +32,9 @@ return true
 
 
 
-
+    
+    
+    
 
 
 
@@ -41,7 +44,8 @@ return true
 export const sendResetPasswordEmail = async  ( userDb  : UserDb ) : Promise<true | Object >=>{
     const sendGridApi = process.env.SEND_GRID_API_KEY
     if(!sendGridApi) throw new Error("can not get the send grid api key . please check your envirement variables")
-    const token = generateLoginToken({userId : userDb._id })
+    const tokenInfo : ResetPasswordTokenInfo = {type : TokenTypes.RESET_PASSWORD , userId : userDb._id}
+    const token = generateLoginToken(tokenInfo)
     if(!token) return errorMessage("can not get the token")
     sendGrid.setApiKey(sendGridApi)
     const link  = `${appConfig.url}/api/verifyEmail/${token}`  

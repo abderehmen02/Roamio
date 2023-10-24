@@ -2,7 +2,7 @@ import { appConfig } from '@/config';
 import { authConfig } from '@/config/auth'
 import { refreshTokenModel } from '@/db/models/refreshToken'
 import { AuthService, AuthServices } from '@/types/auth';
-import { TokenInfo, UserStoredWithToken } from '@/types/auth/token';
+import { UserStoredWithToken } from '@/types/auth/token';
 import { addDays, addSeconds, format } from 'date-fns'
 import jwt from 'jsonwebtoken'
 const { v4: uuidv4 } = require("uuid");
@@ -17,7 +17,7 @@ if(!JwtSignature) throw new Error("No jwt signature in the envirement variables"
 return jwt.sign(data   ,  JwtSignature  , {expiresIn : authConfig.tokenExpiresIn} )
 }
 
-export const generateToken  = (data : TokenInfo) : string =>{
+export const generateToken  = (data : unknown) : string =>{
     if(!JwtSignature) throw new Error("No jwt signature in the envirement variables")
     if(  typeof data === "string"  || ( typeof data === "object"  && data !== null )   )  return jwt.sign(data   ,  JwtSignature  , {expiresIn : authConfig.tokenExpiresIn} )    
     throw new Error("can not generate token with the provided data")
