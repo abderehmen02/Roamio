@@ -32,7 +32,7 @@ const { isLoading ,isError , mutate } = useMutation({
         setFirstEmailSent(true)
     },
     onError : ()=>{
-        toast.error("something went wrong! please try again")
+        toast.error("something went wrong! please try")
     }
 })
 

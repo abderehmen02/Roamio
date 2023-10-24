@@ -22,7 +22,6 @@ export const POST   = asyncWrapperApi(async (req  ) =>{
             status : StatusCodes.BAD_REQUEST , 
         } )
         const googleUsersWithSameEmail = await googleUserModel().findOne({email : parsedBodyResult.data.email})
-        console.log("google users with same email" , googleUsersWithSameEmail)
         if(googleUsersWithSameEmail)    return apiResponse(StatusCodes.BAD_REQUEST , errorMessage(signUpZodErrors.EmailSignedInWithGoogle.shortMessage))
  
             const usersWithSameEmail = await userModel().findOne({email :parsedBodyResult.data.email })
