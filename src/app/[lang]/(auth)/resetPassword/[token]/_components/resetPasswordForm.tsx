@@ -32,7 +32,7 @@ const { isLoading ,isError , mutate } = useMutation({
 })
 
 
-    return <form onSubmit={handleSubmit((data)=>mutate({...data , token}))}  className="flex flex-col gap-10 items-center" >
+    return     <form onSubmit={handleSubmit((data)=>mutate({...data , token}))}  className="flex flex-col gap-10 items-center" >
     <Title title="Reset Your Password"  descreption="Please enter a new password to use it the next time you login" />
     <PrimaryInput label="New password" type="password" placeholder="Type a new password" {...register("newPassword")} />
     <PrimaryBtn  type="submit" loading={isLoading} >Submit</PrimaryBtn>
