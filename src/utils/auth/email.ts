@@ -45,7 +45,7 @@ export const sendResetPasswordEmail = async  ( userDb  : UserDb ) : Promise<true
     const sendGridApi = process.env.SEND_GRID_API_KEY
     if(!sendGridApi) throw new Error("can not get the send grid api key . please check your envirement variables")
     const tokenInfo : ResetPasswordTokenInfo = {type : TokenTypes.RESET_PASSWORD , userId : userDb._id}
-    const token = generateLoginToken(tokenInfo)
+    const token = generateToken(tokenInfo , {expiresIn  : authConfig.resetPasswordTokenExpire} )
     if(!token) return errorMessage("can not get the token")
     sendGrid.setApiKey(sendGridApi)
     const link  = `${appConfig.url}/resetPassword/${token}`  
