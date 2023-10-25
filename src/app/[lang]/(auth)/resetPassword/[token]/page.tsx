@@ -18,28 +18,7 @@ import { toast } from "sonner"
 
 
 export default function ResetPasswordPage  ({params : {token} } : {params : {token  : string}} ){
-const {register , handleSubmit }  = useForm<{newPassword : string}>()
-const router = useRouter()
-const { isLoading ,isError , mutate } = useMutation({
-    mutationFn : async (data : ResetPasswordData )=>{
-        const response = await axios.post("/api/resetPassword" , data)
-        return response.data
-    } ,
-    onSuccess : ()=>{
-        toast.success("password has been reset succussfully! you can log in with the new password")
-        router.push(appConfig.links.login)
-    }  , 
-    onError : ()=>{
-        toast.error("Something went wrong! please try again")
-    }
-})
-
 
 return <Page >
-<form onSubmit={handleSubmit((data)=>mutate({...data , token}))}  className="flex flex-col gap-10 items-center" >
-<Title title="Reset Your Password"  descreption="Please enter a new password to use it the next time you login" />
-<PrimaryInput label="New password" type="password" placeholder="Type a new password" {...register("newPassword")} />
-<PrimaryBtn  type="submit" loading={isLoading} >Submit</PrimaryBtn>
-</form>
     </Page>
 }
