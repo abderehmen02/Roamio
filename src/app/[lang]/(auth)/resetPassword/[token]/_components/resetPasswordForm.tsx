@@ -7,7 +7,7 @@ import { Title } from "@/ui/title"
 import { ResetPasswordData } from "@/utils/validators/auth"
 import { useMutation } from "@tanstack/react-query"
 import axios from "axios"
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 

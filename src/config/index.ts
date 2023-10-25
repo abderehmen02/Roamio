@@ -29,7 +29,10 @@ export const appConfig = {
         termsOfUse : '/termsOfUse'  ,
         primacyPolicy : '/privacyPolicy' ,
         contact: '/contact' ,
-        home: '/'
+        home: '/' ,
+        messages : {
+            tokenExpired: "tokenExpire"
+        }
     } ,
     url : mode  === modes.DEVELOPMENT ? developmentUrl : productionUrl
 } as const

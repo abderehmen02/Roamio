@@ -21,10 +21,8 @@ const isEmail = (email : string) => {
 
 
 export const POST = asyncWrapperApi( async (req)=>{
-    console.log("getting a request")
 const body = await req.json()
 const parsedBody = sendResetPasswordEmailValidator.safeParse(body)
-console.log("parsed body" ,parsedBody )
 if(!parsedBody.success) return apiResponse(StatusCodes.BAD_REQUEST , errorMessage("Can not get the user identifier"))
 let userDb : UserDb | null ;
 const userIdentifier = parsedBody.data.userIdentifier
@@ -34,10 +32,8 @@ userDb  = await userModel().findOne({email : userIdentifier })
 else {
 userDb = await userModel().findOne({userName : userIdentifier})    
 }
-console.log("user db" , userDb)
 if(!userDb)return apiResponse(ResponseStatuses.NOT_FOUND  , errorMessage("can not find user . "))
 const emailSent =  await sendResetPasswordEmail(userDb)   
-console.log("email sent"  , emailSent)
 if(emailSent === true) return apiResponse(StatusCodes.CREATED , {sent : emailSent})
 else return new Response(JSON.stringify(emailSent) , {status : StatusCodes.INTERNAL_SERVER_ERROR} )
 })

@@ -30,6 +30,7 @@ const { isLoading ,isError , mutate } = useMutation({
     onSuccess : ()=>{
         toast.success("email sent!")
         setFirstEmailSent(true)
+        router.push(appConfig.links.home)
     },
     onError : ()=>{
         toast.error("something went wrong! please try")

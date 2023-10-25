@@ -1,24 +1,20 @@
-"use client"
-
-import { appConfig } from "@/config"
-import { PrimaryBtn } from "@/ui/buttons"
 import { Page } from "@/ui/containers"
-import { PrimaryInput } from "@/ui/input"
-import { Title } from "@/ui/title"
-import { H3 } from "@/ui/typography"
-import { ResetPasswordData } from "@/utils/validators/auth"
-import { useMutation } from "@tanstack/react-query"
-import axios from "axios"
-import { useRouter } from "next/navigation"
-import { useForm } from "react-hook-form"
-import { toast } from "sonner"
+import { ResetPasswordForm } from "./_components/resetPasswordForm"
+import { isTokenExpired, verifyToken } from "@/utils/auth/tokens"
+import { notFound, redirect } from "next/navigation"
+import { appConfig } from "@/config"
+import { TokenTypes } from "@/types/auth/token"
 
 
 
 
 
 export default function ResetPasswordPage  ({params : {token} } : {params : {token  : string}} ){
+if(isTokenExpired(token)) return  redirect(appConfig.links.messages.tokenExpired)
+const tokenInfo = verifyToken(token)
+if(!tokenInfo || typeof tokenInfo !== "object" || ! ("type" in tokenInfo) || tokenInfo.type !== TokenTypes.RESET_PASSWORD ) return notFound()
 
 return <Page >
+    <ResetPasswordForm token={token} />
     </Page>
 }
