@@ -37,9 +37,9 @@ throw new Error("Can not get the refresh token from the database")
 
 
 
-export const generateToken  = (data : unknown) : string =>{
+export const generateToken  = (data : unknown ,options?: jwt.SignOptions ) : string =>{
     if(!JwtSignature) throw new Error("No jwt signature in the envirement variables")
-    if(  typeof data === "string"  || ( typeof data === "object"  && data !== null )   )  return jwt.sign(data   ,  JwtSignature  , {expiresIn : authConfig.tokenExpiresIn} )    
+    if(  typeof data === "string"  || ( typeof data === "object"  && data !== null )   )  return jwt.sign(data   ,  JwtSignature  , options )    
     throw new Error("can not generate token with the provided data")
 }
 
