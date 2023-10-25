@@ -11,6 +11,7 @@ export const authConfig ={
     emailVerificationMessageSubject : `${appConfig.name} - Verify Email` ,
     unauthRoutes : ['/' , '/login' , '/signUp' ] ,
     authRoutes : ['/dashboard' ]  ,
+    resetPasswordTokenExpire : '30m' ,
     googleRedirectUrl : 'http://localhost:3000/api/googleAuth'
 }
 export const emailRegEx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
