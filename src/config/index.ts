@@ -31,7 +31,7 @@ export const appConfig = {
         contact: '/contact' ,
         home: '/' ,
         messages : {
-            tokenExpired: "tokenExpire"
+            tokenExpired: "/tokenExpire"
         }
     } ,
     url : mode  === modes.DEVELOPMENT ? developmentUrl : productionUrl
