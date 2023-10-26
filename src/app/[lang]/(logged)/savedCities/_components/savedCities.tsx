@@ -13,7 +13,7 @@ export const SavedCities : React.FC = ()=>{
     const userInfo = useSelector((state : stateType)=>state.userInfo)
     if(!isUserInfo(userInfo)) return <H3>It seems that you are not loged in. Please login and try again later</H3>
   
-    return <div className="flex flex-col gap-5  " >
+    return <div className="flex w-full flex-col gap-5  " >
 {
     userInfo.savedCities.map(city=><CityCard name={city} />)
 }
