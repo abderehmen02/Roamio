@@ -113,25 +113,25 @@ function receiveCityDbData (data: CityDb): void{
 
 
 
-    return <div  className="flex w-full flex-col shadow-md   bg-white rounded-xl  border-stone-600" >
+    return <div  className="flex w-full flex-col shadow-md  relative bg-white rounded-xl  border-stone-600" >
    { isCityDb(city) &&  <ReviewModal deleteReviewFn={deleteReviewFn} addReviewFn={addReview} open={openCommentModal} city={city} setOpen={setOpenCommentModal}  /> }
     <div  className="flex-col laptop:flex-row flex" >
     <img  src={image}  style={{ minHeight: '200px' , objectFit: 'cover' ,  }} className={ cn( "w-full laptop:w-[300px] rounded-l-xl border-2 " , {"h-full" : !seeAllDescreption && !seeMoreInfo  , "h-fit " : seeAllDescreption || seeMoreInfo } )} />
     <div className="flex px-6 w-full py-1 justify-around flex-col " >
-     <Title  title={cityWikipediaData.title}  titleClassName="  text-2xl" className="laptop:flex-row items-start   laptop:items-center  justify-start laptop:gap-7"  descreptionClassName="font-bold text-secondaryDark  text-start" descreption={subtitle}  />
-      { descreption &&  <P className="text-sm" >{ seeAllDescreption ? descreption  :  descreption?.slice(0 ,extractedIndex ) }{ extractedIndex < descreption.length &&  (  seeAllDescreption ?  <span style={{cursor: 'pointer'}} className="capitalize " onClick={()=>setSeeAllDescreption(false)} > {t("seeLess")}</span>  :     <span style={{cursor: 'pointer'}} className="capitalize " onClick={()=>setSeeAllDescreption(true)} >...{t("seeMore")}</span> )}</P> }
-<div className={cn("flex items-center  flex-col laptop:flex-row gap-3 my-4 laptop:my-0 justify-between laptop:gap-6 py-1" , {"py-3" : seeAllDescreption })} >{ loginInfo.token?.length  &&  <div className="flex items-center justify-around w-full laptop:w-fit laptop:justify-center gap-5 h-4  " >  
+     <Title  title={cityWikipediaData.title}  titleClassName="  text-2xl" className="laptop:flex-row items-start   laptop:items-center  justify-start bg-secondary w-fit laptop:gap-7"  descreptionClassName="font-bold text-secondaryDark  text-start" descreption={subtitle}  />
+      { descreption &&  <P style={{maxWidth : '100%'}} className="text-sm block max-w-full break-words" >{ seeAllDescreption ? descreption  :  descreption?.slice(0 ,extractedIndex ) }{ extractedIndex < descreption.length &&  (  seeAllDescreption ?  <span style={{cursor: 'pointer'}} className="capitalize " onClick={()=>setSeeAllDescreption(false)} > {t("seeLess")}</span>  :     <span style={{cursor: 'pointer'}} className="capitalize " onClick={()=>setSeeAllDescreption(true)} >...{t("seeMore")}</span> )}</P> }
+<div className={cn("flex items-center  flex-col laptop:flex-row gap-3 my-4 laptop:my-0 justify-center laptop:gap-6 py-1" , {"py-3" : seeAllDescreption })} >{ loginInfo.token?.length  &&  <div className="flex items-center justify-around w-full laptop:w-fit laptop:justify-center gap-5 h-4  " >  
 { isUserInfo(userInfo) && isCityDb(city) && <div className="flex items-center justify-center gap-1" >{  ( city.likes.includes(userInfo._id) ? <div  onClick={ !loadingLike ? unlikeCity : undefined  } className={cn("cursor-pointer" , {"opacity-40"  : loadingLike} )} ><FavoriteIcon/></div> : <FavoriteBorderIcon className={cn("cursor-pointer" , {"opacity-40" :loadingLike }) } onClick={ !loadingLike  ?likeCity  :undefined }   /> ) } {city.likes.length} </div>  }
 { isUserInfo(userInfo) && isCityDb(city) && <div className={ cn( "flex items-center justify-center gap-1"  , {"opacity-40" : loadingDislke} )} >{  ( city.dislikes.includes(userInfo._id) ?  <div onClick={ !loadingDislke ? cancelDislike : undefined }  className="cursor-pointer" > <ThumbDownIcon   /></div> : <ThumbDownOffAltIcon className={cn("cursor-pointer" ,{"opacity-40" : loadingDislke})}  onClick={ !loadingDislke ?  dislikeCity : undefined  }   /> ) } {city.dislikes.length} </div>  }
 <div onClick={()=>setOpenCommentModal(true)} ><CommentIcon style={{cursor : "pointer"}} /></div> 
-{ isUserInfo(userInfo) && isCityDb(city) &&  userInfo.savedCities?.includes(city.name) ? <TurnedInOutlinedIcon style={{width : 20 , height : 20 } } onClick={()=> isSavedCity ? unsaveCity() :  saveCity()} />   : <TurnedInNotOutlinedIcon onClick={()=> isSavedCity ? unsaveCity() :  saveCity()} style={{width : 20 , height : 20 } } />  }
+<div className="desktop:hidden" >{ isUserInfo(userInfo) && isCityDb(city) &&  userInfo.savedCities?.includes(city.name) ? <TurnedInOutlinedIcon  style={{width : 20 , height : 20 } } onClick={()=> isSavedCity ? unsaveCity() :  saveCity()} />   : <TurnedInNotOutlinedIcon onClick={()=> isSavedCity ? unsaveCity() :  saveCity()} style={{width : 20 , height : 20 } } />  }</div>
 </div>}
 
 <div className="flex gap-6 w-full laptop:w-fit justiyf-center" >
 { isUserInfo(userInfo) && isCityDb(city) && <PrimaryBtn onClick={()=> isSavedCity ? unsaveCity() :  saveCity()} className={cn("py-0 hidden laptop:block" , {"opacity-40" : loadingSave })} size={ButtonsSizes.small} >{isSavedCity ? "Saved" : "Save"}  {userInfo.savedCities?.includes(city.name) ? <TurnedInOutlinedIcon style={{width : 20 , height : 20 } } />   : <TurnedInNotOutlinedIcon style={{width : 20 , height : 20 } } /> } </PrimaryBtn> }
   <PrimaryBtn  size={ButtonsSizes.small} className="py-0 w-full laptop:w-fit " onClick={()=>setViewLandMarks((val)=>!val)} > {viewLandMarks ? <i className="bi m-0 text-sm bi-chevron-up"></i> : <i className= "bi m-0  bi-chevron-down " ></i> } {t("Explore Landmarks")}  </PrimaryBtn>
 </div></div>
-{cityDb && <CityDbInfo setSeeMoreInfo={setSeeMoreInfo} seeMoreInfo={seeMoreInfo} citydb={cityDb} query={searchParams.toString()} />}
+{/* {cityDb && <CityDbInfo setSeeMoreInfo={setSeeMoreInfo} seeMoreInfo={seeMoreInfo} citydb={cityDb} query={searchParams.toString()} />} */}
     </div>
     </div>
     { isCityDb(city) && viewLandMarks && cityWikipediaData.lat && cityWikipediaData.lon &&  <Landmarks city={city} cityLat={cityWikipediaData.lat} cityLon={cityWikipediaData.lon} /> }

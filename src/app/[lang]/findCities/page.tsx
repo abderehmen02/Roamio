@@ -31,7 +31,7 @@ export default function FindCitiesPage  (){
 
     }
 </div>
-<div className="relative  w-full flex gap-5 px-0" >
+<div className="relative   w-full flex gap-5 px-0" >
 <PrefrencesRow prefrencesModal={prefrencesModal} setPrefrencesModal={setPrefrencesModal} />
 <Cities  prefrencesModal={prefrencesModal} setPrefrencesModal={setPrefrencesModal} />
 </div>

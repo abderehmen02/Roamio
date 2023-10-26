@@ -21,7 +21,7 @@ const {data  , isLoading , error } = useQuery({
     staleTime: appConfig.cityCashingTime,
     retry  ,
     queryFn: async ()=>{
-        //  await new Promise((res , rej )=> setTimeout(()=>{res("continue")} , 3000 ) )*
+        //  await new Promise((res , rej )=> setTimeout(()=>{res("continue")} , 1113000 ) )
         console.log("fetching data"   + cityName)
         const wikipediaUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${cityName}` ; 
         const response  = await axios.get(wikipediaUrl)
