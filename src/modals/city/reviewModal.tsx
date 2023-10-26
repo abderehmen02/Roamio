@@ -50,6 +50,8 @@ const handleSubmitReview = (e : any )=>{
   addReviewFn(reviewValue , setReviewValue )
 }
 
+console.log("reviews" , city.reviews)
+
 useEffect(()=>{
 if(reviewsListScrollContainer.current)  reviewsListScrollContainer.current.scrollTop = reviewsListScrollContainer?.current?.scrollHeight;
 

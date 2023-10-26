@@ -15,6 +15,7 @@ export type Review =  {
 }
 
 export const ReviewComponent : React.FC<Review> = ({review , userId  , _id , image , userName , deleteReviewFn  })=>{
+    console.log("username"  , userName , image)
     if(!review) return <span>skeleton</span>
     else if(review && !image && !userName) return <span>userName and image skeleton + {review}</span>
 
