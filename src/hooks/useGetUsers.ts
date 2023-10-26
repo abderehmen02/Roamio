@@ -14,6 +14,7 @@ export const useUsersInfo = (users : string[] , keys : any[] = [] ):  UseQueryRe
             const responce = await  axios.post("/api/getUsers" , {
                 users
             } )
+            console.log("response"  , responce.data)
             return responce.data  as UserDb[] | GoogleUserDb[]
         } ,
     })

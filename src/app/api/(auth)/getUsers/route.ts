@@ -15,7 +15,9 @@ export const POST = async (req: NextRequest)=>{
     for(let userId of parsedBody.data.users){
         if(userId){
         let user = await userModel().findById(userId) ;
+
         if(!user) user = await googleUserModel().findById(userId)
+        // console.log("google or user" , userId , user)
         if(!user) return apiResponse(StatusCodes.NOT_FOUND   , errorMessage("can not find this user" + user ))
         users.push(user) }
     }

@@ -15,10 +15,10 @@ export default function SavedCitiesPage (){
 const userInfo = useSelector((state : stateType)=>state.userInfo)
 if(!isUserInfo(userInfo)) return <H3>it seems that you are not logged in! please log in and try again</H3>
 
-    return <Page>
+    return <Page className="w-full" >
 { userInfo.savedCities?.length ?         <Title title="Your Cities" descreption="Your Collection of Treasured Destinations." /> :   <div className="w-full flex flex-col items-center justify-center gap-5" ><Title title="No city found" descreption="You did not saved any city yet " />
     <Link href="/dashboard" ><PrimaryBtn>Explore Cities</PrimaryBtn></Link>
     </div> }
-     <PageBody className="w-full justify-center  " >   <SavedCities/></PageBody>
+     <PageBody className="w-full justify-center   " >   <SavedCities/></PageBody>
     </Page>
 }
