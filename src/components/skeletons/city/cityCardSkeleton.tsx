@@ -3,7 +3,7 @@ import { Skeleton } from "@mui/material"
 import { TitleSkeleton } from "../ui/title"
 
 export const CityCardSkeleton : React.FC = ()=>{
-    return <div className="w-full bg-secondary" style={{width : '100%' }} >
+    return <div className="w-full " style={{width : '100%' }} >
     {/* skeleton for desktop */}
     <div className="hidden laptop:flex bg-white  shadow-md w-full    rounded-xl  border-stone-600" >
     <div  className="flex-col laptop:flex-row  w-full flex" >
