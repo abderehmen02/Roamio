@@ -19,15 +19,18 @@ export const usePlaceWikipediaData =(cityName : string , retry : boolean = true 
 const {data  , isLoading , error } = useQuery({
     queryKey : ["cityData" , cityName] , 
     // staleTime: appConfig.cityCashingTime,
-    retry  ,
+    retry :2 ,
     
     queryFn: async ()=>{
-        console.log("invoking fn")
         const wikipediaUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${cityName}` ; 
         const response  = await axios.get(wikipediaUrl)
         
         return response.data
-}})
+} ,
+    onError : (err)=>{
+        console.error("faild to fetch :"+ cityName   , err )
+    }
+})
 return {
     subtitle : data?.description ,
     image: data?.thumbnail?.source || data?.originalimage?.source || "/no-image.png",
