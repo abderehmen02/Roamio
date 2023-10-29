@@ -59,6 +59,21 @@ export const tagglePrefrenceAndGenerateQueryCitiesSearchParams = ( option : Pref
         }
             else         urlSearchParams.set( QueryObjParams.categories , JSON.stringify( [...currentCategories ,  prefrence]) )
     }
+
+
+
+
+    if(option === PrefrencesOptions.YEAR_TIMES){
+        const currentYearTimes : string[]=   searchParams.get(QueryObjParams.yearTimes)  ?  JSON.parse( searchParams.get(QueryObjParams.yearTimes)  as string  ) : []
+        if(currentYearTimes.includes(prefrence)) urlSearchParams.set(QueryObjParams.yearTimes , JSON.stringify(currentYearTimes.filter(yearTime =>yearTime !== prefrence)))
+        else urlSearchParams.set(QueryObjParams.yearTimes , JSON.stringify([...currentYearTimes , prefrence]) )
+     }
+ 
+
+
+
+
+
     if(option === PrefrencesOptions.PRICES){
        const currentPrices : string[]=   searchParams.get(QueryObjParams.price)  ?  JSON.parse( searchParams.get(QueryObjParams.price)  as string  ) : []
        if(currentPrices.includes(prefrence)) urlSearchParams.set(QueryObjParams.price , JSON.stringify(currentPrices.filter(price =>price !== prefrence)))

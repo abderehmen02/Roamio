@@ -69,6 +69,9 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
         initialLastItem = 7
         currentActivePrefrences = JSON.parse(searchParams.get(QueryObjParams.weathers)|| "[]")
     }
+    else if(option === PrefrencesOptions.YEAR_TIMES ){
+       currentActivePrefrences  = JSON.parse(searchParams.get(QueryObjParams.yearTimes)  || '[]')
+    }
     const [LastItem, setLastItem] = useState<number>(option === PrefrencesOptions.CATEGORIES ? 15 :3)
 
 
