@@ -59,7 +59,7 @@ export const ListActionCard : React.FC<listActionCardProps> = ({btn , list , cla
 export const CategoryCard : React.FC<{   className? : string ,   title : string , descreption : string , images : string[]}> = ({ className,  title , descreption , images})=>{
     let currImage = images[0]
     return <div  className={cn( " rounded-xl m-4 w-fit   flex justify-between flex-col " , className)}  >
-        <div style={{ height : '270px',  width : '300px'}} className="px-4  flex flex-col gap-4 my-6 " >
+        <div style={{ minHeight : '370px',  width : '300px'}} className="px-4  flex flex-col gap-4 my-6 " >
         <H2>{title}</H2>
         <P  className="w-full box-border break-words" >{descreption}</P> 
         </div>
