@@ -32,7 +32,10 @@ export const appConfig = {
         home: '/' ,
         messages : {
             tokenExpired: "/tokenExpire"
-        }
-    } ,
+        } ,
+           } ,
+           storage : {
+            findCitiesUserGuided : "findCitiesUserGuided"
+        } ,
     url : mode  === modes.DEVELOPMENT ? developmentUrl : productionUrl
 } as const

@@ -13,6 +13,7 @@ import { QueryObjParams } from "@/utils/queryCities"
 import { TextButton } from "@/ui/buttons"
 import { Hints, Steps   } from 'intro.js-react'
 import "intro.js/introjs.css";
+import { appConfig } from "@/config"
 
 
 
@@ -36,9 +37,12 @@ const [stepsEnabled , setStepsEnabled ] = useState(false)
     }
 
 useEffect(()=>{
-    setTimeout(()=>{
+    let userGuided = localStorage.getItem(appConfig.storage.findCitiesUserGuided)
+    if(!userGuided) {   setTimeout(()=>{
         setStepsEnabled(Boolean(selectPrefrencesButtonRef?.current &&  (window.getComputedStyle(selectPrefrencesButtonRef?.current  ).display !== "none" ) ))
     } , 2000 )
+    localStorage.setItem(appConfig.storage.findCitiesUserGuided , JSON.stringify({done : true}))
+}
 } , [] )
 
 
