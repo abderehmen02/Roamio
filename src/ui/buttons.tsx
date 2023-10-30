@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, HTMLAttributes, lazy } from "react";
+import React, { ButtonHTMLAttributes, HTMLAttributes, forwardRef, lazy } from "react";
 import { P, montserratClassName } from "./typography";
 import { cn } from "@/lib/tailwind";
 
@@ -20,6 +20,6 @@ return  <button disabled={props.disabled || loading}   className={cn( " h-fit bg
 }
 
 " h-fit bg-secondary border-2 border-secondary hover:border-secondaryDark hover:bg-secondaryDark shadow-md"
-export const TextButton : React.FC<UiButtonProps>  = ({children , size = ButtonsSizes.large , className , ...props })=>{
-return <button  className={cn(" bg-gray-800  hover:bg-black text-white  font-bold "  ,{"text-lg rounded-3xl font-bold px-4 py-2"  :  size === ButtonsSizes.large ,   "text-base rounded-2xl font-semibold px-2 py-1" : size === ButtonsSizes.medium  , "text-base rounded-lg  font-normal py-1 px-2" : size === ButtonsSizes.small  }  , montserratClassName  , className)} {...props} > {children}</button>
-}
+export const TextButton   = forwardRef< HTMLButtonElement ,  UiButtonProps>(({children , size = ButtonsSizes.large  , className ,  ...props} , ref)=>{
+    return <button ref={ref} className={cn(" bg-gray-800  hover:bg-black text-white  font-bold "  ,{"text-lg rounded-3xl font-bold px-4 py-2"  :  size === ButtonsSizes.large ,   "text-base rounded-2xl font-semibold px-2 py-1" : size === ButtonsSizes.medium  , "text-base rounded-lg  font-normal py-1 px-2" : size === ButtonsSizes.small  }  , montserratClassName  , className)} {...props} > {children}</button>
+}) 
