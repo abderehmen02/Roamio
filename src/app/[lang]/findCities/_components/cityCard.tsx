@@ -49,7 +49,7 @@ return <div className="flex flex-col" >
 { currentCategories.length ?<> <div className={cn("hidden laptop:flex"  , {"justify-between" : !seeMoreInfo } )} ><div className="flex " ><P className="text-sm">categories:</P><div className="mx-1 flex" >{ Array.from(new Set( citydb.categories.filter(category=>currentCategories.includes(category.name)))).slice(0 , 5).map(category=><P key={category.name} className="text-sm mr-1" >{category.name} </P>)}</div></div>{ !seeMoreInfo &&  <P  className="text-sm cursor-pointer" onClick={()=>setSeeMoreInfo(true)} >See More</P>}</div>
 <div className="flex laptop:hidden items-center justify-between " ><div className="flex gap-3 items-center" ><P  className="text-sm inline">categories:</P><div className="inline  " >{ Array.from(new Set( citydb.categories.filter(category=>currentCategories.includes(category.name)))).slice(0 , 5).map(category=><P key={category.name} className="inline text-sm" >{category.name} </P>)}</div></div>{ !seeMoreInfo &&  <P className="text-sm"  onClick={()=>setSeeMoreInfo(true)} >See More</P>}</div>
 </> : <P className={cn("cursor-pointer font-bold underline"  , {"invisible" : seeMoreInfo} ) } onClick={()=>setSeeMoreInfo(true)} >Explore City Info</P> }
-{ seeMoreInfo &&  <div className="flex gap-2 my-2 flex-col text-sm" >
+{ seeMoreInfo &&  <div className="flex gap-1 my-1 flex-col text-sm" >
 <P >country: <span className="mx-1" >{citydb.country}</span></P>
 <P>continent: <span className="mx-1">{citydb.continent}</span> </P>
 <P className="lowercase" >price: <span className="mx-1 lowercase" >{citydb.price}</span></P>
