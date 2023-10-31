@@ -9,7 +9,7 @@ import { LoginAction, LoginActionTypes } from '@/types/state/auth/signIn'
 import { UserInfo, UserInfoActionTypes } from '@/types/state/auth/userInfo'
 import { authConfig } from '@/config/auth'
 import { AnyAction } from 'redux'
-import { NavigateOptions } from 'next/dist/shared/lib/app-router-context'
+import { AppRouterInstance, NavigateOptions } from 'next/dist/shared/lib/app-router-context'
 import {  toast } from 'sonner';
 import { appConfig } from '@/config'
 import { getErrorMap } from 'zod'
@@ -102,15 +102,17 @@ catch(err){
 
 
 
-export const logout = async (dispatch : Dispatch<AnyAction> , pushUrlFn : (href: string, options?: NavigateOptions | undefined) => void  , pathToPush  = "/"   )=>{
+export const logout = async (dispatch : Dispatch<AnyAction> , router : AppRouterInstance  , pathToPush  = "/"   )=>{
     const response = await axios.post("/api/logout")
     if(response.status === StatusCodes.OK){
     dispatch({type : LoginActionTypes.userLoginReset})
     dispatch({type : UserInfoActionTypes.RESET_USER_INFO})
     typeof window !== "undefined" && localStorage.removeItem(authConfig.userInfoLocalStorageName) 
-    pushUrlFn(pathToPush)
+    console.log("pushing")
+    router.push(pathToPush)
+    router.refresh()
 }
-    else alert("someting went wrong! please try again")
+    else toast.error("someting went wrong! please try again")
 }
 
 
