@@ -20,7 +20,7 @@ import { getErrorMessage } from '@/utils/api/error'
 
 
 
-   
+export type LoginTypes = "Guest" | "Normal"
 
 
 
@@ -119,7 +119,7 @@ export const logout = async (dispatch : Dispatch<AnyAction> , router : AppRouter
 
 
 
-export const submitSignIn = async ( data : signInDataType , setFieldsErrors : Dispatch<SetStateAction<signInFieldError[]>> | undefined ,   dispatch : Dispatch<LoginAction> , pushUrlFn : (href: string, options?: NavigateOptions | undefined) => void , pushLink = appConfig.links.home )=>{
+export const submitSignIn = async ( data : signInDataType , setFieldsErrors : Dispatch<SetStateAction<signInFieldError[]>> | undefined ,   dispatch : Dispatch<LoginAction> , pushUrlFn : (href: string, options?: NavigateOptions | undefined) => void , pushLink = appConfig.links.home , type : LoginTypes = "Normal" )=>{
 try{    
     const fieldErrors : signInFieldError[] = []
     const errors : any[]  = []
@@ -138,8 +138,8 @@ try{
 if(typeof errMessage === "string" ) toast.error(errMessage)
 else toast.error("something went wrong! please try again")
 })
-
-    dispatch({type : LoginActionTypes.userLoginRequest})
+console.log("type" , type)
+    type === "Normal" ?  dispatch({type : LoginActionTypes.userLoginRequest}) :  dispatch({type : LoginActionTypes.userGuestLoginRequest})
     const response = await axios.post("/api/signIn" , data)
     if(response.status === StatusCodes.CREATED){
     dispatch({type : LoginActionTypes.userLoginSuccuss , payload : response.data.token  })

@@ -8,21 +8,31 @@ switch(action.type){
     token : action.payload , 
     loading : false,
     error : null ,
-    
+    guestLoginLoading : false
         }
     }
     case LoginActionTypes.userLoginFail : {
         return {
             error : action.payload ,
             loading:  false , 
+            guestLoginLoading : false
         }
+    }
+    case LoginActionTypes.userGuestLoginRequest : {
+        return ({
+            token :undefined ,
+            error : null ,
+            loading:  false ,
+            guestLoginLoading : true
+        })
     }
     case LoginActionTypes.userLoginRequest : {
   
-        return {
-            token : undefined ,
-            error : null , 
-            loading : true ,
+        return         {   
+        token :undefined ,
+        error : null ,
+        loading:  true ,
+        guestLoginLoading : false
         }
     }
     case LoginActionTypes.userLoginReset : {
