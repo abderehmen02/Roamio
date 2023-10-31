@@ -11,7 +11,7 @@ import { toast } from "sonner";
 
 export const ProfileCard : React.FC =  ()=>{
     const userInfo   = useSelector((state : stateType)=>state.userInfo)
-    if(!isUserInfo(userInfo) ) {toast.error("an error hapened! can not get the user info") 
+    if(!isUserInfo(userInfo) ) {
     return <></>
 }
 console.log("user info" , userInfo)
