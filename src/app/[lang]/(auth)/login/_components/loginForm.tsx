@@ -36,7 +36,6 @@ return <div className="flex  w-full relative gap-0 flex-col laptop:flex-row item
     <P className="text-center " >{t("login.welcome")}</P>
     </div>
     <form onSubmit={handleSubmit((data)=>submitSignIn(data , setFieldsErrors , dispatch , push   ))} className="flex flex-col items-center gap-8" >
-    
         <PrimaryInput error={fieldsErrors.find(error=>error.field===SignInFields.USERNAME)?.message} {...register("userName")}   label={t("login.username")} placeholder={t("login.userNamePlaceHolder")} containerStyle={{maxWidth : '500px'}} type="text" />
         <PrimaryInput error={fieldsErrors.find(error=>error.field===SignInFields.PASSWORD)?.message}  {...register("password")} action={<Link href="sendResetPasswordEmail" className="hover:font-semibold" >{t("login.forgetPassword")}</Link>}  label={t("login.password")}  placeholder={t("login.passwordPlaceHolder")} containerStyle={{maxWidth : '500px'}} className="max-w-xl " type="password" />
         <PrimaryBtn loading={logInState.loading} type="submit" className="text-lg w-full" style={{maxWidth : '500px'}} > {t("login.title")} </PrimaryBtn>
