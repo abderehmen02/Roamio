@@ -147,8 +147,9 @@ else toast.error("something went wrong! please try again")
     else alert("someting went wrong! please try again")
 }
 catch(err){
-    let     errMessage = "" ;
     dispatch({type : LoginActionTypes.userLoginFail , payload : getErrorMessage(err)  })
+    let errorMessage = signInFieldErrors[getErrorMessage(err) as signInErrorShortMessages ].message || getErrorMessage(err) 
+    toast.error(errorMessage)
 }
 
 
