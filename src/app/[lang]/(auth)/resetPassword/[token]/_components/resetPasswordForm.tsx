@@ -24,7 +24,7 @@ const { isLoading ,isError , mutate } = useMutation({
     } ,
     onSuccess : ()=>{
         toast.success("password has been reset succussfully! you can log in with the new password")
-        router.push(appConfig.links.resetPasswordEmailSent)
+        router.push(appConfig.links.home)
     }  , 
     onError : ()=>{
         toast.error("Something went wrong! please try again")
@@ -32,7 +32,7 @@ const { isLoading ,isError , mutate } = useMutation({
 })
 
 
-    return     <form onSubmit={handleSubmit((data)=>mutate({...data , token}))}  className="flex flex-col gap-10 items-center" >
+    return     <form style={{maxWidth : '500px'}} onSubmit={handleSubmit((data)=>mutate({...data , token}))}  className="flex flex-col gap-10 items-center" >
     <Title title="Reset Your Password"  descreption="Please enter a new password to use it the next time you login" />
     <PrimaryInput  label="New password" type="password" placeholder="Type a new password" {...register("newPassword")} />
     <PrimaryBtn  type="submit" loading={isLoading} >Submit</PrimaryBtn>

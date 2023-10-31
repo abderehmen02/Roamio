@@ -14,7 +14,7 @@ if(isTokenExpired(token)) return  redirect(appConfig.links.messages.tokenExpired
 const tokenInfo = verifyToken(token)
 if(!tokenInfo || typeof tokenInfo !== "object" || ! ("type" in tokenInfo) || tokenInfo.type !== TokenTypes.RESET_PASSWORD ) return notFound()
 
-return <Page >
+return <Page className="flex items-center" >
     <ResetPasswordForm token={token} />
     </Page>
 }
