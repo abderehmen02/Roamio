@@ -41,8 +41,8 @@ return <div className="flex  w-full relative gap-0 flex-col laptop:flex-row item
         <PrimaryBtn loading={logInState.loading} type="submit" className="text-lg w-full" style={{maxWidth : '500px'}} > {t("login.title")} </PrimaryBtn>
     </form>
     <div className="flex w-full flex-col items-center my-8 gap-5" >
-    <LogInWithGoogle className="w-fit" />
-    <LoginAsAGuest className="w-fit"/>
+    <LogInWithGoogle className="w-full flex items-center justify-center" />
+    <LoginAsAGuest className="w-full flex items-center justify-center"/>
     </div>
     <P className="w-full text-center " >{t("login.havingAProblem")} <Link href="/contact" className="underline hover:font-semibold" >{t("login.contactUs")} </Link></P>
     </div>
