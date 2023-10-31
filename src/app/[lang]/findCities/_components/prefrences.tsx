@@ -167,7 +167,7 @@ export const PrefrencesRow : React.FC <{prefrencesModal : boolean , setPrefrence
 </div>
 </Box>
 </Modal>
-<div className="sticky hidden largeMonitor:block top-9 w-full z-10 left-0  bg-white   pl-5 py-2   scrollPrefrences  text-primary border-none  shadow-md h-fit" >
+<div className="sticky hidden largeMonitor:block top-28 max-h-fit w-full z-10 left-0  bg-white   pl-5 py-2   scrollPrefrences  text-primary border-none  shadow-md h-fit" >
 {
       rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence.prefrence} option={prefrence.option} />)
 }     
