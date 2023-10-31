@@ -119,7 +119,7 @@ export const logout = async (dispatch : Dispatch<AnyAction> , router : AppRouter
 
 
 
-export const submitSignIn = async ( data : signInDataType , setFieldsErrors : Dispatch<SetStateAction<signInFieldError[]>>  ,   dispatch : Dispatch<LoginAction> , pushUrlFn : (href: string, options?: NavigateOptions | undefined) => void , pushLink = appConfig.links.home )=>{
+export const submitSignIn = async ( data : signInDataType , setFieldsErrors : Dispatch<SetStateAction<signInFieldError[]>> | undefined ,   dispatch : Dispatch<LoginAction> , pushUrlFn : (href: string, options?: NavigateOptions | undefined) => void , pushLink = appConfig.links.home )=>{
 try{    
     const fieldErrors : signInFieldError[] = []
     const errors : any[]  = []
@@ -133,7 +133,7 @@ try{
             else errors.push(error.message)
            });
     }
-    if(fieldErrors.length)return setFieldsErrors(fieldErrors)
+    if(fieldErrors.length && setFieldsErrors )return setFieldsErrors(fieldErrors)
     else if(errors.length) return errors.forEach((errMessage)=>{
 if(typeof errMessage === "string" ) toast.error(errMessage)
 else toast.error("something went wrong! please try again")
@@ -152,7 +152,7 @@ catch(err){
     dispatch({type : LoginActionTypes.userLoginFail , payload : getErrorMessage(err)  })
     let errorMessage = signInFieldErrors[getErrorMessage(err) as signInErrorShortMessages ].message || getErrorMessage(err) 
     if(signInFieldErrors[getErrorMessage(err) as signInErrorShortMessages ]){
-        setFieldsErrors([signInFieldErrors[getErrorMessage(err) as signInErrorShortMessages ]])
+    setFieldsErrors ?    setFieldsErrors([signInFieldErrors[getErrorMessage(err) as signInErrorShortMessages ]]) : toast.error(signInFieldErrors[getErrorMessage(err) as signInErrorShortMessages ].message) 
     }
     toast.error(errorMessage)
 }

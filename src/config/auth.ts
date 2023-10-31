@@ -12,6 +12,8 @@ export const authConfig ={
     unauthRoutes : ['/' , '/login' , '/signUp' ] ,
     authRoutes : ['/dashboard' ]  ,
     resetPasswordTokenExpire : '5m' ,
-    googleRedirectUrl : 'http://localhost:3000/api/googleAuth'
+    googleRedirectUrl : 'http://localhost:3000/api/googleAuth' ,
+    guestUsername : "guestMember" ,
+    guestPassword: "gjuest123" ,
 }
 export const emailRegEx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/

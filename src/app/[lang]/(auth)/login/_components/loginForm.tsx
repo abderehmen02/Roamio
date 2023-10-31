@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux"
 import { bindActionCreators } from "redux"
 import { useRouter } from "next/navigation"
 import { useTranslation } from "@/app/i18n/client"
-import { LogInWithGoogle } from "@/components/auth/buttons"
+import { LogInWithGoogle, LoginAsAGuest } from "@/components/auth/buttons"
 import { useState } from "react"
 import { SignInFields, signInFieldError } from "@/types/errors/auth"
 import { useSelector } from "react-redux"
@@ -40,8 +40,9 @@ return <div className="flex  w-full relative gap-0 flex-col laptop:flex-row item
         <PrimaryInput error={fieldsErrors.find(error=>error.field===SignInFields.PASSWORD)?.message}  {...register("password")} action={<Link href="sendResetPasswordEmail" className="hover:font-semibold" >{t("login.forgetPassword")}</Link>}  label={t("login.password")}  placeholder={t("login.passwordPlaceHolder")} containerStyle={{maxWidth : '500px'}} className="max-w-xl " type="password" />
         <PrimaryBtn loading={logInState.loading} type="submit" className="text-lg w-full" style={{maxWidth : '500px'}} > {t("login.title")} </PrimaryBtn>
     </form>
-    <div className="flex w-full flex-col items-center my-8" >
+    <div className="flex w-full flex-col items-center my-8 gap-5" >
     <LogInWithGoogle className="w-fit" />
+    <LoginAsAGuest className="w-fit"/>
     </div>
     <P className="w-full text-center " >{t("login.havingAProblem")} <Link href="/contact" className="underline hover:font-semibold" >{t("login.contactUs")} </Link></P>
     </div>
