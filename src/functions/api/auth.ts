@@ -12,6 +12,8 @@ import { AnyAction } from 'redux'
 import { NavigateOptions } from 'next/dist/shared/lib/app-router-context'
 import {  toast } from 'sonner';
 import { appConfig } from '@/config'
+import { getErrorMap } from 'zod'
+import { getErrorMessage } from '@/utils/api/error'
 
 
 
@@ -145,7 +147,8 @@ else toast.error("something went wrong! please try again")
     else alert("someting went wrong! please try again")
 }
 catch(err){
-     console.log("err" , err)  
+    let     errMessage = "" ;
+    dispatch({type : LoginActionTypes.userLoginFail , payload : getErrorMessage(err)  })
 }
 
 

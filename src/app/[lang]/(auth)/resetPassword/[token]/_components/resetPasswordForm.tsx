@@ -24,7 +24,7 @@ const { isLoading ,isError , mutate } = useMutation({
     } ,
     onSuccess : ()=>{
         toast.success("password has been reset succussfully! you can log in with the new password")
-        router.push(appConfig.links.home)
+        router.push(appConfig.links.login)
     }  , 
     onError : ()=>{
         toast.error("Something went wrong! please try again")
