@@ -38,10 +38,10 @@ const { isLoading ,isError , mutate } = useMutation({
 })
 
 
-return <Page >
-<form onSubmit={handleSubmit((data)=>mutate(data))}  className="flex flex-col gap-10 items-center" >
+return <Page className="flex items-center " >
+<form onSubmit={handleSubmit((data)=>mutate(data))}  style={{maxWidth : '600px'}} className="flex flex-col gap-10  items-center justify-center" >
 <Title title="Your Email Or Username"  descreption={ firstEmailSent ? "Email has been sent! please go to your email and follow the link that we sent to create a new passowrd"  :  "Plase type your email or username to send you a reset password email"} />
-<PrimaryInput label="Your email or username" type="text" placeholder="Type a new password" {...register("userIdentifier")} />
+<PrimaryInput  className="w-full" label="Your email or username" type="text" placeholder="Type a new password" {...register("userIdentifier")}  />
 <PrimaryBtn  type="submit" loading={isLoading} > { firstEmailSent ? "Resend Email" :  "Send Email" }</PrimaryBtn>
 </form>
     </Page>

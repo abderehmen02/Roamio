@@ -28,6 +28,7 @@ export const appConfig = {
         findCities : '/findCities'  , 
         termsOfUse : '/termsOfUse'  ,
         primacyPolicy : '/privacyPolicy' ,
+        resetPasswordEmailSent : "/resetPasswordEmailSent" ,
         contact: '/contact' ,
         home: '/' ,
         messages : {
