@@ -15,7 +15,7 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   placeholder?: string;
 };
 
-export const PrimaryInput: React.FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
+const PrimaryInput: React.FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
   (
     {
       className,
@@ -81,3 +81,7 @@ export const IconInput : React.FC<IconInputProps> = ({className , children , pla
   </div>
 }
 
+PrimaryInput.displayName = "PrimaryInput"
+
+
+export {PrimaryInput}
