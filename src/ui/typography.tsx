@@ -1,14 +1,14 @@
 import { cn } from '@/lib/tailwind';
-import { Montserrat } from 'next/font/google'
+// import { Montserrat } from 'next/font/google'
 import { HTMLAttributes } from 'react';
 
 
-const montserrat = Montserrat({
-        subsets : ["latin"] ,
-        weight : '500'
-      })
+// const montserrat = Montserrat({
+//         subsets : ["latin"] ,
+//         weight : '500'
+//       })
 
-export  const montserratClassName = montserrat.className
+export  const montserratClassName = ""
 export const H1 : React.FC<HTMLAttributes<HTMLHeadElement>> = ({children , className   , ...props}  ) =>{
 return <h1 className={cn("text-4xl "  , montserratClassName , className)}  {...props} >
 {children}
