@@ -63,7 +63,7 @@ emitAction(LoginActionTypes.userLoginSuccuss  , token )
 emitAction(UserInfoActionTypes.ADD_USER_INFO , userInfo  )
 localStorage.setItem(authConfig.userInfoLocalStorageName  ,  JSON.stringify(userInfo)  )
 toast.success("Sign up successfully")
-pushFn(appConfig.links.home)
+window.location.reload()
 return ({
     succuss : true ,
     data : response.data
@@ -108,7 +108,7 @@ export const logout = async (dispatch : Dispatch<AnyAction> , router : AppRouter
     dispatch({type : LoginActionTypes.userLoginReset})
     dispatch({type : UserInfoActionTypes.RESET_USER_INFO})
     typeof window !== "undefined" && localStorage.removeItem(authConfig.userInfoLocalStorageName) 
-    window.location.reload()
+    router.push(pathToPush)
 }
     else toast.error("someting went wrong! please try again")
 }
