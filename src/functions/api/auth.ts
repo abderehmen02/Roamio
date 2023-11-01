@@ -63,7 +63,7 @@ emitAction(LoginActionTypes.userLoginSuccuss  , token )
 emitAction(UserInfoActionTypes.ADD_USER_INFO , userInfo  )
 localStorage.setItem(authConfig.userInfoLocalStorageName  ,  JSON.stringify(userInfo)  )
 toast.success("Sign up successfully")
-window.location.reload()
+pushFn(appConfig.links.home)
 return ({
     succuss : true ,
     data : response.data
@@ -141,7 +141,7 @@ else toast.error("something went wrong! please try again")
     if(response.status === StatusCodes.CREATED){
     dispatch({type : LoginActionTypes.userLoginSuccuss , payload : response.data.token  })
     toast.success("Loged in succussfully")
-    pushUrlFn(pushLink)
+    window.location.reload()
 }
     else alert("someting went wrong! please try again")
 }
