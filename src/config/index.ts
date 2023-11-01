@@ -38,5 +38,5 @@ export const appConfig = {
            storage : {
             findCitiesUserGuided : "findCitiesUserGuided"
         } ,
-    url : mode  === modes.DEVELOPMENT ? developmentUrl : productionUrl
+    url : process.env.APP_URL
 } as const
