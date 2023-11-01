@@ -16,10 +16,10 @@ export const Footer : React.FC  = async ()=>{
     
     return <footer  className="flex w-full items-center  border-t-2 border-black  justify-center px-5 py-9" >
 {
-    footerItems.map(row=>{
-        return <div style={{width : '100%'}} className="flex  w-fit flex-col  items-start gap-2" >
+    footerItems.map((row , index )=>{
+        return <div key={index} style={{width : '100%'}} className="flex  w-fit flex-col  items-start gap-2" >
             {
-                row.map((item=><a href={item.link} ><P key={item.link} className="capitalize " >{item.name}</P></a>))
+                row.map((item=><a key={item.link} href={item.link} ><P  className="capitalize " >{item.name}</P></a>))
             }
         </div>
     })
