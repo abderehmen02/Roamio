@@ -18,11 +18,11 @@ return <Page  >
     <Title title={blogPostInfo?.title} descreption={blogPostInfo.descreption} />
     <img style={{height : '500px', width : '90%'  }} src={blogPostInfo.image} />
 <div style={{width : '90%'}} className="flex flex-col gap-5" >    {
-       blogPostInfo.articles.map(blogPost=><div >
+       blogPostInfo.articles.map(blogPost=><div key={blogPost.title} >
             <H2>{blogPost.title}</H2>
             {
                 blogPost.paragraphs.map(paragraph=>{
-             return        <P>
+             return        <P key={paragraph} >
                         {paragraph}
                     </P>
                 })
