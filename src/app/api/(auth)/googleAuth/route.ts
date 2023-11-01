@@ -31,5 +31,5 @@ export const GET = asyncWrapperApi( async (req: Request)=>{
     const refreshToken = await generateRefreshToken(userId , AuthServices.GOOGLE )
     cookieStore.set(authConfig.tokenCookieName , accessToken , {httpOnly : true} )
     cookieStore.set(authConfig.refreshTokenCookieName , refreshToken ,{httpOnly : true} )
-    return NextResponse.redirect(`http://localhost:3000/${appConfig.links.home}`);
+    return NextResponse.redirect(`${appConfig.url}${appConfig.links.home}`);
     })
