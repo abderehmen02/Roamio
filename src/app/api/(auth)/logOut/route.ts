@@ -7,7 +7,7 @@ import { apiResponse } from "@/utils/api/nextResponse"
 import { refreshTokenModel } from "@/db/models/refreshToken"
 import { errorMessage } from "@/utils/api/error"
 
-export const DELETE =  asyncWrapperApi( async (req)=>{
+export const GET =  asyncWrapperApi( async (req)=>{
     console.log("logout request")
     const refreshToken = cookies().get(authConfig.refreshTokenCookieName)?.value
     console.log("refresh token geted")
@@ -17,5 +17,5 @@ export const DELETE =  asyncWrapperApi( async (req)=>{
     console.log("refresh token deleted from database")
     cookies().delete(authConfig.refreshTokenCookieName)
     console.log("refresh token deleted from cookies")
-    return apiResponse(ResponseStatuses.OK)
+    return new Response(JSON.stringify({succuss : true}  )  ,{status : ResponseStatuses.OK} )
 })

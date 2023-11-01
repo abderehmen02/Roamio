@@ -103,7 +103,7 @@ catch(err){
 
 
 export const logout = async (dispatch : Dispatch<AnyAction> , router : AppRouterInstance  , pathToPush  = "/"   )=>{
-    const response = await axios.delete("/api/logout")
+    const response = await axios.get("/api/logOut")
     if(response.status === StatusCodes.OK){
     dispatch({type : LoginActionTypes.userLoginReset})
     dispatch({type : UserInfoActionTypes.RESET_USER_INFO})
