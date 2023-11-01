@@ -16,11 +16,11 @@ export default function PrivacyPolicy(){
 
 <P>1.1. Personal Information: When you create an account, we may collect personal information such as your name, email address, and other account details.</P>
 
-<P>1.2. User-Generated Content: If you use our app's features, such as liking, disliking, commenting, and saving cities, we may collect and store the content you provide.</P>
+<P>1.2. User-Generated Content: If you use our app&apos;s features, such as liking, disliking, commenting, and saving cities, we may collect and store the content you provide.</P>
 
-<P>1.3. Usage Information: We may collect data about how you use our app, including your interactions with the app's features, the cities you search for, and your preferences.</P>
+<P>1.3. Usage Information: We may collect data about how you use our app, including your interactions with the app&apos;s features, the cities you search for, and your preferences.</P>
 
-<P>1.4. Log Data: When you access our app, we may automatically collect log data, including your device's IP address, browser type, and operating system.</P>
+<P>1.4. Log Data: When you access our app, we may automatically collect log data, including your device&apos;s IP address, browser type, and operating system.</P>
 
 <H2>2. How We Use Your Information</H2>
 
@@ -50,7 +50,7 @@ export default function PrivacyPolicy(){
 
 <P>6.1. We use cookies and similar tracking technologies to collect data about your use of our app. You can manage your cookie preferences through your browser settings.</P>
 
-<H2>7. Children's Privacy</H2>
+<H2>7. Children&apos;s Privacy</H2>
 
 <P>7.1. Our app is not intended for children under the age of 13, and we do not knowingly collect personal information from children.</P>
 

@@ -15,7 +15,7 @@ export const SavedCities : React.FC = ()=>{
   
     return <div className="flex w-full flex-col gap-5  " >
 {
-    userInfo.savedCities.map(city=><CityCard name={city} />)
+    userInfo.savedCities.map(city=><CityCard key={city} name={city} />)
 }
     </div>
 }

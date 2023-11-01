@@ -1,4 +1,4 @@
-import { useTranslation } from "@/app/i18n"
+import { useTranslation as translate } from "@/app/i18n"
 import { ListActionCard } from "@/components/marketing/cards"
 import { TextButton } from "@/ui/buttons"
 import Link from "next/link"
@@ -6,7 +6,7 @@ import Link from "next/link"
 
 
 export  const AppFeatures : React.FC = async  ()=>{
-    const {t} = await useTranslation()
+    const {t} = await translate()
 
      const appFeatures : string[] = [
         t("homeFeaturesList.featureOne")   , t("homeFeaturesList.featureThree") ,

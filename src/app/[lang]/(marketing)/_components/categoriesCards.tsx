@@ -36,6 +36,6 @@ const categoriesCardsInfo : {title: string  , images :string[] , descreption : s
 export const CategoriesCards = ()=>{
 return <div className="w-full  flex items-center justify-center" >
     <div  style={{height : "fit-content"}} className="w-[1200px]     gap-5 flex flex-wrap   items-center justify-center  " >
-    {categoriesCardsInfo.map((cardInfo , index )=><CategoryCard className={ cn("bg-secondary text-primaryDark shadow-2xl"  )  }  {...cardInfo} />)}
+    {categoriesCardsInfo.map((cardInfo , index )=><CategoryCard key={cardInfo.title} className={ cn("bg-secondary text-primaryDark shadow-2xl"  )  }  {...cardInfo} />)}
 </div></div>
 }

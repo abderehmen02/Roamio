@@ -34,7 +34,7 @@ export default function TermsOfUse(){
 <P>3.2. You may not use our app for any unlawful or prohibited purposes, including but not limited to:</P>
 
 <P>Posting or transmitting any content that is harmful, offensive, or violates any applicable laws.
-Attempting to gain unauthorized access to our app's systems or user accounts.
+Attempting to gain unauthorized access to our app&apos;s systems or user accounts.
 Interfering with the proper functioning of the app or its services.</P>
 <H2>4. Liking, Disliking, Commenting, and Saving Cities</H2>
 

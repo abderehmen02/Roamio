@@ -1,6 +1,6 @@
 import { TextButton } from "@/ui/buttons"
 import { InfoCard, ListCard } from "../../../../components/marketing/cards"
-import { useTranslation } from "@/app/i18n"
+import { useTranslation as translate } from "@/app/i18n"
 import { H2, H4 } from "@/ui/typography"
 import Image from "next/image"
 import Link from "next/link"
@@ -8,7 +8,7 @@ import { appConfig } from "@/config"
 
 
 export const AppHero : React.FC = async  ()=>{
-    const {t} = await useTranslation()
+    const {t} = await translate()
 
     const heroCardList : string[] =  [t("hero.cardList.findCity") , t("hero.cardList.readAndLearn") , t("hero.cardList.explore") , t("hero.cardList.findEnvirement")]
 
