@@ -38,7 +38,7 @@ export const InfoCard : React.FC<infoCardProps> = ({ title  , description  , but
 export const ListCard : React.FC<listCardProps> = ( {list , ...props })=>{
     return <div className={cn("bg-secondary  text-white  w-fit rounded-lg   flex items-center justify-center gap-3 px-16 py-6 flex-col " , props.className   )}  >
 <ul className="list-disc text-primary gap-3" >
-{ list.map(item => <li><H3>{item}</H3></li> )
+{ list.map(item => <li key={item} ><H3>{item}</H3></li> )
 }
 </ul>
     </div>
@@ -48,7 +48,7 @@ export const ListActionCard : React.FC<listActionCardProps> = ({btn , list , cla
     return <div className={cn("w-full tablet:w-fit bg-white px-6 laptop:px-16 py-7 flex items-center justify-center flex-col gap-9 rounded-xl border-2 border-black text-black"  , className )} {...props} >
 <ul className="list-none laptop:list-disc gap-4  flex flex-col" >
 {
- list.map(item=><li><H4>{item}</H4></li>)
+ list.map(item=><li  key={item} ><H4>{item}</H4></li>)
 }
 </ul>
 <div>{btn}</div>

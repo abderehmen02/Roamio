@@ -1,9 +1,9 @@
-import { useTranslation } from "@/app/i18n"
+import { useTranslation as translate } from "@/app/i18n"
 import { appConfig } from "@/config"
 import { P } from "@/ui/typography"
 
 export const Footer : React.FC  = async ()=>{
-   const {t} = await useTranslation()
+   const {t} = await translate()
     const footerItems : {name: string , link : string}[][] = [ [
 {  link : appConfig.links.home, name :  t("footer.home")  },
 {  link : appConfig.links.findCities  ,name :  "explore cities" },
@@ -19,7 +19,7 @@ export const Footer : React.FC  = async ()=>{
     footerItems.map(row=>{
         return <div style={{width : '100%'}} className="flex  w-fit flex-col  items-start gap-2" >
             {
-                row.map((item=><a href={item.link} ><P className="capitalize " >{item.name}</P></a>))
+                row.map((item=><a href={item.link} ><P key={item.link} className="capitalize " >{item.name}</P></a>))
             }
         </div>
     })

@@ -94,7 +94,7 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
     return <div  className="flex-col w-full  py-3">
 {
 
-    items.slice(0 , LastItem).map((item=> <div   onClick={()=>toglePrefrence(item)} className={ cn( " cursor-pointer  capitalize flex items-center gap-1"  , {"text-black " :  isPrefrenceIncluded( item )} )} > <P  >{item}  </P>{isPrefrenceIncluded(item) && <RadioButtonCheckedIcon style={{fontSize : '13px'}} />} </div>))
+    items.slice(0 , LastItem).map((item=> <div key={item}   onClick={()=>toglePrefrence(item)} className={ cn( " cursor-pointer  capitalize flex items-center gap-1"  , {"text-black " :  isPrefrenceIncluded( item )} )} > <P  >{item}  </P>{isPrefrenceIncluded(item) && <RadioButtonCheckedIcon style={{fontSize : '13px'}} />} </div>))
 }    
 { items.length > LastItem &&  <P className=" capitalize cursor-pointer text-sm" onClick={()=>{items?.length> LastItem  && setLastItem(val=>val+ 3)  }} >{t("seeMore")}<i className="bi bi-arrow-down"></i></P> }
 { LastItem > 3 && <P className=" capitalize cursor-pointer text-sm" onClick={()=>{ LastItem> 2  &&  setLastItem(val=>val  -  3) }} >{t("seeLess")}<i className="bi bi-arrow-up"></i></P>}
@@ -162,14 +162,14 @@ export const PrefrencesRow : React.FC <{prefrencesModal : boolean , setPrefrence
 <Title title="Prefrences" descreptionClassName="text-center text-xs laptop:text-sm " descreption="select  your target prefrences" />
 <div style={{width: "200px"}} className=" z-10 left-0     pl-5 py-2   scrollPrefrences  text-primary border-none h-fit" >
 {
-      rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence.prefrence} option={prefrence.option} />)
+      rowsFields.map(prefrence=><PrefrenceField key={prefrence.option} prefrence={prefrence.prefrence} option={prefrence.option} />)
 }     
 </div>
 </Box>
 </Modal>
 <div className="sticky hidden largeMonitor:block top-28 max-h-fit w-full z-10 left-0  bg-white   pl-5 py-2   scrollPrefrences  text-primary border-none  shadow-md h-fit" >
 {
-      rowsFields.map(prefrence=><PrefrenceField prefrence={prefrence.prefrence} option={prefrence.option} />)
+      rowsFields.map(prefrence=><PrefrenceField key={prefrence.option}  prefrence={prefrence.prefrence} option={prefrence.option} />)
 }     
 
 </div>

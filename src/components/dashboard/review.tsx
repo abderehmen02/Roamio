@@ -15,12 +15,12 @@ export type Review =  {
 }
 
 export const ReviewComponent : React.FC<Review> = ({review , userId  , _id , image , userName , deleteReviewFn  })=>{
-    console.log("username"  , userName , image)
-    if(!review) return <span>skeleton</span>
-    else if(review && !image && !userName) return <span>userName and image skeleton + {review}</span>
-
+  
    
    const userInfo =  useSelector((state: stateType)=>state.userInfo)
+   if(!review) return <span>skeleton</span>
+   else if(review && !image && !userName) return <span>userName and image skeleton + {review}</span>
+
     return <div className="flex px-1 items-center   w-full justify-between" >
     <div className="flex w-full px-2  items-center justify-start gap-2" >
         <img alt="profile image" src={ image || appConfig.unknownPersonImg } width={35}  height={35} style={{border : '1px solid black'}} className=" rounded-full" />
