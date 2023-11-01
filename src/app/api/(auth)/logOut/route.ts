@@ -7,7 +7,7 @@ import { apiResponse } from "@/utils/api/nextResponse"
 import { refreshTokenModel } from "@/db/models/refreshToken"
 import { errorMessage } from "@/utils/api/error"
 
-export const POST =  asyncWrapperApi( async (req)=>{
+export const DELETE =  asyncWrapperApi( async (req)=>{
     console.log("logout request")
     const refreshToken = cookies().get(authConfig.refreshTokenCookieName)?.value
     console.log("refresh token geted")

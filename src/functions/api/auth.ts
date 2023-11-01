@@ -103,7 +103,7 @@ catch(err){
 
 
 export const logout = async (dispatch : Dispatch<AnyAction> , router : AppRouterInstance  , pathToPush  = "/"   )=>{
-    const response = await axios.post("/api/logout")
+    const response = await axios.delete("/api/logout")
     if(response.status === StatusCodes.OK){
     dispatch({type : LoginActionTypes.userLoginReset})
     dispatch({type : UserInfoActionTypes.RESET_USER_INFO})
@@ -138,7 +138,6 @@ try{
 if(typeof errMessage === "string" ) toast.error(errMessage)
 else toast.error("something went wrong! please try again")
 })
-console.log("type" , type)
     type === "Normal" ?  dispatch({type : LoginActionTypes.userLoginRequest}) :  dispatch({type : LoginActionTypes.userGuestLoginRequest})
     const response = await axios.post("/api/signIn" , data)
     if(response.status === StatusCodes.CREATED){
