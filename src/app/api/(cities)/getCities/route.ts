@@ -75,7 +75,7 @@ return orgnizedArray
 
 
 
-export const  getCities  = async ( queries : getCitiesQueryType  ) : Promise<CityDb[]>  =>{
+const  getCities  = async ( queries : getCitiesQueryType  ) : Promise<CityDb[]>  =>{
 const { categories , prices  , name , languages , weathers , yearTimes } = queries
   const queryArray = []
   if(Object.keys(queries).length === 0  ) queryArray.push({$or: [{ categories: [Categories.MostVisited] }]})

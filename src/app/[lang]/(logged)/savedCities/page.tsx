@@ -1,7 +1,6 @@
 "use client"
 import { LoggedPage, Page, PageBody } from "@/ui/containers";
 import { Title } from "@/ui/title";
-import { Cities } from "../dashboard/_components/cities";
 import { SavedCities } from "./_components/savedCities";
 import { useSelector } from "react-redux";
 import { stateType } from "@/state/reducers";

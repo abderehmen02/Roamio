@@ -25,12 +25,12 @@ const {t} = useTranslation()
 const router = useRouter()
 const dispatch = useDispatch()
     const navigateHome = async () => {
-      await logout(dispatch , router.push )
+      await logout(dispatch , router )
       setOpen(false);
       };
     
       const navigateLogIn = async  () => {
-          await logout(dispatch , router.push , "/login")
+          await logout(dispatch , router, "/login")
           setOpen(false);
       };
     

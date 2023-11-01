@@ -4,7 +4,7 @@ import { UseMutationResult, UseQueryResult, useMutation, useQuery } from "@tanst
 import axios from "axios"
 import { useEffect } from "react"
 
-export const useUsersInfo = (users : string[] , keys : any[] = [] ):  UseQueryResult<UserDb[] | GoogleUserDb[]>=>{
+export const useUsersInfo = (users : string[] , keys : any[] = [] ):  UseQueryResult<{ users :  UserDb[] }>=>{
 
     const usersQuery = useQuery({
         queryKey: keys, 
@@ -14,11 +14,11 @@ export const useUsersInfo = (users : string[] , keys : any[] = [] ):  UseQueryRe
             const responce = await  axios.post("/api/getUsers" , {
                 users
             } )
-            return responce.data  as UserDb[] | GoogleUserDb[]
+            return responce.data  as {users : UserDb[]  }
         } ,
     })
 
         
     
-  return usersQuery
+  return {...usersQuery }
 }

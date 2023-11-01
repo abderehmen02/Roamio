@@ -21,5 +21,5 @@ export const POST = async (req: NextRequest)=>{
         if(!user) return apiResponse(StatusCodes.NOT_FOUND   , errorMessage("can not find this user" + user ))
         users.push(user) }
     }
-    return apiResponse(StatusCodes.OK , users)
+    return apiResponse(StatusCodes.OK , { users})
 }

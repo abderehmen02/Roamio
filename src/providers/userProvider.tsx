@@ -66,7 +66,7 @@ try {
       catch (err : any )  {
         dispatchAction({type : LoginActionTypes.userLoginFail , payload : err?.response?.data?.error || errorMessage("some error happened on the server")})
         if(err?.response?.data?.error?.message === AuthApiErrors.expiredJWT ) setSessionDialig(true)
-         else  logout(dispatch , router.push)
+         else  logout(dispatch , router)
       }
         }
 

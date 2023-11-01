@@ -11,7 +11,7 @@ export const errorMessage = (message : string) : Object =>{
 
 
 
-export const getErrorMessage = (err : unknown ) : string =>{
+export const getErrorMessage = (err : any ) : string =>{
 
     return err?.response?.data?.error?.message || err?.message || "some error happened"
 }
