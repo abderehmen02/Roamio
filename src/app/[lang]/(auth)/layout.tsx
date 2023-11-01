@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { UnlogedHeader } from '@/components/layout/unlogedHeader'
 import { Footer } from '../../../components/layout/footer'
 
@@ -11,3 +11,24 @@ return <div  className="flex  items-center py-4 laptop:py-0 justify-center w-ful
 <Footer/>
 </div>
 }
+
+const Card = ()=><div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      const MemoizedCard = memo(Card)
+                      function App(){
+                        return <MemoizedCard/>
+                      }
