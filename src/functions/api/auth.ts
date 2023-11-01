@@ -108,7 +108,7 @@ export const logout = async (dispatch : Dispatch<AnyAction> , router : AppRouter
     dispatch({type : LoginActionTypes.userLoginReset})
     dispatch({type : UserInfoActionTypes.RESET_USER_INFO})
     typeof window !== "undefined" && localStorage.removeItem(authConfig.userInfoLocalStorageName) 
-    window.location.replace(pathToPush)
+    window.location.reload()
 }
     else toast.error("someting went wrong! please try again")
 }
