@@ -22,8 +22,8 @@ export const GET = asyncWrapperApi( async (req: Request)=>{
     console.log("code" , code)
     if(!code ) return apiResponse(HttpStatusCodes.NOT_FOUND , errorMessage("can not get the access token "))
     const googleAuthData = await getGoogleAuthTokens(code  )
+    return apiResponse( StatusCodes.OK , JSON.stringify({googleAuthData}))
     if(!googleAuthData) return apiResponse(StatusCodes.INTERNAL_SERVER_ERROR , errorMessage("can not get the google auth data  ") )
-    return apiResponse( StatusCodes.OK , errorMessage(JSON.stringify({googleAuthData})))
     const {id_token} = googleAuthData
     const googleUser = jwt.decode(id_token)
     return apiResponse( StatusCodes.OK , errorMessage(JSON.stringify({googleUser})))
