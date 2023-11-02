@@ -2,7 +2,10 @@ import { authConfig } from "@/config/auth";
 import { asyncWrapper } from "@/utils/clientAsyncWrapper";
 import axios from "axios";
 import qs from "qs"
-export const getGoogleAuthTokens =  asyncWrapper<[code: string] , {access_token : string , id_token : string ,scope : string , refresh_token  : string}>(  async (code)  =>{
+
+
+// {access_token : string , id_token : string ,scope : string , refresh_token  : string}
+export const getGoogleAuthTokens =  asyncWrapper<[code: string] ,any >(  async (code)  =>{
     if( !process.env.NEXT_PUBLIC_GOOGLE_AUTH_CLIENT_ID ){
     const     error = "can not get the client id" ;
     throw new Error(error)
@@ -25,5 +28,6 @@ export const getGoogleAuthTokens =  asyncWrapper<[code: string] , {access_token 
         "Content-Type" : "application/x-www-form-urlencoded"  ,
     }
  } )   
+return response
 return {id_token : response.data.id_token as string , access_token : response.data.access_token as string  , refresh_token : response.data.refresh_token as string , scope : response.data.scope }
 })
