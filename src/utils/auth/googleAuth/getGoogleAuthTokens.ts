@@ -1,6 +1,9 @@
 import { authConfig } from "@/config/auth";
+import { errorMessage } from "@/utils/api/error";
+import { apiResponse } from "@/utils/api/nextResponse";
 import { asyncWrapper } from "@/utils/clientAsyncWrapper";
 import axios from "axios";
+import { StatusCodes } from "http-status-codes";
 import qs from "qs"
 
 
@@ -8,10 +11,12 @@ import qs from "qs"
 export const getGoogleAuthTokens =  asyncWrapper<[code: string] ,any >(  async (code)  =>{
     if( !process.env.NEXT_PUBLIC_GOOGLE_AUTH_CLIENT_ID ){
     const     error = "can not get the client id" ;
+    return {error}
     throw new Error(error)
     }
     if(!process.env.GOOGLE_AUTH_CLIENT_SECRET){
          const        error = "can not get the google auth client secret"
+         return {error}
         throw new Error(error)
     }
 
@@ -23,6 +28,7 @@ export const getGoogleAuthTokens =  asyncWrapper<[code: string] ,any >(  async (
         redirect_uri :authConfig.googleRedirectUrl ,
         grant_type : "authorization_code"
     }
+    
  const response = await axios.post(baseUrl , qs.stringify(values) ,{
     headers : {
         "Content-Type" : "application/x-www-form-urlencoded"  ,
