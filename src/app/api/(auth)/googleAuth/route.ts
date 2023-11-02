@@ -15,9 +15,11 @@ import { AuthService, AuthServices } from "@/types/auth"
 
 
 export const GET = asyncWrapperApi( async (req: Request)=>{
+    console.log("getting google auth request")
     const cookieStore = cookies()
     const {searchParams} = new URL(req.url)
     const code = searchParams.get("code")
+    console.log("code" , code)
     if(!code ) return apiResponse(HttpStatusCodes.NOT_FOUND , errorMessage("can not get the access token "))
     const googleAuthData = await getGoogleAuthTokens(code  )
     return apiResponse(StatusCodes.OK , googleAuthData)
