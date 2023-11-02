@@ -12,7 +12,7 @@ export const authConfig ={
     unauthRoutes : ['/' , '/login' , '/signUp' ] ,
     authRoutes : ['/dashboard' ]  ,
     resetPasswordTokenExpire : '5m' ,
-    googleRedirectUrl : 'http://localhost:3000/api/googleAuth' ,
+    googleRedirectUrl : 'https://roamio-ieuj.vercel.app/api/googleAuth' ,
     guestUsername : "guestMember" ,
     guestPassword: "gjuest123" ,
 }
