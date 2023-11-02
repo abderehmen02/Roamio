@@ -14,7 +14,7 @@ export function asyncWrapper<Args extends any[], Return>(
     } catch (error : any ) {
       // You can handle or log errors here if needed
        console.error(error)    
-      return apiResponse(StatusCodes.INTERNAL_SERVER_ERROR , errorMessage(error))
+      return apiResponse(StatusCodes.INTERNAL_SERVER_ERROR , errorMessage(JSON.stringify({errorThorwn : error})))
       }
   };
 }
