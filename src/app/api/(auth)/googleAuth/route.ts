@@ -3,7 +3,7 @@ import { errorMessage } from "@/utils/api/error"
 import { apiResponse } from "@/utils/api/nextResponse"
 import { asyncWrapperApi } from "@/utils/asyncWrapper"
 import { getGoogleAuthTokens } from "@/utils/auth/googleAuth/getGoogleAuthTokens"
-import HttpStatusCodes  from "http-status-codes"
+import HttpStatusCodes, { StatusCodes }  from "http-status-codes"
 import jwt from "jsonwebtoken"
 import { NextResponse } from "next/server"
 import { cookies } from 'next/headers'
@@ -20,10 +20,10 @@ export const GET = asyncWrapperApi( async (req: Request)=>{
     const code = searchParams.get("code")
     if(!code ) return apiResponse(HttpStatusCodes.NOT_FOUND , errorMessage("can not get the access token "))
     const googleAuthData = await getGoogleAuthTokens(code  )
-    if(!googleAuthData) throw new Error("can not get the google auth data")
+    if(!googleAuthData) return apiResponse(StatusCodes.INTERNAL_SERVER_ERROR , errorMessage("can not get the google auth data  ") )
     const {id_token} = googleAuthData
     const googleUser = jwt.decode(id_token)
-    if(!googleUser || typeof googleUser === "string"  ) throw new Error("can not get the google user from the token")
+    if(!googleUser || typeof googleUser === "string"  ) return apiResponse( StatusCodes.INTERNAL_SERVER_ERROR , errorMessage("can not get the google user from the token")) 
     const {email , family_name , picture , name , given_name} = googleUser
     const googleUserDb = await  googleUserModel().findOneAndUpdate<GoogleUserDb>({email } , { email,  family_name , picture , name , given_name} , {new : true , upsert: true} )
     const userId = googleUserDb._id.toString()
