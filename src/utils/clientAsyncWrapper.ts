@@ -6,7 +6,7 @@ type AsyncFunction<Args extends any[] = any[], Return = any> = (...args: Args) =
 
 export function asyncWrapper<Args extends any[], Return>(
   fn: AsyncFunction<Args, Return  >
-): (...args: Args) => Promise<Return |  void | Response > {
+): (...args: Args) => Promise<Return |  void | {error : any} > {
   return async function (...args: Args) {
     try {
       const result = await fn(...args);
@@ -14,7 +14,7 @@ export function asyncWrapper<Args extends any[], Return>(
     } catch (error : any ) {
       // You can handle or log errors here if needed
        console.error(error)    
-      return apiResponse(StatusCodes.INTERNAL_SERVER_ERROR , errorMessage(JSON.stringify({errorThorwn : error})))
+       return ({error})
       }
   };
 }
