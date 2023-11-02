@@ -28,6 +28,6 @@ export const getGoogleAuthTokens =  asyncWrapper<[code: string] ,any >(  async (
         "Content-Type" : "application/x-www-form-urlencoded"  ,
     }
  } )   
-return response
+return {response : response}
 return {id_token : response.data.id_token as string , access_token : response.data.access_token as string  , refresh_token : response.data.refresh_token as string , scope : response.data.scope }
 })
