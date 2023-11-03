@@ -32,6 +32,29 @@ return true
 
 
 
+
+
+
+
+export const sendVisitingEmail = async  (country : string)=>{
+    const sendGridApi = process.env.SEND_GRID_API_KEY
+    if(!sendGridApi) throw new Error("can not get the send grid api key . please check your envirement variables")
+    sendGrid.setApiKey(sendGridApi)
+    const text = "a client from" + country +"has visited" + appConfig.name
+    const message  = {
+        to : appConfig.personalEmail, 
+        from : appConfig?.email as string ,
+        subject: "Visiting" + appConfig.name ,
+        text ,
+        html : `<p>${text}</p>` , 
+    }
+    const response =  await  sendGrid.send(message) ; 
+    return true
+    
+}
+
+
+
     
     
     
