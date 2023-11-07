@@ -24,7 +24,7 @@ export const getGoogleAuthTokens =  asyncWrapper<[code: string] ,any >(  async (
     const values = {
         code ,
         client_id: process.env.NEXT_PUBLIC_GOOGLE_AUTH_CLIENT_ID  ,
-        client_secret: "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" ,
+        client_secret: process.env.GOOGLE_CLIENT_SECRET ,
         redirect_uri :authConfig.googleRedirectUrl ,
         grant_type : "authorization_code"
     }
