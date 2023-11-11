@@ -53,7 +53,7 @@ return <div className="flex flex-col" >
 <P >country: <span className="mx-1" >{citydb.country}</span></P>
 <P>continent: <span className="mx-1">{citydb.continent}</span> </P>
 <P className="lowercase" >price: <span className="mx-1 lowercase" >{citydb.price}</span></P>
-<div className="flex flex-wrap" ><P>Best times to visit<span className="hidden tablet:inline" >the city</span>: </P> {citydb.yearTimes.slice(0 , 5).map(time=><P key={time} className="mx-1"  >{time}</P>)}</div>
+<div className="flex flex-wrap" ><P>Best times to visit<span className="hidden tablet:inline" > the city</span>: </P> {citydb.yearTimes.slice(0 , 5).map(time=><P key={time} className="mx-1"  >{time}</P>)}</div>
 {/* <div className="flex" ><P>Languages spoken <span className="hidden tablet:inline" >in the city</span>:</P><div className="flex mx-1" >{citydb.languages.map(lan=><P key={lan} className="mx-1" >{lan}</P>)}</div></div> */}
 <div className="flex flex-wrap justify-between"  ><div className="flex" ><P><span className="hidden laptop:inline" >Dominent</span> Weathers <span className="hidden tablet:inline" >in the city</span> :</P><div className="flex mx-1" >{citydb.weathers.map(weather=><P key={weather}  className="mx-1" >{weather}</P>)}</div></div> { seeMoreInfo &&  <P className="text-sm block cursor-pointer" onClick={()=>setSeeMoreInfo(false)} ><br className="laptop:hidden" />See Less</P> }</div>
 </div>
