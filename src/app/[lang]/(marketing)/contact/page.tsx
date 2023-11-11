@@ -10,6 +10,7 @@ import { InputBase, TextField } from "@mui/material";
 import axios from "axios";
 import { StatusCodes } from "http-status-codes";
 import { FormEvent, useState } from "react";
+import { toast } from "sonner";
 
 export default function ContactPage (){
 const [message, setMessage] = useState<string>("")
@@ -41,6 +42,8 @@ const sendContactMessage = async (e: FormEvent<HTMLFormElement>) : Promise<void>
     setSendingMessage(false)
     if(res.status !== StatusCodes.CREATED) return  setMessageError(true)
     setMessageSent(true) 
+    clearValues()
+    toast.success("Message sent!")
     setTimeout(clearMessages , 5000)
 }
 
