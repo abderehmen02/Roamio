@@ -12,7 +12,7 @@ export type BlogPost = {
     HomeMobile : boolean ,
     overviewArticles : string , 
     descreption? : string ,
-    image? : string |object ,
+    image : string |object ,
     articles : Article[]
 }
 

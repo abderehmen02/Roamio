@@ -19,6 +19,7 @@ export const appConfig = {
     sendGridMail : process.env.GMAIL_NAME ,
     mode  ,
     unknownPersonImage : "/unknown-person.jpg" ,
+    imageNotFound : "/no-image.png" ,
     links : {
         savedCities : '/savedCities' ,
         blog: '/blog' ,
