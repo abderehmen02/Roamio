@@ -1,4 +1,4 @@
-import { BlogPosts } from '@/constants/blog/blog'
+import { BlogPost, BlogPosts } from '@/constants/blog/blog'
 import {createClient} from '@sanity/client'
 import { toast } from 'sonner'
 import imageUrlBuilder from "@sanity/image-url"
@@ -21,4 +21,16 @@ const builder = imageUrlBuilder(client)
 
 export const sanityImageUrl = (SanityImage : object)=>{
 return builder.image(SanityImage).url()
+}
+
+
+
+export const getSanityPostByTitle = async (title : string) : Promise<BlogPost |undefined> =>{
+  
+  const post = await client.fetch(`*[_type == "post" && title == "${title}"][0]` )
+  if(!post) { console.log("can not get the post from sanity!!") 
+return 
+}
+  return post
+
 }
