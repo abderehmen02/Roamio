@@ -8,9 +8,11 @@ export type Article ={
 export type BlogPost = {
     title : string ,
     date : Date ,
+    HomeDesktop : boolean ,
+    HomeMobile : boolean ,
     overviewArticles : string , 
     descreption? : string ,
-    image? : string 
+    image? : string |object ,
     articles : Article[]
 }
 

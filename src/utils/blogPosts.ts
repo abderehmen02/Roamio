@@ -1,7 +1,7 @@
 import { BlogPosts } from '@/constants/blog/blog'
 import {createClient} from '@sanity/client'
 import { toast } from 'sonner'
-
+import imageUrlBuilder from "@sanity/image-url"
 export const client = createClient({
   projectId: '8egvcp45',
   dataset: 'production',
@@ -16,3 +16,9 @@ export async function getSanityPosts()  : Promise<BlogPosts | void> {
   return posts
 }
 
+const builder = imageUrlBuilder(client)
+
+
+export const sanityImageUrl = (SanityImage : object)=>{
+return builder.image(SanityImage).url()
+}
