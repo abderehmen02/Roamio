@@ -7,6 +7,7 @@ export type Article ={
 
 export type BlogPost = {
     title : string ,
+    date : Date ,
     overviewArticles : string , 
     descreption? : string ,
     image? : string 
