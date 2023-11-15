@@ -14,6 +14,7 @@ export const AppHero : React.FC = async  ()=>{
 
     
 return <div className="flex w-full gap-8 relative items-center justify-center  flex-col laptop:flex-row " >
+<img  src="/heroMap.svg" style={{width : '300px' }} alt="hero map cities"  />
 <div className="flex  items-center w-full laptop:w-8/12 flex-col py-9 gap-6" >
 <div className="flex flex-col items-center  "  >
 <H2 className="text-primary capitalize" >{appConfig.name}</H2>
@@ -24,6 +25,5 @@ return <div className="flex w-full gap-8 relative items-center justify-center  f
     <ListCard  list={heroCardList} className="w-full tablet:w-fit"  />
 </div>
 </div>
-<img  src="/heroMap.svg" style={{width : '300px' }} alt="hero map cities"  />
 </div>
 }

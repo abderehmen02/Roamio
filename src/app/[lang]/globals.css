@@ -81,8 +81,11 @@ height: 248px ;
 }  
 }
 
+
+ 
+
 .bgBackground {
-  background-color : #fcf1e1;
+ background: linear-gradient(#9ae7f3, #c4e0e5); ;
 }
 
 
@@ -102,3 +105,5 @@ height: 248px ;
       transform: rotate(360deg);
   }
   } 
+
+
