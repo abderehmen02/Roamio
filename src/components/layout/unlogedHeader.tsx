@@ -16,7 +16,7 @@ export  async function  UnlogedHeader  (){
     const {t} = await translate()
     
     return(<>
-        <div  className="hidden laptop:flex w-full  items-center justify-around " >
+        <div  className="hidden  laptop:flex w-full  items-center justify-between px-1 " >
 <Link href={appConfig.links.home} ><img alt={appConfig.name + "logo"} src={appConfig.logoImage} className="w-16 h-16" /></Link>
 <Link href={appConfig.links.blog} > <H3 className="text-primaryDark capitalize" > {t("unlogedHeader.blog")}</H3></Link>
 <Link href={appConfig.links.findCities} ><H3 className="text-primaryDark capitalize" >{t("find city")}</H3></Link>

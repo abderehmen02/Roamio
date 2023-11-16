@@ -22,8 +22,8 @@ window.addEventListener("click"  ,()=> setOpenNav(false))
     }
 }  ,  )
 
-    return <div onClick={(e)=>e.stopPropagation()} className="flex w-full z-30 items-center fixed bg-pageBg  top-0 justify-between" >
-<i  onClick={()=>setOpenNav(true)}  className={cn("bi bi-list-stars m-5 text-4xl block" , {"invisible" : openNav })}></i>
+    return <div onClick={(e)=>e.stopPropagation()} className="flex w-full z-30 items-center fixed   top-0 justify-between" >
+<i  onClick={()=>setOpenNav(true)}  className={cn("bi bi-list-stars mx-5 text-4xl block" , {"invisible" : openNav })}></i>
 <div   className={cn("flex fixed top-0 left-0 bg-white flex-col shadow-xl items-center justify-center gap-6 px-8 py-4 z-40 " , {"hidden" : !openNav} )} >
 <Link href={appConfig.links.home} className="flex items-center mb-6" ><img src={appConfig.logoImage} className="w-16 h-16" /><H2>{appConfig.name}</H2></Link>
 <Link href={appConfig.links.login}> <PrimaryBtn>{t("unlogedHeader.signIn")} <i className="bi bi-person"></i> </PrimaryBtn></Link>
