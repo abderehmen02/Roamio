@@ -1,8 +1,8 @@
 import { BlogPost, BlogPosts } from '@/constants/blog/blog'
-import {createClient} from '@sanity/client'
+import Picosanity from 'picosanity'
 import { toast } from 'sonner'
 import imageUrlBuilder from "@sanity/image-url"
-export const client = createClient({
+export const client = new Picosanity({
   projectId: '8egvcp45',
   dataset: 'production',
   useCdn: true, // set to `false` to bypass the edge cache
