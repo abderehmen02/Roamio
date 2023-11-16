@@ -17,10 +17,10 @@ export const BLogHeader = async  ()=>{
 <Link href={appConfig.links.home} ><img alt={appConfig.name + "logo"} src={appConfig.logoImage} className="w-16 h-16" /></Link>
 <Link href={appConfig.links.home}> <PrimaryBtn>Back To Home </PrimaryBtn></Link>
     </div>
-    <div className="flex w-full laptop:hidden" >
-    <div  className="flex w-full z-30 items-center fixed   top-0 justify-between" >
+    <div className="flex  w-full laptop:hidden" >
+    <div  className="flex w-full z-30 items-center fixed  staticBg top-0 justify-between" >
 <Link href={appConfig.links.home} > <img src={appConfig.logoImage} className="w-16 h-16"  /></Link>
-<Link href={appConfig.links.home} ><PrimaryBtn >Back To Home</PrimaryBtn></Link>
+<Link href={appConfig.links.home} className="mx-2" ><PrimaryBtn >Back To Home</PrimaryBtn></Link>
     </div>
     </div>
     </>
