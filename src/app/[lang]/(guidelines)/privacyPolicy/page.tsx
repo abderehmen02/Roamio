@@ -4,7 +4,7 @@ import { H2, H3, P } from "@/ui/typography";
 
 export default function PrivacyPolicy(){
     return <div className="min-h-screen w-full flex flex-col items-center" >
-        <Title title="Privacy Policy" descreption="Please read our Privacy Policy to understand how we protect your personal information and data" />
+        <Title title="Privacy Policy"  descreption="Please read our Privacy Policy to understand how we protect your personal information and data" />
         <div className="w-[1000px] my-7 flex flex-col gap-2" >
 
 <H3>        Last Updated: </H3>

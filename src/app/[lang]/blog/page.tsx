@@ -13,7 +13,7 @@ export default async  function BLogPage (){
     const sanityPosts = await getSanityPosts() || []
     const allPosts = [...sanityPosts , ...blogPosts]
 return     <Page className="flex items-center  flex-col"  >
-        <Title title="Roamio Blog" descreption={blogPageDescreptions[ Math.floor( Math.random() * 6 )]} />
+        <Title titleClassName="text-primaryDark" title="Roamio Blog" descreption={blogPageDescreptions[ Math.floor( Math.random() * 6 )]} />
         <PageBody className="flex-wrap" >
          {allPosts.map(post=><BlogPostCard key={post.title} {...post} />)}
         </PageBody>

@@ -88,6 +88,9 @@ height: 248px ;
  background: linear-gradient(#9ae7f3, #c4e0e5); ;
 }
 
+.staticBg {
+  background-color: #9ae7f3 ;
+}
 
 .loader {
   border: 2px solid black;

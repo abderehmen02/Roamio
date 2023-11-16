@@ -17,7 +17,7 @@ return <div className="flex w-full gap-8 relative items-center justify-center  f
 <img  src="/heroMap.svg" style={{width : '300px' }} alt="hero map cities"  />
 <div className="flex  items-center w-full laptop:w-8/12 flex-col py-9 gap-6" >
 <div className="flex flex-col items-center  "  >
-<H2 className="text-primary capitalize" >{appConfig.name}</H2>
+<H2 className="text-primaryDark capitalize" >{appConfig.name}</H2>
 <H4>{t("hero.descreption")}</H4>
 </div>
 <div id="heroListsContainer " className="flex  gap-5 flex-col px-4 w-full items-center justify-stretch  tablet:justify-center tablet:items-stretch tablet:flex-row" >

@@ -8,14 +8,10 @@ import { refreshTokenModel } from "@/db/models/refreshToken"
 import { errorMessage } from "@/utils/api/error"
 
 export const GET =  asyncWrapperApi( async (req)=>{
-    console.log("logout request")
     const refreshToken = cookies().get(authConfig.refreshTokenCookieName)?.value
-    console.log("refresh token geted")
     if(!refreshToken)  errorMessage("no refresh token found")
-    console.log("continue") 
     const deletedRefreshToken = await refreshTokenModel().deleteOne({token : refreshToken })
-    console.log("refresh token deleted from database")
     cookies().delete(authConfig.refreshTokenCookieName)
-    console.log("refresh token deleted from cookies")
+    cookies().delete(authConfig.tokenCookieName)
     return new Response(JSON.stringify({succuss : true}  )  ,{status : ResponseStatuses.OK} )
 })

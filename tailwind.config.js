@@ -26,7 +26,7 @@ module.exports = {
       white : "#fff"  ,
       black : "#232220" ,
       grayLight : "#F5F5F5" ,
-      pageBg  : "#fcf1e1" ,  
+      pageBg  : "#9ae7f3" ,  
       grayDark : "#5E5B56" ,
       ...colors 
      }  ,
