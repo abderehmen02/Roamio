@@ -7,7 +7,7 @@ import { getSanityPosts } from "@/utils/blogPosts";
 
 
 
-export const revalidate = 1
+// export const revalidate = 1
 
 export default async  function BLogPage (){
     const sanityPosts = await getSanityPosts() || []
