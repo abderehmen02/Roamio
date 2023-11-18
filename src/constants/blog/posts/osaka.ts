@@ -6,7 +6,7 @@ export const osakaPost: BlogPost = {
     HomeDesktop : true ,
     HomeMobile : true ,
     overviewArticles :"Our journey begins at Osaka Castle, an iconic symbol of the city. This majestic fortress, with its stunning architecture and lush gardens, offers a glimpse into Japan's feudal history. Explore the museum inside to learn about the castle's history ,Dotonbori is the heartbeat of Osaka's street food culture. As you wander along the bustling canal, you'll be tempted by the aromas of takoyaki (octopus balls),"  ,
-    descreption: "Culinary Delights, History, and Wonders",
+    descreption: "Osaka: Culinary Haven, Historic Charms, Modern Vibrancy.",
     image : "/osaka.jpg" ,
     articles: [
       {

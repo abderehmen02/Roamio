@@ -1,10 +1,14 @@
-import { blogPosts } from "@/constants/blog/blog"
+import { BlogPost, blogPosts } from "@/constants/blog/blog"
 import { Title } from "@/ui/title"
 import { H2, H3, P } from "@/ui/typography"
 import { ErrorContainer } from "@/ui/errors"
 import { Page } from "@/ui/containers"
 import { getSanityPostByTitle, sanityImageUrl } from "@/utils/blogPosts"
 import { appConfig } from "@/config"
+
+
+
+
 
 
 
