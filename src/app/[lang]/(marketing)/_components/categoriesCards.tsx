@@ -13,7 +13,7 @@ const categoriesCardsInfo : {title: string  , images :string[] , descreption : s
     {
         title : "Beach Destinations" ,
         descreption : "Relax and unwind in picturesque beachfront locales where golden sands meet azure waters. Beach destinations offer sun-soaked shores, water sports, and a tranquil ambiance. Whether you crave relaxation or adventure, these coastal paradises promise the perfect getaway." ,
-        images : ["/beaches.jpg"  ] 
+        images : ["/beaches.webp"  ] 
     } ,
     {
         title : "Historic Cities" ,
@@ -36,6 +36,6 @@ const categoriesCardsInfo : {title: string  , images :string[] , descreption : s
 export const CategoriesCards = ()=>{
 return <div className="w-full  flex items-center justify-center" >
     <div  style={{height : "fit-content"}} className="w-[1200px]     gap-5 flex flex-wrap   items-center justify-center  " >
-    {categoriesCardsInfo.map((cardInfo , index )=><CategoryCard key={cardInfo.title} className={ cn("bg-secondary text-primaryDark shadow-2xl"  )  }  {...cardInfo} />)}
+    {categoriesCardsInfo.map((cardInfo , index )=><CategoryCard lazyLoadImage={index >2}  key={cardInfo.title} className={ cn("bg-secondary text-primaryDark shadow-2xl"  )  }  {...cardInfo} />)}
 </div></div>
 }

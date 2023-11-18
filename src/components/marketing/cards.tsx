@@ -1,6 +1,6 @@
 import { cn } from "@/lib/tailwind"
 import { H2, H3, H4, P } from "@/ui/typography"
-import React  , { HTMLAttributes }from "react"
+import React  , { HTMLAttributes, lazy }from "react"
 import Image from 'next/image'
 export enum cardsColors {
     primary = "PRIMARY" ,
@@ -56,13 +56,13 @@ export const ListActionCard : React.FC<listActionCardProps> = ({btn , list , cla
 }
 
 
-export const CategoryCard : React.FC<{   className? : string ,   title : string , descreption : string , images : string[]}> = ({ className,  title , descreption , images})=>{
+export const CategoryCard : React.FC<{  lazyLoadImage? :  boolean ,   className? : string ,   title : string , descreption : string , images : string[]}> = ({ className,  title , descreption , images , lazyLoadImage })=>{
     let currImage = images[0]
     return <div  className={cn( " rounded-xl m-4 w-fit   flex justify-between flex-col " , className)}  >
         <div style={{ minHeight : '370px',  width : '300px'}} className="px-4  flex flex-col gap-4 my-6 " >
         <H2>{title}</H2>
         <P  className="w-full box-border break-words" >{descreption}</P> 
         </div>
-        <img   src={currImage} className="rounded-b-xl"  style={{width : '300px' , height : '200px'}}   />
+        <img loading={lazyLoadImage ? "lazy" : "eager"}  src={currImage} className="rounded-b-xl"  style={{width : '300px' , height : '200px'}}   />
     </div>
 }
