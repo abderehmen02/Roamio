@@ -20,8 +20,9 @@ const ModalContent = styled(Box)(({theme})=>({
     borderRadius: '8px' ,
     backgroundColor : "white"  ,
     transform: 'translate(-50%, -50%)',
-    width :300 ,
     minHeight: '60vh',
+    overflowY : "scroll" ,
+    maxHeight :"90vh" ,
     display :'flex' ,
     gap : 3 ,
     flexDirection : 'column' ,
@@ -34,7 +35,8 @@ const ModalContent = styled(Box)(({theme})=>({
     paddingRight :3 ,
     paddingLeft : 3 ,
    [theme.breakpoints.up("md")] : {
-  width : 600  
+  width : 1200 ,
+  maxWidth : "95vw" 
    }
   })) 
 
