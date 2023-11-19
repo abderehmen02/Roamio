@@ -8,7 +8,7 @@ export type landMark = {
   dislikes: string[],
 }
 export type CategoryDb = {name : Category , position : number}
-export type PlaceDb = {category : Category , place : String  }
+export type PlaceDb = {category : Category , place : string  }
 
 export interface CityDb {
     name: string,

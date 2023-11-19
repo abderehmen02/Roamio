@@ -9,6 +9,7 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import { PlaceDb } from "@/db/models/city";
 import { Categories, Category } from "@/types/prefrences";
+import { PlaceDisplayer } from "@/components/city/placeDisplayer";
 
 
 const ModalContent = styled(Box)(({theme})=>({
@@ -58,7 +59,7 @@ const filteredCategories  = categories?.filter(category=>places.some(place=>plac
           </TabList>
         </Box>
         {
-            filteredCategories?.map(category=><TabPanel value={category}>{category}</TabPanel>
+            filteredCategories?.map(category=><TabPanel value={category}>{ places.filter(place =>place.category === category).map(place=><PlaceDisplayer placeName={place.place} />) }</TabPanel>
             )
         }
 
