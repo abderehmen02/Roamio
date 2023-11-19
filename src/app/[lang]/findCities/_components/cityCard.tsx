@@ -118,7 +118,7 @@ function receiveCityDbData (data: CityDb): void{
 
     return <div  className="flex w-full flex-col shadow-md  relative bg-white rounded-xl  border-stone-600" >
    { isCityDb(city) &&  <ReviewModal deleteReviewFn={deleteReviewFn} addReviewFn={addReview} open={openCommentModal} city={city} setOpen={setOpenCommentModal}  /> }
-   {isCityDb(city) && <PlacesModal openPlacesModal={openPlacesModal} setOpenPlacesModal={setOpenPlacesModal} /> }
+   {isCityDb(city) && Boolean(city.places.length) && <PlacesModal categories={city.categories.map(category=>category.name)} places={city.places}  openPlacesModal={openPlacesModal} setOpenPlacesModal={setOpenPlacesModal} /> }
     <div  className="flex-col laptop:flex-row flex" >
     <img  src={image}  style={{ minHeight: '200px' , objectFit: 'cover' ,  }} className={ cn( "w-full laptop:w-[300px] rounded-l-xl border-2 " , {"h-full" : !seeAllDescreption && !seeMoreInfo  , "h-fit " : seeAllDescreption || seeMoreInfo } )} />
     <div className="flex px-6 w-full py-1 justify-around flex-col " >
@@ -134,6 +134,7 @@ function receiveCityDbData (data: CityDb): void{
 <div className="flex gap-6 w-full laptop:w-fit justiyf-center" >
 { isUserInfo(userInfo) && isCityDb(city) && <PrimaryBtn onClick={()=> isSavedCity ? unsaveCity() :  saveCity()} className={cn("py-0 hidden laptop:block" , {"opacity-40" : loadingSave })} size={ButtonsSizes.small} >{isSavedCity ? "Saved" : "Save"}  {userInfo.savedCities?.includes(city.name) ? <TurnedInOutlinedIcon style={{width : 20 , height : 20 } } />   : <TurnedInNotOutlinedIcon style={{width : 20 , height : 20 } } /> } </PrimaryBtn> }
   <PrimaryBtn  size={ButtonsSizes.small} className="py-0 w-full laptop:w-fit " onClick={()=>setViewLandMarks((val)=>!val)} > {viewLandMarks ? <i className="bi m-0 text-sm bi-chevron-up"></i> : <i className= "bi m-0  bi-chevron-down " ></i> } {t("Explore Landmarks")}  </PrimaryBtn>
+{ isCityDb(city) && Boolean(city.places.length)  && <PrimaryBtn  size={ButtonsSizes.small} className="py-0 w-full laptop:w-fit " onClick={()=>setOpenPlacesModal(true)} > Explore Places  </PrimaryBtn> }
 </div></div>
 {cityDb && <CityDbInfo setSeeMoreInfo={setSeeMoreInfo} seeMoreInfo={seeMoreInfo} citydb={cityDb} query={searchParams.toString()} />}
     </div>

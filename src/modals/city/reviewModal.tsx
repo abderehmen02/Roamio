@@ -13,6 +13,7 @@ import { GoogleUserDb } from "@/db/models/googleUser";
 const ModalContent = styled(Box)(({theme})=>({
   position: 'absolute' as 'absolute',
   top: '50%',
+  
   left: '50%',
   borderRadius: '8px' ,
   backgroundColor : "white"  ,
