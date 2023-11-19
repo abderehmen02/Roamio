@@ -1,7 +1,7 @@
 import { CategoryDb, cityModal } from "@/db/models/city"
 import { apiResponse } from "@/utils/api/nextResponse"
 import { asyncWrapperApi } from "@/utils/asyncWrapper"
-import { ArchitectureCities } from "./static"
+import { MusicCities } from "./static"
 import { Categories } from "@/types/prefrences"
 import { StatusCodes } from "http-status-codes"
 import { Arima } from "next/font/google"
@@ -9,18 +9,18 @@ import { Arima } from "next/font/google"
 // adding cities with places 
 export const GET = asyncWrapperApi(async ()=>{
    let addedCities = 0 ;
-      for(let i  = 0 ; i < ArchitectureCities.length ; i++){
-      const existCity = await cityModal().findOne({name : ArchitectureCities[i].name})
-      if(existCity && existCity.categories?.some((category : CategoryDb )=>category.name === Categories.Architecture ) ) continue ;
-      if(existCity  ){ await cityModal().findOneAndUpdate({name : ArchitectureCities[i].name} , { $push: { categories: {name : Categories.Architecture, position : i  }   } , $set: {
-         places: ArchitectureCities[i].places , 
+      for(let i  = 0 ; i < MusicCities.length ; i++){
+      const existCity = await cityModal().findOne({name : MusicCities[i].name})
+      if(existCity && existCity.categories?.some((category : CategoryDb )=>category.name === Categories.Music ) ) continue ;
+      if(existCity  ){ await cityModal().findOneAndUpdate({name : MusicCities[i].name} , { $push: { categories: {name : Categories.Music, position : i  }   } , $set: {
+         places: MusicCities[i].places , 
        }, } ,{new: true})
       }
-      else{ await cityModal().create({...[i] , landmarks : ArchitectureCities[i].landMarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [{name : Categories.Architecture, position : i}]  , reviews: [] , likes: [] , dislikes : [] , places : ArchitectureCities[i].places  })
+      else{ await cityModal().create({...MusicCities[i] , landmarks : MusicCities[i].landMarks.map(landmark=>({name :landmark , likes: [] , dislikes: []  , reviews: [] }) ) , categories: [{name : Categories.Music, position : i}]  , reviews: [] , likes: [] , dislikes : [] , places : MusicCities[i].places  })
       addedCities++ 
    }
       }
-      return apiResponse(StatusCodes.CREATED , JSON.stringify({ number : addedCities } ))      
+      return apiResponse(StatusCodes.CREATED , JSON.stringify({  addedCities } ))      
 })
 
 

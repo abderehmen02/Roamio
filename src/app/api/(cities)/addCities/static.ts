@@ -1,3 +1,770 @@
+export const MusicCities =[
+    {
+        "places": [
+            {
+                "place": "Grand Ole Opry",
+                "category": "Music"
+            },
+            {
+                "place": "Bluebird Cafe",
+                "category": "Music"
+            },
+            {
+                "place": "Ryman Auditorium",
+                "category": "Music"
+            }
+        ],
+        "name": "Nashville",
+        "country": "United States",
+        "landMarks": [
+            "Grand Ole Opry",
+            "Country Music Hall of Fame",
+            "Ryman Auditorium",
+            "Broadway",
+            "Centennial Park"
+        ],
+        "continent": "North America",
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English"
+        ]
+    },
+    {
+        "places": [
+            {
+                "place": "Preservation Hall",
+                "category": "Music"
+            },
+            {
+                "place": "Tipitina’s",
+                "category": "Music"
+            },
+            {
+                "place": "House of Blues",
+                "category": "Music"
+            }
+        ],
+        "name": "New Orleans",
+        "country": "United States",
+        "landMarks": [
+            "French Quarter",
+            "Jackson Square",
+            "Bourbon Street",
+            "National WWII Museum",
+            "St. Louis Cathedral"
+        ],
+        "continent": "North America",
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English"
+        ]
+    },
+    {
+        "places": [
+            {
+                "place": "The Continental Club",
+                "category": "Music"
+            },
+            {
+                "place": "Antone’s",
+                "category": "Music"
+            },
+            {
+                "place": "Austin City Limits Live",
+                "category": "Music"
+            }
+        ],
+        "name": "Austin",
+        "country": "United States",
+        "landMarks": [
+            "Texas State Capitol",
+            "6th Street",
+            "Barton Springs Pool",
+            "South Congress Avenue",
+            "Mount Bonnell"
+        ],
+        "continent": "North America",
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English"
+        ]
+    },
+    {
+        "places": [
+            {
+                "place": "Beale Street",
+                "category": "Music"
+            },
+            {
+                "place": "Sun Studio",
+                "category": "Music"
+            },
+            {
+                "place": "Stax Museum of American Soul Music",
+                "category": "Music"
+            }
+        ],
+        "name": "Memphis",
+        "country": "United States",
+        "landMarks": [
+            "Graceland",
+            "Beale Street",
+            "Sun Studio",
+            "Memphis Zoo",
+            "National Civil Rights Museum"
+        ],
+        "continent": "North America",
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English"
+        ]
+    },
+    {
+        "places": [
+            {
+                "place": "The Crocodile",
+                "category": "Music"
+            },
+            {
+                "place": "Neumos",
+                "category": "Music"
+            },
+            {
+                "place": "The Showbox",
+                "category": "Music"
+            }
+        ],
+        "name": "Seattle",
+        "country": "United States",
+        "landMarks": [
+            "Space Needle",
+            "Pike Place Market",
+            "Chihuly Garden and Glass",
+            "Museum of Pop Culture",
+            "Seattle Aquarium"
+        ],
+        "continent": "North America",
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English"
+        ]
+    },
+    {
+        "places": [
+            {
+                "place": "Chicago Symphony Center",
+                "category": "Music"
+            },
+            {
+                "place": "Green Mill Cocktail Lounge",
+                "category": "Music"
+            },
+            {
+                "place": "Buddy Guy’s Legends",
+                "category": "Music"
+            }
+        ],
+        "name": "Chicago",
+        "country": "United States",
+        "landMarks": [
+            "Millennium Park",
+            "Navy Pier",
+            "Art Institute of Chicago",
+            "Willis Tower",
+            "The Magnificent Mile"
+        ],
+        "continent": "North America",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Cold"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English"
+        ]
+    },
+    {
+        "places": [
+            {
+                "place": "Apollo Theater",
+                "category": "Music"
+            },
+            {
+                "place": "Bowery Ballroom",
+                "category": "Music"
+            },
+            {
+                "place": "Village Vanguard",
+                "category": "Music"
+            }
+        ],
+        "name": "New York City",
+        "country": "United States",
+        "landMarks": [
+            "Statue of Liberty",
+            "Times Square",
+            "Central Park",
+            "Empire State Building",
+            "Brooklyn Bridge"
+        ],
+        "continent": "North America",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English"
+        ]
+    },
+    {
+        "places": [
+            {
+                "place": "Hollywood Bowl",
+                "category": "Music"
+            },
+            {
+                "place": "The Troubadour",
+                "category": "Music"
+            },
+            {
+                "place": "The Roxy",
+                "category": "Music"
+            }
+        ],
+        "name": "Los Angeles",
+        "country": "United States",
+        "landMarks": [
+            "Hollywood Sign",
+            "Santa Monica Pier",
+            "Venice Beach",
+            "Griffith Observatory",
+            "The Getty Center"
+        ],
+        "continent": "North America",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English"
+        ]
+    },
+    {
+        "places": [
+            {
+                "place": "The Fillmore",
+                "category": "Music"
+            },
+            {
+                "place": "Great American Music Hall",
+                "category": "Music"
+            },
+            {
+                "place": "Slim’s",
+                "category": "Music"
+            }
+        ],
+        "name": "San Francisco",
+        "country": "United States",
+        "landMarks": [
+            "Golden Gate Bridge",
+            "Alcatraz Island",
+            "Fisherman's Wharf",
+            "Lombard Street",
+            "Chinatown"
+        ],
+        "continent": "North America",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English"
+        ]
+    },
+    {
+        "places": [
+            {
+                "place": "Motown Museum",
+                "category": "Music"
+            },
+            {
+                "place": "Fox Theatre",
+                "category": "Music"
+            },
+            {
+                "place": "Cliff Bell’s",
+                "category": "Music"
+            }
+        ],
+        "name": "Detroit",
+        "country": "United States",
+        "landMarks": [
+            "Detroit Institute of Arts",
+            "Motown Museum",
+            "Henry Ford Museum",
+            "Detroit Historical Museum",
+            "Detroit Riverwalk"
+        ],
+        "continent": "North America",
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate",
+            "Cold"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English"
+        ]
+    },
+    {
+        "places": [
+            {
+                "place": "Royal Albert Hall",
+                "category": "Music"
+            },
+            {
+                "place": "Abbey Road Studios",
+                "category": "Music"
+            },
+            {
+                "place": "The Roundhouse",
+                "category": "Music"
+            }
+        ],
+        "name": "London",
+        "country": "United Kingdom",
+        "landMarks": [
+            "British Museum",
+            "Tower of London",
+            "Buckingham Palace",
+            "Big Ben",
+            "The Shard"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English"
+        ]
+    },
+    {
+        "places": [
+            {
+                "place": "Berghain",
+                "category": "Music"
+            },
+            {
+                "place": "SO36",
+                "category": "Music"
+            },
+            {
+                "place": "A-Trane",
+                "category": "Music"
+            }
+        ],
+        "name": "Berlin",
+        "country": "Germany",
+        "landMarks": [
+            "Brandenburg Gate",
+            "Berlin Wall",
+            "Reichstag Building",
+            "Museum Island",
+            "Checkpoint Charlie"
+        ],
+        "continent": "Europe",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "German"
+        ]
+    },
+    {
+        "places": [
+            {
+                "place": "Billboard Live Tokyo",
+                "category": "Music"
+            },
+            {
+                "place": "Blue Note Tokyo",
+                "category": "Music"
+            },
+            {
+                "place": "Shinjuku Pit Inn",
+                "category": "Music"
+            }
+        ],
+        "name": "Tokyo",
+        "country": "Japan",
+        "landMarks": [
+            "Tokyo Tower",
+            "Asakusa Temple",
+            "Shibuya Crossing",
+            "Meiji Shrine",
+            "Akihabara"
+        ],
+        "continent": "Asia",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Japanese"
+        ]
+    },
+    {
+        "places": [
+            {
+                "place": "Circo Voador",
+                "category": "Music"
+            },
+            {
+                "place": "Vivo Rio",
+                "category": "Music"
+            },
+            {
+                "place": "Teatro Rival",
+                "category": "Music"
+            }
+        ],
+        "name": "Rio de Janeiro",
+        "country": "Brazil",
+        "landMarks": [
+            "Christ the Redeemer",
+            "Copacabana Beach",
+            "Sugarloaf Mountain",
+            "Selarón Steps",
+            "Tijuca National Park"
+        ],
+        "continent": "South America",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Tropical",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Portuguese"
+        ]
+    },
+    {
+        "places": [
+            {
+                "place": "Sydney Opera House",
+                "category": "Music"
+            },
+            {
+                "place": "Enmore Theatre",
+                "category": "Music"
+            },
+            {
+                "place": "The Metro Theatre",
+                "category": "Music"
+            }
+        ],
+        "name": "Sydney",
+        "country": "Australia",
+        "landMarks": [
+            "Sydney Opera House",
+            "Sydney Harbour Bridge",
+            "Bondi Beach",
+            "Taronga Zoo",
+            "Royal Botanic Garden"
+        ],
+        "continent": "Australia",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English"
+        ]
+    },
+    {
+        "places": [
+            {
+                "place": "Massey Hall",
+                "category": "Music"
+            },
+            {
+                "place": "The Horseshoe Tavern",
+                "category": "Music"
+            },
+            {
+                "place": "The Danforth Music Hall",
+                "category": "Music"
+            }
+        ],
+        "name": "Toronto",
+        "country": "Canada",
+        "landMarks": [
+            "CN Tower",
+            "Royal Ontario Museum",
+            "Distillery District",
+            "Ripley's Aquarium",
+            "Toronto Islands"
+        ],
+        "continent": "North America",
+        "price": "MEDIUM",
+        "weathers": [
+            "Temperate",
+            "Rainy"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "English",
+            "French"
+        ]
+    },
+    {
+        "places": [
+            {
+                "place": "Blue Frog",
+                "category": "Music"
+            },
+            {
+                "place": "The Piano Man Jazz Club",
+                "category": "Music"
+            },
+            {
+                "place": "Kitty Su",
+                "category": "Music"
+            }
+        ],
+        "name": "New Delhi",
+        "country": "India",
+        "landMarks": [
+            "India Gate",
+            "Lotus Temple",
+            "Qutub Minar",
+            "Red Fort",
+            "Humayun's Tomb"
+        ],
+        "continent": "Asia",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Hot",
+            "Monsoon"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Hindi",
+            "English"
+        ]
+    },
+    {
+        "places": [
+            {
+                "place": "The Crypt Jazz Restaurant",
+                "category": "Music"
+            },
+            {
+                "place": "The Waiting Room",
+                "category": "Music"
+            },
+            {
+                "place": "Asoka",
+                "category": "Music"
+            }
+        ],
+        "name": "Cape Town",
+        "country": "South Africa",
+        "landMarks": [
+            "Table Mountain",
+            "Robben Island",
+            "V&A Waterfront",
+            "Kirstenbosch National Botanical Garden",
+            "Cape of Good Hope"
+        ],
+        "continent": "Africa",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Afrikaans",
+            "English"
+        ]
+    },
+    {
+        "places": [
+            {
+                "place": "La Trastienda",
+                "category": "Music"
+            },
+            {
+                "place": "Niceto Club",
+                "category": "Music"
+            },
+            {
+                "place": "Teatro Colón",
+                "category": "Music"
+            }
+        ],
+        "name": "Buenos Aires",
+        "country": "Argentina",
+        "landMarks": [
+            "La Recoleta Cemetery",
+            "Teatro Colón",
+            "Casa Rosada",
+            "San Telmo",
+            "Malba - Fundación Costantini"
+        ],
+        "continent": "South America",
+        "price": "EXPENSIVE",
+        "weathers": [
+            "Temperate",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Spanish"
+        ]
+    },
+    {
+        "places": [
+            {
+                "place": "Le Comptoir Darna",
+                "category": "Music"
+            },
+            {
+                "place": "Pacha Marrakech",
+                "category": "Music"
+            },
+            {
+                "place": "Theatro Marrakech",
+                "category": "Music"
+            }
+        ],
+        "name": "Marrakech",
+        "country": "Morocco",
+        "landMarks": [
+            "Jardin Majorelle",
+            "Bahia Palace",
+            "Medina of Marrakech",
+            "Koutoubia Mosque",
+            "Saadian Tombs"
+        ],
+        "continent": "Africa",
+        "price": "INEXPENSIVE",
+        "weathers": [
+            "Desert",
+            "Hot"
+        ],
+        "yearTimes": [
+            "Spring",
+            "Autumn"
+        ],
+        "languages": [
+            "Arabic",
+            "French"
+        ]
+    }
+]
+
 export const ArchitectureCities =  [
     {
         "name": "Florence",

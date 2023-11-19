@@ -27,6 +27,7 @@ import { isCityDb } from "@/types/state/cities"
 import { getCity } from "@/functions/api/cities"
 import { useSearchParams } from "next/navigation"
 import { QueryObjParams } from "@/utils/queryCities"
+import { PlacesModal } from "@/modals/city/placesModal"
 
 export const generateExtractDescreptionIndex : (length : number  , aspectRacio : number | undefined )=>number = (length , aspectRacio )  =>{
   if(aspectRacio){
@@ -66,6 +67,7 @@ return <div className="flex flex-col" >
 
 export const CityCard : React.FC<CityDb | {name : string} > =  (cityInfo)=>{
   const [viewLandMarks, setViewLandMarks] = useState<boolean>(false)
+  
   const [seeMoreInfo, setSeeMoreInfo] = useState(false)
    const [seeAllDescreption, setSeeAllDescreption] = useState(false)
   const cityWikipediaData   =  usePlaceWikipediaData(cityInfo.name)
@@ -73,6 +75,7 @@ export const CityCard : React.FC<CityDb | {name : string} > =  (cityInfo)=>{
   const searchParams = useSearchParams()
   const userInfo = useSelector((state: stateType)=>state.userInfo)
   const [openCommentModal, setOpenCommentModal] = useState(false)
+  const [openPlacesModal , setOpenPlacesModal ] = useState<boolean>(false)
   const {t} = useTranslation()
   const {data : fetchedCityDb , error , refetch , isLoading} = useQuery({
     queryKey: [cityInfo.name] ,
@@ -115,6 +118,7 @@ function receiveCityDbData (data: CityDb): void{
 
     return <div  className="flex w-full flex-col shadow-md  relative bg-white rounded-xl  border-stone-600" >
    { isCityDb(city) &&  <ReviewModal deleteReviewFn={deleteReviewFn} addReviewFn={addReview} open={openCommentModal} city={city} setOpen={setOpenCommentModal}  /> }
+   {isCityDb(city) && <PlacesModal openPlacesModal={openPlacesModal} setOpenPlacesModal={setOpenPlacesModal} /> }
     <div  className="flex-col laptop:flex-row flex" >
     <img  src={image}  style={{ minHeight: '200px' , objectFit: 'cover' ,  }} className={ cn( "w-full laptop:w-[300px] rounded-l-xl border-2 " , {"h-full" : !seeAllDescreption && !seeMoreInfo  , "h-fit " : seeAllDescreption || seeMoreInfo } )} />
     <div className="flex px-6 w-full py-1 justify-around flex-col " >
