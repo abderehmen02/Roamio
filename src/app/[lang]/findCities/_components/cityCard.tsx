@@ -132,7 +132,7 @@ function receiveCityDbData (data: CityDb): void{
 <div className="laptop:hidden" >{ isUserInfo(userInfo) && isCityDb(city) &&  userInfo.savedCities?.includes(city.name) ? <TurnedInOutlinedIcon  onClick={()=> isSavedCity ? unsaveCity() :  saveCity()} />   : <TurnedInNotOutlinedIcon onClick={()=> isSavedCity ? unsaveCity() :  saveCity()}  />  }</div>
 </div>}
 
-<div className="flex gap-6 w-full laptop:w-fit justiyf-center" >
+<div className="flex gap-2 w-full laptop:w-fit flex-col laptop:flex-row justiyf-center" >
 { isUserInfo(userInfo) && isCityDb(city) && <PrimaryBtn onClick={()=> isSavedCity ? unsaveCity() :  saveCity()} className={cn("py-0 hidden laptop:block" , {"opacity-40" : loadingSave })} size={ButtonsSizes.small} >{isSavedCity ? "Saved" : "Save"}  {userInfo.savedCities?.includes(city.name) ? <TurnedInOutlinedIcon style={{width : 20 , height : 20 } } />   : <TurnedInNotOutlinedIcon style={{width : 20 , height : 20 } } /> } </PrimaryBtn> }
   <PrimaryBtn  size={ButtonsSizes.small} className="py-0 w-full laptop:w-fit " onClick={()=>setViewLandMarks((val)=>!val)} > {viewLandMarks ? <i className="bi m-0 text-sm bi-chevron-up"></i> : <i className= "bi m-0  bi-chevron-down " ></i> } {t("Explore Landmarks")}  </PrimaryBtn>
 { isCityDb(city) && Boolean(city.places.filter(place=>currentCategories.find((category)=>place.category === category)).length)  && <PrimaryBtn  size={ButtonsSizes.small} className="py-0 w-full laptop:w-fit " onClick={()=>setOpenPlacesModal(true)} > Explore Places  </PrimaryBtn> }
