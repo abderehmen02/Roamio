@@ -30,10 +30,8 @@ const ModalContent = styled(Box)(({theme})=>({
     border: 'none' ,
     bgcolor: 'background.paper',
     // border: '2px solid #000',
-   [theme.breakpoints.up("md")] : {
   width : 1200 ,
-  maxWidth : "95vw" 
-   }
+  maxWidth : "90vw"  
   })) 
 
 export const PlacesModal : React.FC<{ places : PlaceDb[] , categories : Category[] , openPlacesModal : boolean , setOpenPlacesModal : React.Dispatch<React.SetStateAction<boolean>> }> = ({  places , categories , openPlacesModal , setOpenPlacesModal})=>{
