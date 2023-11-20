@@ -37,20 +37,20 @@ const ModalContent = styled(Box)(({theme})=>({
   })) 
 
 export const PlacesModal : React.FC<{ places : PlaceDb[] , categories : Category[] , openPlacesModal : boolean , setOpenPlacesModal : React.Dispatch<React.SetStateAction<boolean>> }> = ({  places , categories , openPlacesModal , setOpenPlacesModal})=>{
-const [value, setValue] = React.useState('1');
+  const filteredCategories  = categories?.filter(category=>places.some(place=>place.category === category))
+const [value, setValue] = React.useState<Category>(filteredCategories[0]);
 
-const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+const handleChange = (event: React.SyntheticEvent, newValue: Category) => {
   setValue(newValue);
 };
 
-const filteredCategories  = categories?.filter(category=>places.some(place=>place.category === category))
     return <Modal open={openPlacesModal}  onClose={()=>setOpenPlacesModal(false)}  aria-labelledby="parent-modal-title"
     aria-describedby="parent-modal-description"
       >   
 <ModalContent>
 <TabContext value={value}>
         <Box sx={{ borderBottom: 1 , borderColor: 'divider' }}>
-          <TabList  onChange={handleChange} aria-label="lab API tabs example">
+          <TabList  className="px-6" onChange={handleChange} aria-label="lab API tabs example">
             {
                filteredCategories?.map(category=>            <Tab label={category} value={category}/>                )
             }

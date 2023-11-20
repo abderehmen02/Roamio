@@ -83,11 +83,12 @@ export const CityCard : React.FC<CityDb | {name : string} > =  (cityInfo)=>{
     onSuccess : receiveCityDbData ,
     enabled : !isCityDb(cityInfo) ,
   })
-
+ 
   const cityDb : CityDb | undefined =     isCityDb(cityInfo) ? cityInfo :  fetchedCityDb
   const [city , setCity]  = useState<CityDb | undefined>(cityDb)
   const [ addReview , likeCity  , unlikeCity , dislikeCity  , cancelDislike , saveCity , unsaveCity , deleteReviewFn, loadingSave    , loadingLike  , loadingDislke ] = useCityCardActions(city , setCity )
- 
+  const currentCategories : string[] = JSON.parse(searchParams.get(QueryObjParams.categories) || '[]')
+
   
     const isSavedCity = isUserInfo(userInfo) && userInfo.savedCities.includes(cityInfo.name)
     if(cityWikipediaData.loading ) return <CityCardSkeleton/>
@@ -134,7 +135,7 @@ function receiveCityDbData (data: CityDb): void{
 <div className="flex gap-6 w-full laptop:w-fit justiyf-center" >
 { isUserInfo(userInfo) && isCityDb(city) && <PrimaryBtn onClick={()=> isSavedCity ? unsaveCity() :  saveCity()} className={cn("py-0 hidden laptop:block" , {"opacity-40" : loadingSave })} size={ButtonsSizes.small} >{isSavedCity ? "Saved" : "Save"}  {userInfo.savedCities?.includes(city.name) ? <TurnedInOutlinedIcon style={{width : 20 , height : 20 } } />   : <TurnedInNotOutlinedIcon style={{width : 20 , height : 20 } } /> } </PrimaryBtn> }
   <PrimaryBtn  size={ButtonsSizes.small} className="py-0 w-full laptop:w-fit " onClick={()=>setViewLandMarks((val)=>!val)} > {viewLandMarks ? <i className="bi m-0 text-sm bi-chevron-up"></i> : <i className= "bi m-0  bi-chevron-down " ></i> } {t("Explore Landmarks")}  </PrimaryBtn>
-{ isCityDb(city) && Boolean(city.places.length)  && <PrimaryBtn  size={ButtonsSizes.small} className="py-0 w-full laptop:w-fit " onClick={()=>setOpenPlacesModal(true)} > Explore Places  </PrimaryBtn> }
+{ isCityDb(city) && Boolean(city.places.filter(place=>currentCategories.find((category)=>place.category === category)).length)  && <PrimaryBtn  size={ButtonsSizes.small} className="py-0 w-full laptop:w-fit " onClick={()=>setOpenPlacesModal(true)} > Explore Places  </PrimaryBtn> }
 </div></div>
 {cityDb && <CityDbInfo setSeeMoreInfo={setSeeMoreInfo} seeMoreInfo={seeMoreInfo} citydb={cityDb} query={searchParams.toString()} />}
     </div>
