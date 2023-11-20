@@ -30,10 +30,6 @@ const ModalContent = styled(Box)(({theme})=>({
     border: 'none' ,
     bgcolor: 'background.paper',
     // border: '2px solid #000',
-    paddingTop : 6,
-    paddingBottom : 6, 
-    paddingRight :3 ,
-    paddingLeft : 3 ,
    [theme.breakpoints.up("md")] : {
   width : 1200 ,
   maxWidth : "95vw" 
@@ -53,7 +49,7 @@ const filteredCategories  = categories?.filter(category=>places.some(place=>plac
       >   
 <ModalContent>
 <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Box sx={{ borderBottom: 1 , borderColor: 'divider' }}>
           <TabList  onChange={handleChange} aria-label="lab API tabs example">
             {
                filteredCategories?.map(category=>            <Tab label={category} value={category}/>                )
@@ -61,7 +57,7 @@ const filteredCategories  = categories?.filter(category=>places.some(place=>plac
           </TabList>
         </Box>
         {
-            filteredCategories?.map(category=><TabPanel value={category}>{ places.filter(place =>place.category === category).map(place=><PlaceDisplayer placeName={place.place} />) }</TabPanel>
+            filteredCategories?.map(category=><TabPanel sx={{ padding : "0px"}} value={category}><div className="flex flex-col items-center justify-center gap-5 px-3 py-5" >{ places.filter(place =>place.category === category).map(place=><PlaceDisplayer placeName={place.place} />) }</div></TabPanel>
             )
         }
 

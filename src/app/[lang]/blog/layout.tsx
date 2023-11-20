@@ -4,6 +4,8 @@ import { Header } from "@/components/layout/header";
 import { UnlogedHeader } from "@/components/layout/unlogedHeader";
 import React from "react";
 
+export const revalidate= 1 ;
+
 export default function BlogLayout ({children} : {children: React.ReactNode} ){
     
     return  <div style={{maxWidth : '1500px'}} className="flex   w-full items-center justify-center  px-0 py-12  laptop:py-0  flex-col  gap-4" >
