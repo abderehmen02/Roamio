@@ -43,25 +43,25 @@
   box-shadow: 1px 1px 5px black , -1px -1px 5px black ;
 }
 
-.scrollPrefrences::-webkit-scrollbar-thumb{
+.placesModal::-webkit-scrollbar-thumb , .scrollPrefrences::-webkit-scrollbar-thumb{
   background-color:  #0956A3;
   border-radius:  2px;
 }
-.scrollPrefrences::-webkit-scrollbar-track {
+.placesModal::-webkit-scrollbar-track , .scrollPrefrences::-webkit-scrollbar-track {
   background-color: #FFA000 ;
   border-radius:  2px;
 }
 
-.reviews::-webkit-scrollbar {
+.placesModal::-webkit-scrollbar ,  .reviews::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
-.reviews::-webkit-scrollbar-thumb{
+.placesModal::-webkit-scrollbar-thumb , .reviews::-webkit-scrollbar-thumb{
   background-color:  #0956A3;
   border-radius:  2px;
 }
-.reviews::-webkit-scrollbar-track {
+.placesModal::-webkit-scrollbar-track , .reviews::-webkit-scrollbar-track {
   background-color: #FFA000 ;
   border-radius:  2px;
 }

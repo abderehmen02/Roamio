@@ -16,7 +16,6 @@ const ModalContent = styled(Box)(({theme})=>({
     position: 'absolute' as 'absolute',
     top: '50%',
     left: '50%',
-    overflowX : "scroll" ,
     borderRadius: '8px' ,
     backgroundColor : "white"  ,
     transform: 'translate(-50%, -50%)',
@@ -44,8 +43,10 @@ const handleChange = (event: React.SyntheticEvent, newValue: Category) => {
 
     return <Modal open={openPlacesModal}  onClose={()=>setOpenPlacesModal(false)}  aria-labelledby="parent-modal-title"
     aria-describedby="parent-modal-description"
+    className="placesModal"
+
       >   
-<ModalContent>
+<ModalContent      className="placesModal" >
 <TabContext value={value}>
         <Box sx={{ borderBottom: 1 , borderColor: 'divider' }}>
           <TabList  className="px-6" onChange={handleChange} aria-label="lab API tabs example">
