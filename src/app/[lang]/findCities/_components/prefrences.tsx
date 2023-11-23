@@ -49,28 +49,28 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
     const {t}  = useTranslation()
     const router = useRouter()
     const pathname = usePathname()
-    const searchParams = useSearchParams()
+    const searchParams = useSearchParams() 
     let initialLastItem = 3 ;
 
     let currentActivePrefrences : Prefrence[] ;
     if(option === PrefrencesOptions.CATEGORIES){
     initialLastItem = 15
-     currentActivePrefrences = searchParams.get(QueryObjParams.categories) ?  JSON.parse(searchParams.get(QueryObjParams.categories) as string ) : []
+     currentActivePrefrences = searchParams?.get(QueryObjParams.categories) ?  JSON.parse(searchParams.get(QueryObjParams.categories) as string ) : []
     }
     else if(option === PrefrencesOptions.PRICES){
         initialLastItem = 4
-        currentActivePrefrences = searchParams.get(QueryObjParams.price) ?  JSON.parse(searchParams.get(QueryObjParams.price) as string ) : []
+        currentActivePrefrences = searchParams?.get(QueryObjParams.price) ?  JSON.parse(searchParams.get(QueryObjParams.price) as string ) : []
     }
     else if(option === PrefrencesOptions.LANGUAGES){
    
-        currentActivePrefrences = JSON.parse(searchParams.get(QueryObjParams.languages) || "[]" )
+        currentActivePrefrences = JSON.parse(searchParams?.get(QueryObjParams.languages) || "[]" )
     }
     else if(option === PrefrencesOptions.WEATHERS){
         initialLastItem = 7
-        currentActivePrefrences = JSON.parse(searchParams.get(QueryObjParams.weathers)|| "[]")
+        currentActivePrefrences = JSON.parse(searchParams?.get(QueryObjParams.weathers)|| "[]")
     }
     else if(option === PrefrencesOptions.YEAR_TIMES ){
-       currentActivePrefrences  = JSON.parse(searchParams.get(QueryObjParams.yearTimes)  || '[]')
+       currentActivePrefrences  = JSON.parse(searchParams?.get(QueryObjParams.yearTimes)  || '[]')
     }
     const [LastItem, setLastItem] = useState<number>(option === PrefrencesOptions.CATEGORIES ? 15 :3)
 
@@ -78,7 +78,7 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
     const isPrefrenceIncluded = (item : Prefrence)=>currentActivePrefrences?.includes(item)
 
 const toglePrefrence = (prefrence : Prefrence ): void=>{
-    const newQuery = tagglePrefrenceAndGenerateQueryCitiesSearchParams( option , prefrence , searchParams )
+    const newQuery = tagglePrefrenceAndGenerateQueryCitiesSearchParams( option , prefrence , searchParams  )
     router.push(`${pathname}?${newQuery}` , {scroll : false}  )
 }
 
@@ -94,7 +94,7 @@ const toglePrefrence = (prefrence : Prefrence ): void=>{
     return <div  className="flex-col w-full  py-3">
 {
 
-    items.slice(0 , LastItem).map((item=> <div key={item}   onClick={()=>toglePrefrence(item)} className={ cn( " cursor-pointer  capitalize flex items-center gap-1"  , {"text-black " :  isPrefrenceIncluded( item )} )} > <P  >{item}  </P>{isPrefrenceIncluded(item) && <RadioButtonCheckedIcon style={{fontSize : '13px'}} />} </div>))
+    items.slice(0 , LastItem).map(((item  , index )=> <div key={index}   onClick={()=>toglePrefrence(item)} className={ cn( " cursor-pointer  capitalize flex items-center gap-1"  , {"text-black " :  isPrefrenceIncluded( item )} )} > <P  >{item}  </P>{isPrefrenceIncluded(item) && <RadioButtonCheckedIcon style={{fontSize : '13px'}} />} </div>))
 }    
 { items.length > LastItem &&  <P className=" capitalize cursor-pointer text-sm" onClick={()=>{items?.length> LastItem  && setLastItem(val=>val+ 3)  }} >{t("seeMore")}<i className="bi bi-arrow-down"></i></P> }
 { LastItem > 3 && <P className=" capitalize cursor-pointer text-sm" onClick={()=>{ LastItem> 2  &&  setLastItem(val=>val  -  3) }} >{t("seeLess")}<i className="bi bi-arrow-up"></i></P>}
@@ -106,9 +106,9 @@ export const PrefrencesRow : React.FC <{prefrencesModal : boolean , setPrefrence
 }>= ({prefrencesModal , setPrefrencesModal })=>{
     const searchParams = useSearchParams()
     const router = useRouter()
-    const citySearchQueryString =  searchParams.toString()
+    const citySearchQueryString =  searchParams?.toString()
      const pathname = usePathname()
-     const currentPage : string = searchParams.get(QueryObjParams.page) || "1"
+     const currentPage : string = searchParams?.get(QueryObjParams.page) || "1"
     const dispatch= useDispatch()
     const { dispatchAction } = bindActionCreators(ActionCreators , dispatch)
     const [showPrefrences, setshowPrefrences] = useState(false)
@@ -117,7 +117,7 @@ export const PrefrencesRow : React.FC <{prefrencesModal : boolean , setPrefrence
 
     const {data , isLoading } = useQuery({
         queryKey : ["Cities" ,  citySearchQueryString ] ,
-        enabled : typeof searchParams.get(QueryObjParams.categories) === "string"&& Boolean(JSON.parse(searchParams.get(QueryObjParams.categories) as string).length  ) ,
+        enabled : typeof searchParams?.get(QueryObjParams.categories) === "string"&& Boolean(JSON.parse(searchParams?.get(QueryObjParams.categories) as string).length  ) ,
         keepPreviousData : true ,
 
         queryFn: async ()=>{
@@ -132,7 +132,7 @@ export const PrefrencesRow : React.FC <{prefrencesModal : boolean , setPrefrence
         onSuccess : (data)=>{
           dispatchAction({type : CitiesActionTypes.EDIT_CITIES ,  payload :{cities: data , error : null , loading : false}}) ;
           if(   data.length < 50 ) {
-                      const urlSearchParams = new URLSearchParams(searchParams.toString() )
+                      const urlSearchParams = new URLSearchParams(searchParams?.toString() )
                       urlSearchParams.set(QueryObjParams.endPage , "true" ) 
                       router.push(pathname + "?" + urlSearchParams.toString() , {scroll : false})
           }
@@ -145,7 +145,7 @@ export const PrefrencesRow : React.FC <{prefrencesModal : boolean , setPrefrence
 
 
     useEffect(()=>{
-        const urlSearchParams = new URLSearchParams(searchParams.toString())
+        const urlSearchParams = new URLSearchParams(searchParams?.toString())
         const paramsCategories = typeof urlSearchParams.get(QueryObjParams.categories) === "string" ?  JSON.parse(urlSearchParams.get(QueryObjParams.categories) as string ) : []
         if(paramsCategories.length === 0) paramsCategories.push(Categories.MostVisited)
         urlSearchParams.set(QueryObjParams.categories , JSON.stringify(paramsCategories))

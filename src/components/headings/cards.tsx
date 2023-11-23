@@ -1,14 +1,14 @@
 "use client"
 import { appConfig } from "@/config";
 import { stateType } from "@/state/reducers";
-import { UserInfo, isGoogleUser, isUserInfo } from "@/types/state/auth/userInfo";
+import {  isGoogleUser, isUserInfo } from "@/types/state/auth/userInfo";
 import { H4 } from "@/ui/typography";
-import React, { useRef } from "react";
+import Reactn  from "react";
 import { useSelector } from "react-redux";
-import { toast } from "sonner";
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import axios from "axios";
-
+import {ref , listAll , uploadBytes, getDownloadURL } from "firebase/storage"
+import { firebaseStorage } from "@/db/firebase";
 
 export const ProfileCard : React.FC =  ()=>{
     const userInfo   = useSelector((state : stateType)=>state.userInfo)
@@ -16,15 +16,12 @@ export const ProfileCard : React.FC =  ()=>{
 
     const uploadImage : React.ChangeEventHandler<HTMLInputElement> = async (event) => {
         try {
-          const formData = new FormData(); 
-          if( event?.target?.files && event?.target?.files[0]){
-          console.log("file" , typeof event?.target?.files[0] )
-          formData.append('file', event?.target?.files[0]);
-        
-          }
-          const response = await axios.post(appConfig.profileImagesCloudFunction, formData);
-          console.log("response"  , response)
-          const url = response.data.imageUrl; 
+          if(event.target.files &&  event.target.files[0]){
+          const imgRef = ref(firebaseStorage , "files/image")
+         const imgSnapshot = await   uploadBytes( imgRef , event.target.files[0] )
+         const imgUrl = await getDownloadURL(imgRef)
+         console.log("img url ",imgUrl)
+         }
         }
           
          catch (error) {
