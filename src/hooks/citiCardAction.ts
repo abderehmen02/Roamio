@@ -36,9 +36,8 @@ authorizedPostRequest<CityDb>( loginInfo.token ,  "/api/addCityReview" , {
   city : city.name ,
   review
 }).then((data )=>{
-  console.log("data" ,data)
   if(!isCityDb(data)) return
-  console.log("dispatching") 
+
   dispatchAction({type : CitiesActionTypes.EDIT_CITY , payload: data })  
   setCity(data)
 })
@@ -98,7 +97,6 @@ const likeCity = async  ()=>{
           const responce = loginInfo.token   && await   authorizedPatchRequest<any>(loginInfo.token , "/api/addLike" , {city  : city.name } )
           const data = responce.data ;
           dispatchAction({type : CitiesActionTypes.EDIT_CITY , payload : data })
-          console.log("data" ,data )
           setCity(data)
           setLoadingLike(false)
           }
@@ -184,7 +182,6 @@ const likeCity = async  ()=>{
                         ...userInfo , savedCities : userInfo.savedCities.filter(savedCity=>savedCity !== city.name)
                       }})
                       const newUser  = loginInfo.token && await authorizedPatchRequest<{data: UserInfo}>( loginInfo.token,  "/api/unsaveCity" , {city : city.name} )
-                      console.log("new user" , newUser ) 
                       if(!newUser) return console.error("can not get the user from the api")
                         isUserInfo(newUser.data ) && dispatchAction({type : UserInfoActionTypes.ADD_USER_INFO , payload: newUser.data  })
                       setLoadingSave(false)

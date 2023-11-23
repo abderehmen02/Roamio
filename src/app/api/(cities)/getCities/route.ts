@@ -100,7 +100,7 @@ export const GET = asyncWrapperApi(async (req )=>{
       const price : Price[]  = JSON.parse(searchParams.get(QueryObjParams.price) || '[]' )
       const page : number =   Number(searchParams.get(QueryObjParams.page) ) ||1 
       const endPage : boolean = Boolean(searchParams.get(QueryObjParams.endPage) === "true")
-      console.log("end page"  , searchParams.get(QueryObjParams.endPage))
+      
       const languages = JSON.parse(searchParams.get(QueryObjParams.languages) || '[]')
       const weathers = JSON.parse(searchParams.get( QueryObjParams.weathers )|| "[]")
       const yearTimes = JSON.parse(searchParams.get(QueryObjParams.yearTimes) || '[]' )   
@@ -111,9 +111,8 @@ export const GET = asyncWrapperApi(async (req )=>{
       cities.forEach((city)=>{
         str += ( " " + city.name )
       })
-      console.log("str" , str)
       if(endPage){
-        console.log("typeof is end")
+
         slicedCities = cities.slice(cities.length - cities.length%50)
       }
       else    slicedCities = cities.slice( (page -1) * 50 , Number(page)  * 50)     

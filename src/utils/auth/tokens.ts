@@ -53,9 +53,9 @@ export const verifyToken = (token : string) : unknown =>{
 
 export const isTokenExpired = (token  : string) : boolean=>{
     if(!JwtSignature) throw new Error("No jwt signature!")
-    console.log("token" , token)
+ 
     const decodedToken = jwt.decode(token  )
-    console.log("decoded token" , decodedToken)
+
     if(decodedToken === null || typeof decodedToken === "string") {
         console.error("can not get the expire date of the token!")
         return false

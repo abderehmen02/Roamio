@@ -39,7 +39,7 @@ const city = await  cityModal().findOneAndUpdate({name : beachesCities[i]} , {$p
 cities.push([city.name , city.categories] )
 }
 // console.log(cities.map(city=>city.name) )
-console.log(cities)
+
 return apiResponse(StatusCodes.CREATED , JSON.stringify({ cities } ))      
    })
 

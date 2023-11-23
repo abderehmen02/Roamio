@@ -9,8 +9,9 @@ import { StatusCodes } from "http-status-codes";
 import { parse } from "path";
 
 export const POST = asyncWrapperAuthorisedApi(async (req , userInfo )=>{
+    console.log("getting the request")
     const {authService , userId} = userInfo
-    const body = req.json()
+    const body = await req.json()
     const parsedBody = updateProfileImageValidator.safeParse(body)
     if(!parsedBody.success) return apiResponse(StatusCodes.BAD_REQUEST , errorMessage("can not get the profile image url"))
     const {imageUrl} = parsedBody.data

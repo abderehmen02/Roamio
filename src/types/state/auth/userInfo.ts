@@ -21,6 +21,7 @@ export type UserInfo =  {
     picture?:string ,
     verified : boolean , 
     userName : string ,
+    profilePic? : string ,
     _id : string ,
     gender : genderType 
 } | GoogleUserDb

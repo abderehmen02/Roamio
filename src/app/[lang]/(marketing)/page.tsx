@@ -9,7 +9,6 @@ import { getSanityPosts } from "@/utils/blogPosts"
 export default async  function Home ({ params: { lang }} : LangParam){
     const {t} = await translate(lang)
     const sanityPosts = await getSanityPosts()
-    console.log("sanity posts"   , sanityPosts)
     return <Page >
 <AppHero/>
 <CategoriesCards/>

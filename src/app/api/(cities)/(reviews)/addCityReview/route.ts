@@ -7,9 +7,8 @@ import { cityReviewRequestValidator } from "@/utils/validators/cities";
 import { StatusCodes } from "http-status-codes";
 import {experimental_useOptimistic} from 'react'
 export const POST =  asyncWrapperAuthorisedApi(async (req, userInfo)=>{
-console.log("getting a request")
 const body = await req.json()
-console.log("body" , body , userInfo )
+
 const parsedData  = cityReviewRequestValidator.safeParse(body) 
 if(!parsedData.success) return apiResponse(StatusCodes.BAD_REQUEST , errorMessage("the request should include the name of the city and a review and it should be more than 1 character "))
 const newCity = await cityModal().findOneAndUpdate({name : parsedData.data.city   } ,{$push : {reviews : {userId: userInfo.userId , review: parsedData.data.review}}} , {new : true} )

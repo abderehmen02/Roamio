@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === "development") {
 
   if (!globalMongo.isConnected) {
     globalMongo.isConnected = mongoose.connect(uri, options as ConnectOptions);
-    console.log("connecting to mongodb")
+
   }
   connectDbPromise = globalMongo.isConnected;
 } else {

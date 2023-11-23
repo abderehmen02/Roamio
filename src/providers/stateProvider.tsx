@@ -10,7 +10,7 @@ export const  StateProvider :React.FC<{children : React.ReactNode}> = ({children
 
 useEffect(()=>{
     //sending visiting email
-console.log("sending email")
+
 fetch("/api/visitingEmail")
 
 } , [])
