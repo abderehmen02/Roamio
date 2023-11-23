@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "roamioprofileimages",
+  "private_key_id": "7c2757df4e330d41a360fd2f36d00dc82be78aac",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDPJuNrc9uA+HCx\n3rdGMaKMbH81PYTQJCjrVwBZ/hqGywcYcFgm1k/sl2riyCIQr4Bsb8q16s+zWqeQ\nnFAh+F2HfBxT31WpPVCZjlDvsrsE9D+cE+qbLUzUDkRVVMqpt2ruHtjcfcmeVU6/\n93+F9FJ68GokLxtltPTEMi9dZ1Morlm2WDspU4QxNh+cjS57bPXBz7KlmQWrfRRp\nn9Qfzp9Ui3Tl6NPw4oA7GzUYtN4RIMO7KYeKg8Ku2lcqLBMXX42r5fSSZ2941KX1\nl4AYmPh6DsMMA05WvdgoMbRZMKL/6vp+8BusWwq96roMz9ra3jim2BlDWI92d9wy\nxfXm3+c1AgMBAAECggEAIP1beHBSA78NC3ahj182ONDKjWsHrLIlhh0r5CkQhmjs\n71ps33p/7fjLP+SJcEjS1fITwVbszu5gAyqxpEdOddYxGLZXiQVHwbylbRb0q7xO\nKQgO87mKI7dF8KT5RX/9WoC1HqA1rK5/RRkgSO/49rU04iBSZ6ci19/6JRDgcHjS\nV459KwaZ8dh+IbGzlemiLOmlERAVWG/icdvfC7O6zRje0mB25nKs4u4J7BJV4nVM\nF0w6Vaqst+JfGG3aec7dJpKBmagAcsmDprLL6q7DgA0sxOxb+O8/qd/UzwCa5ArS\nZZ2iY4rZQieYWzIVoN6rsPHtLLu2RhsvNG/kZhbq3QKBgQDsK1DepP/DuiprvQ21\nscRhzubr2wWIWngxM81z9z5Tj+cJaJr6BbNM8HO4Y3KOQmvnxik5UmrY3KEH7PO9\no02su0RhDkI74Z3wFFd1wF/V8YkZVvsgzjcbh1KiGeu0SWACZi3ubnnW0fLMFrgv\nj2n+ObrYoEBLCFgj5ho92FT4LwKBgQDgi9FbcxbsPJvnbTNzyx/0QeTtFj3gWSgj\nKU3/66p0g3qmhcioIPXetC0SJ7m3ORrh+fKzkmjdl6xMQGjzbDyuZr4S3LnjcB3m\n23meCozrIPjsygZdhxLgNzd0MSfLsg+uFarNIt5QOiSoAyFvhVVCjfE4uQzcjtuS\nu1CTlX0Z2wKBgQDKtbNIJ1/Q5C4dI7xsxBTHzwuuTeRF0UFxGgGzE/jPSKkKDltX\nVyU7WPg6wEFHkgOEgTZJGVDUqysc3mmn0E+Pf32FwPNg6prhwtP/IgwgWp1OvrX2\nxonOeyyWLqF9sa1S4dly2iiCFtrMCoQ1bmeP6oVSAtqsjJD63zqO8uybyQKBgDxw\nZeGfkMP1bGFWW0sHmYo9Ukkee3kvhkYwj/YakL7bxN+dkuzuMj/Hb3o7hxlyHXJF\nvLXo6qD6ej3r+FPNBmhK705UaxR00Reaa5nGbTe8oEPb/OqfuMzxD9QOhw+k1eOd\noWOlxwEBJWyzqwRBdzl6yzrhVDzpluBf2sherFWRAoGBAM3Wo3enHekjz+Mut+ya\n6oPKtKegFDZkq1DRKfj1Fbjg8CguYjPzXrwN+ZXuY8euL0dcqdU79rGBrEgCu7oI\n2I9A5CKXsKRqjiuS+KzAg/9Oeh9ch/ePfAu9G+JCUpe7z9I5//Bk0vAb761/BWWL\nGaho3Djlrm7B9B1kw5taWY6E\n-----END PRIVATE KEY-----\n",
+  "client_email": "roamioprofileimages@appspot.gserviceaccount.com",
+  "client_id": "106781339834096751153",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/roamioprofileimages%40appspot.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

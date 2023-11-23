@@ -20,6 +20,7 @@ export const appConfig = {
     mode  ,
     unknownPersonImage : "/unknown-person.jpg" ,
     imageNotFound : "/no-image.png" ,
+    profileImagesCloudFunction : "http://localhost:5000/roamioprofileimages/us-central1/uploadImage" , 
     links : {
         savedCities : '/savedCities' ,
         blog: '/blog' ,

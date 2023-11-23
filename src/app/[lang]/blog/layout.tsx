@@ -4,7 +4,6 @@ import { Header } from "@/components/layout/header";
 import { UnlogedHeader } from "@/components/layout/unlogedHeader";
 import React from "react";
 
-export const revalidate= 1 ;
 
 export default function BlogLayout ({children} : {children: React.ReactNode} ){
     
