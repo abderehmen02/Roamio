@@ -8,6 +8,7 @@ export interface GoogleUserDb {
     lastName?  : string ,
     name:  string ,
     picture : string , 
+    profilePic? : string ,
     savedCities: string[]  ,
     _id: string , 
 }
@@ -20,8 +21,8 @@ const googleUserSchema = new mongoose.Schema<GoogleUserDb>({
     lastName: { type: String, required: false },
     savedCities : {type: [String ] , default : [] } ,
     name : {type : String , required : true} ,
-
-    picture  : {type : String , required : true}
+    profilePic : {type : String , required : false}  ,
+    picture  : {type : String , required : true} // the google profile pic
   });
   
 export const googleUserModel = ()=>{
