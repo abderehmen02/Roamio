@@ -17,7 +17,7 @@ export const ProfileCard : React.FC =  ()=>{
     const userInfo   = useSelector((state : stateType)=>state.userInfo)
     const loginInfo = useSelector((state : stateType)=>state.login )
     const dispatch = useDispatch()
-
+    console.log("user Info" , userInfo)
     const uploadImage : React.ChangeEventHandler<HTMLInputElement> = async (event) => {
         try {
           if(!loginInfo.token) return toast.error("can not get the login token ! try to refresh the page")
@@ -48,9 +48,9 @@ export const ProfileCard : React.FC =  ()=>{
     return <></>
 }
     return <div className="flex  flex-col gap-3 px-3 py-6 items-center justify-center" >
-        <div className="relative group  w-[70px] h-[70px] rounded-full  border-2 border-red-600  bg-secondary "  >
+        <div className="relative group  w-[70px] h-[70px] rounded-full  border-2  bg-secondary "  >
         <AddAPhotoIcon className="absolute opacity-50 group-hover:opacity-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-        <img  className=" w-full h-full rounded-full" src={ userInfo.profilePic || userInfo.picture||  appConfig.unknownPersonImage} />
+        <div className="w-fit h-fit bg-white" ><img  className=" w-full h-full rounded-full" src={ userInfo.profilePic || userInfo.picture||  appConfig.unknownPersonImage} /></div>
         <input onChange={uploadImage}  type="file" className="w-[70px] h-[70px] absolute top-0 left-0  rounded-full items-center justify-center border-green-600   opacity-0 cursor-pointer" />
         </div>
           <H4>{isGoogleUser(userInfo)  ? userInfo.given_name : userInfo.userName  }</H4> 

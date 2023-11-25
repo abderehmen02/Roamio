@@ -47,17 +47,17 @@ try {
            token = response.data.token
 // getting the user info if the user is signed in by google
         if(response.data.googleUser){
-            let   {_id , email , googleUser , savedCities , name , picture , given_name , lastName} = response.data
-            userInfo = {_id , email , googleUser , savedCities, name , picture , given_name , lastName}
+            let   {_id , email , googleUser , savedCities , profilePic , name , picture , given_name , lastName} = response.data
+            userInfo = {_id , email , googleUser , savedCities, name , profilePic , picture , given_name , lastName}
         }
 
 // getting the user info if the user is signed in ussing roamio
         else {
-           let   {birthDate  , email , savedCities   , firstName , gender , lastName , userName , _id , verified }  = response.data
+           let   {birthDate , profilePic , email , savedCities   , firstName , gender , lastName , userName , _id , verified }  = response.data
             if(!verified) {
                 const response =             await axios.post("/api/sendVerifyMessage" )
                 }
-            userInfo  =        {birthDate , savedCities , email , firstName , gender , lastName , userName , _id , verified             }        }
+            userInfo  =        {birthDate , profilePic , savedCities , email , firstName , gender , lastName , userName , _id , verified             }        }
            
         dispatchAction({type : LoginActionTypes.userLoginSuccuss , payload : token})
         localStorage.setItem(authConfig.userInfoLocalStorageName , JSON.stringify(userInfo))
