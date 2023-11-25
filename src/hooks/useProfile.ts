@@ -7,6 +7,7 @@ import { firebaseStorage } from "@/db/firebase";
 import { authorizedPostRequest } from "@/utils/auth/autherizedRequest";
 import { UserInfoActionTypes } from "@/types/state/auth/userInfo";
 import { useState } from "react";
+import { cookies } from "next/headers";
 
 
 
@@ -18,7 +19,7 @@ export interface UserInfoTools {
 
 export const useUserInfoTools = () : UserInfoTools =>{
     const [isUploadImageRequest , setIsUploadImageRequest ] = useState<boolean>(false)
-    const [uploadImageProgress , setUploadImageProgress ] = useState<number>(0)
+    const [uploadImageProgress , setUploadImageProgress ] = useState<number>(1)
     const userInfo   = useSelector((state : stateType)=>state.userInfo)
     const loginInfo = useSelector((state : stateType)=>state.login )
     if(!loginInfo.token) throw new Error("can not use the useUserInfoTools when the user is not logged")
@@ -41,19 +42,24 @@ export const useUserInfoTools = () : UserInfoTools =>{
           
           const uploadTask =    uploadBytesResumable( imgRef , event.target.files[0] )
           uploadTask.on("state_changed" ,(snapshot) => {
-            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes)  * 100;
             setUploadImageProgress(progress)
           }, 
           
           (error) => {
             console.error(error);
             toast.error("Error uploading file. Please try again.");
+            setIsUploadImageRequest(false)
+
           },async ()=>{
+            toast.success("image uploaded succussfully!")
             const imageUrl = await getDownloadURL(imgRef)
             if(!imageUrl){ toast.error("can not get the image url , please try uploading the file again") } 
             const data = await authorizedPostRequest( loginInfo.token as string , "/api/updateProfileImage" , {
              imageUrl  
             })
+            setIsUploadImageRequest(false)
+
            //  alert(newUser?.profilePic || "no profile pic")
            if(typeof data === "object" && data && "newUser" in data)          dispatch({type : UserInfoActionTypes.ADD_USER_INFO  ,payload: data.newUser  } )
    
@@ -61,9 +67,11 @@ export const useUserInfoTools = () : UserInfoTools =>{
           )
     
          }
-         else toast.error("some error happened! please upload your file again")
+         else {toast.error("some error happened! please upload your file again") ;
          setIsUploadImageRequest(false)
 
+        }
+        
         }
          catch (error) {
           alert(error)

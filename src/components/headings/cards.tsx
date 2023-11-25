@@ -11,6 +11,8 @@ import { useDispatch } from "react-redux";
 import { toast } from "sonner";
 import { authorizedPostRequest } from "@/utils/auth/autherizedRequest";
 import { useUserInfoTools } from "@/hooks/useProfile";
+import { Box, LinearProgress } from "@mui/material";
+import { cn } from "@/lib/tailwind";
 
 export const ProfileCard : React.FC =  ()=>{
     const userInfo   = useSelector((state : stateType)=>state.userInfo)
@@ -25,6 +27,7 @@ export const ProfileCard : React.FC =  ()=>{
         <div className="w-full h-full bg-white" ><img  className=" w-full h-full rounded-full object-cover" src={ userInfo.profilePic || userInfo.picture||  appConfig.unknownPersonImage} /></div>
         <input onChange={uploadImage}  type="file" className="w-[70px] h-[70px] absolute top-0 left-0  rounded-full items-center justify-center border-green-600   opacity-0 cursor-pointer" />
         </div>
+        <div className={cn("w-full" ,{"visible" : isUploadImageRequest  , "invisible": !isUploadImageRequest })} > <LinearProgress variant="determinate"   value={uploadImageProgress} /></div>
           <H4>{isGoogleUser(userInfo)  ? userInfo.given_name : userInfo.userName  }</H4> 
     </div>
 }
