@@ -2,6 +2,7 @@ import { appConfig } from "@/config"
 import { PrimaryBtn, SecondaryBtn } from "@/ui/buttons"
 import Link from "next/link"
 import { useTranslation as translate } from "@/app/i18n"
+import { H2, H3 } from "@/ui/typography"
 
 
 

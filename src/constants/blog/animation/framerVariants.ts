@@ -1,12 +1,17 @@
 import { Variants } from "framer-motion";
 
-export const blogVariants : Variants ={
+export const appVariants : Variants ={
 display : {
+
     opacity : 1 ,
-    y : 0
 } ,
 beforeDisplay : {
-    opacity : 0.2 ,
-    y : -5 
+    opacity : 0
+} ,
+beforeRightDrag : {
+    x : -500
+} ,
+rightDrag : {
+    x: 0
 }
 }

@@ -21,6 +21,9 @@ export const appConfig = {
     unknownPersonImage : "/unknown-person.jpg" ,
     imageNotFound : "/no-image.png" ,
     profileImagesCloudFunction : "http://localhost:5000/roamioprofileimages/us-central1/uploadImage" , 
+    blog : {
+        blogCategoryQueryName : "category" 
+    } ,
     links : {
         savedCities : '/savedCities' ,
         blog: '/blog' ,
@@ -33,9 +36,11 @@ export const appConfig = {
         resetPasswordEmailSent : "/resetPasswordEmailSent" ,
         contact: '/contact' ,
         home: '/' ,
+
         messages : {
             tokenExpired: "/tokenExpire"
         } ,
+
            } ,
            storage : {
             findCitiesUserGuided : "findCitiesUserGuided"

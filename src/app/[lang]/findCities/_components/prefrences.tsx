@@ -14,7 +14,7 @@ import axios from "axios"
 import { CitiesActionTypes } from "@/types/state/cities"
 import { tagglePrefrenceAndGenerateQueryCitiesSearchParams,  QueryObjParams } from "@/utils/queryCities"
 import { cn } from "@/lib/tailwind"
-import { usePathname, useSearchParams } from "next/navigation"
+import { ReadonlyURLSearchParams, usePathname, useSearchParams } from "next/navigation"
 import { useRouter } from "next/navigation"
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked';
 import { Box, Modal } from "@mui/material"
@@ -78,7 +78,7 @@ export const PrefrenceField  : React.FC<{prefrence : PrefrenceObject  , option :
     const isPrefrenceIncluded = (item : Prefrence)=>currentActivePrefrences?.includes(item)
 
 const toglePrefrence = (prefrence : Prefrence ): void=>{
-    const newQuery = tagglePrefrenceAndGenerateQueryCitiesSearchParams( option , prefrence , searchParams  )
+    const newQuery = tagglePrefrenceAndGenerateQueryCitiesSearchParams( option , prefrence , searchParams as ReadonlyURLSearchParams  )
     router.push(`${pathname}?${newQuery}` , {scroll : false}  )
 }
 
