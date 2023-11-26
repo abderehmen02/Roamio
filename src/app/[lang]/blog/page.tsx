@@ -1,4 +1,5 @@
 import { BlogPostCard } from "@/components/blog/cards";
+import { BlogFilterCard } from "@/components/blog/filter";
 import { blogPageDescreptions } from "@/config/blog";
 import { blogPosts } from "@/constants/blog/blog";
 import { Page, PageBody } from "@/ui/containers";
@@ -14,8 +15,9 @@ export default async  function BLogPage (){
     const allPosts = [...sanityPosts , ...blogPosts]
 return     <Page className="flex items-center  flex-col"  >
         <Title titleClassName="text-primaryDark" title="Roamio Blog" descreption={blogPageDescreptions[ Math.floor( Math.random() * 6 )]} />
-        <PageBody className="flex-wrap" >
-         {allPosts.map(post=><BlogPostCard key={post.title} {...post} />)}
+        <PageBody >
+            <BlogFilterCard/>
+         <div className="flex gap-2 flex-row w-full flex-wrap" >{allPosts.map(post=><BlogPostCard key={post.title} {...post} />)}</div>
         </PageBody>
     </Page>
 }
