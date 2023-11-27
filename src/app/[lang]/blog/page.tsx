@@ -21,7 +21,9 @@ export default async  function BLogPage ({
     searchParams?: { [key: string]: string | string[] | undefined },
   }){
     const sanityPosts = await getSanityPosts() || []
-    const allPosts = [...sanityPosts , ...blogPosts]
+    let allPosts = [...sanityPosts , ...blogPosts]
+    const category = searchParams && searchParams[appConfig.blog.blogCategoryQueryName]
+    if(category)allPosts =    allPosts.filter(post=>post.category === category)
 return     <Page className="flex items-center  flex-col"  >
         <Title  titleClassName="text-primaryDark"  title="Roamio Blog" descreption={blogPageDescreptions[ Math.floor( Math.random() * 6 )]} />
         <PageBody className="flex flex-col" >

@@ -17,7 +17,7 @@ return <div className="flex itesm-center bg-secondary text-primary gap-4  justif
       const searchParams = new URLSearchParams()
       searchParams.set(appConfig.blog.blogCategoryQueryName , filter )
       // console.log("href" , `${appConfig.links.blog}?${appConfig.blog.blogCategoryQueryName}=${filter}`)
-      return <Link  href={`/en/blog?${searchParams.toString()}`}  > <PrimaryBtn   className={ cn( "w-full  capitalize rounded-lg px-11   text-start" , {"bg-white border-primary border-2 text-primary" : category === filter} )} >{filter}  </PrimaryBtn></Link>
+      return <Link  href={`/en/blog?${searchParams.toString()}` } scroll={false}  > <PrimaryBtn   className={ cn( "w-full  capitalize rounded-lg px-11   text-start bg-white border-primary border-2 text-primary" , {"bg-primary   text-white" : category === filter} )} >{filter}  </PrimaryBtn></Link>
     })
 }
 </div>
