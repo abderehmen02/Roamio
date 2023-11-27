@@ -12,7 +12,8 @@ return <div className="flex itesm-center bg-secondary text-primary gap-4  justif
 <div className="gap-4 flex flex-col"  >
 {
     blogPostCategoriesArray.map(filter=>{
-      return  <Link href={`${appConfig.links.blog}?${appConfig.blog.blogCategoryQueryName}=${category}` } ><PrimaryBtn   className={ cn( "w-full  capitalize rounded-lg px-11   text-start" , {"bg-white border-primary border-2 text-primary" : category === filter} )} >{filter}  </PrimaryBtn></Link>
+      console.log("href" , `${appConfig.links.blog}?${appConfig.blog.blogCategoryQueryName}=${filter}`)
+      return <a  href={"/blog?"  + appConfig.blog.blogCategoryQueryName  } > <PrimaryBtn   className={ cn( "w-full  capitalize rounded-lg px-11   text-start" , {"bg-white border-primary border-2 text-primary" : category === filter} )} >{filter}  </PrimaryBtn></a>
     })
 }
 </div>
