@@ -26,10 +26,10 @@ export default async  function BLogPage ({
     if(category)allPosts =    allPosts.filter(post=>post.category === category)
 return     <Page className="flex items-center  flex-col"  >
         <Title  titleClassName="text-primaryDark"  title="Roamio Blog" descreption={blogPageDescreptions[ Math.floor( Math.random() * 6 )]} />
-        <PageBody className="flex flex-col" >
+        <PageBody className="flex  flex-col" >
         <BlogHero/>
-        <DisplayAnimation delay={0.3} >
-        <div className="flex  w-full  justify-center  gap-4 " ><BlogFilterCard category={ searchParams && searchParams[appConfig.blog.blogCategoryQueryName]  as string | undefined} />
+        <DisplayAnimation className="w-full " delay={0.3} >
+        <div className="flex  w-full  justify-between  gap-4 " ><BlogFilterCard category={ searchParams && searchParams[appConfig.blog.blogCategoryQueryName]  as string | undefined} />
              <div className="flex gap-2 flex-row w-fit flex-wrap" >{allPosts.map((post , index )=><DisplayAnimation delay={(index  + 2) * 0.2} ><BlogPostCard  key={post.title} {...post} /></DisplayAnimation>)}</div>
         </div>
         </DisplayAnimation>
