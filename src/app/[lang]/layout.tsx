@@ -6,6 +6,8 @@ import { StateProvider } from '@/providers/stateProvider'
 import { AuthProvider } from '@/providers/userProvider'
 import { TanstackProvider } from '@/providers/tanstackProvider'
 import { ToosterProvider } from '@/providers/toosterProvider'
+import { cn } from '@/lib/tailwind'
+import { monsterrat } from '@/ui/typography'
 
 
 
@@ -39,7 +41,7 @@ export default async function RootLayout({
 
   return (
     <html lang={lang} dir={dir(lang)} >
-      <body className='bgBackground relative w-full flex items-center justify-center' >   <TanstackProvider>
+      <body className={cn(monsterrat.variable ,'bgBackground relative w-full flex items-center justify-center' )} >   <TanstackProvider>
          <StateProvider>   
           <ToosterProvider>
         <div style={{maxWidth : 'min(1600px , 100vw)'  }}   className=' flex w-full desktop:w-[1300px]   items-center justify-center   relative'>{children}</div>    
