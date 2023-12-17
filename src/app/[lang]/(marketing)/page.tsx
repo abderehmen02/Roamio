@@ -9,10 +9,13 @@ import { getSanityPosts } from "@/utils/blogPosts"
 export default async  function Home ({ params: { lang }} : LangParam){
     const {t} = await translate(lang)
     const sanityPosts = await getSanityPosts()
-    return <Page >
+    return <div className="flex pb-8  flex-col  gap-3  w-full py-6    laptop:py-1  " >
 <AppHero/>
+<div className="bg-white w-full" >
+<div style={{maxWidth :"1500px"}} >
 <CategoriesCards/>
 <AppFeatures/>
-
-    </Page>
+</div>
+</div>
+    </div>
 }

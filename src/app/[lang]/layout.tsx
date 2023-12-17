@@ -44,7 +44,7 @@ export default async function RootLayout({
       <body className={cn(monsterrat.variable ,'bgBackground relative w-full flex items-center justify-center' )} >   <TanstackProvider>
          <StateProvider>   
           <ToosterProvider>
-        <div style={{maxWidth : 'min(1600px , 100vw)'  }}   className=' flex w-full desktop:w-[1300px]   items-center justify-center   relative'>{children}</div>    
+        <div    className=' flex w-full   items-center justify-center   relative'>{children}</div>    
         </ToosterProvider>
         </StateProvider></TanstackProvider>
       </body>
