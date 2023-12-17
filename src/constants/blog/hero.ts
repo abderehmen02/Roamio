@@ -23,7 +23,7 @@ export const heroTitels: { title: string; description: string }[] = [
 
 
 
-  export const AppHeroTitles  : { title: string; description: string }[] =  [{
+  export const SmallAppTitlesAndDescreptions  : { title: string; description: string }[] =  [{
 title : 'Discover Cities, Define Your Journey with Roamio' ,
 description : "Explore diverse cities based on interests, find your perfect travel destination effortlessly."
   } , {
@@ -51,3 +51,28 @@ description : "Explore diverse cities based on interests, find your perfect trav
     title : "Roamio: Mapping Your Journey through Cities of Interest" ,
     description: "Efficiently locate cities that match your lifestyle, creating a roadmap for your ideal travel experience."
   }]
+
+
+
+export const appLongTitles :  { title: string; description: string }[] = [{
+  title : "Tailor Your Journey, Explore Cities Effortlessly" ,
+  description : "Roamio simplifies travel planning. Find cities matching your criteria—beaches, nightlife, history—ensuring your adventures are uniquely crafted to your preferences and desires."
+} , {
+  title : "Roamio: Unleash Your Ideal City Experience" ,
+  description : "Discover cities that match your lifestyle seamlessly with Roamio. Effortlessly explore destinations, whether you seek sandy beaches, vibrant nightlife, or rich historical landmarks" ,
+}, {
+  title : "Roamio: Your Gateway to Personalized City Exploration" ,
+  description : "Navigate cities that suit your desires effortlessly. Roamio tailors travel experiences by pinpointing destinations matching your preferences—be it beaches, nightlife, or historical charm."
+} , {
+  title: "Roamio: Craft Your Perfect City Escape" , 
+  description : "Roamio empowers your travel decisions. Explore cities based on your interests—beaches, nightlife, history—ensuring each journey reflects your distinct preferences and passions."
+} ,{
+  title : "Roamio: Redefine Your Travel Experience" ,
+  description : "Roamio transforms travel planning. Search for cities based on your preferences—beaches, nightlife, history—crafting personalized journeys that resonate with your unique style and interests."
+} , {
+  title: "oamio: Navigate Cities with Precision" ,
+  description : "Roamio is your city exploration companion. Discover destinations effortlessly, ensuring each trip aligns with your preferences—beaches, nightlife, history—creating a travel experience that suits your unique style."
+} , {
+  title : "Define Your Cityscape Adventure" ,
+  description : "Roamio redefines travel exploration. Find cities effortlessly based on your preferences—beaches, nightlife, history—crafting journeys that resonate with your unique travel style and desires."
+}]

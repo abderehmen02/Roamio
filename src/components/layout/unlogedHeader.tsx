@@ -43,7 +43,7 @@ export   function  UnlogedHeader  (){
 </div>
 </div>
 <div className="flex items-center gap-8" >
-<Link href={appConfig.links.login}  className="capitalize  monsterrat font-semibold" > {t("unlogedHeader.signIn")} <i className="bi text-xl bi-person-fill"></i> </Link>
+<Link href={appConfig.links.login}  className="capitalize  monsterrat font-semibold tracking-widest" > {t("unlogedHeader.signIn")} <i className="bi text-xl bi-person-fill"></i> </Link>
 <Link href={appConfig.links.signUp}> <SecondaryBtn className="text-xl capitalize gap-1 text-black font-semibold flex items-center justify-center" >Sign Up<i className="bi  bi-person-add"></i> </SecondaryBtn></Link>
 </div>        </div>
         <div className="flex w-full laptop:hidden" >
