@@ -20,3 +20,34 @@ export const heroTitels: { title: string; description: string }[] = [
       description: "Embark on an odyssey through our narrative-rich blogs, navigating the diverse stories, landmarks, and activities that shape the intricate tapestry of cities around the globe."
     },
   ];
+
+
+
+  export const AppHeroTitles  : { title: string; description: string }[] =  [{
+title : 'Discover Cities, Define Your Journey with Roamio' ,
+description : "Explore diverse cities based on interests, find your perfect travel destination effortlessly."
+  } , {
+  title : "Tailored City Exploration at Your Fingertips" ,
+  description :"Customize your travel experience by discovering cities that match your preferences seamlessly." 
+  } , {
+    title : "Unearth Your Ideal Cityscape with Roamio's Smart Search" ,
+    description :"Navigate through cities that resonate with your interests, making every trip uniquely yours."
+  } , {
+    title :"Your Gateway to Personalized City Adventures" ,
+    description :"Unlock tailored travel experiences by pinpointing cities aligned with your lifestyle and preferences."
+  } , {
+    title : "Find Your Urban Oasis with Roamio's City Discovery" ,
+    description : "Locate cities that suit your vibe—be it beachside bliss, vibrant nightlife, or rich history."
+  } ,{
+    title :"Navigate Cities, Craft Your Perfect Getaway" ,
+    description : 'Effortlessly search and find cities tailored to your desires for a travel experience like no other.'
+  } , {
+    title : "Roamio Guides You to Your Perfect Destination" ,
+    description : "Discover cities matching your criteria, ensuring each trip is an adventure catered to you."
+  } , {
+    title : "Craft Your City Story with Roamio's Unique Exploration" ,
+    description:  "Search and find cities that resonate with your narrative, creating unforgettable travel memories." , 
+  } , {
+    title : "Roamio: Mapping Your Journey through Cities of Interest" ,
+    description: "Efficiently locate cities that match your lifestyle, creating a roadmap for your ideal travel experience."
+  }]
