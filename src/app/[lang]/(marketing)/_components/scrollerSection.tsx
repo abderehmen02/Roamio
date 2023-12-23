@@ -4,7 +4,10 @@ import { landmarksData } from "@/constants/blog/caurser"
 import { H2 } from "@/ui/typography"
 import { useEffect, useRef, useState } from "react"
 import {animate, motion, useAnimation} from "framer-motion"
-import { StandardInfoSection } from "@/components/sections/infoSection"
+import { ButtonInfoSection, StandardInfoSection } from "@/components/sections/infoSection"
+import { SecondaryBtn } from "@/ui/buttons"
+import Link from "next/link"
+import { appConfig } from "@/config"
 
 
 export const ScrollerSection = ()=>{
@@ -122,7 +125,7 @@ return    <div className="flex w-fit gap-7 py-6 flex-col" >
    <div>
 
    </div>
-   <StandardInfoSection className="mx-14 my-9" title="Landmark Odyssey, Immerse Yourself in the Cultural Tapestry of City Icons" descreption="embark on a cultural voyage through city icons. Our curated guide unveils the world's most renowned landmarks, offering immersive insights into history, art, and architecture across diverse global destinations." />
+   <ButtonInfoSection button={<Link href={appConfig.links.blog}><SecondaryBtn>Explore Landmarks</SecondaryBtn></Link>} className="mx-14 my-9" title="Landmark Odyssey, Immerse Yourself in the Cultural Tapestry of City Icons" descreption="embark on a cultural voyage through city icons. Our curated guide unveils the world's most renowned landmarks, offering immersive insights into history, art, and architecture across diverse global destinations." />
    <div style={{ paddingLeft : "4vw", gap : "4vw" , transform : "translateX(-25vw)"}} className="flex  items-center justify-center  w-fit" >
     <motion.div className="cursor-cell" initial={{x : 0 ,rotate:0 }} whileHover={{ rotate: [2 , -7  , 10  , -7 , 2  ,0] }} transition={{duration : 1}} animate={firstCardAnimation} > <LandmarkCard key={landmarksData[firstCardLandmark].image} landmarkData={landmarksData[firstCardLandmark]} /></motion.div>
     <motion.div className="cursor-cell" initial={{x : 0 , rotate : 0 }} whileHover={{ rotate: [2 , -7  , 10  , -7 , 2  ,0] }} transition={{duration : 1}} animate={secondCardAnimation} ><LandmarkCard key={landmarksData[secondCardLandmark].image} landmarkData={landmarksData[secondCardLandmark]} /> </motion.div>
