@@ -32,8 +32,8 @@ export const ScrollerSection = ()=>{
     
 
 const increaseLandmarkToShow = ()=>{
-    if (nextLandmarkToShow.current === landmarksData.length){
-        nextLandmarkToShow.current = 5
+    if (nextLandmarkToShow.current >= landmarksData.length - 1){
+        nextLandmarkToShow.current = 0
     }
     else nextLandmarkToShow.current += 1
 }
@@ -52,7 +52,7 @@ const cardsPositions  = [
     const longSliderAnimation = useAnimation()
 
 const scrollLandmarks =   ()=>{
-    firstCardAnimation.start({x : cardsPositions[card1Position.current + 1] , transition : {duration  : 1} }).then(()=>{
+    firstCardAnimation.start({x : cardsPositions[card1Position.current + 1] , transition : {duration  : 1 , ease : "easeIn" } }).then(()=>{
         if(card1Position.current +1 === 9 ){
             card1Position.current  = 4
             firstCardAnimation.set({x: 0})
@@ -63,7 +63,7 @@ const scrollLandmarks =   ()=>{
           card1Position.current += 1
         }
     })
-    secondCardAnimation.start({x : cardsPositions[card2Position.current + 1] , transition : {duration  : 1} } ).then(()=>{
+    secondCardAnimation.start({x : cardsPositions[card2Position.current + 1] , transition : {duration  : 1, ease : "easeIn" } } ).then(()=>{
         if(card2Position.current +1 === 8){
             card2Position.current =  3
             secondCardAnimation.set({x: "-25vw" })
@@ -73,7 +73,7 @@ const scrollLandmarks =   ()=>{
         }
         else card2Position.current += 1 ;
     })
-    thirdCardAnimation.start({x: cardsPositions[card3Position.current + 1], transition : {duration  : 1} }).then(()=>{
+    thirdCardAnimation.start({x: cardsPositions[card3Position.current + 1], transition : {duration  : 1, ease : "easeIn" } }).then(()=>{
         if(card3Position.current + 1 === 7 ){
             card3Position.current =  2
             thirdCardAnimation.set({x: "-50vw" })
@@ -83,7 +83,7 @@ const scrollLandmarks =   ()=>{
         }
         else card3Position.current +=1 
     })
-    fourthCardAnimation.start({x: cardsPositions[card4Position.current + 1], transition : {duration  : 1}  }).then(()=>{
+    fourthCardAnimation.start({x: cardsPositions[card4Position.current + 1], transition : {duration  : 1, ease : "easeIn" }  }).then(()=>{
         if((Number(card4Position.current + 1)) ==6){
             card4Position.current  = 1
             fourthCardAnimation.set({x: "-75vw" })
@@ -96,7 +96,7 @@ const scrollLandmarks =   ()=>{
          }
 
     })
-    fifthCardAnimation.start({x:  cardsPositions[card5Position.current   + 1 ], transition : {duration  : 1} }).then(()=>{
+    fifthCardAnimation.start({x:  cardsPositions[card5Position.current   + 1 ], transition : {duration  : 1, ease : "easeIn" } }).then(()=>{
         if(card5Position.current + 1 === 5){
             card5Position.current = 0
             fifthCardAnimation.set({x: "-100vw"})
@@ -122,13 +122,13 @@ return    <div className="flex w-fit gap-7 py-6 flex-col" >
    <div>
 
    </div>
-   <StandardInfoSection className="mx-14 my-7" title="Landmark Odyssey, Immerse Yourself in the Cultural Tapestry of City Icons" descreption="embark on a cultural voyage through city icons. Our curated guide unveils the world's most renowned landmarks, offering immersive insights into history, art, and architecture across diverse global destinations." />
+   <StandardInfoSection className="mx-14 my-9" title="Landmark Odyssey, Immerse Yourself in the Cultural Tapestry of City Icons" descreption="embark on a cultural voyage through city icons. Our curated guide unveils the world's most renowned landmarks, offering immersive insights into history, art, and architecture across diverse global destinations." />
    <div style={{ paddingLeft : "4vw", gap : "4vw" , transform : "translateX(-25vw)"}} className="flex  items-center justify-center  w-fit" >
-    <motion.div initial={{x : 0 }} animate={firstCardAnimation} > <LandmarkCard key={landmarksData[firstCardLandmark].image} landmarkData={landmarksData[firstCardLandmark]} /></motion.div>
-    <motion.div initial={{x : 0 }} animate={secondCardAnimation} ><LandmarkCard key={landmarksData[secondCardLandmark].image} landmarkData={landmarksData[secondCardLandmark]} /> </motion.div>
-    <motion.div initial={{x : 0 }} animate={thirdCardAnimation} ><LandmarkCard key={landmarksData[thirdCardLandmark].image} landmarkData={landmarksData[thirdCardLandmark]} /></motion.div>
-    <motion.div initial={{x : 0 }} animate={fourthCardAnimation}><LandmarkCard key={landmarksData[fourthCardLandmark].image} landmarkData={landmarksData[fourthCardLandmark]} /></motion.div>
-    <motion.div initial={{x : 0 }} animate={fifthCardAnimation} ><LandmarkCard key={landmarksData[fifthCardLandmark].image} landmarkData={landmarksData[fifthCardLandmark]} /></motion.div>
+    <motion.div className="cursor-cell" initial={{x : 0 ,rotate:0 }} whileHover={{ rotate: [2 , -7  , 10  , -7 , 2  ,0] }} transition={{duration : 1}} animate={firstCardAnimation} > <LandmarkCard key={landmarksData[firstCardLandmark].image} landmarkData={landmarksData[firstCardLandmark]} /></motion.div>
+    <motion.div className="cursor-cell" initial={{x : 0 , rotate : 0 }} whileHover={{ rotate: [2 , -7  , 10  , -7 , 2  ,0] }} transition={{duration : 1}} animate={secondCardAnimation} ><LandmarkCard key={landmarksData[secondCardLandmark].image} landmarkData={landmarksData[secondCardLandmark]} /> </motion.div>
+    <motion.div className="cursor-cell" initial={{x : 0 , rotate : 0}} whileHover={{ rotate: [2 , -7  , 10  , -7 , 2  ,0] }} transition={{duration : 1}} animate={thirdCardAnimation} ><LandmarkCard key={landmarksData[thirdCardLandmark].image} landmarkData={landmarksData[thirdCardLandmark]} /></motion.div>
+    <motion.div className="cursor-cell" initial={{x : 0 , rotate : 0}} whileHover={{ rotate: [2 , -7  , 10  , -7 , 2  ,0] }} transition={{duration : 1}} animate={fourthCardAnimation}><LandmarkCard key={landmarksData[fourthCardLandmark].image} landmarkData={landmarksData[fourthCardLandmark]} /></motion.div>
+    <motion.div className="cursor-cell" initial={{x : 0 , rotate : 0}} whileHover={{ rotate: [2 , -7  , 10  , -7 , 2  ,0] }} transition={{duration : 1}} animate={fifthCardAnimation} ><LandmarkCard key={landmarksData[fifthCardLandmark].image} landmarkData={landmarksData[fifthCardLandmark]} /></motion.div>
    </div>
     </div>
     </div>
