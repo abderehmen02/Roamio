@@ -26,6 +26,12 @@ interface listActionCardProps extends HTMLAttributes<HTMLDivElement> {
 type listCardProps = {
     list : string[] }& HTMLAttributes<HTMLDivElement>
 
+export type FeaturesSectionCardProps = {
+    iconSrc : string ,
+    title : string ,
+    descreption : string ,
+    className : string
+}
 
 export const InfoCard : React.FC<infoCardProps> = ({ title  , description  , button  , className , color = cardsColors.primary  , ...props })=>{
     return <div  className= {cn("  w-72 rounded-lg   flex items-center justify-center gap-3 px-5 py-6 flex-col " , className , {"bg-primary text-white" : color === cardsColors.primary },{ "bg-secondary text-black" : color === cardsColors.secondary} , { "bg-secondaryDark text-white font-bold" : color === cardsColors.secondaryDark}  , { "bg-primaryDark text-white" : color === cardsColors.primaryDark} )} {...props}  >
@@ -78,3 +84,12 @@ export const LandmarkCard : React.FC<{landmarkData : LandmarkData}> = ({landmark
     <H3 className="font-bold absolute bottom-[20px] left-1/2 text-white z-20 text-center -translate-x-1/2" >{landmarkData.name}</H3><H4>{landmarkData.country}</H4>
    </div>
 }
+
+
+export const FeatureSectionCard : React.FC<FeaturesSectionCardProps> = (cardInfo)=>{
+    return <div className="bg-white px-6 py-3 rounded-xl flex flex-col gap-3 items-center jsutify-center">
+<img src={cardInfo.iconSrc} width="100px" height="100px" className="rounded-full" />
+<H3>{cardInfo.title}</H3>
+<P>{cardInfo.descreption}</P>
+    </div>
+} 
