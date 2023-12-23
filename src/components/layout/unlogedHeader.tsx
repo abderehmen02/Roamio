@@ -33,7 +33,7 @@ export   function  UnlogedHeader  (){
     }, []);
     
     return(<>
-        <div  className={cn("hidden py-5  laptop:flex w-full fixed top-0 left-0 laptop:px-7  items-center justify-between px-1 " , {"bg-black text-white"  : typeof window !== "undefined" && window.innerHeight < scrollPosition } )} >
+        <div style={{zIndex : 50}} className={cn("hidden py-5  laptop:flex w-full fixed top-0 left-0 laptop:px-7  items-center justify-between px-1 " , {"bg-black text-white"  : typeof window !== "undefined" && 200 < scrollPosition } )} >
 <div className="flex items-center justify-center gap-16 " >
 <Link className="flex items-center gap-" href={appConfig.links.home} ><img alt={appConfig.name + "logo"} src={appConfig.logoImage} className="w-16 h-16 " /> < H2 className="font-bold" >Roamio</H2> </Link>
 <div className="flex items-center gap-8" >
