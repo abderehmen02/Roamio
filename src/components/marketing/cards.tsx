@@ -27,10 +27,10 @@ type listCardProps = {
     list : string[] }& HTMLAttributes<HTMLDivElement>
 
 export type FeaturesSectionCardProps = {
-    iconSrc : string ,
+    iconSrc : JSX.Element ,
     title : string ,
     descreption : string ,
-    className : string
+    className?: string
 }
 
 export const InfoCard : React.FC<infoCardProps> = ({ title  , description  , button  , className , color = cardsColors.primary  , ...props })=>{
@@ -87,9 +87,9 @@ export const LandmarkCard : React.FC<{landmarkData : LandmarkData}> = ({landmark
 
 
 export const FeatureSectionCard : React.FC<FeaturesSectionCardProps> = (cardInfo)=>{
-    return <div className="bg-white px-6 py-3 rounded-xl flex flex-col gap-3 items-center jsutify-center">
-<img src={cardInfo.iconSrc} width="100px" height="100px" className="rounded-full" />
+    return <div className="px-8 py-3 bg-white hover:bg-whiteYellwed  shadow-xl flex flex-col gap-1 items-center jsutify-center rounded-2xl border-2 border-black">
+{cardInfo.iconSrc}
 <H3>{cardInfo.title}</H3>
-<P>{cardInfo.descreption}</P>
+<P className="text-center" >{cardInfo.descreption}</P>
     </div>
 } 

@@ -7,14 +7,16 @@ import { CategoriesCards } from "./_components/categoriesCards"
 import { Page } from "@/ui/containers"
 import { getSanityPosts } from "@/utils/blogPosts"
 import { ScrollerSection } from "./_components/scrollerSection"
+import { FeaturesSection } from "./_components/featuresSection"
 export default async  function Home ({ params: { lang }} : LangParam){
     const {t} = await translate(lang)
     const sanityPosts = await getSanityPosts()
     return <div  className="flex pb-8   flex-col  gap-3  w-full py-6    laptop:py-1  " >
     <div className='maxScreenWidth relative text-white w-full ' >    <UnlogedHeader/></div>
 <AppHero/>
-<div className="bg-white w-full" >
-<div style={{maxWidth :"1500px"}} >
+<div className=" w-full flex items-center justify-center" >
+<div style={{maxWidth :"1500px"}} className="flex items-center justify-center flex-col" >
+<FeaturesSection/>
 <ScrollerSection/>
 {/* <CategoriesCards/>
 <AppFeatures/> */}
