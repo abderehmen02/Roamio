@@ -87,7 +87,7 @@ export const LandmarkCard : React.FC<{landmarkData : LandmarkData}> = ({landmark
 
 
 export const FeatureSectionCard : React.FC<FeaturesSectionCardProps> = (cardInfo)=>{
-    return <div className="px-8 py-3 bg-white hover:bg-whiteYellwed  shadow-xl flex flex-col gap-1 items-center jsutify-center rounded-2xl border-2 border-black">
+    return <div className="px-8 py-3   shadow-xl flex flex-col gap-1 items-center jsutify-center rounded-2xl border-2 border-black">
 {cardInfo.iconSrc}
 <H3>{cardInfo.title}</H3>
 <P className="text-center" >{cardInfo.descreption}</P>
