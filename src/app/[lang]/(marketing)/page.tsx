@@ -8,6 +8,7 @@ import { Page } from "@/ui/containers"
 import { getSanityPosts } from "@/utils/blogPosts"
 import { ScrollerSection } from "./_components/scrollerSection"
 import { FeaturesSection } from "./_components/featuresSection"
+import { ValuedPosts } from "./_components/valuedPosts"
 export default async  function Home ({ params: { lang }} : LangParam){
     const {t} = await translate(lang)
     const sanityPosts = await getSanityPosts()
@@ -18,6 +19,7 @@ export default async  function Home ({ params: { lang }} : LangParam){
 <div style={{maxWidth :"1500px"}} className="flex items-center justify-center flex-col" >
 <FeaturesSection/>
 <ScrollerSection/>
+<ValuedPosts/>
 {/* <CategoriesCards/>
 <AppFeatures/> */}
 </div>

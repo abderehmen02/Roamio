@@ -3,6 +3,8 @@ import { H2, H3, H4, P } from "@/ui/typography"
 import React  , { HTMLAttributes, lazy }from "react"
 import Image from 'next/image'
 import { LandmarkData } from "@/constants/blog/caurser"
+import Link from "next/link"
+import { appConfig } from "@/config"
 export enum cardsColors {
     primary = "PRIMARY" ,
     secondary = "SECONDARY" ,
@@ -26,12 +28,26 @@ interface listActionCardProps extends HTMLAttributes<HTMLDivElement> {
 type listCardProps = {
     list : string[] }& HTMLAttributes<HTMLDivElement>
 
+
+
+
 export type FeaturesSectionCardProps = {
     iconSrc : JSX.Element ,
     title : string ,
     descreption : string ,
     className?: string
 }
+
+
+export type ValuedPostsCardProps = {
+    imgSrc : string ,
+    title : string ,
+    descreption : string ,
+    titleClassName? : string ,
+    descreptionClassName? : string ,
+    className? : string 
+} 
+
 
 export const InfoCard : React.FC<infoCardProps> = ({ title  , description  , button  , className , color = cardsColors.primary  , ...props })=>{
     return <div  className= {cn("  w-72 rounded-lg   flex items-center justify-center gap-3 px-5 py-6 flex-col " , className , {"bg-primary text-white" : color === cardsColors.primary },{ "bg-secondary text-black" : color === cardsColors.secondary} , { "bg-secondaryDark text-white font-bold" : color === cardsColors.secondaryDark}  , { "bg-primaryDark text-white" : color === cardsColors.primaryDark} )} {...props}  >
@@ -93,3 +109,14 @@ export const FeatureSectionCard : React.FC<FeaturesSectionCardProps> = (cardInfo
 <P className="text-center" >{cardInfo.descreption}</P>
     </div>
 } 
+
+
+export const ValuedPostsCard : React.FC<ValuedPostsCardProps> = ({title , titleClassName , descreption , className , descreptionClassName , imgSrc , ...props})=>{
+  return <Link href={appConfig.links.blog + '/'  + title} className={cn("flex items-center rounded-xl bg-white hover:bg-whiteYellwed relative w-10/12 justify-center  gap-4" , className)} {...props} >
+<img src={imgSrc} className="w-[200px] h-[200px]  rounded-xl rounded-r-none "  />
+<div className="flex flex-col gap-7 items-start w-full " >
+<H2 className={cn("" , titleClassName)}>{title}</H2>
+<P className={cn("" , descreptionClassName)} >{descreption.slice(0 , 300) } {descreption.length > 200 && " ..."}</P>
+</div>
+  </Link>  
+}

@@ -11,6 +11,7 @@ export const client = new Picosanity({
 
 // uses GROQ to query content: https://www.sanity.io/docs/groq
 export async function getSanityPosts()  : Promise<BlogPosts | void> {
+
   const posts = await client.fetch('*[_type == "post"]' )
   if(!posts) return console.log("can not get posts from sanity!!")
   return posts
@@ -34,3 +35,15 @@ return
   return post
 
 }
+
+export const getSanityValuedPosts = async () : Promise<{valuedPost: BlogPost}[] |undefined> =>{
+  
+  const valuedPosts = await client.fetch('*[_type == "valuedPost"]{valuedPost->}' )
+  console.log("valued posts from sanity fn", valuedPosts)
+  if(!valuedPosts) { console.log("can not get the valued posts  from sanity!!") 
+return 
+}
+  return valuedPosts
+
+}
+
