@@ -39,7 +39,6 @@ return
 export const getSanityValuedPosts = async () : Promise<{valuedPost: BlogPost}[] |undefined> =>{
   
   const valuedPosts = await client.fetch('*[_type == "valuedPost"]{valuedPost->}' )
-  console.log("valued posts from sanity fn", valuedPosts)
   if(!valuedPosts) { console.log("can not get the valued posts  from sanity!!") 
 return 
 }
