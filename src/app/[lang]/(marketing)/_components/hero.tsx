@@ -5,30 +5,45 @@ import { H1,  H4 } from "@/ui/typography"
 import { appLongTitles } from "@/constants/blog/hero"
 import {motion , useAnimation} from "framer-motion"
 import { useTranslation } from "@/app/i18n/client"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const citiesImageNames = [ "Barcelona" , "dubai" , "Moscow" , "paris" , "sanDiego" , "sanFransisco" , "Sydney" ]
 
+// ${Math.floor(Math.random()*2 + 1)}
+// Math.floor(Math.random() * ( citiesImageNames.length - 1))
 export const AppHero : React.FC =   ()=>{
     const {t} = useTranslation()
-    const [currImageNameIndex , CurrImageNameIndex ] = useState<number>(Math.floor(Math.random() * 6))
+    const currCityImgIndex = useRef(0)
+    const currImgIndex = useRef(1)
     const firstFrameAnimation = useAnimation()
     const secondFrameAnimation = useAnimation()
     const framePositions = ['0vw'  , "-100vw"  , "100vw" ]
     let firstFramePositionIndex = 0 ;
     let secondFramePositionIndex = 0 
-   const [firstFrameImg , setFirstFrameImg ] = useState(`/${citiesImageNames[Math.floor(Math.random() * ( citiesImageNames.length - 1))]}${Math.floor(Math.random()*2 + 1)}.jpg`)
-   const [secondFrameImg , setSecondFrameImg ] = useState(`/${citiesImageNames[Math.floor(Math.random() * ( citiesImageNames.length - 1))]}${Math.floor(Math.random()*2 + 1)}.jpg`)
+   const [firstFrameImg , setFirstFrameImg ] = useState(`/${citiesImageNames[currCityImgIndex.current]}${currImgIndex.current}.jpg`)
+   const [secondFrameImg , setSecondFrameImg ] = useState(`/${citiesImageNames[(currCityImgIndex.current || 1)+ 1]}${(currImgIndex.current  || 1)+ 1}.jpg`)
    const [firstFrameTitle , setFirstFrameTitle ] = useState(appLongTitles[Math.floor(Math.random() * (appLongTitles.length - 1 ))])
    const [secondFrameTitle , setSecondFrameTitle ] = useState(appLongTitles[Math.floor(Math.random() * (appLongTitles.length - 1 ))])   
 
 
 
-
 // const animateToRight = ()=>{
 //     if(firstFramePositionIndex === 0 && secondFramePositionIndex === 0){
-    
+const nextImg = ()=>{
+    if(currCityImgIndex.current === citiesImageNames.length - 1){
+        currCityImgIndex.current = 0
+    }
+    else {
+        currCityImgIndex.current += 1 
+    }
+    if(currImgIndex.current === 3){
+      currImgIndex.current = 1
+    }
+    else {
+        currImgIndex.current += 1
+    }
+}    
     
     
 //     firstFrameAnimation.start({x: '-100vw' , transition : {duration : 1.5 , ease : "easeIn"}}).then(()=>{
@@ -76,6 +91,7 @@ export const AppHero : React.FC =   ()=>{
 
 
 const animateFrames = ()=>{
+nextImg()
 if(firstFramePositionIndex === 0 && secondFramePositionIndex === 0){
 
 
