@@ -9,13 +9,14 @@ import { getSanityPosts } from "@/utils/blogPosts"
 import { ScrollerSection } from "./_components/scrollerSection"
 import { FeaturesSection } from "./_components/featuresSection"
 import { ValuedPosts } from "./_components/valuedPosts"
+import { Footer } from "@/components/layout/footer"
 export default async  function Home ({ params: { lang }} : LangParam){
     const {t} = await translate(lang)
     const sanityPosts = await getSanityPosts()
     return <div  className="flex pb-8   flex-col  gap-3  w-full py-6    laptop:py-1  " >
     <div className='maxScreenWidth relative text-white w-full ' >    <UnlogedHeader/></div>
 <AppHero/>
-<div className=" w-full flex items-center justify-center" >
+<div className=" w-full flex items-center flex-col justify-center" >
 <div style={{maxWidth :"1500px"}} className="flex items-center justify-center flex-col" >
 <FeaturesSection/>
 <ScrollerSection/>
@@ -23,6 +24,7 @@ export default async  function Home ({ params: { lang }} : LangParam){
 {/* <CategoriesCards/>
 <AppFeatures/> */}
 </div>
+<Footer/>
 </div>
     </div>
 }

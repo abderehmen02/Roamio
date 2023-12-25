@@ -1,8 +1,10 @@
 import { useTranslation as translate } from "@/app/i18n"
 import { appConfig } from "@/config"
-import { P } from "@/ui/typography"
+import { H2, H3, H4, P } from "@/ui/typography"
+import Link from "next/link"
+import React from "react"
 
-export const Footer : React.FC  = async ()=>{
+export const PrevFooter : React.FC  = async ()=>{
    const {t} = await translate()
     const footerItems : {name: string , link : string}[][] = [ [
 {  link : appConfig.links.home, name :  t("footer.home")  },
@@ -24,5 +26,45 @@ export const Footer : React.FC  = async ()=>{
         </div>
     })
 }
+    </footer>
+}
+
+
+
+
+export const Footer : React.FC = async ()=>{
+    return <footer className="relative w-full h-fit text-white py-7 px-32 gap-8 flex flex-col items-center " >
+<img src="/footerBg.jpg" className="w-full h-full absolute top-0 left-0" />
+<div className="heroOverlay w-full h-full bg-opacity-40 absolute top-0 left-0" ></div>
+
+    <div  className="flex relative z-30 items-center  justify-between w-full" >
+<div className="flex items-center " >
+<img src={appConfig.logoImage} className="w-[70px] h-[70px] rounded-full" />
+<H2 className="font-bold" >{appConfig.name}</H2>
+</div>
+<a href={`mailto:${appConfig.email}`} className="flex  gap-3 items-center" >
+<i className="bi text-3xl font-bold bi-envelope"></i>
+<H4 className="font-bold" >Email</H4>
+</a>
+    </div>
+    <div className="relative z-30 flex w-full items-start  " >
+    <div className="gap-2 w-1/2 flex flex-col" >
+    <Link className="monsterrat " href={appConfig.links.home} ><H4>Home</H4></Link>
+    <Link className="monsterrat" href={appConfig.links.blog} ><H4>Blog</H4></Link>
+    <Link className="monsterrat" href={appConfig.links.findCities} ><H4>Find Cities </H4></Link>        
+    </div>
+
+
+    <div className="gap-2 w-1/2 flex flex-col" >
+    <Link className="monsterrat " href={appConfig.links.termsOfUse} ><H4>Terms Of Use</H4></Link>
+    <Link className="monsterrat" href={appConfig.links.primacyPolicy} ><H4>Privacy Policy</H4></Link>
+    <Link className="monsterrat" href={appConfig.links.contact} ><H4>Contact Us <i className="bi text-xl bi-telephone-fill"></i> </H4></Link>        
+    </div>
+    </div>
+    <div className="flex w-full relative z-30 items-center justify-between" >
+    <P>Copyright All Rights Reserved 2023 </P>
+    <P>Email : {appConfig.email}</P>
+    <P>Designed By Abde Rehmen</P>
+    </div>
     </footer>
 }
