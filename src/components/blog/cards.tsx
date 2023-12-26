@@ -40,10 +40,10 @@ export const BlogHeroCard : React.FC<{title :string, descreption : string , clas
     }  
 
 export const RecommendedBlogPostCard : React.FC <BlogPost> = (blogPostInfo) =>{
-    return <div className="flex w-[300px] h-[300px]  text-white cursor-pointer px-9 py-4 flex-col items-center justify-center gap-5  relative rounded-2xl" >
-        <img src={ (blogPostInfo.image && sanityImageUrl(blogPostInfo.image as object ) )  || appConfig.imageNotFound } className="absolute -z-10 w-full  top-0 left-0 h-full rounded-2xl" />
+    return <Link href={`${appConfig.links.blog}/${blogPostInfo.title}`} className="flex w-[300px] h-[300px] shadow-xl text-white cursor-pointer px-9 py-4 flex-col items-center justify-center gap-5  relative rounded-2xl" >
+        <img src={ (blogPostInfo?.image && sanityImageUrl(blogPostInfo.image as object ) )  || appConfig.imageNotFound } className="absolute -z-10 w-full  top-0 left-0 h-full rounded-2xl" />
         <div className="w-full z-0 h-full  rounded-3xl top-0 left-0 absolute darkOverlay" ></div>
-        <H3 className="relative z-10 text-center font-semibold" >{blogPostInfo.title}</H3>
-        <P className="relative z-10 text-center"  >{blogPostInfo.descreption}</P>
-    </div>
+        <H3 className="relative z-10 text-center font-semibold" >{blogPostInfo?.title}</H3>
+        <P className="relative z-10 text-center"  >{blogPostInfo?.descreption}</P>
+    </Link>
 }
