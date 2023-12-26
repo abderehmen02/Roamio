@@ -1,4 +1,4 @@
-import { BlogPostCard } from "@/components/blog/cards";
+import { BlogPostCard, RecommendedBlogPostCard } from "@/components/blog/cards";
 import { BlogFilterCard } from "@/components/blog/filter";
 import { BlogHero } from "@/components/blog/hero";
 import { appConfig } from "@/config";
@@ -8,6 +8,7 @@ import { DisplayAnimation } from "@/providers/animation";
 import { Page, PageBody } from "@/ui/containers";
 import { Title } from "@/ui/title";
 import { getSanityPosts } from "@/utils/blogPosts";
+import { RecommendedForYou } from "./_components/recomanded";
 
 
 
@@ -33,6 +34,7 @@ return     <Page className="flex items-center  flex-col"  >
              <div className="flex gap-2 flex-row w-fit flex-wrap" >{allPosts.map((post , index )=><DisplayAnimation delay={(index  + 2) * 0.2} ><BlogPostCard  key={post.title} {...post} /></DisplayAnimation>)}</div>
         </div>
         </DisplayAnimation>
+        <RecommendedForYou/>
         </PageBody>
     </Page>
 }

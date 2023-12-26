@@ -21,7 +21,7 @@ const builder = imageUrlBuilder(client)
 
 
 export const sanityImageUrl = (SanityImage : object)=>{
-return builder.image(SanityImage).url()
+return builder.image(SanityImage)?.url()
 }
 
 
@@ -46,3 +46,12 @@ return
 
 }
 
+export const getRecommendedPosts = async () : Promise<BlogPost[] |undefined> =>{
+  
+  const recommendedPosts = await client.fetch('*[_type == "recommendedPost"]{recommendedPost->}' )
+  if(!recommendedPosts) { console.log("can not get the recomanded posts  from sanity!!") 
+return 
+}
+  return recommendedPosts.length &&  recommendedPosts.map((item : any ) => item && item.recommendedPost)
+
+}

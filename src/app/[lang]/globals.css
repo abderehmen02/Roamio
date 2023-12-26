@@ -107,7 +107,7 @@ height: 248px ;
   animation: rotation 1s linear infinite;
   }
 
-.heroOverlay {
+.heroOverlay , .darkOverlay {
  background: linear-gradient(to right, rgba(0, 0, 0, 0.8) ,  rgba(0, 0, 0, 0.7) ,  rgba(0, 0, 0, 0.4)  , transparent) , linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 1% ,  transparent 99%)  ;
  opacity: 0.84;
 }
