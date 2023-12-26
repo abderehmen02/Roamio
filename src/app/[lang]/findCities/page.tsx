@@ -20,8 +20,8 @@ export default function FindCitiesPage  (){
     const [prefrencesModal, setPrefrencesModal] = useState<boolean>(false)
     const router = useRouter()   
     if(cities.error?.message) return <LoggedPage> <Title title="Error !" descreption={"Some error hapened on the cities state! please try again later." + cities.error.message }  /></LoggedPage>
-    return <Page className="mx-0 " >
-<div className="hidden max-w-full laptop:flex items-center gap-4 justify-between px-7" >
+    return <Page style={{maxWidth :"1500px"}}  >
+<div className="hidden max-w-full laptop:flex  items-center gap-4 justify-between px-7" >
 <InfoCard color={cardsColors.secondary}  button={<PrimaryBtn onClick={()=>router.push(appConfig.links.blog)} >Our Blog</PrimaryBtn>} description="Discover travel inspiration, tips, and adventure in our blog." title="Blog" />
     {    (  cities.loading ||   cities.cities.length  > 0 ) ? <Title title="Find Your Next Distination" titleClassName="text-primaryDark" className="w-fit" descreption="Select your prefrences and start reading about diffrent cities"  /> :   <Title  titleClassName="text-primaryDark"  title="No city found" descreption="Can not find any city! please select some other prefrences "  />  }
     {

@@ -1,4 +1,4 @@
-import { UnlogedHeader } from "@/components/layout/unlogedHeader"
+import { FirstUnlogedHeader, UnlogedHeader } from "@/components/layout/unlogedHeader"
 import {useTranslation as translate } from '../../i18n'
 import { LangParam } from "@/types/routing"
 import { AppHero } from "./_components/hero"
@@ -14,7 +14,7 @@ export default async  function Home ({ params: { lang }} : LangParam){
     const {t} = await translate(lang)
     const sanityPosts = await getSanityPosts()
     return <div  className="flex pb-8   flex-col  gap-3  w-full py-6    laptop:py-1  " >
-    <div className='maxScreenWidth relative text-white w-full ' >    <UnlogedHeader/></div>
+    <div className='maxScreenWidth relative text-white w-full ' >    <FirstUnlogedHeader/></div>
 <AppHero/>
 <div className=" w-full flex items-center flex-col justify-center" >
 <div style={{maxWidth :"1500px"}} className="flex items-center justify-center flex-col" >

@@ -14,7 +14,7 @@ import { H2, H3 } from "@/ui/typography"
 export const BLogHeader = async  ()=>{
     const {t} = await translate()
     return      <>
-    <div  className="hidden  laptop:flex w-full  items-center justify-between px-1 " >
+    <div  className="hidden  laptop:flex w-full px-6  items-center justify-between py-2" >
 <Link href={appConfig.links.home} ><img alt={appConfig.name + "logo"} src={appConfig.logoImage} className="w-16 h-16" /></Link>
 <Link href={appConfig.links.home}> <PrimaryBtn>Back To Home </PrimaryBtn></Link>
     </div>
