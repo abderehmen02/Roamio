@@ -24,6 +24,7 @@ module.exports = {
       secondaryDark : "#B87504" ,
       whiteYellwed : "#ededbe" ,
       white : "#fff"  ,
+      whiteSmoke: '#f5f5f5',
       black : "#232220" ,
       grayLight : "#F5F5F5" ,
       pageBg  : "#9ae7f3" ,  
