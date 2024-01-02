@@ -21,7 +21,11 @@ const builder = imageUrlBuilder(client)
 
 
 export const sanityImageUrl = (SanityImage : object)=>{
-return builder.image(SanityImage)?.url()
+  try {
+return builder.image(SanityImage)?.url() }
+catch(err){
+  console.log(err)
+}
 }
 
 
