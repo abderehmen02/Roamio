@@ -30,7 +30,7 @@ if(error) return <div>
     { isLoading ?<div className="w-full flex  relative flex-col items-center gap-9 justify-center ">
         {[1,2,3].map((item , index)=><div   className={cn("flex w-full relative items-center " , {"justify-end" : index % 2 ===0 , "justify-start" : index % 2  === 1 } ) } ><ValuedPostsCardSkeleton/></div>)}
         </div> :     <div className="w-full flex  relative flex-col items-center justify-center gap-9" >
-{data?.map((doc , index)=><div   className={cn("flex w-full relative items-center " , {"justify-end" : index % 2 ===0 , "justify-start" : index % 2  === 1 } ) } ><ValuedPostsCard  title={doc.valuedPost?.title} descreption={doc.valuedPost?.overviewArticles || "" } imgSrc={sanityImageUrl(doc.valuedPost?.image as object)} /></div>)}
+{data?.map((doc , index)=><div   className={cn("flex w-full relative items-center " , {"justify-end" : index % 2 ===0 , "justify-start" : index % 2  === 1 } ) } ><ValuedPostsCard  title={doc.valuedPost?.title} descreption={doc.valuedPost?.overviewArticles || "" } imgSrc={sanityImageUrl(doc.valuedPost?.image as object) || appConfig.imageNotFound } /></div>)}
         </div>}
     </div>
 }
