@@ -62,6 +62,6 @@ useEffect(()=>{
        }       
     }     , [] )
 return <div className="flex items-center justify-center relative gap-6" >
-  <motion.div className="w-1/2" initial={{opacity : 0}} animate={{opacity : 1}} > <BlogHeroCard title={firstCardTitle.title} descreption={firstCardTitle.description} className="bg-primaryDark"  /></motion.div>
-  <motion.div className="w-1/2" initial={{opacity :0}}  animate={secondCardAnimation} >  <BlogHeroCard className="bg-secondary text-primary"  title={secondCardTitle.title} descreption={secondCardTitle.description} /></motion.div>
+  <motion.div className="w-1/2" initial={{opacity : 0}} animate={{opacity : 1}} > <BlogHeroCard title={firstCardTitle.title} descreption={firstCardTitle.description} className="bg-primaryDark min-h-[170px] "  /></motion.div>
+  <motion.div className="w-1/2" initial={{opacity :0}}  animate={secondCardAnimation} >  <BlogHeroCard className="bg-secondary text-primary min-h-[170px]"  title={secondCardTitle.title} descreption={secondCardTitle.description} /></motion.div>
 </div>}

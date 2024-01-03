@@ -22,7 +22,7 @@ export const ValuedPosts = ()=>{
 if(error) return <div>
     Somme Error Happend! please try refreshing the page
 </div>
-    return <div className="flex items-star flex-col  gap-20 justify-center py-28 w-full " >
+    return <div className="flex  items-start px-6 flex-col  gap-20 justify-center py-28 w-full " >
         <div className="flex flex-col" >
         <H2 className="font-bold" >Discover City Chronicles</H2>
         <H2 className="font-bold" >Unveiling the Best Stories from Around the Globe</H2>
