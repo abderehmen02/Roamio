@@ -80,7 +80,7 @@ getUser()
 
 if( !userLogin.token && !userLogin.error  ) return <LoadingUserSkeleton/>
 if(  isUserInfo(userInfo) && !isGoogleUser(userInfo)  && !userInfo.verified  ) return <VerifyEmail/>
-    return <div className="w-full ">
+    return <div className="w-full items-center justify-center flex flex-col  ">
         <ExpiredSessionDialog open={SessionDialig} setOpen={setSessionDialig} />
         {children}
     </div>

@@ -4,7 +4,7 @@ import { useTranslation } from "@/app/i18n/client"
 import { appConfig } from "@/config"
 import { logout } from "@/functions/api/auth"
 import { cn } from "@/lib/tailwind"
-import { PrimaryBtn, SecondaryBtn } from "@/ui/buttons"
+import { PrimaryBtn, SecondaryBtn, TextButton } from "@/ui/buttons"
 import { H4, P } from "@/ui/typography"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -39,7 +39,7 @@ window.addEventListener("click" , ()=>{
 } , [] )
     return <div onClick={(e)=>e.stopPropagation()} className={cn("items-end  laptop:items-center w-64 laptop:w-64  rounded-t-3xl flex gap-2 relative rounded-b-xl  flex-col  "  )}> 
     <i onClick={(e)=>{ e.stopPropagation() ; setOpenList(true)}} className="bi text-4xl  laptop:hidden bi-gear-fill"></i>
-    <SecondaryBtn  className="w-full hidden laptop:block px-5 z-30 "  onClick={(e)=>{ e.preventDefault() ; e.stopPropagation() ; setOpenList((val)=>  !val)     }}  >  {t("loggedHeader.settings")}   <i className="bi bi-gear-fill"></i> </SecondaryBtn>
+    <TextButton  className="w-full hidden laptop:block px-5 z-30 "  onClick={(e)=>{ e.preventDefault() ; e.stopPropagation() ; setOpenList((val)=>  !val)     }}  >  {t("loggedHeader.settings")}   <i className="bi bi-gear-fill"></i> </TextButton>
     <div  className={cn({" bg-white w-64 laptop:w-full absolute top-14   " : OpenList , "hidden" : !OpenList })} >  <SettingsList setOpenList={setOpenList} />  </div>
     </div>
 }
