@@ -17,6 +17,7 @@ import { useState } from "react"
 export default function FindCitiesPage  (){
     const cities = useSelector((state : stateType)=>state.cities)
     const userInfo  = useSelector((state : stateType)=>state.userInfo)
+    
     const [prefrencesModal, setPrefrencesModal] = useState<boolean>(false)
     const router = useRouter()   
     if(cities.error?.message) return <LoggedPage> <Title title="Error !" descreption={"Some error hapened on the cities state! please try again later." + cities.error.message }  /></LoggedPage>
@@ -25,7 +26,7 @@ export default function FindCitiesPage  (){
 <InfoCard color={cardsColors.secondary}  button={<PrimaryBtn onClick={()=>router.push(appConfig.links.blog)} >Our Blog</PrimaryBtn>} description="Discover travel inspiration, tips, and adventure in our blog." title="Blog" />
     {    (  cities.loading ||   cities.cities.length  > 0 ) ? <Title title="Find Your Next Distination" titleClassName="text-primaryDark" className="w-fit" descreption="Select your prefrences and start reading about diffrent cities"  /> :   <Title  titleClassName="text-primaryDark"  title="No city found" descreption="Can not find any city! please select some other prefrences "  />  }
     {
-        isUserInfo(userInfo) ?<InfoCard color={cardsColors.primary} button={<PrimaryBtn onClick={()=>router.push(appConfig.links.savedCities)} className="hover:border-2 border-white" > Saved Cities</PrimaryBtn>} description="Explore and save your prefered cities " title="Save Your Cities" />  : (
+        isUserInfo(userInfo) ?<InfoCard color={cardsColors.primary} button={<PrimaryBtn onClick={()=>router.push(appConfig.links.savedCities)} className="hover:border-2 border-white" > Saved Cities</PrimaryBtn>} description="Explore and save your prefered cities, go back to see them later " title="Save Your Cities" />  : (
 <InfoCard color={cardsColors.primary} button={<PrimaryBtn onClick={()=>router.push(appConfig.links.notes)} className="hover:border-2 border-white" >  Sign Up</PrimaryBtn>} description="Start exploring the world with us. Create your account today!" title={`Join ${appConfig.name}`} />
         )
 
