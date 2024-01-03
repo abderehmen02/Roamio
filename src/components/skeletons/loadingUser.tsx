@@ -5,7 +5,7 @@ import { LoggedHeader } from "../layout/loggedHeader";
 import { Box, LinearProgress } from "@mui/material";
 
 export const LoadingUserSkeleton : React.FC = ()=>{
-return     <div  className="h-screen w-screen flex items-center flex-col bg-pageBg justify-center" >
+return     <div  className="h-screen w-screen flex items-center flex-col  justify-center" >
     <img src={appConfig.logoImage} style={{width  : '100px' , height : "100px"}} />
     <Box sx={{width : '100px'}} ><LinearProgress/></Box>
     </div>
