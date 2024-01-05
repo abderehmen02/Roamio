@@ -37,9 +37,9 @@ export const Footer : React.FC = async ()=>{
 <img src="/footerBg.jpg" className="w-full h-full absolute top-0 left-0" />
 <div className="heroOverlay w-full h-full bg-opacity-40 absolute top-0 left-0" ></div>
 
-    <div  className="flex relative z-30 items-center  justify-between w-full" >
-<div className="flex items-center " >
-<img src={appConfig.logoImage} className="w-[70px] h-[70px] rounded-full" />
+    <div  className="flex relative z-30 items-center  bg-red-400  justify-between w-full" >
+<div className="flex bg-secondary items-center " >
+<img src={appConfig.logoImage} className="w-[70px]  h-[70px] border-2 border-black object-cover p-0 rounded-full" />
 <H2 className="font-bold" >{appConfig.name}</H2>
 </div>
 <a href={`mailto:${appConfig.email}`} className="flex  gap-3 items-center" >
@@ -47,7 +47,7 @@ export const Footer : React.FC = async ()=>{
 <H4 className="font-bold" >Email</H4>
 </a>
     </div>
-    <div className="relative z-30 flex w-full items-start  " >
+    <div className="relative z-30 flex w-full items-start  bg-green-400" >
     <div className="gap-2 w-1/2 flex flex-col" >
     <Link className="monsterrat " href={appConfig.links.home} ><H4>Home</H4></Link>
     <Link className="monsterrat" href={appConfig.links.blog} ><H4>Blog</H4></Link>
