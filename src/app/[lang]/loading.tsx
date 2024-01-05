@@ -4,7 +4,7 @@ import { Box, LinearProgress } from "@mui/material";
 
 export default function LoadingPage (){
     return <div  className="h-screen w-screen flex items-center flex-col bg-transparent justify-center" >
- <img src={appConfig.logoImage} style={{width  : '54px' , height : "54px" , margin  : "16px"}} />
+ <img src={appConfig.logoImage} style={{width  : '64px' , height : "64px" , margin  : "16px"}} />
      <Box sx={{width : '100px'}} ><LinearProgress/></Box>
     </div>
 }
