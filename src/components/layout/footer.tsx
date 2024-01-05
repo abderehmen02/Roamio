@@ -34,11 +34,11 @@ export const PrevFooter : React.FC  = async ()=>{
 
 export const Footer : React.FC = async ()=>{
     return <footer className="relative w-full h-fit text-white py-7 px-32 gap-8 flex flex-col items-center " >
-<img src="/footerBg.jpg" className="w-full h-full m-4 absolute top-0 left-0" />
+<img src="/footerBg.jpg" className="w-full h-full  absolute top-0 left-0" />
 <div className="heroOverlay w-full h-full bg-opacity-40 absolute top-0 left-0" ></div>
 
     <div  className="flex relative z-30 items-center    justify-between w-full" >
-<div className="flex  items-center " >
+<div className="flex  items-center gap-4" >
 <img src={appConfig.logoImage} className="w-[70px]  h-[70px] border-2 border-black object-cover p-0 rounded-full" />
 <H2 className="font-bold" >{appConfig.name}</H2>
 </div>
