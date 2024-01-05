@@ -34,7 +34,7 @@ export  function  LoggedHeader  (){
     return(<>
 <div   className={cn( "flex w-full items-center     top-0 px-5 laptop:px-10 z-50 fixed   laptop:pb-4 laptop:pt-4  justify-between" , { "bg-white" : typeof window !== "undefined" && 10 < scrollPosition} )} >
 <div>
-<Link className="flex items-center gap-" href={appConfig.links.home} ><img alt={appConfig.name + "logo"} src={appConfig.logoImage} className="w-16 h-16 " /> < H2 className="font-bold" >Roamio</H2> </Link>
+<Link className="flex items-center gap-" href={appConfig.links.home} ><img alt={appConfig.name + "logo"} src={appConfig.logoImage} className="w-11 h-11 m-4" /> < H2 className="font-bold" >Roamio</H2> </Link>
 </div>
 <div className="flex flex-row items-center justify-center gap-14" >
 <Link  className={cn('font-semibold border-b-4 border-transparent   flex pb-2 items-center justify-center gap-1 ', {" border-b-primary text-primary" : pathname?.includes("dashboard")  , "hover:text-blue-400 hover:border-b-blue-400 active:text-primary active:border-b-primary" : !pathname?.includes("dashboard")}  )} href={appConfig.links.home}  ><H3 className="block" >Find Cities</H3><PublicIcon/></Link>

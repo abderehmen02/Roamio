@@ -34,7 +34,7 @@ export   function  FirstUnlogedHeader  (){
     return(<>
         <div style={{zIndex : 50}} className={cn("hidden py-5  laptop:flex w-full fixed top-0 left-0 laptop:px-7  items-center justify-between px-1 " , {"bg-black text-white"  : typeof window !== "undefined" && 100 < scrollPosition } )} >
 <div className="flex items-center justify-center gap-16 " >
-<Link className="flex items-center gap-" href={appConfig.links.home} ><img alt={appConfig.name + "logo"} src={appConfig.logoImage} className="w-16 h-16 " /> < H2 className="font-bold" >Roamio</H2> </Link>
+<Link className="flex items-center gap-" href={appConfig.links.home} ><img alt={appConfig.name + "logo"} src={appConfig.logoImage} className="w-11 h-11 m-4 " /> < H2 className="font-bold" >Roamio</H2> </Link>
 <div className="flex items-center gap-8" >
 <Link href={appConfig.links.blog} > <H3  className="capitalize  font-semibold text-xl" > {t("unlogedHeader.blog")}</H3></Link>
 <Link href={appConfig.links.findCities} ><H3  className="capitalize  font-semibold text-xl" >{t("find city")}</H3></Link>
