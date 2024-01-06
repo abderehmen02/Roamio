@@ -24,13 +24,14 @@ if(error) return <div>
 </div>
     return <div className="flex  items-start px-6 flex-col  gap-20 justify-center py-28 w-full " >
         <div className="flex flex-col" >
-        <H2 className="font-bold" >Discover City Chronicles</H2>
-        <H2 className="font-bold" >Unveiling the Best Stories from Around the Globe</H2>
+        <H2 className="font-semibold laptpo:font-bold" >Discover City Chronicles</H2>
+        <H2 className="font-semibold laptop:font-bold" >Unveiling the Best Stories from Around the Globe</H2>
         </div>
     { isLoading ?<div className="w-full flex  relative flex-col items-center gap-9 justify-center ">
         {[1,2,3].map((item , index)=><div   className={cn("flex w-full relative items-center " , {"justify-end" : index % 2 ===0 , "justify-start" : index % 2  === 1 } ) } ><ValuedPostsCardSkeleton/></div>)}
-        </div> :     <div className="w-full flex  relative flex-col items-center justify-center gap-9" >
-{data?.map((doc , index)=><div   className={cn("flex w-full relative items-center " , {"justify-end" : index % 2 ===0 , "justify-start" : index % 2  === 1 } ) } ><ValuedPostsCard  title={doc.valuedPost?.title} descreption={doc.valuedPost?.overviewArticles || "" } imgSrc={sanityImageUrl(doc.valuedPost?.image as object) || appConfig.imageNotFound } /></div>)}
+        </div> :     <div className="w-full flex   relative flex-col items-center justify-center gap-9" >
+{data?.map((doc , index)=><div   className={cn("flex w-full justify-center relative items-center " , {"laptop:justify-end" : index % 2 ===0 , "laptop:justify-start" : index % 2  === 1 } ) } ><ValuedPostsCard  title={doc.valuedPost?.title} descreption={doc.valuedPost?.overviewArticles || "" } imgSrc={sanityImageUrl(doc.valuedPost?.image as object) || appConfig.imageNotFound } /></div>)}
+
         </div>}
     </div>
 }

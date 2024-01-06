@@ -112,11 +112,11 @@ export const FeatureSectionCard : React.FC<FeaturesSectionCardProps> = (cardInfo
 
 
 export const ValuedPostsCard : React.FC<ValuedPostsCardProps> = ({title , titleClassName , descreption , className , descreptionClassName , imgSrc , ...props})=>{
-  return <Link href={appConfig.links.blog + '/'  + title} className={cn("flex items-center rounded-xl  relative w-10/12 justify-center  gap-4" , className)} {...props} >
-<img src={imgSrc} className="w-[200px] h-[200px]  rounded-xl rounded-r-none "  />
+  return <Link href={appConfig.links.blog + '/'  + title} className={cn("flex shadow-lg laptop:shadow-none p-3 py-5 laptop:px-0 laptop:py-0 flex-col laptop:flex-row items-start laptop:items-center rounded-xl  relative w-10/12 justify-center  gap-4" , className)} {...props} >
+<img src={imgSrc} className="laptop:w-[200px] laptop:h-[200px] w-full  rounded-xl  laptop:rounded-r-none "  />
 <div className="flex flex-col gap-7 items-start w-full " >
-<H2 className={cn("" , titleClassName)}>{title}</H2>
-<P className={cn("" , descreptionClassName)} >{descreption.slice(0 , 300) } {descreption.length > 200 && " ..."}</P>
+<H2 className={cn("text-xl laptop:text-3xl" , titleClassName)}>{title}</H2>
+<P className={cn("hidden laptop:block" , descreptionClassName)} >{descreption.slice(0 , 300) } {descreption.length > 200 && " ..."}</P>
 </div>
   </Link>  
 }
