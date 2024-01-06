@@ -26,7 +26,7 @@ return <h1 className={cn("text-4xl font-semibold "  ,montserratClassName , class
 } 
     
 export const H2 : React.FC<HTMLAttributes<HTMLHeadElement> > = ({children , className   , ...props}  ) =>{
-  return <h4  className={cn("text-3xl  "  , montserratClassName  , className)}  {...props} >
+  return <h4  className={cn("font-semibold laptop:font-bold text-3xl  "  , montserratClassName  , className)}  {...props} >
   {children}
   </h4>
   }

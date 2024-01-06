@@ -33,7 +33,7 @@ export const PrevFooter : React.FC  = async ()=>{
 
 
 export const Footer : React.FC = async ()=>{
-    return <footer className="relative w-full h-fit text-white py-7 px-32 gap-8 flex flex-col items-center " >
+    return <footer className="relative w-full h-fit text-white px-1 py-4 laptop:py-7 laptop:px-32 gap-8 flex flex-col items-center " >
 <img src="/footerBg.jpg" className="w-full h-full  absolute top-0 left-0" />
 <div className="heroOverlay w-full h-full bg-opacity-40 absolute top-0 left-0" ></div>
 
