@@ -143,7 +143,7 @@ return <div className="w-fulll " >
 
 
 
-<motion.div  initial={{x: 0}} style={{height : "calc(100vh - 110px)"}} animate={firstFrameAnimation} className="  bg-opacity-75 w-screen flex items-center justify-start  px-3 laptop::px-32 relative" >
+<motion.div  initial={{x: 0}} style={{height : "calc(100vh - 110px)"}} animate={firstFrameAnimation} className="  bg-opacity-75 w-screen flex items-center justify-start  px-3 laptop:px-32 relative" >
 <img src={firstFrameImg} className="absolute -top-24 right-0 -z-50 object-cover w-full  h-screen " ></img>
 <div className="heroOverlay absolute -top-24 right-0 w-full h-screen -z-40" ></div>
 {/* <ChevronRightIcon onClick={animateToRight}    className="bi text-white absolute  top-[40%]    right-5 cursor-pointer text-5xl "  ></ChevronRightIcon> */}
@@ -156,7 +156,7 @@ return <div className="w-fulll " >
 </motion.div>
  
 
-<motion.div  initial={{x: 0}} style={{height : "calc(100vh - 110px)" , zIndex : 0}} animate={secondFrameAnimation} className="  bg-opacity-75 w-screen flex items-center justify-start px-3 laptop::px-32 relative" >
+<motion.div  initial={{x: 0}} style={{height : "calc(100vh - 110px)" , zIndex : 0}} animate={secondFrameAnimation} className="  bg-opacity-75 w-screen flex items-center justify-start px-3 laptop:px-32 relative" >
 <img src={secondFrameImg} className="absolute -top-24 right-0 -z-50 object-cover w-full  h-screen " ></img>
 <div className="heroOverlay absolute -top-24 right-0 w-full h-screen -z-40" ></div>
 

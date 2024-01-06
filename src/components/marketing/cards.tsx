@@ -106,7 +106,7 @@ export const FeatureSectionCard : React.FC<FeaturesSectionCardProps> = (cardInfo
     return <div className="px-8 py-3    flex flex-col gap-1 items-center jsutify-center ">
 {cardInfo.iconSrc}
 <H3>{cardInfo.title}</H3>
-<P className="text-center" >{cardInfo.descreption}</P>
+<P className="text-center hidden lg:block" >{cardInfo.descreption}</P>
     </div>
 } 
 

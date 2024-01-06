@@ -70,7 +70,7 @@ export const appLongTitles :  { title: string; description: string }[] = [{
   title : "Roamio: Redefine Your Travel Experience" ,
   description : "Roamio transforms travel planning. Search for cities based on your preferences—beaches, nightlife, history—crafting personalized journeys that resonate with your unique style and interests."
 } , {
-  title: "oamio: Navigate Cities with Precision" ,
+  title: "Roamio: Navigate Cities with Precision" ,
   description : "Roamio is your city exploration companion. Discover destinations effortlessly, ensuring each trip aligns with your preferences—beaches, nightlife, history—creating a travel experience that suits your unique style."
 } , {
   title : "Define Your Cityscape Adventure" ,
