@@ -39,9 +39,6 @@
 
 }
 
-.menu{
-  box-shadow: 1px 1px 5px black , -1px -1px 5px black ;
-}
 
 .placesModal::-webkit-scrollbar-thumb , .scrollPrefrences::-webkit-scrollbar-thumb{
   background-color:  #0956A3;

@@ -21,7 +21,7 @@ export const ProfileCard : React.FC =  ()=>{
     if(!isUserInfo(userInfo) ) {
     return <></>
 }
-    return <div className="flex  flex-col gap-3 px-3 py-6 items-center justify-center" >
+    return <div className="flex  flex-col gap-1 px-3 py-6 items-center justify-center" >
         <div className="relative group  w-[70px] h-[70px]  rounded-full  border-2  bg-secondary "  >
         <AddAPhotoIcon className="absolute bg-white p-1 rounded-full   top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
         <div className="w-full h-full bg-white" ><img  className=" w-full h-full rounded-full object-cover" src={ userInfo.profilePic || userInfo.picture||  appConfig.unknownPersonImage} /></div>

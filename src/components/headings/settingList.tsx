@@ -18,11 +18,11 @@ import { ProfileCard } from "./cards"
 export const SettingsList : React.FC<{setOpenList : React.Dispatch<React.SetStateAction<boolean>>}> = ({setOpenList})=>{
     const router= useRouter()
     const dispatch = useDispatch()
-return     <div   className="flex menu shadow-2xl px-4 flex-col items-center" >
+return     <div   className="flex shadow-lg px-4 py-6 flex-col items-center" >
     <ProfileCard/>
-    <Link href={appConfig.links.savedCities}  className="py-3 gap-3  cursor-pointer items-center justify-start hoverSettingsList  thinBorderBottom  flex px-7 border-black w-full " ><NotesIcon/><H4 className=" text-center  w-fit" >Saved Cities</H4>  </Link> 
+    <Link href={appConfig.links.savedCities}  className="py-3 gap-3 monsterrat font-bold cursor-pointer items-center justify-start  text-stone-900 hover:text-black   flex px-7  w-full " ><NotesIcon/><H4 className=" text-center  w-fit" >Saved Cities</H4>  </Link> 
     {/* <Link href="/notes" className="flex gap-3 items-center justify-start cursor-pointer py-3 hoverSettingsList thinBorderBottom    border-black w-full px-7" ><ArticleIcon/><H4 className="w-fit text-center" > Your Notes</H4></Link> */}
-    <div onClick={()=>logout(dispatch , router)} className="py-3 flex items-center justify-start gap-3  cursor-pointer hoverSettingsList thinBorderBottom px-7   border-black w-full " ><NotInterestedIcon/><P className="w-fit text-center" >Logout</P></div>
+    <div onClick={()=>logout(dispatch , router)} className="py-3 flex monsterrat font-bold items-center justify-start gap-3  cursor-pointer   px-7   text-stone-900 hover:text-black w-full " ><NotInterestedIcon/><H4 className="w-fit text-center" >Logout</H4></div>
     <i onClick={()=>setOpenList(false)} className="bi bi-x-lg laptop:hidden text-red-500 text-2xl my-2"></i>
     </div>
 
