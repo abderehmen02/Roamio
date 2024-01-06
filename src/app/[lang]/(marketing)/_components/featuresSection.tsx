@@ -14,11 +14,11 @@ export const FeaturesSection = ()=>{
     const router = useRouter()
     return <div className="flex px-3 gap-8 flex-col laptop:flex-row items-center justify-center  laptop:px-16 py-20 relative" >
 <div  className="grid  px-0  grid-cols-2 gap-3 laptop:gap-7 w-full laptop:w-2/5  "  > 
-{featuresSectionInfo.map((sectionInfo , index )=><div className={cn("cursor-pointer w-full px-4  laptop:w-full shadow-xl bg-white rounded-2xl border-2 border-black hover:bg-whiteYellwed laptop:px-16" , {"bg-whiteYellwed" : index === selectedFeatureIndex , "bg-white" : index !== selectedFeatureIndex })} onClick={()=>setSelectedFeatureIndex(index)}><FeatureSectionCard title={sectionInfo.shortTitle} descreption={sectionInfo.shortDescreption} iconSrc={sectionInfo.srcIcon}  /></div>)}
+{featuresSectionInfo.map((sectionInfo , index )=><div className={cn("cursor-pointer w-full px-4 py-4  laptop:w-full shadow-xl bg-white rounded-2xl border-2 border-black hover:bg-whiteYellwed laptop:px-16" , {"bg-whiteYellwed" : index === selectedFeatureIndex , "bg-white" : index !== selectedFeatureIndex })} onClick={()=>setSelectedFeatureIndex(index)}><FeatureSectionCard title={sectionInfo.shortTitle} descreption={sectionInfo.shortDescreption} iconSrc={sectionInfo.srcIcon}  /></div>)}
 </div>
 <div className="w-full laptop:w-3/5   flex items-center justify-center"  >
     <div className="flex gap-7 w-full laptop:w-[400px] flex-col" >
-    <H2 className="font-semibold" >{selectedFeatureInfo.longTitle}</H2>
+    <H2  >{selectedFeatureInfo.longTitle}</H2>
     <P>{selectedFeatureInfo.longDescreption}</P>
 { Boolean( typeof selectedFeatureInfo.link   && selectedFeatureInfo.linkText  ) &&  <PrimaryBtn onClick={()=>selectedFeatureInfo.link && router.push(selectedFeatureInfo.link)}  >{selectedFeatureInfo.linkText}</PrimaryBtn> }
 </div>
