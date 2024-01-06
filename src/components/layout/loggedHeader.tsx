@@ -19,7 +19,6 @@ export  function  LoggedHeader  (){
     const {t} =  useTranslation()
     const [scrollPosition, setScrollPosition] = useState(0);
     const pathname = usePathname()
-    console.log("pathname" , pathname)
     const handleScroll = () => {
         const position = window.pageYOffset;
         setScrollPosition(position);

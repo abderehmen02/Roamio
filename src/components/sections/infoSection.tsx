@@ -29,7 +29,7 @@ export const StandardInfoSection : React.FC<InfoSection>  = (infoData)=>{
 }
 
 export const ButtonInfoSection : React.FC<ButtonInfoSection>  = (infoData)=>{
-    return  <div className={cn("flex w-[600px] flex-col items-start justify-center gap-4" , infoData.className )}>
+    return  <div className={cn("flex w-full  laptop:w-[600px] flex-col items-start justify-center gap-4" , infoData.className )}>
         <H2 className={cn("font-semibold  " , infoData.titleClassName)} >{infoData.title}</H2>
         <P  className={cn("text-lg" , infoData.descreptionClassName)} >{infoData.descreption}</P>
         {infoData.button}
