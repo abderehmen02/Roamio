@@ -38,30 +38,30 @@ export const Footer : React.FC = async ()=>{
 <div className="heroOverlay w-full h-full bg-opacity-40 absolute top-0 left-0" ></div>
 
     <div  className="flex relative z-30 items-center    justify-between w-full" >
-<div className="flex  items-center gap-4" >
-<img src={appConfig.logoImage} className="w-[70px]  h-[70px] border-2 border-black object-cover p-0 rounded-full" />
-<H2 className="font-bold" >{appConfig.name}</H2>
+<div className="flex  items-center gap-2 laptop:gap-4" >
+<img src={appConfig.logoImage} className="w-[40px] h-[40px] laptop:w-[70px]  laptop:h-[70px] border-2 border-black object-cover p-0 rounded-full" />
+<H2 className="text-xl"  >{appConfig.name}</H2>
 </div>
-<a href={`mailto:${appConfig.email}`} className="flex  gap-3 items-center" >
+<a href={`mailto:${appConfig.email}`} className="flex mr-3 laptop:mr-0  gap-3 items-center" >
 <i className="bi text-3xl font-bold bi-envelope"></i>
 <H4 className="font-bold" >Email</H4>
 </a>
     </div>
-    <div className="relative z-30 flex w-full items-start  " >
-    <div className="gap-2 w-1/2 flex flex-col" >
+    <div className="relative z-30 flex w-full items-start  justify-between laptop:justify-start" >
+    <div className="gap-2 w-fit laptop:w-1/2 flex flex-col" >
     <Link className="monsterrat " href={appConfig.links.home} ><H4>Home</H4></Link>
     <Link className="monsterrat" href={appConfig.links.blog} ><H4>Blog</H4></Link>
     <Link className="monsterrat" href={appConfig.links.findCities} ><H4>Find Cities </H4></Link>        
     </div>
 
 
-    <div className="gap-2 w-1/2 flex flex-col" >
+    <div className="gap-2 w-fit  laptop:w-1/2 flex flex-col" >
     <Link className="monsterrat " href={appConfig.links.termsOfUse} ><H4>Terms Of Use</H4></Link>
     <Link className="monsterrat" href={appConfig.links.primacyPolicy} ><H4>Privacy Policy</H4></Link>
     <Link className="monsterrat" href={appConfig.links.contact} ><H4>Contact Us <i className="bi text-xl bi-telephone-fill"></i> </H4></Link>        
     </div>
     </div>
-    <div className="flex w-full relative z-30 items-center justify-between" >
+    <div className="flex flex-col laptop:flex-row w-full relative z-30 items-start laptop:items-center justify-between" >
     <P>Copyright All Rights Reserved 2023 </P>
     <P>Email : {appConfig.email}</P>
     <P>Designed By Abde Rehmen</P>
