@@ -143,12 +143,12 @@ return <div className="w-fulll " >
 
 
 
-<motion.div  initial={{x: 0}} style={{height : "calc(100vh - 110px)"}} animate={firstFrameAnimation} className="  bg-opacity-75 w-screen flex items-center justify-start px-32 relative" >
+<motion.div  initial={{x: 0}} style={{height : "calc(100vh - 110px)"}} animate={firstFrameAnimation} className="  bg-opacity-75 w-screen flex items-center justify-start  px-3 laptop::px-32 relative" >
 <img src={firstFrameImg} className="absolute -top-24 right-0 -z-50 object-cover w-full  h-screen " ></img>
 <div className="heroOverlay absolute -top-24 right-0 w-full h-screen -z-40" ></div>
 {/* <ChevronRightIcon onClick={animateToRight}    className="bi text-white absolute  top-[40%]    right-5 cursor-pointer text-5xl "  ></ChevronRightIcon> */}
 {/* <ChevronRightIcon onClick={animateToRight}    className="bi text-white rotate-180 absolute  top-[40%]    left-5 cursor-pointer text-5xl "  ></ChevronRightIcon><div className="absolute -top-24  right-0 -z-40   h-screen w-full heroOverlay" ></div> */}
-<div className="flex z-0 flex-col w-[700px] relative gap-5 text-white " >
+<div className="flex z-0 flex-col w-full laptop:w-[700px]  relative gap-5 text-white " >
 <H1 className="font-semibold z-10 " >ِ{firstFrameTitle.title}</H1>
 <H4 className="font-normal text-xl z-10 relative" >{firstFrameTitle.description}</H4>
 <PrimaryBtn className="w-fit" onClick={()=>alert("working!")} >Explore Cities <i className="bi bi-globe-americas"></i></PrimaryBtn>
@@ -156,13 +156,13 @@ return <div className="w-fulll " >
 </motion.div>
  
 
-<motion.div  initial={{x: 0}} style={{height : "calc(100vh - 110px)" , zIndex : 0}} animate={secondFrameAnimation} className="  bg-opacity-75 w-screen flex items-center justify-start px-32 relative" >
+<motion.div  initial={{x: 0}} style={{height : "calc(100vh - 110px)" , zIndex : 0}} animate={secondFrameAnimation} className="  bg-opacity-75 w-screen flex items-center justify-start px-3 laptop::px-32 relative" >
 <img src={secondFrameImg} className="absolute -top-24 right-0 -z-50 object-cover w-full  h-screen " ></img>
 <div className="heroOverlay absolute -top-24 right-0 w-full h-screen -z-40" ></div>
 
 {/* <ChevronRightIcon onClick={animateToRight}    className="bi text-white absolute  top-[40%]    right-5 cursor-pointer text-5xl "  ></ChevronRightIcon> */}
 {/* <ChevronRightIcon onClick={animateToRight}    className="bi text-white rotate-180 absolute  top-[40%]    left-5 cursor-pointer text-5xl "  ></ChevronRightIcon><div className="absolute -top-24  right-0 -z-40   h-screen w-full heroOverlay" ></div> */}
-<div className="flex z-0 flex-col w-[700px] relative gap-5 text-white " >
+<div className="flex z-0 flex-col w-full lg:w-[700px] relative gap-5 text-white " >
 <H1 className="font-semibold z-10 " >ِ{secondFrameTitle.title}</H1>
 <H4 className="font-normal text-xl z-10 relative" >{secondFrameTitle.description}</H4>
 <PrimaryBtn className="w-fit" onClick={()=>alert("working!")} >Explore Cities <i className="bi bi-globe-americas z0 relative"></i></PrimaryBtn>
