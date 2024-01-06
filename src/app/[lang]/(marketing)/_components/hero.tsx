@@ -149,7 +149,7 @@ return <div className="w-fulll " >
 {/* <ChevronRightIcon onClick={animateToRight}    className="bi text-white absolute  top-[40%]    right-5 cursor-pointer text-5xl "  ></ChevronRightIcon> */}
 {/* <ChevronRightIcon onClick={animateToRight}    className="bi text-white rotate-180 absolute  top-[40%]    left-5 cursor-pointer text-5xl "  ></ChevronRightIcon><div className="absolute -top-24  right-0 -z-40   h-screen w-full heroOverlay" ></div> */}
 <div className="flex z-0 flex-col w-full laptop:w-[700px]  relative gap-5 text-white " >
-<H1 className="font-semibold z-10 " >ِ{firstFrameTitle.title}</H1>
+<H1 className=" z-10 " >ِ{firstFrameTitle.title}</H1>
 <H4 className="font-normal text-xl z-10 relative" >{firstFrameTitle.description}</H4>
 <PrimaryBtn className="w-fit" onClick={()=>alert("working!")} >Explore Cities <i className="bi bi-globe-americas"></i></PrimaryBtn>
 </div>
@@ -163,7 +163,7 @@ return <div className="w-fulll " >
 {/* <ChevronRightIcon onClick={animateToRight}    className="bi text-white absolute  top-[40%]    right-5 cursor-pointer text-5xl "  ></ChevronRightIcon> */}
 {/* <ChevronRightIcon onClick={animateToRight}    className="bi text-white rotate-180 absolute  top-[40%]    left-5 cursor-pointer text-5xl "  ></ChevronRightIcon><div className="absolute -top-24  right-0 -z-40   h-screen w-full heroOverlay" ></div> */}
 <div className="flex z-0 flex-col w-full lg:w-[700px] relative gap-5 text-white " >
-<H1 className="font-semibold z-10 " >ِ{secondFrameTitle.title}</H1>
+<H1 className=" z-10 " >ِ{secondFrameTitle.title}</H1>
 <H4 className="font-normal text-xl z-10 relative" >{secondFrameTitle.description}</H4>
 <PrimaryBtn className="w-fit" onClick={()=>alert("working!")} >Explore Cities <i className="bi bi-globe-americas z0 relative"></i></PrimaryBtn>
 </div>

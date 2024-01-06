@@ -20,7 +20,7 @@ export const boldMontserratClassName= ""
 
 
 export const H1 : React.FC<HTMLAttributes<HTMLHeadElement>  > = ({children   , className   , ...props}  ) =>{
-return <h1 className={cn("text-4xl font-semibold "  ,montserratClassName , className)}  {...props} >
+return <h1 className={cn("text-4xl    laptop:font-semibold "  ,montserratClassName , className)}  {...props} >
 {children}
 </h1>
 } 
