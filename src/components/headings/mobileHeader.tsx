@@ -13,16 +13,20 @@ import { useEffect, useState } from "react"
 export const UnlogedMobileHeader = ()=>{
     const {t} = useTranslation()
     const [openNav , setOpenNav]= useState<boolean>(false)
+    const [scrollPosition, setScrollPosition] = useState(0);
 
-
-useEffect(()=>{
-window.addEventListener("click"  ,()=> setOpenNav(false))
-    return()=>{
-        window.removeEventListener("click"  ,()=> setOpenNav(false))
-    }
-}  ,  )
-
-    return <div onClick={(e)=>e.stopPropagation()} className="flex w-full px-3 py-1 my-1 z-30 items-center fixed   top-0 justify-between" >
+    const handleScroll = () => {
+        const position = window.pageYOffset;
+        setScrollPosition(position);
+    };
+    
+    useEffect(() => {
+    typeof window !== "undefined" &&        window.addEventListener('scroll', handleScroll);
+        return () => {
+    typeof window !== "undefined" &&        window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+    return <div onClick={(e)=>e.stopPropagation()} className={cn("flex w-full px-3 py-1 mb-2 z-30 items-center fixed   top-0 justify-between" , {"bg-black" : scrollPosition > 10 }  )} >
 <i  onClick={()=>setOpenNav(true)}  className={cn("bi bi-list-stars  text-4xl block" , {"invisible" : openNav })}></i>
 <div   className={cn("flex fixed top-0 left-0 bg-white flex-col shadow-xl items-center justify-center gap-6 px-8 py-4 z-40 " , {"hidden" : !openNav} )} >
 <Link href={appConfig.links.home} className="flex items-center mb-6" ><img src={appConfig.logoImage} className="w-8 h-8 m-4 hidden" /><H2>{appConfig.name}</H2></Link>
