@@ -72,12 +72,6 @@
     text-shadow:  0.5px 0.5px 1px black;
 }
 
-@media screen and (max-width : 640px) {
-.loginImg{
-width:  200px;
-height: 248px ;
-}  
-}
 
 
  
@@ -128,3 +122,13 @@ height: 248px ;
   } 
 
 
+  @media screen and (max-width : 640px) {
+    .loginImg{
+    width:  200px;
+    height: 248px ;
+    }  
+    .featuresSectionIcon {
+      font-size: 70px;
+    }
+    }
+    

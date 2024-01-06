@@ -13,8 +13,8 @@ export const FeaturesSection = ()=>{
     const selectedFeatureInfo = featuresSectionInfo[selectedFeatureIndex]
     const router = useRouter()
     return <div className="flex gap-8 flex-col laptop:flex-row items-center justify-center  px-16 py-20 relative" >
-<div  className="grid  grid-cols-2 gap-7 w-full laptop:w-2/5  "  > 
-{featuresSectionInfo.map((sectionInfo , index )=><div className={cn("cursor-pointer shadow-xl bg-white rounded-2xl border-2 border-black hover:bg-whiteYellwed" , {"bg-whiteYellwed" : index === selectedFeatureIndex , "bg-white" : index !== selectedFeatureIndex })} onClick={()=>setSelectedFeatureIndex(index)}><FeatureSectionCard title={sectionInfo.shortTitle} descreption={sectionInfo.shortDescreption} iconSrc={sectionInfo.srcIcon}  /></div>)}
+<div  className="grid px-6 laptop:px-0  grid-cols-2 gap-3 laptop:gap-7 w-full laptop:w-2/5  "  > 
+{featuresSectionInfo.map((sectionInfo , index )=><div className={cn("cursor-pointer w-full px-4 laptop:w-full shadow-xl bg-white rounded-2xl border-2 border-black hover:bg-whiteYellwed" , {"bg-whiteYellwed" : index === selectedFeatureIndex , "bg-white" : index !== selectedFeatureIndex })} onClick={()=>setSelectedFeatureIndex(index)}><FeatureSectionCard title={sectionInfo.shortTitle} descreption={sectionInfo.shortDescreption} iconSrc={sectionInfo.srcIcon}  /></div>)}
 </div>
 <div className="w-3/5   flex items-center justify-center"  >
     <div className="flex gap-7 w-[400px] flex-col" >

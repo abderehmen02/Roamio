@@ -19,7 +19,7 @@ export const featuresSectionInfo: FeaturesSectionInfo[] = [
     shortTitle: "Find Cities",
     longTitle:
       "Explore Cities Worldwide with Precision and Personalized Search",
-    srcIcon: <SearchIcon className='featuresSectionIcon bgBackground border-2 ' />,
+    srcIcon: <SearchIcon sx={{margin : "0px"}} style={{margin : "0px"}} className='featuresSectionIcon bgBackground border-2 ' />,
     link: appConfig.links.findCities,
     linkText : "Find Cities" ,
     shortDescreption:
