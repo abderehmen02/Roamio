@@ -61,7 +61,7 @@ useEffect(()=>{
         clearInterval(secondCardInterval)
        }       
     }     , [] )
-return <div className="flex items-center justify-center relative gap-6" >
-  <motion.div className="w-1/2" initial={{opacity : 0}} animate={{opacity : 1}} > <BlogHeroCard title={firstCardTitle.title} descreption={firstCardTitle.description} className="bg-primaryDark min-h-[170px] "  /></motion.div>
-  <motion.div className="w-1/2" initial={{opacity :0}}  animate={secondCardAnimation} >  <BlogHeroCard className="bg-secondary text-primary min-h-[170px]"  title={secondCardTitle.title} descreption={secondCardTitle.description} /></motion.div>
+return <div className="flex items-center flex-col laptop:flex-row justify-center relative gap-6" >
+  <motion.div className="w-full laptop:w-1/2" initial={{opacity : 0}} animate={{opacity : 1}} > <BlogHeroCard title={firstCardTitle.title} descreption={firstCardTitle.description} className="bg-primaryDark min-h-[170px] "  /></motion.div>
+  <motion.div className="w-full laptop:w-1/2" initial={{opacity :0}}  animate={secondCardAnimation} >  <BlogHeroCard className="bg-secondary text-primary min-h-[170px]"  title={secondCardTitle.title} descreption={secondCardTitle.description} /></motion.div>
 </div>}

@@ -30,8 +30,8 @@ return     <Page className="flex items-center  flex-col"  >
         <PageBody className="flex  flex-col" >
         <BlogHero/>
         <DisplayAnimation className="w-full " delay={0.3} >
-        <div className="flex  w-full  justify-between  gap-4 " ><BlogFilterCard category={ searchParams && searchParams[appConfig.blog.blogCategoryQueryName]  as string | undefined} />
-             <div key="bostsArrayInTheBlogPage" className="flex gap-2 flex-row items-center justify-center w-fit flex-wrap" >{allPosts.map((post , index )=><DisplayAnimation key={post.title} delay={(index  + 2) * 0.2} ><BlogPostCard  key={post.title} {...post} /></DisplayAnimation>)}</div>
+        <div className="flex flex-col laptop:flex-row w-full  justify-between  gap-4 " ><BlogFilterCard category={ searchParams && searchParams[appConfig.blog.blogCategoryQueryName]  as string | undefined} />
+             <div key="bostsArrayInTheBlogPage" className="flex gap-2 flex-row items-center justify-center w-fit flex-wrap" >{allPosts.map((post , index )=><DisplayAnimation className="w-full" key={post.title} delay={(index  + 2) * 0.2} ><BlogPostCard  key={post.title} {...post} /></DisplayAnimation>)}</div>
         </div>
         </DisplayAnimation>
         <RecommendedForYou/>
