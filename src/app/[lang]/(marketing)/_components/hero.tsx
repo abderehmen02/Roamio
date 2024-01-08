@@ -7,6 +7,8 @@ import {motion , useAnimation} from "framer-motion"
 import { useTranslation } from "@/app/i18n/client"
 import { useEffect, useRef, useState } from "react"
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import Link from "next/link"
+import { appConfig } from "@/config"
 
 const citiesImageNames = [ "Barcelona" , "dubai" , "Moscow" , "paris" , "sanDiego" , "sanFransisco" , "Sydney" ]
 
@@ -151,7 +153,7 @@ return <div className="w-fulll " >
 <div className="flex z-0 flex-col w-full laptop:w-[700px]  relative gap-5 text-white " >
 <H1 className=" z-10 " >ِ{firstFrameTitle.title}</H1>
 <H4 className="font-normal text-xl z-10 relative" >{firstFrameTitle.description}</H4>
-<PrimaryBtn className="w-fit" onClick={()=>alert("working!")} >Explore Cities <i className="bi bi-globe-americas"></i></PrimaryBtn>
+<Link href={appConfig.links.findCities} className="w-fit"  >Explore Cities <i className="bi bi-globe-americas"></i></Link>
 </div>
 </motion.div>
  
@@ -165,7 +167,7 @@ return <div className="w-fulll " >
 <div className="flex z-0 flex-col w-full lg:w-[700px] relative gap-5 text-white " >
 <H1 className=" z-10 " >ِ{secondFrameTitle.title}</H1>
 <H4 className="font-normal text-xl z-10 relative" >{secondFrameTitle.description}</H4>
-<PrimaryBtn className="w-fit" onClick={()=>alert("working!")} >Explore Cities <i className="bi bi-globe-americas z0 relative"></i></PrimaryBtn>
+<Link href={appConfig.links.findCities} className="w-fit"  >Explore Cities <i className="bi bi-globe-americas z0 relative"></i></Link>
 </div>
 </motion.div>
  
