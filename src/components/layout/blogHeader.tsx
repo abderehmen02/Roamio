@@ -35,7 +35,7 @@ export const BLogHeader =   ()=>{
 <Link href={appConfig.links.home}> <PrimaryBtn>Back To Home </PrimaryBtn></Link>
     </div>
     <div className="flex  w-full laptop:hidden" >
-    <div  className={cn("flex px-2 py-2 w-full z-30 items-center fixed   top-0 justify-between" , {"bg-white" : scrollPosition >10} )}  >
+    <div  className={cn("flex px-2 py-2 w-full z-30 items-center fixed   top-0 justify-between" , {"bg-black text-white" : scrollPosition >10} )}  >
 <Link href={appConfig.links.home} > <img src={appConfig.logoImage} className="w-11 h-11"  /></Link>
 <Link href={appConfig.links.home} ><HomeIcon sx={{fontSize : "40px"}} /></Link>   
 </div>
