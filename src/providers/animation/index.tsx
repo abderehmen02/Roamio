@@ -11,7 +11,7 @@ type DisplayAnimationProps  =  {children : React.ReactNode ,
 } 
 
 export const DisplayAnimation : React.FC<DisplayAnimationProps> = ({children , delay , className })=>{
-return    <motion.div variants={appVariants } transition={{ease : "linear"  , type : "spring" , delay  }}  initial="beforeDisplay" animate="display" className={className} >
+return    <motion.div variants={appVariants } transition={{   type : "spring" , delay  }}  initial="beforeDisplay" animate="display" className={className} >
 {children}
     </motion.div>
 }
