@@ -49,7 +49,7 @@ const sendContactMessage = async (e: FormEvent<HTMLFormElement>) : Promise<void>
 }
 
 
-return <Page className="w-full flex items-center justify-center " >
+return <Page className="w-full flex items-center justify-center pt-14 laptop:pt-32 " >
 <BLogHeader/>
 <Title title="Contact Us" descreption="Have a proplem? leave us a message and we will get back to you asap" />
 <form  onSubmit={sendContactMessage} className="flex w-full max-w-[800px]  gap-11 rounded-lg px-5 laptop:px-24 py-11 flex-col shadow-lg bg-white" >
