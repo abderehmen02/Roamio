@@ -1,6 +1,7 @@
 
 "use client"
 
+import { BLogHeader } from "@/components/layout/blogHeader";
 import { PrimaryBtn } from "@/ui/buttons";
 import { Page } from "@/ui/containers";
 import { PrimaryInput } from "@/ui/input";
@@ -49,6 +50,7 @@ const sendContactMessage = async (e: FormEvent<HTMLFormElement>) : Promise<void>
 
 
 return <Page className="w-full flex items-center justify-center " >
+<BLogHeader/>
 <Title title="Contact Us" descreption="Have a proplem? leave us a message and we will get back to you asap" />
 <form onSubmit={sendContactMessage} className="flex w-full  gap-11 rounded-lg px-5 laptop:px-24 py-11 flex-col shadow-lg bg-white" >
 {messageSent ?   <H4 className="text-green-600 w-full text-center" >Your message has been sent!</H4> : (messageError ? <H4 className="text-red-600 w-full text-center " >Some Error Hapened! please try again</H4> : null ) }
