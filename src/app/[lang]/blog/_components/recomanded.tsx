@@ -21,7 +21,7 @@ export const RecommendedForYou = ()=>{
     })
     
     if(isLoading) return  <div className="w-full h-[800px] bg-gray-300 animate-pulse" ></div>
-    return <div className="flex flex-col items-center  justify-center py-20" >
+    return <div className="hidden laptop:flex flex-col items-center  justify-center py-20" >
     { recommendedPosts?.length && <div className="w-full flex gap-6">
     <div className="flex w-3/12 gap-10 flex-col" >
     <RecommendedBlogPostCard {...recommendedPosts[0]} />
