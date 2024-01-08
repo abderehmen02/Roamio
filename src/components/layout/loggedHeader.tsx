@@ -13,6 +13,7 @@ import ArticleIcon from '@mui/icons-material/Article';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import { usePathname } from "next/navigation"
+import { LoggedMobileHeader, UnlogedMobileHeader } from "../headings/mobileHeader"
 
 
 export  function  LoggedHeader  (){
@@ -31,7 +32,8 @@ export  function  LoggedHeader  (){
         };
     }, []);
     return(<>
-<div   className={cn( "flex w-full items-center     top-0 px-5 laptop:px-10 z-50 fixed   laptop:pb-4 laptop:pt-4  justify-between" , { "bg-white" : typeof window !== "undefined" && 10 < scrollPosition} )} >
+<LoggedMobileHeader/>
+<div   className={cn( "w-full items-center  hidden laptop:flex  bg-red-400 top-0 px-5 laptop:px-10 z-50 fixed   laptop:pb-4 laptop:pt-4  justify-between" , { "bg-white" : typeof window !== "undefined" && 10 < scrollPosition} )} >
 <div>
 <Link className="flex items-center gap-" href={appConfig.links.home} ><img alt={appConfig.name + "logo"} src={appConfig.logoImage} className="w-11 h-11 m-4" /> < H2 className="font-bold" >Roamio</H2> </Link>
 </div>

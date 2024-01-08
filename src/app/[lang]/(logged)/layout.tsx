@@ -26,7 +26,7 @@ export default async function LoggedLayout({
 
   return (
     <AuthProvider> 
-<div  className="flex  w-full items-center justify-center pt-36  px-0 flex-col  gap-4 " >    
+<div  className="flex  w-full items-center  justify-center pt-36  px-0 flex-col  gap-4 " >    
 <LoggedHeader/>  
 {children}
 <Footer/>
