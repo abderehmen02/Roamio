@@ -87,7 +87,7 @@ export const CityCard : React.FC<CityDb | {name : string} > =  (cityInfo)=>{
   const cityDb : CityDb | undefined =     isCityDb(cityInfo) ? cityInfo :  fetchedCityDb
   const [city , setCity]  = useState<CityDb | undefined>(cityDb)
   const [ addReview , likeCity  , unlikeCity , dislikeCity  , cancelDislike , saveCity , unsaveCity , deleteReviewFn, loadingSave    , loadingLike  , loadingDislke ] = useCityCardActions(city , setCity )
-  const currentCategories : string[] = JSON.parse(searchParams.get(QueryObjParams.categories) || '[]')
+  const currentCategories : string[] = JSON.parse(( searchParams &&  searchParams.get(QueryObjParams.categories) ) || '[]')
 
   
     const isSavedCity = isUserInfo(userInfo) && userInfo.savedCities.includes(cityInfo.name)
@@ -137,7 +137,7 @@ function receiveCityDbData (data: CityDb): void{
   <PrimaryBtn  size={ButtonsSizes.small} className="py-0 w-full laptop:w-fit " onClick={()=>setViewLandMarks((val)=>!val)} > {viewLandMarks ? <i className="bi m-0 text-sm bi-chevron-up"></i> : <i className= "bi m-0  bi-chevron-down " ></i> } {t("Explore Landmarks")}  </PrimaryBtn>
 { isCityDb(city) && Boolean(city.places.filter(place=>currentCategories.find((category)=>place.category === category)).length)  && <PrimaryBtn  size={ButtonsSizes.small} className="py-0 w-full laptop:w-fit " onClick={()=>setOpenPlacesModal(true)} > Explore Places  </PrimaryBtn> }
 </div></div>
-{cityDb && <CityDbInfo setSeeMoreInfo={setSeeMoreInfo} seeMoreInfo={seeMoreInfo} citydb={cityDb} query={searchParams.toString()} />}
+{cityDb && <CityDbInfo setSeeMoreInfo={setSeeMoreInfo} seeMoreInfo={seeMoreInfo} citydb={cityDb} query={( searchParams && searchParams.toString() ) || ""} />}
     </div>
     </div>
     { isCityDb(city) && viewLandMarks && cityWikipediaData.lat && cityWikipediaData.lon &&  <Landmarks city={city} cityLat={cityWikipediaData.lat} cityLon={cityWikipediaData.lon} /> }
