@@ -1,9 +1,7 @@
 "use client"
 import { appConfig } from "@/config"
-import { PrimaryBtn, SecondaryBtn } from "@/ui/buttons"
+import { PrimaryBtn } from "@/ui/buttons"
 import Link from "next/link"
-import { useTranslation as translate } from "@/app/i18n"
-import { H2, H3 } from "@/ui/typography"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/tailwind"
 import HomeIcon from '@mui/icons-material/Home';
@@ -30,8 +28,8 @@ export const BLogHeader =   ()=>{
     }, []);
 
     return      <>
-    <div  className="hidden   laptop:flex w-full px-12  items-center justify-between py-2" >
-<Link href={appConfig.links.home} ><img alt={appConfig.name + "logo"} src={appConfig.logoImage} className="w-16 h-16" /></Link>
+    <div  className={cn( "hidden fixed top-0 z-50  laptop:flex w-full px-12  items-center justify-between py-2" , {"bg-white" : scrollPosition >10})}>
+<Link href={appConfig.links.home} ><img alt={appConfig.name + "logo"} src={appConfig.logoImage} className="w-12 h-12" /></Link>
 <Link href={appConfig.links.home}> <PrimaryBtn>Back To Home </PrimaryBtn></Link>
     </div>
     <div className="flex  w-full laptop:hidden" >
