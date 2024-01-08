@@ -7,7 +7,7 @@ export const FeaturesCards = ()=>{
     <H1>What You Can Use Roamio For</H1>
     <div className="flex flex-col items-center justify-center gap-8 py-6 px-3" >
      {
-        aboutFeatures.map(aboutFeature =><AboutCard {...aboutFeature} />)
+        aboutFeatures.map(aboutFeature =><AboutCard key={aboutFeature.title} {...aboutFeature} />)
      }
     </div>
     </div>

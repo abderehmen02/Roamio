@@ -51,12 +51,12 @@ const handleChange = (event: React.SyntheticEvent, newValue: Category) => {
         <Box sx={{ borderBottom: 1 , borderColor: 'divider' }}>
           <TabList  className="px-6" onChange={handleChange} aria-label="lab API tabs example">
             {
-               filteredCategories?.map(category=>            <Tab label={category} value={category}/>                )
+               filteredCategories?.map(category=>            <Tab key={category} label={category} value={category}/>                )
             }
           </TabList>
         </Box>
         {
-            filteredCategories?.map(category=><TabPanel sx={{ padding : "0px"}} value={category}><div className="flex flex-col items-center justify-center gap-5 px-3 py-5" >{ places.filter(place =>place.category === category).map(place=><PlaceDisplayer placeName={place.place} />) }</div></TabPanel>
+            filteredCategories?.map(category=><TabPanel key={category} sx={{ padding : "0px"}} value={category}><div className="flex flex-col items-center justify-center gap-5 px-3 py-5" >{ places.filter(place =>place.category === category).map(place=><PlaceDisplayer key={place.place} placeName={place.place} />) }</div></TabPanel>
             )
         }
 
