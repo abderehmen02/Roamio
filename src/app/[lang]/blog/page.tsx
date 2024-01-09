@@ -22,7 +22,7 @@ export default async  function BLogPage (query: {
     let allPosts = [...blogPosts  , ...sanityPosts ]
     const category = query?.searchParams && query.searchParams.category
     console.log(query.searchParams)
-    if(category)allPosts =    allPosts.filter(post=>post.category === category)
+    // if(category)allPosts =    allPosts.filter(post=>post.category === category)
 return     <Page className="flex items-center  flex-col"  >
         <Title  titleClassName="text-primaryDark"  title="Roamio Blog" descreption={blogPageDescreptions[ Math.floor( Math.random() * 6 )]} />
         <PageBody className="flex  flex-col" >
