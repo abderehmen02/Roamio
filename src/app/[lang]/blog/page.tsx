@@ -9,18 +9,16 @@ import { Page, PageBody } from "@/ui/containers";
 import { Title } from "@/ui/title";
 import { getSanityPosts } from "@/utils/blogPosts";
 import { RecommendedForYou } from "./_components/recomanded";
+import { useSearchParams } from "next/navigation";
+import { BlogPosts } from "./_components/posts";
 
 
 
 // export const revalidate = 1
 
-export default async  function BLogPage (query: {
-    params?: { slug: string },
-    searchParams?: { [key: string]: string | string[] | undefined },
-  }){
+export default async  function BLogPage (){
     const sanityPosts = await getSanityPosts() || []
-    let allPosts = [...blogPosts  , ...sanityPosts ]
-    const category = query?.searchParams && query.searchParams.category
+     let allPosts = [...blogPosts  , ...sanityPosts ]
 
     // if(category)allPosts =    allPosts.filter(post=>post.category === category)
 return     <Page className="flex items-center  flex-col"  >
@@ -29,7 +27,7 @@ return     <Page className="flex items-center  flex-col"  >
         <BlogHero/>
         <DisplayAnimation className="w-full " delay={0.3} >
         <div className="flex flex-col laptop:flex-row w-full  justify-between  gap-4 " ><BlogFilterCard category={ undefined} />
-             <div key="bostsArrayInTheBlogPage" className="flex gap-2  flex-row items-center justify-center w-fit laptop:w-full flex-wrap" >{allPosts.map((post , index )=><DisplayAnimation className="w-fit" key={post.title} delay={(index  + 2) * 0.2} ><BlogPostCard  key={post.title} {...post} /></DisplayAnimation>)}</div>
+        <BlogPosts blogPosts={allPosts} />
         </div>
         </DisplayAnimation>
         <RecommendedForYou/>
