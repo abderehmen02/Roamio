@@ -34,7 +34,7 @@ return     <Page className="flex items-center  flex-col"  >
              <div key="bostsArrayInTheBlogPage" className="flex gap-2  flex-row items-center justify-center w-fit laptop:w-full flex-wrap" >{allPosts.map((post , index )=><DisplayAnimation className="w-fit" key={post.title} delay={(index  + 2) * 0.2} ><BlogPostCard  key={post.title} {...post} /></DisplayAnimation>)}</div>
         </div>
         </DisplayAnimation>
-        <RecommendedForYou/>
+        {/* <RecommendedForYou/> */}
         </PageBody>
     </Page>
 }
