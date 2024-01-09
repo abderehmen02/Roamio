@@ -7,7 +7,7 @@ import { blogPosts } from "@/constants/blog/blog";
 import { DisplayAnimation } from "@/providers/animation";
 import { Page, PageBody } from "@/ui/containers";
 import { Title } from "@/ui/title";
-import { getSanityPosts } from "@/utils/blogPosts";
+// import { getSanityPosts } from "@/utils/blogPosts";
 import { RecommendedForYou } from "./_components/recomanded";
 
 
@@ -21,8 +21,8 @@ export default async  function BLogPage ({
     params: { slug: string },
     searchParams?: { [key: string]: string | string[] | undefined },
   }){
-    const sanityPosts = await getSanityPosts() || []
-    let allPosts = [...sanityPosts , ...blogPosts]
+    // const sanityPosts = await getSanityPosts() || []
+    let allPosts = blogPosts
     const category = searchParams && searchParams[appConfig.blog.blogCategoryQueryName]
     if(category)allPosts =    allPosts.filter(post=>post.category === category)
 return     <Page className="flex items-center  flex-col"  >
