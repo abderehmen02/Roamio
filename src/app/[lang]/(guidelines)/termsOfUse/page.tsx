@@ -4,7 +4,7 @@ import { Title } from "@/ui/title";
 import { H2, H3, P } from "@/ui/typography";
 
 export default function TermsOfUse(){
-    return <Page>
+    return <Page style={{maxWidth :"1200px"}} >
 <Title title="Terms of use" descreption={`Please read our Terms of Use to understand the rules and guidelines for using ${appConfig.name}`} />
 <div className="w-full  laptop:my-7 flex flex-col gap-2" >
 <H3>Last Updated: 1st October 2022</H3>

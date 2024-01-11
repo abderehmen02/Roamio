@@ -1,9 +1,10 @@
 import { appConfig } from "@/config";
+import { Page } from "@/ui/containers";
 import { Title } from "@/ui/title";
 import { H2, H3, P } from "@/ui/typography";
 
 export default function PrivacyPolicy(){
-    return <div className="min-h-screen w-full flex flex-col items-center" >
+    return <Page style={{maxWidth :"1200px"}} >
         <Title title="Privacy Policy" className="px-3" descreption="Please read our Privacy Policy to understand how we protect your personal information and data" />
         <div className="w-full laptop:w-[1000px] px-3  my-7 flex flex-col gap-2" >
 <div className="flex flex-col gap-8" >
@@ -69,5 +70,5 @@ export default function PrivacyPolicy(){
 <div>
 <P>Thank you for choosing {appConfig.name}!</P>
 </div></div>
-    </div>
+    </Page>
 }
