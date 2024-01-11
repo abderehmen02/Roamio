@@ -5,7 +5,7 @@ import { Footer } from '../../../components/layout/footer'
 
 
 export default function Layout ({children} : {children : React.ReactNode}){
-return <div  className="flex  w-full px-0 flex-col  gap-20" >
+return <div  className="flex  w-full px-0 flex-col  gap-20  pt-14 laptop:pt-32" >
     <UnlogedHeader/>
 
 {children}
