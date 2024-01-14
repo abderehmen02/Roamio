@@ -23,8 +23,8 @@ export const AppHero : React.FC =   ()=>{
     const framePositions = ['0vw'  , "-100vw"  , "100vw" ]
     let firstFramePositionIndex = 0 ;
     let secondFramePositionIndex = 0 
-   const [firstFrameImg , setFirstFrameImg ] = useState(`/${citiesImageNames[currCityImgIndex.current]}${currImgIndex.current}.jpg`)
-   const [secondFrameImg , setSecondFrameImg ] = useState(`/${citiesImageNames[(currCityImgIndex.current || 1)+ 1]}${(currImgIndex.current  || 1)+ 1}.jpg`)
+   const [firstFrameImg , setFirstFrameImg ] = useState(`/sizedCitiesImages/${citiesImageNames[currCityImgIndex.current]}${currImgIndex.current}-nr.jpg`)
+   const [secondFrameImg , setSecondFrameImg ] = useState(`/sizedCitiesImages/${citiesImageNames[(currCityImgIndex.current || 1)+ 1]}${(currImgIndex.current  || 1)+ 1}-nr.jpg`)
    const [firstFrameTitle , setFirstFrameTitle ] = useState(appLongTitles[Math.floor(Math.random() * (appLongTitles.length - 1 ))])
    const [secondFrameTitle , setSecondFrameTitle ] = useState(appLongTitles[Math.floor(Math.random() * (appLongTitles.length - 1 ))])   
 
@@ -101,7 +101,7 @@ if(firstFramePositionIndex === 0 && secondFramePositionIndex === 0){
 firstFrameAnimation.start({x: '-100vw' , transition : {duration : 1.5 , ease : "easeIn"}}).then(()=>{
         firstFrameAnimation.set({x : '100vw' })
         firstFramePositionIndex = 2
-        setFirstFrameImg(`/${citiesImageNames[Math.floor(Math.random() * ( citiesImageNames.length - 1))]}${Math.floor(Math.random()*2 + 1)}.jpg`)
+        setFirstFrameImg(`/sizedCitiesImages/${citiesImageNames[Math.floor(Math.random() * ( citiesImageNames.length - 1))]}${Math.floor(Math.random()*2 + 1)}-nr.jpg`)
         setFirstFrameTitle(appLongTitles[Math.floor(Math.random() * (appLongTitles.length - 1 ))])
     })
 secondFrameAnimation.start({x : '-100vw' , transition : {duration : 1.5 , ease : "easeIn"} }).then(()=>{
@@ -120,7 +120,7 @@ else if (firstFramePositionIndex ===2 && secondFramePositionIndex === 1){
     })
 secondFrameAnimation.start({x : '-200vw' , transition : {duration : 1.5 , ease : "easeIn"} }).then(()=>{
     secondFrameAnimation.set({x : 0})
-    setSecondFrameImg(`/${citiesImageNames[Math.floor(Math.random() * ( citiesImageNames.length - 1))]}${Math.floor(Math.random()*2 + 1)}.jpg`)
+    setSecondFrameImg(`/sizedCitiesImages/${citiesImageNames[Math.floor(Math.random() * ( citiesImageNames.length - 1))]}${Math.floor(Math.random()*2 + 1)}-nr.jpg`)
        secondFramePositionIndex = 0
        setSecondFrameTitle(appLongTitles[Math.floor(Math.random() * (appLongTitles.length - 1 ))])
 })
@@ -133,7 +133,7 @@ secondFrameAnimation.start({x : '-200vw' , transition : {duration : 1.5 , ease :
 useEffect(()=>{
 let intervalId = setInterval(()=>{
     animateFrames()
-} , 22000)
+} , 2000)
 return ()=>{
     clearInterval(intervalId)
 }
@@ -146,7 +146,8 @@ return <div className="w-fulll " >
 
 
 <motion.div  initial={{x: 0}} style={{height : "calc(100vh - 110px)"}} animate={firstFrameAnimation} className="  bg-opacity-75 w-screen flex items-center justify-start  px-3 laptop:px-32 relative" >
-<img src={firstFrameImg} className="absolute -top-24 right-0 -z-50 object-cover w-full  h-screen " ></img>
+ <img src="Barcelona1-blur"  style={{objectFit : "cover"}}  className="absolute -top-24 right-0 -z-50  w-full border-2 border-red-600  h-screen " />
+<img style={{objectFit : "cover"}} src={firstFrameImg} className="absolute -top-24 right-0 -z-50  w-full border-2 border-red-600  h-screen " ></img>
 <div className="heroOverlay absolute -top-24 right-0 w-full h-screen -z-40" ></div>
 {/* <ChevronRightIcon onClick={animateToRight}    className="bi text-white absolute  top-[40%]    right-5 cursor-pointer text-5xl "  ></ChevronRightIcon> */}
 {/* <ChevronRightIcon onClick={animateToRight}    className="bi text-white rotate-180 absolute  top-[40%]    left-5 cursor-pointer text-5xl "  ></ChevronRightIcon><div className="absolute -top-24  right-0 -z-40   h-screen w-full heroOverlay" ></div> */}
@@ -159,7 +160,7 @@ return <div className="w-fulll " >
  
 
 <motion.div  initial={{x: 0}} style={{height : "calc(100vh - 110px)" , zIndex : 0}} animate={secondFrameAnimation} className="  bg-opacity-75 w-screen flex items-center justify-start px-3 laptop:px-32 relative" >
-<img src={secondFrameImg} className="absolute -top-24 right-0 -z-50 object-cover w-full  h-screen " ></img>
+<img  src={secondFrameImg} className="absolute -top-24 right-0 -z-50 object-cover w-full  h-screen " ></img>
 <div className="heroOverlay absolute -top-24 right-0 w-full h-screen -z-40" ></div>
 
 {/* <ChevronRightIcon onClick={animateToRight}    className="bi text-white absolute  top-[40%]    right-5 cursor-pointer text-5xl "  ></ChevronRightIcon> */}
