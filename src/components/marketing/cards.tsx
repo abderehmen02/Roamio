@@ -95,7 +95,7 @@ export const CategoryCard : React.FC<{  lazyLoadImage? :  boolean ,   className?
 
 export const LandmarkCard : React.FC<{landmarkData : LandmarkData}> = ({landmarkData })=>{
     return <div className="relative  w-[20vw] h-[30vw]  rounded-2xl " >
-    <img src={landmarkData.image} className="absolute top-0 object-cover rounded-2xl left-0 w-full h-full z-0" />
+    <img alt={landmarkData.name + " image in " + landmarkData.country} src={landmarkData.image} className="absolute top-0 object-cover rounded-2xl left-0 w-full h-full z-0" />
     <div className="absolute top-0 right-0 landmarkCardBg w-full h-full z-10" ></div>
     <H3 className="font-bold absolute bottom-[20px] left-1/2 text-white z-20 text-center -translate-x-1/2" >{landmarkData.name}</H3><H4>{landmarkData.country}</H4>
    </div>
