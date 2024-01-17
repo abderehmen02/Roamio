@@ -34,7 +34,7 @@ export const LoggedMobileHeader = ()=>{
     return <div onClick={(e)=>e.stopPropagation()} className={cn("flex laptop:hidden w-full px-3 py-1 mb-2 z-50 items-center fixed   top-0 justify-between" , {"bg-black text-white" : scrollPosition > 10 }  )} >
 <i  onClick={()=>setOpenNav(true)}  className={cn("bi bi-gear-fill  text-4xl block" , {"invisible" : openNav })}></i>
 <div   className={cn("flex fixed top-0 left-0 bg-white flex-col shadow-xl  justify-center gap-6 px-8 py-4 z-40 " , {"hidden" : !openNav} )} >
-<Link onClick={()=>setOpenNav(false)} href={appConfig.links.home} className="flex gap-2  mb-3 flex-col" ><img src={appConfig.logoImage} className="w-8 h-8 m-4  hidden" />
+<Link onClick={()=>setOpenNav(false)} href={appConfig.links.home} className="flex gap-2  mb-3 flex-col" ><img alt={`${appConfig.name } logo image`} src={appConfig.logoImage} className="w-8 h-8 m-4  hidden" />
 <img src={appConfig.logoImage} className="w-[50px] h-[50px]" />
 <H2 className="text-black" >{appConfig.name}</H2>
 </Link>
@@ -69,8 +69,8 @@ export const UnlogedMobileHeader = ()=>{
     return <div onClick={(e)=>e.stopPropagation()} className={cn("flex w-full px-3 py-1 mb-2 z-50 items-center fixed   top-0 justify-between" , {"bg-black text-white" : scrollPosition > 10 }  )} >
 <i  onClick={()=>setOpenNav(true)}  className={cn("bi bi-list-stars  text-4xl block" , {"invisible" : openNav })}></i>
 <div   className={cn("flex fixed top-0 left-0 bg-white flex-col shadow-xl  justify-center gap-6 px-8 py-4 z-40 " , {"hidden" : !openNav} )} >
-<Link onClick={()=>setOpenNav(false)} href={appConfig.links.home} className="flex gap-2  mb-3 flex-col" ><img src={appConfig.logoImage} className="w-8 h-8 m-4  hidden" />
-<img src={appConfig.logoImage} className="w-[50px] h-[50px]" />
+<Link onClick={()=>setOpenNav(false)} href={appConfig.links.home}   className="flex gap-2  mb-3 flex-col" ><img alt={`${appConfig.name } logo image`}  src={appConfig.logoImage} className="w-8 h-8 m-4  hidden" />
+<img src={appConfig.logoImage} className="w-[50px] h-[50px]" alt={`${appConfig.name } logo image`}  />
 <H2 className="text-black" >{appConfig.name}</H2>
 </Link>
 <Link onClick={()=>setOpenNav(false)} href={appConfig.links.findCities} ><H3  className="text-black capitalize font-semibold " >{t("find city")}<i className="bi mx-1 bi-globe-asia-australia"></i></H3></Link>
