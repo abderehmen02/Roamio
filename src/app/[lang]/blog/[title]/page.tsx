@@ -26,7 +26,7 @@ const imageSrc = typeof blogPostInfo.image === "string" ? blogPostInfo.image : (
 
 return <Page  >
     <Title title={blogPostInfo?.title} descreption={blogPostInfo.descreption} />
-    <img style={{height : '500px', width : '90%'  }} src={imageSrc} />
+    <img alt={blogPostInfo.title} style={{height : '500px', width : '90%'  }} src={imageSrc} />
 <div style={{width : '90%'}} className="flex flex-col gap-5" >    {
        blogPostInfo.articles.map(blogPost=><div key={blogPost.title} >
             <H2>{blogPost.title}</H2>

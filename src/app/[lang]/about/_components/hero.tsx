@@ -18,6 +18,6 @@ export const AboutHero = ()=>{
 <Link href={appConfig.links.blog} >            <SecondaryBtn className="w-[250px] laptop:w-fit font-semibold" >Explore Articles <ArticleIcon/></SecondaryBtn></Link>
             </div>
         </div>
-            <img src="/planet.png " className="w-full laptop:w-5/12 object-contain" />
+            <img alt="planet image" src="/planet.png " className="w-full laptop:w-5/12 object-contain" />
         </div>
 }
