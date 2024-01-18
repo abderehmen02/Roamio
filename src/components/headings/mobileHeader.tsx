@@ -45,7 +45,7 @@ export const LoggedMobileHeader = ()=>{
 <H3 onClick={()=>logout(dispatch , router)} className="text-black capitalize font-semibold " >Logout <NotInterested/> </H3>
 <div className="flex w-full justify-center"><i onClick={()=>setOpenNav(false)} className="bi bi-x-lg text-4xl text-red-500 hover:text-red-800"></i></div>
 </div>
-<Link href={appConfig.links.home} > <img src={appConfig.logoImage} className={cn("w-12 h-12 " , {"invisible" : openNav }) } /></Link>
+<Link href={appConfig.links.home} > <img src={appConfig.logoImage} alt={appConfig.name + "logo image"} className={cn("w-12 h-12 " , {"invisible" : openNav }) } /></Link>
     </div>
 }
 
