@@ -1,7 +1,7 @@
 "use client"
 import { PrimaryBtn, SecondaryBtn, TextButton } from "@/ui/buttons"
 import { useTranslation as translate } from "@/app/i18n"
-import { H1,  H4 } from "@/ui/typography"
+import { H1,  H4, P } from "@/ui/typography"
 import { appLongTitles } from "@/constants/blog/hero"
 import {motion , useAnimation} from "framer-motion"
 import { useTranslation } from "@/app/i18n/client"
@@ -153,7 +153,7 @@ return <div className="w-fulll " >
 {/* <ChevronRightIcon onClick={animateToRight}    className="bi text-white rotate-180 absolute  top-[40%]    left-5 cursor-pointer text-5xl "  ></ChevronRightIcon><div className="absolute -top-24  right-0 -z-40   h-screen w-full heroOverlay" ></div> */}
 <div className="flex z-0 flex-col w-full laptop:w-[700px]  relative gap-5 text-white " >
 <H1 className=" z-10 " >ِ{firstFrameTitle.title}</H1>
-<H4 className="font-normal text-xl z-10 relative" >{firstFrameTitle.description}</H4>
+<P className="font-normal text-xl z-10 relative" >{firstFrameTitle.description}</P>
 <Link href={appConfig.links.findCities} className="w-fit"  ><SecondaryBtn  >Explore Cities <i className="bi bi-globe-americas"></i></SecondaryBtn></Link>
 </div>
 </motion.div>
@@ -167,8 +167,8 @@ return <div className="w-fulll " >
 {/* <ChevronRightIcon onClick={animateToRight}    className="bi text-white rotate-180 absolute  top-[40%]    left-5 cursor-pointer text-5xl "  ></ChevronRightIcon><div className="absolute -top-24  right-0 -z-40   h-screen w-full heroOverlay" ></div> */}
 <div className="flex z-0 flex-col w-full lg:w-[700px] relative gap-5 text-white " >
 <H1 className=" z-10 " >ِ{secondFrameTitle.title}</H1>
-<H4 className="font-normal text-xl z-10 relative" >{secondFrameTitle.description}</H4>
-<Link href={appConfig.links.findCities} className="w-fit"  ><SecondaryBtn className="bg-black" >Explore Cities <i className="bi bi-globe-americas z0 relative"></i></SecondaryBtn></Link>
+<P className="font-normal text-xl z-10 relative" >{secondFrameTitle.description}</P>
+<Link href={appConfig.links.findCities} className="w-fit"  ><SecondaryBtn  >Explore Cities <i className="bi bi-globe-americas z0 relative"></i></SecondaryBtn></Link>
 </div>
 </motion.div>
  
