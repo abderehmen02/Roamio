@@ -7,7 +7,7 @@ import { appConfig } from "@/config"
 import { useTranslation } from "@/app/i18n/client"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/tailwind"
-import { H2, H3 } from "@/ui/typography"
+import { H2, H3, P } from "@/ui/typography"
 import PublicIcon from '@mui/icons-material/Public';
 import ArticleIcon from '@mui/icons-material/Article';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
@@ -38,10 +38,10 @@ export  function  LoggedHeader  (){
 <Link className="flex items-center gap-" href={appConfig.links.home} ><img alt={appConfig.name + "logo"} src={appConfig.logoImage} className="w-11 h-11 m-4" /> < H2 className="font-bold" >Roamio</H2> </Link>
 </div>
 <div className="flex flex-row items-center justify-center gap-14" >
-<Link  className={cn('font-semibold border-b-4 border-transparent   flex pb-2 items-center justify-center gap-1 ', {" border-b-primary text-primary" : pathname?.includes("dashboard")  , "hover:text-blue-400 hover:border-b-blue-400 active:text-primary active:border-b-primary" : !pathname?.includes("dashboard")}  )} href={appConfig.links.home}  ><H3 className="block" >Find Cities</H3><PublicIcon/></Link>
-<Link  className={cn('font-semibold border-b-4 border-transparent   flex pb-2 items-center justify-center gap-1 ', {" border-b-primary text-primary" : pathname?.includes(appConfig.links.blog)  , "hover:text-blue-400 hover:border-b-blue-400 active:text-primary active:border-b-primary" :  !pathname?.includes(appConfig.links.blog)} )} href={appConfig.links.blog}  ><H3 className="block" >Blog</H3><ArticleIcon/></Link>
-<Link  className={cn('font-semibold border-b-4 border-transparent   flex pb-2 items-center justify-center gap-1 '  , {" border-b-primary text-primary" : pathname?.includes(appConfig.links.about) , "hover:text-blue-400 hover:border-b-blue-400 active:text-primary active:border-b-primary" :  !pathname?.includes(appConfig.links.about) })} href={appConfig.links.about}  ><H3 className="block" >About</H3><NewspaperIcon/></Link>
-<Link  className={cn('font-semibold border-b-4 border-transparent   flex pb-2 items-center justify-center gap-1 '  , {" border-b-primary text-primary" : pathname?.includes(appConfig.links.savedCities) , "hover:text-blue-400 hover:border-b-blue-400 active:text-primary active:border-b-primary" :  !pathname?.includes(appConfig.links.savedCities) })} href={appConfig.links.savedCities}  ><H3 className="block" >Saved Cities</H3><BookmarkIcon/></Link>
+<Link  className={cn('font-semibold border-b-4 border-transparent   flex pb-2 items-center justify-center gap-1 ', {" border-b-primary text-primary" : pathname?.includes("dashboard")  , "hover:text-blue-400 hover:border-b-blue-400 active:text-primary active:border-b-primary" : !pathname?.includes("dashboard")}  )} href={appConfig.links.home}  ><P className="block text-xl " >Find Cities</P><PublicIcon/></Link>
+<Link  className={cn('font-semibold border-b-4 border-transparent   flex pb-2 items-center justify-center gap-1 ', {" border-b-primary text-primary" : pathname?.includes(appConfig.links.blog)  , "hover:text-blue-400 hover:border-b-blue-400 active:text-primary active:border-b-primary" :  !pathname?.includes(appConfig.links.blog)} )} href={appConfig.links.blog}  ><P className="block  text-xl" >Blog</P><ArticleIcon/></Link>
+<Link  className={cn('font-semibold border-b-4 border-transparent   flex pb-2 items-center justify-center gap-1 '  , {" border-b-primary text-primary" : pathname?.includes(appConfig.links.about) , "hover:text-blue-400 hover:border-b-blue-400 active:text-primary active:border-b-primary" :  !pathname?.includes(appConfig.links.about) })} href={appConfig.links.about}  ><H3 className="block  text-xl" >About</H3><NewspaperIcon/></Link>
+<Link  className={cn('font-semibold border-b-4 border-transparent   flex pb-2 items-center justify-center gap-1 '  , {" border-b-primary text-primary" : pathname?.includes(appConfig.links.savedCities) , "hover:text-blue-400 hover:border-b-blue-400 active:text-primary active:border-b-primary" :  !pathname?.includes(appConfig.links.savedCities) })} href={appConfig.links.savedCities}  ><H3 className="block  text-xl" >Saved Cities</H3><BookmarkIcon/></Link>
 
 </div>
 <div className="flex gap-24  w-fit relative z-50    h-fit" >
