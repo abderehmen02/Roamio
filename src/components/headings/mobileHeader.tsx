@@ -69,7 +69,7 @@ export const UnlogedMobileHeader = ()=>{
     return <div onClick={(e)=>e.stopPropagation()} className={cn("flex w-full px-3 py-1 mb-2 z-50 items-center fixed   top-0 justify-between" , {"bg-black text-white" : scrollPosition > 10 }  )} >
 <i  onClick={()=>setOpenNav(true)}  className={cn("bi bi-list-stars  text-4xl block" , {"invisible" : openNav })}></i>
 <div   className={cn("flex fixed top-0 left-0 bg-white flex-col shadow-xl  justify-center gap-6 px-8 py-4 z-40 " , {"hidden" : !openNav} )} >
-<Link onClick={()=>setOpenNav(false)} href={appConfig.links.home}   className="flex gap-2  mb-3 flex-col" ><img alt={`${appConfig.name } logo image`}  src={appConfig.logoImage} className="w-8 h-8 m-4  hidden" />
+<Link aria-label={appConfig.name} onClick={()=>setOpenNav(false)} href={appConfig.links.home}   className="flex gap-2  mb-3 flex-col" ><img alt={`${appConfig.name } logo image`}  src={appConfig.logoImage} className="w-8 h-8 m-4  hidden" />
 <img src={appConfig.logoImage} className="w-[50px] h-[50px]" alt={`${appConfig.name } logo image`}  />
 <H2 className="text-black" >{appConfig.name}</H2>
 </Link>
@@ -80,6 +80,6 @@ export const UnlogedMobileHeader = ()=>{
 <Link onClick={()=>setOpenNav(false)} href={appConfig.links.about} ><H3  className="text-black capitalize font-semibold " >About <ReceiptIcon/></H3></Link>
 <div className="flex w-full justify-center"><i onClick={()=>setOpenNav(false)} className="bi bi-x-lg text-4xl text-red-500 hover:text-red-800"></i></div>
 </div>
-<Link href={appConfig.links.home} > <img src={appConfig.logoImage} className={cn("w-12 h-12 " , {"invisible" : openNav }) } /></Link>
+<Link href={appConfig.links.home} aria-label="Roamio " > <img alt={appConfig.name + " image"} src={appConfig.logoImage} className={cn("w-12 h-12 " , {"invisible" : openNav }) } /></Link>
     </div>
 }
