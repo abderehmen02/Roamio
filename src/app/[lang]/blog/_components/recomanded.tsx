@@ -31,7 +31,7 @@ export const RecommendedForYou = ()=>{
     <Title title="Recommended For You" descreption="Explore curated blog posts tailored to your interests and preferences." />
 
     <Link href={appConfig.links.blog + '/' + recommendedPosts[2].title} className="w-full h-[500px] flex flex-col relative shadow-2xl items-center justify-center text-white gap-8 rounded-4xl" >
-        <img  src={ sanityImageUrl(recommendedPosts[2]?.image as object) || appConfig.imageNotFound}  className="w-full h-full absolute top-0 left-0 -z-10 rounded-2xl"  />
+        <img  alt={recommendedPosts[2]?.category + "image"} src={ sanityImageUrl(recommendedPosts[2]?.image as object) || appConfig.imageNotFound}  className="w-full h-full absolute top-0 left-0 -z-10 rounded-2xl"  />
         <div className="absolute w-full h-full top-0 left-0 darkOverlay rounded-2xl  " ></div>
         <Title style={{maxWidth : "400px"}}  titleClassName="text-white " descreptionClassName="text-white" className="relative z-10 gap-4" title={recommendedPosts[2]?.title}  />
         <P style={{maxWidth : "400px"}} className="relative z-20 text-center" >{recommendedPosts[2]?.overviewArticles}</P>

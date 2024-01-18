@@ -154,7 +154,7 @@ return <div className="w-fulll " >
 <div className="flex z-0 flex-col w-full laptop:w-[700px]  relative gap-5 text-white " >
 <H1 className=" z-10 " >ِ{firstFrameTitle.title}</H1>
 <H4 className="font-normal text-xl z-10 relative" >{firstFrameTitle.description}</H4>
-<Link href={appConfig.links.findCities} className="w-fit"  ><SecondaryBtn>Explore Cities <i className="bi bi-globe-americas"></i></SecondaryBtn></Link>
+<Link href={appConfig.links.findCities} className="w-fit"  ><SecondaryBtn  >Explore Cities <i className="bi bi-globe-americas"></i></SecondaryBtn></Link>
 </div>
 </motion.div>
  
@@ -168,7 +168,7 @@ return <div className="w-fulll " >
 <div className="flex z-0 flex-col w-full lg:w-[700px] relative gap-5 text-white " >
 <H1 className=" z-10 " >ِ{secondFrameTitle.title}</H1>
 <H4 className="font-normal text-xl z-10 relative" >{secondFrameTitle.description}</H4>
-<Link href={appConfig.links.findCities} className="w-fit"  ><SecondaryBtn>Explore Cities <i className="bi bi-globe-americas z0 relative"></i></SecondaryBtn></Link>
+<Link href={appConfig.links.findCities} className="w-fit"  ><SecondaryBtn className="bg-black" >Explore Cities <i className="bi bi-globe-americas z0 relative"></i></SecondaryBtn></Link>
 </div>
 </motion.div>
  
